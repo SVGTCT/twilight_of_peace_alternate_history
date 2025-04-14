@@ -379,7 +379,7 @@ a.card:focus .card-tooltip, a.card:hover .card-tooltip {
   display: inline-block;
   border: 5px solid #ccc;
   float: left;
-  width: 600px;
+  width: 400px;
   height: 300px;
   margin-right: 1em;
   margin-bottom: 0.5em;
