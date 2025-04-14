@@ -384,6 +384,7 @@ a.card:focus .card-tooltip, a.card:hover .card-tooltip {
   float: center;
   margin-right: 1em;
   margin-bottom: 0.5em;
+  align: center;
 }
 
 .face-img {
@@ -394,6 +395,7 @@ a.card:focus .card-tooltip, a.card:hover .card-tooltip {
   height: 100%;
   object-fit: cover;
   object-position: center; 
+  align: center;
 }
 
 /*
