@@ -376,18 +376,18 @@ a.card:focus .card-tooltip, a.card:hover .card-tooltip {
 
 /* Unlike cards, face images can have different sizes. */
 .face-figure {
-  /*vertical-align: top;*/
   display: inline-block;
   border: 5px solid #ccc;
   float: left;
-  max-width: 60%;
-  /*max-height: 180px;*/
+  max-width: 600px;
   margin-right: 1em;
   margin-bottom: 0.5em;
   overflow: hidden;
 }
+
 .face-img {
-  /*max-width: 150px;*/
+  max-width: 100%;
+  width: 100%;
   vertical-align: bottom;
   object-fit: cover;
 }
