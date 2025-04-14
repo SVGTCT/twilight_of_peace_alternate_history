@@ -5,9 +5,10 @@ is-card: true
 card-image: img/flags.jpg
 frequency: 100
 tags: party_affairs
-face-image: img/onthemove.jpg
 
 = Campaigning
+
+<img src="img/onthemove.jpg" width="300px">
 
 Whether or not we are in an electoral campaign, the party is always trying to broaden its voter base. Who should we focus our campaign efforts on?
 
