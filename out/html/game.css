@@ -379,16 +379,18 @@ a.card:focus .card-tooltip, a.card:hover .card-tooltip {
   display: inline-block;
   border: 5px solid #ccc;
   float: left;
-  width: 600px;         /* fixed width */
+  width: 600px;
+  height: 300px;
   margin-right: 1em;
   margin-bottom: 0.5em;
-  overflow: hidden;
+  overflow: hidden; /* hides any overflow from image */
 }
 
 .face-img {
-  width: 100%;          /* fills the 600px container */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills container and crops overflow */
   vertical-align: bottom;
-  object-fit: cover;
 }
 
 /*
