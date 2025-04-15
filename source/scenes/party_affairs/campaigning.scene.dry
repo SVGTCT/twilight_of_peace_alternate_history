@@ -1,6 +1,7 @@
 title: Campaigning
 new-page: true
-on-arrival: month_actions += 1
+on-arrival: month_actions += 1; campaign_timer += 6;
+view-if: campaign_timer <= 0
 is-card: true
 card-image: img/flags.jpg
 frequency: 100
