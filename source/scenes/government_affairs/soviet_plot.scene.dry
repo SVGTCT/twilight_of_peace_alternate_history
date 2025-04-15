@@ -45,7 +45,7 @@ on-arrival: pro_republic += 4; new_middle_spd += 1.4 if pro_republic > 50; old_m
 
 The second word in "social democracy" is none other than "democracy"! We have freed the Russians from tyranny and as such, they *must* enjoy their newfound freedoms, of course. [? if pro_republic > 50: At home, popular support for democracy makes this a popular move to make. ?]
 
-- @stablise: Finally, take actions to stabilise the country and prevent total economic collapse. Quickly, we cannot let Russia collapse!
+- @stabilise: Finally, take actions to stabilise the country and prevent total economic collapse. Quickly, we cannot let Russia collapse!
 
 @stabilise
 on-arrival: soviet_leader = "Woytinsky"; economic_growth += 0.4; woytinsky_advisor = 0 if woytinsky_advisor == 1;
