@@ -71,7 +71,7 @@ subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 view-if: peoples_party == 1
-on-arrival: catholics_spd += 6*(1-dissent) if improved campaigning <= 3; catholics_spd += 7*(1-dissent) if improved campaigning == 4; resources -= 1; improved_campaigning += 1 if improved_campaigning == 0
+on-arrival: catholics_spd += 6*(1-dissent) if improved_campaigning <= 3; catholics_spd += 7*(1-dissent) if improved_campaigning == 4; resources -= 1; improved_campaigning += 1 if improved_campaigning == 0
 
 We have increased our campaigning among Catholics. [? if improved_campaigning >= 2: Our optimised campaigning methods help us here. ?]
 
