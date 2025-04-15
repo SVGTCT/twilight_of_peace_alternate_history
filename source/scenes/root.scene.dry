@@ -61,6 +61,7 @@ Q.neorevisionist_dissent = 10;
 
 // campaigning status
 Q.improved_campaigning = 0;
+Q.zepellin = 0;
 
 // secret events...
 Q.unions_independent = 0;
