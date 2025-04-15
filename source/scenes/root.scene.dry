@@ -451,6 +451,7 @@ Q.education_science = 0;
 Q.soviet_plot = 0;
 Q.comintern_done = 0;
 Q.aid_done = 0;
+Q.funding_done = 0;
 
 // Tax rates relative to 1928 baseline
 Q.lower_tax_rates = 0;
