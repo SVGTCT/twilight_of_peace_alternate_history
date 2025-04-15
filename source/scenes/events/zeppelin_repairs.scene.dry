@@ -1,6 +1,6 @@
 title: Our Zeppelin Needs Repairs...
 #subtitle:
-view-if: zeppelin == 1 and zeppelin_weariness >= 3; zeppelin == 1 and zeppelin_years >= 12;
+view-if: zeppelin == 1 and zeppelin_weariness >= 3 or zeppelin == 1 and zeppelin_years >= 12;
 new-page: true
 #max-visits: 
 #on-arrival:
