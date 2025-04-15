@@ -1,7 +1,7 @@
 title: A Soviet Coup?
 subtitle: Our efforts in cultivating republican loyalties have paid off.
 on-arrival: month_actions += 1
-view-if: spd_in_government = 1 and reichswehr_minister_party = "SPD" and soviet_plot == 3 and reichswehr_loyalty > 0.6 and funding_done == 1
+view-if: spd_in_government = 1 and reichswehr_minister_party = "SPD" and soviet_plot == 3 and reichswehr_loyalty > 0.6 and funding_done == 1 and aid_done == 1 and comintern_done == 1
 #face-image: to add
 #card-image:
 #is-card: true
