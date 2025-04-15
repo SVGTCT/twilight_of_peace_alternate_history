@@ -1,0 +1,58 @@
+title: A Soviet Coup?
+on-arrival: month_actions += 1
+view-if: spd_in_government = 1 and reichswehr_minister_party = "SPD" and soviet_plot == 3 and reichswehr_loyalty > 0.6
+#face-image: to add
+#card-image:
+#is-card: true
+#new-page: true
+
+# this is not a card...
+
+= A Coup d'État in the Soviet Union?
+
+The Soviet Union, officially the Union of Socialist Soviet Republics, is a country in its infancy. Militarily, an empowered Reichswehr could topple it. After all, it was Germany that won on the Eastern Front.
+
+For too long, Stalin has allowed and empowered the KPD, who have undermined social democracy by dubbing its only realistic purveyor as "social fascists" and on equal terms to the Nazis. The interior police helped us discover these ties ran deeper than we thought.
+
+In his own country, Stalin brutally represses minorities and peasants and gives the socialist movement a bad, brutal name. Perhaps it may never recover his presence when the full extent of these crimes are published.
+
+Now, the buck stops here.
+
+- @time: The time has come...
+
+@time
+on-arrival: reichswehr_loyalty += 0.04 if reichswehr_loyalty < 1; reichswehr_strength += 40; nationalism += 20; socialism += 5; old_middle_spd += 5; west_relation -= 2; east_relation += 1; eu_progress -= 1;
+
+The generals swiftly mobilise German troops for the first time since World War I. Pacifism is dead as they march onwards to a quick and total victory.
+
+**Long live Germany!**
+
+Stalin, alongside the entire world, is completely taken by surprise. No one could have predicted this. The Western Allies are quick to condemn the move, but we pay them no heed. This move is for the well-being of the world, something our Eastern neighbours begrudgingly recognise.
+
+As Stalin is captured and transported to Berlin to await his trial, the Reichswehr moves to seize the Russian power structure. We have already given them enough free reign, it is time to step in.
+
+- @ban_kpd: First and foremost, ban the KPD.
+
+@ban_kpd
+on-arrival: kpd_banned += 1; workers_spd += (kpd_banned*0.6) if nsdap_banned == 0; workers_spd += (kpd_banned*0.8) if nsdap_banned == 1; workers_nsdap += (kpd_banned*0.35) if nsdap_banned == 0;
+
+Of course, with our invasion, we can publicise the whole dossier revealing the full extent of the KPD's cooperation and dependence, or rather servitude, to the Soviets. Such foreign interference cannot be at home in Germany. The KPD must be banned.
+
+- @elections: Schedule elections, something the country has not seen for decades!
+
+@elections
+on-arrival: pro_republic += 4; new_middle_spd += 1.4 if pro_republic > 50; old_middle_spd += 0.7 if pro_republic > 50
+
+The second word in "social democracy" is none other than "democracy"! We have freed the Russians from tyranny and as such, they *must* enjoy their newfound freedoms, of course. [? if pro_republic > 50: At home, popular support for democracy makes this a popular move to make. ?]
+
+- @stablise: Finally, take actions to stabilise the country and prevent total economic collapse. Quickly, we cannot let Russia collapse!
+
+@stabilise
+on-arrival: soviet_leader = "Woytinsky"; economic_growth += 0.4; woytinsky_advisor = 0 if woytinsky_advisor == 1;
+
+We have a man perfect for this: Wladimir Woytinsky! Off he goes, hurrying off to Russia, with a binder of statistics ready to implement the radical transformation of the Russian economy and that of its satellite states to a more industrialised and optimised output. Naturally, a free trade agreement with Germany is in order.
+
+The Reichswehr is disappointed they could not take the country for themselves, but alas we could never have let that happen.
+
+- @root: Continue
+
