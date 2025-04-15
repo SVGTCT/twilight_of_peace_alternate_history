@@ -15,6 +15,7 @@ As with the state police units and the Reichswehr, the internal police tends to 
 - @loyalty: Improve the loyalty of the Interior Ministry forces.
 - @investigate_corruption: Investigate corruption by big businesses.
 - @investigate_far_right: Investigate illegal activity among the far right.
+- @investigate_far_left: Investigate illegal activity among the far left.
 - @domestic_enemies: Investigate or ban our domestic enemies.
 - @deport_hitler
 - @root: Take no action for now.
@@ -59,3 +60,25 @@ on-arrival: investigate_far_right += 1; sa_strength -= 20; workers_nsdap -= 3; n
 @investigate_far_right_failure
 
 Unfortunately, our investigations have failed to turn up anything. Rumors are that the targets of our investigation were tipped off by infiltrators within the police.
+
+@investigate_far_left
+go-to: investigate_far_left_success if soviet_plot == 2 and interior_police_loyalty >= 0.7; investigate_far_left_failure if soviet_plot != 2 and interior_police_loyalty >= 0.7; investigate_far_left_disaster if interior_police_loyalty < 0.7
+
+@investigate_far_left_success
+on-arrival: interior_police_loyalty += 0.05; soviet_plot += 1; workers_kpd -= 2
+
+It turns out our instincts were correct. Agents have discovered documents from as recently as 1923 detailing KPD plans for a revolution. Unfortunately, it seems that this was when the party leadership decided to let go of these ideas.
+
+However, the police are worried by frequent references to the Soviet Union -- is the KPD less free to make its own decisions than we thought? The police claim this is foreign interference and insist on further investigation.
+
+@investigate_far_left_failure
+on-arrival: interior_police_loyalty += 0.05
+
+Though our agents keep their calm, they fail to report on anything meaningful. Perhaps our suspicion of the communists was misguided. However, the police pleads for just one more investigation: next time, they promise, they will deliver conclusive results.
+
+@investigate_far_left_disaster
+on-arrival: workers_spd -= 2; workers_kpd += 3; rfb_strength += 7; left_dissent += 5; center_dissent += 3; coalition_dissent += 1; kpd_relation -= 10
+
+Unfortunately, overly enthusiastic nationalistic and hard-right-wing elements in the police forces were soon discovered by the KPD, rendering our investigations a complete failure. The KPD wasted no time in publicising this as much as possible and is doubling down on attacking us as "social fascists". 
+
+As well as making us national laughingstocks, this has increased internal and coalition dissent, with plenty of criticism attacking us for going after the "wrong enemy". What do they know?
