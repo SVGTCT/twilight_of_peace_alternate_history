@@ -51,6 +51,7 @@ The second word in "social democracy" is none other than "democracy"! We have fr
 
 @stabilise
 on-arrival: soviet_leader = "Woytinsky"; economic_growth += 0.4; woytinsky_advisor = 0 if woytinsky_advisor == 1;
+achievement: rapallo
 
 We have a man perfect for this: Wladimir Woytinsky! Off he goes, hurrying off to Russia, with a binder of statistics ready to implement the radical transformation of the Russian economy and that of its satellite states to a more industrialised and optimised output. Naturally, a free trade agreement with Germany is in order.
 
