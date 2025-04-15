@@ -49,5 +49,5 @@ The center-right parties are committed to the military and deeply suspicious of 
 
 @soviet_plot
 subtitle: Our efforts in cultivating republican loyalties have paid off.
-go-to: soviet_coup.rm_main
+go-to: soviet_coup
 view-if: funding_done == 1 and reichswehr_loyalty > 0.6
