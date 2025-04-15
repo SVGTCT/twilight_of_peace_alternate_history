@@ -59,9 +59,11 @@ Q.reformist_dissent = 5;
 Q.neorevisionist_strength = 5;
 Q.neorevisionist_dissent = 10;
 
-// campaigning status
+// campaigning stats
 Q.improved_campaigning = 0;
-Q.zepellin = 0;
+Q.zeppelin = 0;
+Q.zeppelin_years = 0;
+Q.zeppelin_weariness = 0;
 
 // secret events...
 Q.unions_independent = 0;
