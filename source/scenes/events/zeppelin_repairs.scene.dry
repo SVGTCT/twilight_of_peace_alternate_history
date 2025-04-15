@@ -1,0 +1,67 @@
+title: Our Zeppelin Needs Repairs...
+#subtitle:
+view-if: zeppelin == 1 and zeppelin_weariness >= 3; zeppelin == 1 and zeppelin_years >= 12;
+new-page: true
+#max-visits: 
+#on-arrival:
+face-image: img/oohshiny.jpg
+tags: event
+
+= Our Zeppelin Needs Repairs...
+  
+Because of [? if zeppelin_years >= 12 and zeppelin_weariness < 3: its advanced age, ?][? if zeppelin_years < 12 and zeppelin_weariness >= 3: our extensive use of it, ?][? if zeppelin_years >= 12 and zeppelin_weariness >= 3: its advanced age and our extensive use of it, ?] our zeppelin airship can no longer fly without some significant repairs being done on it. However, our accountants are sceptical that this would bring us as much value as its cost.
+  
+The pressing question now is: what should we do?
+  
+- @zeppelin_repair_menu
+
+@zeppelin_repair_menu
+
+- @smuggle: We can replace it with an aeroplane -- for free!
+- @replace: We can replace it with an aeroplane -- we'll buy it!
+- @repair: We can have the necessary repairs done on it.
+- @scrap: We can have it scrapped; it's served its use.
+
+@smuggle
+subtitle: The Prussian Police and Reichsbanner will import it from France.
+choose-if: rb_militancy > 0.68 and prussian_police_strength > 99 and rb_strength > 1500 and prussian_police_loyalty > 0.79 and prussian_police_training > 0
+unavailable-subtitle: The Prussian Police and Reichsbanner cannot pull this off.
+on-arrival: aeroplane = 1; west_relation -= 1; left_strength += 2; zeppelin = 0;
+face-image: img/farmanf223.jpg
+
+The Reichsbanner and the Prussian Police collaborate to bring over the plane from France, though nobody needs to know that. Now, importantly, we've managed to get an aeroplane! This will be very useful.
+
+- @campaigning.aeroplane
+- @root: Continue... 
+
+@replace
+subtitle: -8 resources.
+choose-if: resources >= 8
+unavailable-subtitle: Not enough resources.
+
+Are you sure about this, Mr. Wels? I think you should talk to an accountant, or maybe the Reichsbanner can get it for us at a *lower cost*?  
+
+- @smuggle: Get the Reichsbanner to do it.
+- @replace_yes: I do not appreciate criticism of my management capabilities.
+- @zeppelin_repair_menu: Never mind.  
+
+@replace_yes
+choose-if: resources >= 8
+on-arrival: aeroplane = 1; resources -= 8; left_dissent += 5; labor_dissent += 5; center_dissent += 5; reformist_dissent += 5; neorevisionist_dissent += 5; zeppelin = 0;
+face-image: img/farmanf223.jpg
+
+Fine, but the party does not trust this is a worthwhile allocation of funds. We will have to wait for the aeroplane to arrive from France, but it will be very useful when it does.
+
+@repair 
+subtitle; -2 resources.  
+choose-if: resources >= 2
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 2; zeppelin_weariness -= 1;
+  
+We have the zeppelin sent out for repairs. It should be fine, at least for now.
+
+@scrap
+subtitle: +1 resources
+on-arrival: resource += 1; zeppelin = 0;  
+
+We send our zeppelin to a metal scrapyard. With the flying market shifting rapidly towards aeroplanes after a spate of zeppelin accidents, maybe this is for the best.
