@@ -35,7 +35,7 @@ As Stalin is captured and transported to Berlin to await his trial, the Reichswe
 - @ban_kpd: First and foremost, ban the KPD.
 
 @ban_kpd
-on-arrival: kpd_banned += 1; workers_spd += (kpd_banned*0.6) if nsdap_banned == 0; workers_spd += (kpd_banned*0.8) if nsdap_banned == 1; workers_nsdap += (kpd_banned*0.35) if nsdap_banned == 0;
+on-arrival: kpd_banned = 1; workers_spd += (workers_kpd*0.6) if nsdap_banned == 0; workers_spd += (workers_kpd*0.8) if nsdap_banned == 1; workers_nsdap += (workers_kpd*0.35) if nsdap_banned == 0;
 
 Of course, with our invasion, we can publicise the whole dossier revealing the full extent of the KPD's cooperation and dependence, or rather servitude, to the Soviets. Such foreign interference cannot be at home in Germany. The KPD must be banned.
 
@@ -56,4 +56,3 @@ We have a man perfect for this: Wladimir Woytinsky! Off he goes, hurrying off to
 The Reichswehr is disappointed they could not take the country for themselves, but alas we could never have let that happen.
 
 - @root: Continue
-
