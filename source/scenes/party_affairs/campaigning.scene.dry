@@ -145,3 +145,5 @@ on-arrival: new_middle_spd += 6*(1-dissent); old_middle_spd += 6*(1-dissent); wo
 The commercial aeroplane is a marvel of human engineering, enthralling and entertaining all stripes of the German public. They are amazed by the SPD's ambition.
 
 Just don't ask how we got it, eh Mr. Braun?
+
+// Note: add zeppelin_years to increase by one every year after you get the zeppelin, sets of at 12 zeppelin needs repairs, or if zeppelin weariness at 3. Aeroplane acquirable if Reichsbanner and Prussian Police are strong enough to smuggle, replace it on zeppelin weariness scene. Add image for plane.
