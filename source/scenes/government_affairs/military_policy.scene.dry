@@ -14,6 +14,7 @@ The Reichswehr is a deeply reactionary institution that has been generally hosti
 - @increase_funding: Increase funding for the military to purchase its loyalty.
 - @decrease_funding: Reduce funding for the military so we have more for social spending.
 - @reform: Conduct a thorough reform of the ranks, reducing the influence of reactionaries and making it more hospitable to us.
+- @soviet_plot: Perhaps it is the right time to question the Reichsweher on the Soviet Union.
 - @root: No change to military policy.
 - @easy_discard
 - @cancel_advisor_action
@@ -22,7 +23,7 @@ The Reichswehr is a deeply reactionary institution that has been generally hosti
 subtitle: -1 budget
 choose-if: budget >= 1
 unavailable-subtitle: We do not have the budget.
-on-arrival: budget -= 1; coalition_dissent -= 1 if coalition_dissent > 0; reichswehr_loyalty += 0.07 if reichswehr_loyalty < 1; reichswehr_strength += 20; left_dissent += 5; kpd_coalition_dissent += 1; west_relation -= 1; east_relation -= 1; reparations_negotiation -= 1; eu_progress -= 1; economic_growth += 0.1
+on-arrival: budget -= 1; coalition_dissent -= 1 if coalition_dissent > 0; reichswehr_loyalty += 0.07 if reichswehr_loyalty < 1; reichswehr_strength += 20; left_dissent += 5; kpd_coalition_dissent += 1; west_relation -= 1; east_relation -= 1; reparations_negotiation -= 1; eu_progress -= 1; economic_growth += 0.1; funding_done += 1 if funding_done == 0;
 
 The military and the center-right parties are pleasantly surprised that we would increase military funding. Our membership tends to be anti-military, and is less enthused. Germany's neighbors are watching our military buildup with worry. [? if reparations >= 0 : This is not good for the reparations negotiations. ?]
 
@@ -45,3 +46,7 @@ on-arrival: coalition_dissent += 1 if in_grand_coalition == 1; reichswehr_loyalt
 Our efforts are at least somewhat successful; we have changed the recruiting and training patterns so that more soldiers from non-reactionary backgrounds can join, hopefully changing the culture of the forces. We have also removed some of the officers who supported the previous Kapp putsch.
 
 The center-right parties are committed to the military and deeply suspicious of our efforts to reform it.
+
+@soviet_plot
+subtitle: Our efforts in cultivating republican loyalties have paid off.
+go-to: soviet_coup
