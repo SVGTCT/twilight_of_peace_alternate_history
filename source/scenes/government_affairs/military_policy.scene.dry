@@ -14,7 +14,7 @@ The Reichswehr is a deeply reactionary institution that has been generally hosti
 - @increase_funding: Increase funding for the military to purchase its loyalty.
 - @decrease_funding: Reduce funding for the military so we have more for social spending.
 - @reform: Conduct a thorough reform of the ranks, reducing the influence of reactionaries and making it more hospitable to us.
-- @soviet_plot: Perhaps it is the right time to question the Reichsweher on the Soviet Union.
+- @soviet_coup: Perhaps it is the right time to question the Reichswehr on the Soviet Union.
 - @root: No change to military policy.
 - @easy_discard
 - @cancel_advisor_action
@@ -46,8 +46,3 @@ on-arrival: coalition_dissent += 1 if in_grand_coalition == 1; reichswehr_loyalt
 Our efforts are at least somewhat successful; we have changed the recruiting and training patterns so that more soldiers from non-reactionary backgrounds can join, hopefully changing the culture of the forces. We have also removed some of the officers who supported the previous Kapp putsch.
 
 The center-right parties are committed to the military and deeply suspicious of our efforts to reform it.
-
-@soviet_plot
-subtitle: Our efforts in cultivating republican loyalties have paid off.
-go-to: soviet_coup
-view-if: funding_done == 1 and reichswehr_loyalty > 0.6
