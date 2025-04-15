@@ -67,7 +67,7 @@ go-to: investigate_far_left_success if soviet_plot == 2 and interior_police_loya
 @investigate_far_left_success
 on-arrival: interior_police_loyalty += 0.05; soviet_plot += 1; workers_kpd -= 2
 
-It turns out our instincts were correct. Agents have discovered documents from as recently as 1923 detailing KPD plans for a revolution. Unfortunately, it seems that this was when the party leadership decided to let go of these ideas.
+It turns out our instincts were correct. Agents have discovered documents from as recently as 1923 detailing KPD plans for a violent armed revolution. Unfortunately, it seems that this was when the party leadership decided to let go of these ideas.
 
 However, the police are worried by frequent references to the Soviet Union -- is the KPD less free to make its own decisions than we thought? The police claim this is foreign interference and insist on further investigation.
 
