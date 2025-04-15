@@ -64,6 +64,8 @@ Q.improved_campaigning = 0;
 Q.zeppelin = 0;
 Q.zeppelin_years = 0;
 Q.zeppelin_weariness = 0;
+Q.aeroplane = 0;
+Q.radio = 0;
 
 // secret events...
 Q.unions_independent = 0;
