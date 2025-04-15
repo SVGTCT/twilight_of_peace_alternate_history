@@ -80,7 +80,7 @@ subtitle: -1 resources
 choose-if: resources >= 1
 unavailable-subtitle: Not enough resources.
 view-if: peoples_party == 1 or improved_campaigning >= 2
-on-arrival: workers_spd += 3*(1-dissent); new_middle_spd += 3*(1-dissent); old_middle_spd += 3*(1-dissent); rural_spd += 3*(1-dissent); unemployed_spd += 3*(1-dissent); workers_spd += 3*(1-dissent); new_middle_spd += 1 if womens_rights >= 3; new_middle_spd += 1 if improved_campaigning >= 2; old_middle_spd += 1 if womens_rights >= 3; old_middle_spd += 1 if improved_campaigning >= 2; rural_spd += 1 if womens_rights >= 3; rural_spd += 1 if improved_campaigning >= 2; unemployed_spd += 1 if womens_rights >= 3; unemployed_spd += 1 if improved_campaigning >= 2; improved_campaigning += 1 if improved_campaigning == 0
+on-arrival: workers_spd += 3*(1-dissent); new_middle_spd += 3*(1-dissent); old_middle_spd += 3*(1-dissent); rural_spd += 3*(1-dissent); unemployed_spd += 3*(1-dissent); workers_spd += 3*(1-dissent); new_middle_spd += 1 if womens_rights >= 3; new_middle_spd += 1 if improved_campaigning >= 2; old_middle_spd += 1 if womens_rights >= 3; old_middle_spd += 1 if improved_campaigning >= 2; rural_spd += 1 if womens_rights >= 3; rural_spd += 1 if improved_campaigning >= 2; unemployed_spd += 1 if womens_rights >= 3; unemployed_spd += 1 if improved_campaigning >= 2; improved_campaigning += 1 if improved_campaigning == 0; resources -= 1;
 
 We have increased our campaigning among women of all classes. Though they typically support the bourgeois parties, it is clear the SPD works the hardest to represent them. [? if womens_rights >= 3: In fact, our policymaking has made this abundantly clear. ?][? if improved_campaigning >= 2: Our optimised campaigning methods help us here. ?]
 
@@ -90,7 +90,7 @@ subtitle: -2 resources. This will optimise our campaigning for the future.
 choose-if: resources >= 2 and improved_campaigning == 1
 view-if: improved_campaigning == 1
 unavailable-subtitle: Not enough resources.
-on-arrival: radio += 1; improved_campaigning += 1; new_middle_spd += 3*(1 - dissent); old_middle_spd += 2*(1 - dissent); workers_spd += 2*(1 - dissent); rural_spd += 2*(1 - dissent); labor_dissent += 5; left_dissent += 5; center_dissent += 5; socialism += 3*(1 - dissent); nationalism -= 3*(1 - dissent) if pacifism > 1; pro_republic += 3*(1-dissent) if democratization > 1
+on-arrival: radio += 1; improved_campaigning += 1; new_middle_spd += 3*(1 - dissent); old_middle_spd += 2*(1 - dissent); workers_spd += 2*(1 - dissent); rural_spd += 2*(1 - dissent); labor_dissent += 5; left_dissent += 5; center_dissent += 5; socialism += 3*(1 - dissent); nationalism -= 3*(1 - dissent) if pacifism > 1; pro_republic += 3*(1-dissent) if democratization > 1; resources -= 2;
 
 We have studied on how to optimise our campaigning, including tailored messaging for different demographic groups. This helps us reach the bourgeois and farmers more effectively.
 
@@ -104,7 +104,7 @@ subtitle: -2 resources. This will optimise our campaigning for the future.
 choose-if: resources >= 2 and improved_campaigning == 2
 view-if: improved_campaigning == 2
 unavailable-subtitle: Not enough resources.
-on-arrival: improved_campaigning += 1; new_middle_spd += 3*(1 - dissent); old_middle_spd += 2*(1 - dissent); workers_spd += 2*(1 - dissent); rural_spd += 3*(1 - dissent); labor_dissent += 2; left_dissent += 2; center_dissent += 2; socialism += 3*(1 - dissent); nationalism -= 3*(1 - dissent) if pacifism > 1; pro_republic += 3*(1-dissent) if democratization > 1
+on-arrival: resources -= 2; improved_campaigning += 1; new_middle_spd += 3*(1 - dissent); old_middle_spd += 2*(1 - dissent); workers_spd += 2*(1 - dissent); rural_spd += 3*(1 - dissent); labor_dissent += 2; left_dissent += 2; center_dissent += 2; socialism += 3*(1 - dissent); nationalism -= 3*(1 - dissent) if pacifism > 1; pro_republic += 3*(1-dissent) if democratization > 1
 
 We have invested in acquiring improved equipment and tailoring speakers to specific audiences.
 
@@ -116,7 +116,7 @@ subtitle: -3 resources. This will optimise our campaigning for the future.
 choose-if: resources >= 3 and improved_campaigning == 3
 view-if: improved_campaigning >= 3
 unavailable-subtitle: [? if resources < 3: Not enough resources. ?] [? if improved_campaigning == 4: We have already done all we can! ?]
-on-arrival: zeppelin += 1; improved_campaigning += 1; new_middle_spd += 4*(1 - dissent); old_middle_spd += 2*(1 - dissent); workers_spd += 4*(1 - dissent); rural_spd += 3*(1 - dissent); unemployed_spd += 3*(1 - dissent); labor_dissent += 2; left_dissent += 2; center_dissent += 2; reformist_dissent += 4; socialism += 3*(1 - dissent); nationalism -= 3*(1 - dissent) if pacifism > 1; pro_republic += 3*(1-dissent) if democratization > 1
+on-arrival: resources -= 3; zeppelin += 1; improved_campaigning += 1; new_middle_spd += 4*(1 - dissent); old_middle_spd += 2*(1 - dissent); workers_spd += 4*(1 - dissent); rural_spd += 3*(1 - dissent); unemployed_spd += 3*(1 - dissent); labor_dissent += 2; left_dissent += 2; center_dissent += 2; reformist_dissent += 4; socialism += 3*(1 - dissent); nationalism -= 3*(1 - dissent) if pacifism > 1; pro_republic += 3*(1-dissent) if democratization > 1
 face-image: img/oohshiny.jpg
 
 We have purchased a zeppelin for our campaigning!
@@ -129,7 +129,7 @@ subtitle: -2 resources.
 choose-if: resources >= 2
 view-if: zeppelin == 1
 unavailable-subtitle: Not enough resources.
-on-arrival: zeppelin_weariness += 1; new_middle_spd += 5*(1-dissent); old_middle_spd += 5*(1-dissent); workers_spd += 5*(1-dissent); rural_spd += 5*(1-dissent); unemployed_spd += 5*(1-dissent); catholics_spd += 3*(1-dissent); reformist_dissent -= 3; labor_dissent -= 3; center_dissent -= 3; left_dissent -= 3; neorevisionist_dissent -= 4;
+on-arrival: zeppelin_weariness += 1; new_middle_spd += 5*(1-dissent); old_middle_spd += 5*(1-dissent); workers_spd += 5*(1-dissent); rural_spd += 5*(1-dissent); unemployed_spd += 5*(1-dissent); catholics_spd += 3*(1-dissent); reformist_dissent -= 3; labor_dissent -= 3; center_dissent -= 3; left_dissent -= 3; neorevisionist_dissent -= 4; resources -= 2;
 face-image: img/oohshiny.jpg
 
 The whole of Germany turns out in awe to see our airship! Men and women of all classes are inadvertently drawn to the SPD cause.
@@ -140,7 +140,7 @@ subtitle: -2 resources.
 choose-if: resources >= 2
 view-if: aeroplane == 1
 unavailable-subtitle: Not enough resources.
-on-arrival: new_middle_spd += 6*(1-dissent); old_middle_spd += 6*(1-dissent); workers_spd += 6*(1-dissent); rural_spd += 6*(1-dissent); unemployed_spd += 6*(1-dissent); catholics_spd += 4*(1-dissent); reformist_dissent -= 3; labor_dissent -= 3; center_dissent -= 3; left_dissent -= 3; neorevisionist_dissent -= 4;
+on-arrival: new_middle_spd += 6*(1-dissent); old_middle_spd += 6*(1-dissent); workers_spd += 6*(1-dissent); rural_spd += 6*(1-dissent); unemployed_spd += 6*(1-dissent); catholics_spd += 4*(1-dissent); reformist_dissent -= 3; labor_dissent -= 3; center_dissent -= 3; left_dissent -= 3; neorevisionist_dissent -= 4; resources -= 2;
 
 The commercial aeroplane is a marvel of human engineering, enthralling and entertaining all stripes of the German public. They are amazed by the SPD's ambition.
 
