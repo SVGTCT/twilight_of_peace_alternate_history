@@ -59,6 +59,9 @@ Q.reformist_dissent = 5;
 Q.neorevisionist_strength = 5;
 Q.neorevisionist_dissent = 10;
 
+// campaigning status
+Q.improved_campaigning = 0;
+
 // secret events...
 Q.unions_independent = 0;
 Q.centrists_resign = 0;
