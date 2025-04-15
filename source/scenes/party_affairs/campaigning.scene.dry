@@ -117,8 +117,9 @@ subtitle: -3 resources. This will optimise our campaigning for the future.
 choose-if: resources >= 3 and improved_campaigning == 3
 view-if: improved_campaigning >= 3
 unavailable-subtitle: [? if resources < 3: Not enough resources. ?] [? if improved_campaigning == 4: We have already done all we can! ?]
-on-arrival: resources -= 3; zeppelin += 1; improved_campaigning += 1; new_middle_spd += 4*(1 - dissent); old_middle_spd += 2*(1 - dissent); workers_spd += 4*(1 - dissent); rural_spd += 3*(1 - dissent); unemployed_spd += 3*(1 - dissent); labor_dissent += 2; left_dissent += 2; center_dissent += 2; reformist_dissent += 4; socialism += 3*(1 - dissent); nationalism -= 3*(1 - dissent) if pacifism > 1; pro_republic += 3*(1-dissent) if democratization > 1
+on-arrival: resources -= 3; zeppelin = 1; improved_campaigning += 1; new_middle_spd += 4*(1 - dissent); old_middle_spd += 2*(1 - dissent); workers_spd += 4*(1 - dissent); rural_spd += 3*(1 - dissent); unemployed_spd += 3*(1 - dissent); labor_dissent += 2; left_dissent += 2; center_dissent += 2; reformist_dissent += 4; socialism += 3*(1 - dissent); nationalism -= 3*(1 - dissent) if pacifism > 1; pro_republic += 3*(1-dissent) if democratization > 1
 face-image: img/oohshiny.jpg
+achievement: spd_zeppelin_kapitan
 
 We have purchased a zeppelin for our campaigning!
 
@@ -147,4 +148,4 @@ The commercial aeroplane is a marvel of human engineering, enthralling and enter
 
 Just don't ask how we got it, eh Mr. Braun?
 
-// Note: add zeppelin_years to increase by one every year after you get the zeppelin, sets of at 12 zeppelin needs repairs, or if zeppelin weariness at 3. Aeroplane acquirable if Reichsbanner and Prussian Police are strong enough to smuggle, replace it on zeppelin weariness scene. Add image for plane.
+# Note: add zeppelin_years to increase by one every year after you get the zeppelin, sets of at 12 zeppelin needs repairs, or if zeppelin weariness at 3. Aeroplane acquirable if Reichsbanner and Prussian Police are strong enough to smuggle, replace it on zeppelin weariness scene. Add image for plane.
