@@ -19,7 +19,7 @@ Crispien is a co-chairman of the party, previously under the independent SPD lab
 @state_chapters
 title: State Chapters
 subtitle: Crispien can help us connect with state parties, particularly if we take his centrist approach.
-on-arrival: center_strength += 5; advisor_action_timer = 6;
+on-arrival: center_strength += 5; advisor_action_timer = 6; month_actions += 1;
 choose-if: advisor_action_timer == 0
 unavailable_subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 
@@ -39,7 +39,7 @@ title: Comintern Espionage
 subtitle: Crispien has his differences with the forum. -1 resource.
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if resources == 0: Not enough resources. ?]
 choose-if: advisor_action_timer == 0 and resources > 0
-on-arrival: resources -= 1; advisor_action_timer = 6;
+on-arrival: resources -= 1; advisor_action_timer = 6; month_actions += 1;
 go-to: international_relations.comintern
 
 @antisemitism
@@ -47,7 +47,7 @@ title: Addressing Antisemitism
 subtitle: If we already have a position on discrimination, Crispien can change it.
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if confronting_antisemitism == 0: We have not touched on this yet. ?]
 choose-if: advisor_action_timer == 0 and confronting_antisemitism == 1
-on-arrival: advisor_action_timer = 6;
+on-arrival: advisor_action_timer = 6; month_actions += 1;
 
 Antisemitism has long been a latent feature of German society, but since the beginning of the economic depression, it has grown to a horrifying extent. The Nazis are the worst of it, but all the right-wing parties are deeply antisemitic. Regarding the SPD specifically, our right-wing enemies love to deploy their racist rhetoric against our many Jewish comrades, magnifying criticism of any minor transgression, and they call the entire SPD a Jewish party. We are a favorite target of their invectives.
 
@@ -60,7 +60,7 @@ title: Emergency Fundraising
 subtitle: An emergency infusion of resources.
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 choose-if: advisor_action_timer == 0
-on-arrival: advisor_action_timer = 6;
+on-arrival: advisor_action_timer = 6; month_actions += 1;
 
 For better or for worse, the party cannot exist without money.
 
