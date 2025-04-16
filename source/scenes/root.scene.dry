@@ -338,6 +338,7 @@ Q.economic_records = [];
 
 // State of the government
 Q.president = "Hindenburg";
+Q.russian_leader = "Stalin";
 // starting chancellor: Wilhelm Marx
 Q.chancellor = "Marx";
 Q.chancellor_party = 'Z';
