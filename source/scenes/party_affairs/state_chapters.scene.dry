@@ -34,7 +34,7 @@ The center Marxists are often credited with holding the party together, and very
 subtitle: -1 resource.  
 choose-if: resources > 0 and left_strength > 30
 unavailable-subtitle: [? if left_strength <= 30: The left is not strong enough. ?] [? if resources == 0: Not enough resources. ?]
-on-arrival: resources -= 1; left_dissent -= 5; reformist_dissent += 5; reformist_strength -= 5; neorevisionist_dissent += 5; neorevisionist_strength -= 5; left_strength += 5; new_middle_spd -= 2;
+on-arrival: resources -= 1; left_dissent -= 5; reformist_dissent += 5; reformist_strength -= 5; neorevisionist_dissent += 5; neorevisionist_strength -= 5; left_strength += 5; new_middle_spd -= 2; kpd_relation += 5;
 
 The more reformist state structures resist our tack to the left.
 
@@ -42,7 +42,7 @@ The more reformist state structures resist our tack to the left.
 subtitle: -1 resource.  
 choose-if: resources > 0 and labor_strength > 30
 unavailable-subtitle: [? if labor_strength <= 30: Labor is not strong enough. ?] [? if resources == 0: Not enough resources. ?]
-on-arrival: resources -= 1; labor_dissent -= 5; labor_strength += 5; left_dissent -= 5 if wtb_adopted == 1; workers_spd += 2 if wtb_adopted == 1; unemployed_spd += 2 if wtb_adopted == 1;  
+on-arrival: resources -= 1; labor_dissent -= 5; labor_strength += 5; left_dissent -= 5 if wtb_adopted == 1; workers_spd += 2 if wtb_adopted == 1; unemployed_spd += 2 if wtb_adopted == 1; wtb_support += 1 if wtb_adopted == 0;  
 
 Preaching for the labor wing helps us connect with unions. [? if wtb_adopted == 1: Additionally, our adoption of the WTB plan has solidified the unions' importance within the SPD. Only the left oppose it, seeing it as putting a plaster on a deep wound -- only a temporary solution. ?]
 
