@@ -15,6 +15,7 @@ The SPD cannot govern by itself yet. Because we do not have an electoral majorit
 - @liberals: Strengthen our bonds with the left-liberal German Democratic Party and conservative-liberal German People's Party.
 - @center: Strengthen our bonds with the Catholic Center Party.
 - @kpd: Work towards repairing relationships with the Communist Party.
+- @states: We should improve our connections with the state SPD parties instead.
 - @spd_alone: The SPD can stand alone for now.
 - @easy_discard
 
@@ -112,6 +113,11 @@ on-arrival: dvp_relation += 5*(1 - dissent)
 The liberal parties (both the [+ ddp_name +] and DVP) are electorally moribund, so perhaps our efforts are best spent elsewhere.
 
 However, given the influence of the DVP among the other right-leaning parties[? if president == "Hindenburg": and with President Hindenburg ?], it can still be helpful to influence them.
+
+@states
+view-if: state_party_relationships_timer <= 0
+on-arrival: reformist_dissent -= 5; spd_catholics += 3*(1-dissent)
+go-to: state_chapters
 
 @spd_alone
 
