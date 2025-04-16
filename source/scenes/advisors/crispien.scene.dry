@@ -39,7 +39,7 @@ title: Comintern Espionage
 subtitle: Crispien has his differences with the forum. -1 resource.
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if resources == 0: Not enough resources. ?]
 choose-if: advisor_action_timer == 0 and resources > 0
-on-arrival: resources -= 1; advisor_action_timer = 6; month_actions += 1;
+on-arrival: advisor_action_timer = 6; month_actions += 1;
 go-to: international_relations.comintern
 
 @antisemitism
