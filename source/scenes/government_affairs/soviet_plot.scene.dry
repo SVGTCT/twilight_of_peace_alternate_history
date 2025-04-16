@@ -18,7 +18,7 @@ For too long, Stalin has empowered the KPD, who have undermined social democracy
 
 In his own country, Stalin brutally represses minorities and peasants and gives the socialist movement a bad, brutal name. Perhaps it may never recover his presence when the full extent of these crimes are published.
 
-Now, the buck stops here.
+Now, this ends here.
 
 - @time: The time has come...
 
@@ -50,7 +50,7 @@ The second word in "social democracy" is none other than "democracy"! We have fr
 - @stabilise: Finally, take actions to stabilise the country and prevent total economic collapse. Quickly, we cannot let Russia collapse!
 
 @stabilise
-on-arrival: soviet_leader = "Woytinsky"; economic_growth += 0.4; woytinsky_advisor = 0 if woytinsky_advisor == 1;
+on-arrival: soviet_leader = "Woytinsky"; economic_growth += 0.4; woytinsky_advisor = 0 if woytinsky_advisor == 1; n_advisors -= 1 if woytinsky_advisor == 1
 achievement: rapallo
 
 We have a man perfect for this: Wladimir Woytinsky! Off he goes, hurrying off to Russia, with a binder of statistics ready to implement the radical transformation of the Russian economy and that of its satellite states to a more industrialised and optimised output. Naturally, a free trade agreement with Germany is in order.
