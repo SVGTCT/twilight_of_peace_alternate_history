@@ -1,0 +1,49 @@
+title: Arthur Crispien
+is-pinned-card: true
+tags: advisor, centrist
+card-image: img/portraits/CrispienArthur.jpg
+view-if: crispien_advisor = 1
+new-page: true
+#face-image: img/portraits/CrispienArthur.jpg
+
+= Arthur Crispien
+
+Crispien is a co-chairman of the party, previously under the independent SPD label. He is mainly a figurehead to placate former members of the USPD after it merged with the SPD and holds little power. However, he has a long history as a left-wing organiser.
+  
+- @state_chapters
+- @comintern
+- @antisemitism
+- @fundraising
+- @root: Return to main
+
+@state_chapters
+title: State Chapters
+subtitle: Crispien can help us connect with state parties, particularly if we take his centrist approach.
+on-arrival: center_strength += 5; advisor_action_timer = 6; state_chapters_timer -= 14;
+choose-if: advisor_action_timer = 0;
+unavailable_subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+go-to: state_chapters  
+
+@comintern
+title: Comintern Espionage
+subtitle: Crispien has his differences with the forum. -1 resource.
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if resources == 0: Not enough resources. ?]
+choose-if: advisor_action_timer = 0 and resources > 0
+on-arrival: resources -= 1; advisor_action_timer = 6;
+go-to: international_relations.comintern
+
+@antisemitism
+title: Addressing Antisemitism
+subtitle: If we already have a position on discrimination, Crispien can change it.
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if confronting_antisemitism == 0: We have not touched on this yet. ?]
+choose-if: advisor_action_timer == 0 and confronting_antisemitism == 1
+on-arrival: advisor_action_timer = 6;
+go-to: response_to_antisemitism
+
+@fundraising
+title: Emergency Fundraising
+subtitle: An emergency infusion of resources.
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+choose-if: advisor_action_timer == 0
+on-arrival: advisor_action_timer = 6; fundraising_timer -= 6;
+go-to: fundraising
