@@ -1,9 +1,9 @@
 title: State-Party Relationships
 new-page: true
-view-if: state_party_relationships_timer <= 0
+view-if: state_chapters_timer <= 0
 tags: party_affairs
 is-card: true
-on-arrival: month_actions += 1; state_party_relationships_timer = 14;
+on-arrival: month_actions += 1; state_chapters_timer = 14;
 card-image: img/dasdrittereich.jpg
 max-visits: 12
 #subtitle: Solidifying connections with the state chapters of the SPD.
