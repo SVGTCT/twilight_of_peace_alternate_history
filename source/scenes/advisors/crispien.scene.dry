@@ -1,7 +1,7 @@
 title: Arthur Crispien
 is-pinned-card: true
 tags: advisor, centrist
-card-image: img/portraits/CrispienArthur.jpg if year < 1930; img/portraits/Arthur_Crispien_1930.jpg if year > 1929
+card-image: img/portraits/CrispienArthur.jpg
 view-if: crispien_advisor = 1
 new-page: true
 #face-image: img/portraits/CrispienArthur.jpg
