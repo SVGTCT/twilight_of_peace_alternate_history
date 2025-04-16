@@ -1,0 +1,74 @@
+title: State-Party Relationships
+new-page: true
+view-if: state_party_relationships_timer <= 0
+tags: party_affairs
+is-card: true
+on-arrival: month_actions += 1; state_party_relationships_timer = 14;
+card-image: img/dasdrittereich.jpg
+max-visits: 12
+#subtitle: Solidifying connections with the state chapters of the SPD.
+
+= State-Party Relationships
+
+As Germany is a federal republic, the SPD is composed, in addition to the national party, to parties at the state levels, such as the prominent Prussian SPD which has given us Otto Braun and Carl Severing. It is important, given the threat of nationalism polarising the country into electing an anti-democratic leader, or even a dictator, that these parties hold sufficient loyalty and make their decisions in accordance to the national framework.
+
+Should we take the time to canvass among these parties to improve our connections with them?
+
+- @center: We should canvass among these parties so they are united in a center Marxist ideology.  
+- @left: We should canvass among these parties so they are united in a left-wing socialist ideology.
+- @labor: We should canvass among these parties so they are united in a labor, working class ideology.
+- @neorevisionist: We should canvass among these parties so they are united in a neorevisionist, pro-democratic ideology.
+- @reformist: We should canvass among these parties so they are united in a reformist, social democratic ideology.
+- @ignore: Let the state parties choose their own paths to tread.
+- @easy_discard  
+
+@center
+subtitle: -1 resource.  
+choose-if: resources > 0 and center_strength > 30
+unavailable-subtitle: [? if center_strength <= 30: The center is not strong enough. ?] [? if resources == 0: Not enough resources. ?]
+on-arrival: resources -= 1; center_dissent -= 5; reformist_dissent -= 2; left_dissent -= 2; neorevisionist_dissent -= 2; labor_dissent -= 2; center_strength += 5; unemployed_spd -= 5 if unemployed > 15; workers_spd -= 2 if unemployed > 15;
+
+The center Marxists are often credited with holding the party together, and very few in the party object to this typical approach.[? if unemployed > 15: However, the present economic situation and the center's unwillingness to address it raises eyebrows among the general populace. ?]
+
+@left                                                                                                                                   
+subtitle: -1 resource.  
+choose-if: resources > 0 and left_strength > 30
+unavailable-subtitle: [? if left_strength <= 30: The left is not strong enough. ?] [? if resources == 0: Not enough resources. ?]
+on-arrival: resources -= 1; left_dissent -= 5; reformist_dissent += 5; reformist_strength -= 5; neorevisionist_dissent += 5; neorevisionist_strength -= 5; left_strength += 5; new_middle_spd -= 2;
+
+The more reformist state structures resist our tack to the left.
+
+@labor                                                                                                                                   
+subtitle: -1 resource.  
+choose-if: resources > 0 and labor_strength > 30
+unavailable-subtitle: [? if labor_strength <= 30: Labor is not strong enough. ?] [? if resources == 0: Not enough resources. ?]
+on-arrival: resources -= 1; labor_dissent -= 5; labor_strength += 5; left_dissent -= 5 if wtb_adopted == 1; workers_spd += 2 if wtb_adopted == 1; unemployed_spd += 2 if wtb_adopted == 1;  
+
+Preaching for the labor wing helps us connect with unions. [? if wtb_adopted == 1: Additionally, our adoption of the WTB plan has solidified the unions' importance within the SPD. Only the left oppose it, seeing it as putting a plaster on a deep wound -- only a temporary solution. ?]
+
+@neorevisionist                                                                                                                                   
+subtitle: -1 resource.  
+view-if: neorevisionism == 1                                                         
+choose-if: resources > 0 and neorevisionist_strength > 30
+unavailable-subtitle: [? if neorevisionist_strength <= 30: The neorevisionists are not strong enough. ?] [? if resources == 0: Not enough resources. ?]
+on-arrival: resources -= 1; neorevisionist_dissent -= 5; reformist_dissent -= 2; neorevisionist_strength += 5; left_dissent += 5; left_strength -= 5; new_middle_spd += 2;
+
+With the circumstances demanding a new way of thinking, we have been wise to adopt it.
+
+@reformist                                                                                                                                   
+subtitle: -1 resource.  
+choose-if: resources > 0 and reformist_strength > 30
+unavailable-subtitle: [? if reformist_strength <= 30: The reformists are not strong enough. ?] [? if resources == 0: Not enough resources. ?]
+on-arrival: resources -= 1; reformist_dissent -= 5; neorevisionist_dissent -= 2; reformist_strength += 5; left_dissent += 5; left_strength -= 5; new_middle_spd += 2;
+
+Many state structures are themselves reformist and do not object to a weathered approach.
+
+@ignore
+on-arrival: center_dissent += 2; left_dissent += 2; labor_dissent += 2; neorevisionist_dissent += 2; reformist_dissent += 2;
+                                                            
+Whether it is because we cannot, or because we do not see it as important enough, we leave the state chapters to their own resources.
+
+- @return: Continue...
+                                                            
+                                                            
+                                                        
