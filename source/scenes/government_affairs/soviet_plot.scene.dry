@@ -2,7 +2,7 @@ title: A Soviet Coup?
 subtitle: Our efforts in cultivating republican loyalties have paid off.
 on-arrival: month_actions += 1
 new-page: true
-view-if: spd_in_government = 1 and reichswehr_minister_party = "SPD" and soviet_plot == 3 and reichswehr_loyalty > 0.6 and funding_done == 1 and aid_done == 1 and comintern_done == 1
+view-if: spd_in_government = 1 and reichswehr_minister_party = "SPD" and soviet_plot == 3 and reichswehr_loyalty > 0.6 and funding_done == 1 and aid_done == 1 and comintern_done == 1 and russian_leader = "Stalin"
 face-image: img/tomkachemical.jpg
 #card-image: none
 #is-card: true
@@ -12,7 +12,7 @@ face-image: img/tomkachemical.jpg
 
 = A Coup d'État in the Soviet Union?
 
-The Soviet Union, officially the Union of Socialist Soviet Republics, is a country in its infancy. Militarily, an empowered Reichswehr could topple it. After all, it was Germany that won on the Eastern Front.
+The Soviet Union, officially the Union of Socialist Soviet Republics, is a country in its infancy. Militarily, a strengthened Reichswehr could topple it. After all, it was Germany that won on the Eastern Front.
 
 For too long, Stalin has empowered the KPD, who have undermined social democracy by dubbing its only realistic purveyor as "social fascists" and on equal terms to the Nazis. The interior police helped us discover these ties ran deeper than we thought.
 
