@@ -19,7 +19,7 @@ Crispien is a co-chairman of the party, previously under the independent SPD lab
 @state_chapters
 title: State Chapters
 subtitle: Crispien can help us connect with state parties, particularly if we take his centrist approach.
-on-arrival: center_strength += 5; advisor_action_timer = 6; state_chapters_timer -= 14;
+on-arrival: center_strength += 5; advisor_action_timer = 6;
 choose-if: advisor_action_timer == 0
 unavailable_subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 
@@ -27,12 +27,12 @@ As Germany is a federal republic, the SPD is composed, in addition to the nation
 
 Should we take the time to canvass among these parties to improve our connections with them?
 
-- @center: We should canvass among these parties so they are united in a center Marxist ideology.  
-- @left: We should canvass among these parties so they are united in a left-wing socialist ideology.
-- @labor: We should canvass among these parties so they are united in a labor, working class ideology.
-- @neorevisionist: We should canvass among these parties so they are united in a neorevisionist, pro-democratic ideology.
-- @reformist: We should canvass among these parties so they are united in a reformist, social democratic ideology.
-- @ignore: Let the state parties choose their own paths to tread.
+- @state_chapters.center: We should canvass among these parties so they are united in a center Marxist ideology.  
+- @state_chapters.left: We should canvass among these parties so they are united in a left-wing socialist ideology.
+- @state_chapters.labor: We should canvass among these parties so they are united in a labor, working class ideology.
+- @state_chapters.neorevisionist: We should canvass among these parties so they are united in a neorevisionist, pro-democratic ideology.
+- @state_chapters.reformist: We should canvass among these parties so they are united in a reformist, social democratic ideology.
+- @state_chapters.ignore: Let the state parties choose their own paths to tread.
 
 @comintern
 title: Comintern Espionage
@@ -51,19 +51,19 @@ on-arrival: advisor_action_timer = 6;
 
 Antisemitism has long been a latent feature of German society, but since the beginning of the economic depression, it has grown to a horrifying extent. The Nazis are the worst of it, but all the right-wing parties are deeply antisemitic. Regarding the SPD specifically, our right-wing enemies love to deploy their racist rhetoric against our many Jewish comrades, magnifying criticism of any minor transgression, and they call the entire SPD a Jewish party. We are a favorite target of their invectives.
 
-- @socialism_of_fools: Antisemitism is the "socialism of fools". We will defeat them with real socialism.
-- @if: Antisemitism is a crisis. Direct the full force of the Iron Front against antisemitism.
-- @all: All Germans will suffer from fascism, not just the Jews. We do not need a separate policy for them.
+- @response_to_antisemitism.socialism_of_fools: Antisemitism is the "socialism of fools". We will defeat them with real socialism.
+- @response_to_antisemitism.if: Antisemitism is a crisis. Direct the full force of the Iron Front against antisemitism.
+- @response_to_antisemitism.all: All Germans will suffer from fascism, not just the Jews. We do not need a separate policy for them.
 
 @fundraising
 title: Emergency Fundraising
 subtitle: An emergency infusion of resources.
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 choose-if: advisor_action_timer == 0
-on-arrival: advisor_action_timer = 6; fundraising_timer -= 6;
+on-arrival: advisor_action_timer = 6;
 
 For better or for worse, the party cannot exist without money.
 
-- @maintain: Maintain our current dues.
-- @reduce: Reduce dues.
-- @increase: Increase dues.
+- @fundraising.maintain: Maintain our current dues.
+- @fundraising.reduce: Reduce dues.
+- @fundraising.increase: Increase dues.
