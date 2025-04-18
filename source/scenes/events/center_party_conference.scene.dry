@@ -66,4 +66,4 @@ Continuing with the party's rightward shift, the Center selects Adam Stegerwald 
 Elsewhere, expect very little from the Center Party to our benefit.
 
 @deadlock
-go-to: no
+go-to: no if joos_pt == 2; kaas
