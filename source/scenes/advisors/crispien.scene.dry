@@ -56,8 +56,8 @@ Antisemitism has long been a latent feature of German society, but since the beg
 - @response_to_antisemitism.all: All Germans will suffer from fascism, not just the Jews. We do not need a separate policy for them.
 
 @fundraising
-title: Emergency Fundraising
-subtitle: An emergency infusion of resources.
+title: Fundraising
+subtitle: Change our collection of dues ahead of schedule.
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
 choose-if: advisor_action_timer == 0
 on-arrival: advisor_action_timer = 6; month_actions += 1;
