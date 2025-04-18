@@ -31,7 +31,7 @@ Despite the left's pleas, we will find a way to increase the Reichsbanner's memb
 - @address: We will use our relations...
 
 @address
-go-to: recruit_1 if rb_exit = 0 and z_relation < 60; recruit_1a if rb_exit = 0 and z_relation >= 60; recruit_2 if rb_stay = 1; recruit_3 if not rb_stay and not rb_exit;
+go-to: recruit_1 if rb_exit = 0 and z_relation < 60; recruit_1a if rb_exit = 0 and z_relation >= 60; recruit_2 if rb_stay = 1; recruit_3 if rb_stay = 0 and rb_exit = 0;
 
 @recruit_1
 on-arrival: left_strength -= 5*(1-dissent)  
