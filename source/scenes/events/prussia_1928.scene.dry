@@ -29,7 +29,7 @@ face-image: img/portraits/Otto_Braun_statesman.webp
 We renew our commitment to democracy and to the Republic by continuing the Weimar Coalition in Prussia, which is our preferred way of governing. Otto Braun will continue as one of social democracy's primary leaders.
 
 @stegerwald
-face-image: StegerwaldAdam2.jpg
+face-image: img/portraits/StegerwaldAdam2.jpg
 on-arrival: left_dissent += 5; center_dissent += 5; reformist_dissent += 5; labor_dissent += 5; prussian_government = "Z"; z_relation += 10; ddp_relation += 6; dvp_relation += 4;
 
 For better or for worse, we are giving Adam Stegerwald control of Prussia. We are still in control of the police, and Stegerwald supports democracy. Perhaps it is worth it to ameliorate our relations with the Center Party, particularly ahead of coalition talks.
