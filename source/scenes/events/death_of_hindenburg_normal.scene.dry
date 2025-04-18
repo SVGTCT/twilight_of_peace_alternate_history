@@ -5,6 +5,7 @@ view-if: year = 1934 and month >= 7 and president != "Hindenburg"
 on-arrival: hindenburg_dead = 1 
 tags: event
 face-image: img/Hindenburg_head.jpg
+max-visits: 1
 
 = The Death of Hindenburg
 
