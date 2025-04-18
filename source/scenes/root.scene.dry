@@ -154,6 +154,11 @@ Q.rfb_militancy = 0.5;
 Q.rfb_banned = 0;
 Q.rfb_banned_prussia = 0;
 
+// reichsbanner values
+Q.rb_stay = 0;
+Q.rb_exit = 0;
+Q.rb_bourgeois = 0;
+
 Q.interior_police_strength = 50;
 Q.interior_police_militancy = 1;
 Q.interior_police_loyalty = 0.45;
