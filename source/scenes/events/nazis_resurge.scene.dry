@@ -6,13 +6,12 @@ view-if: hindenburg_dead = 1 and year >= 1935 and nsdap_votes >= 15
 max-visits: 1
 new-page: true
 on-arrival: nazi_alarm += 1; workers_nsdap += 4; old_middle_nsdap += 6; new_middle_nsdap += 4; rural_nsdap += 4; unemployed_nsdap += 6; catholics_nsdap += 2; dvp_relation -= 10; z_relation -= 10 if z_leader = "Kaas"; ddp_relation -= 5; nazis_resurge = 1;
+
 = Nazis Resurge!
 
 The NSDAP, previously considered moribund after the collapse of anti-democratic parties after Hindenburg's death, has been gaining ground in local elections. [? if (z_leader = "Kaas" or z_relation <= 45): The bourgeois has interpreted this as a gesture from the public to increase cooperation with the far right, as the DVP has previously done. For us, this is an unforeseen disaster. ?][? if z_leader != "Kaas" and z_relation > 45: Thankfully, our connections to the bourgeois parties have allowed us to convince them that we must work on a joint strategy to confront this. ?]
 
 [? if iron_front_formed = 1: Previously, the Iron Front had been our answer. ?] We must decide on a strategy.
-
-=
 
 - @harzburg_front.strategy: We must develop a coherent strategy to combat the Right.
 - @confronting_nazis.iron_front: We must form the Iron Front!
@@ -24,7 +23,7 @@ view-if: left_strength < 40 and z_relation > 45 and z_leader != "Kaas"
 subtitle: The left will resist this.
 unavailable-subtitle: The left is too strong and will not accept this.
 on-arrival: left_dissent += 5
-go-to: recruit_1 if rb_exit == 0 and z_relation < 60; recruit_1a if rb_exit == 0 and z_relation >= 60; recruit_2 if rb_stay == 1; recruit_3 if rb_stay == 0 and rb_exit == 0;
+go-to: recruit_1 if rb_exit == 0 and z_relation < 60; recruit_1a if rb_exit == 0 and z_relation >= 60; recruit_2 if rb_stay == 1; recruit_3 if not rb_stay and not rb_exit; error;
 
 @recruit_1
 on-arrival: left_strength -= 5*(1-dissent)  
@@ -46,8 +45,6 @@ With the power of cash, we are able to convince the Center and [+ ddp_name +] to
 on-arrival: workers_nsdap += 6; old_middle_nsdap += 4; new_middle_nsdap += 4; rural_nsdap += 4; unemployed_nsdap += 6; catholics_nsdap += 2; workers_spd -= 6; old_middle_spd -= 4; new_middle_spd -= 4; rural_spd -= 4; unemployed_spd -= 6; catholics_spd -= 4  
 
 Nothing can be done about the Nazis.  
-
-// if you have not seen a scene before this, this is an ERROR. Please report it.
   
 @recruit_1a
 on-arrival: rb_strength *= 1.2; left_strength -= 5*(1-dissent); rb_exit = 0; rb_stay = 1; z_relation += 5; ddp_relation += 5; rb_militarization -= 0.1 if rb_militarization >= 0.4; rb_militarization -= 0.05 if rb_militarization < 0.4;    
@@ -84,3 +81,7 @@ With the bourgeois refusing to cooperate, we now have to choose between committi
 @let_go
 on-arrival: rb_militarization += 0.05
 go-to: reichsbanner_zentrum.let_go  
+
+@error
+ 
+This is an ERROR. Please report it.
