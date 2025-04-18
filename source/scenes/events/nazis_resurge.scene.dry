@@ -25,13 +25,7 @@ view-if: left_strength < 40 and z_relation > 45 and z_leader != "Kaas"
 subtitle: The left will resist this.
 unavailable-subtitle: The left is too strong and will not accept this.
 on-arrival: left_dissent += 5
-
-Despite the left's pleas, we will find a way to increase the Reichsbanner's membership. *We must*.
-
-- @address: We will use our relations...
-
-@address
-go-to: recruit_1 if rb_exit = 0 and z_relation < 60; recruit_1a if rb_exit = 0 and z_relation >= 60; recruit_2 if rb_stay = 1; recruit_3 if rb_stay = 0 and rb_exit = 0;
+go-to: recruit_1 if rb_exit = 0 and z_relation < 60; recruit_1a if rb_exit = 0 and z_relation >= 60; recruit_2 if rb_stay = 1; recruit_3 if rb_stay = 0 and rb_exit = 0; forget
 
 @recruit_1
 on-arrival: left_strength -= 5*(1-dissent)  
@@ -53,6 +47,8 @@ With the power of cash, we are able to convince the Center and [+ ddp_name +] to
 on-arrival: workers_nsdap += 6; old_middle_nsdap += 4; new_middle_nsdap += 4; rural_nsdap += 4; unemployed_nsdap += 6; catholics_nsdap += 2; workers_spd -= 6; old_middle_spd -= 4; new_middle_spd -= 4; rural_spd -= 4; unemployed_spd -= 6; catholics_spd -= 4  
 
 Nothing can be done about the Nazis.  
+
+// if you have not seen a scene before this, this is an ERROR. Please report it.
   
 @recruit_1a
 on-arrival: rb_strength *= 1.2; left_strength -= 5*(1-dissent); rb_exit = 0; rb_stay = 1; z_relation += 5; ddp_relation += 5; rb_militarization -= 0.1 if rb_militarization >= 0.4; rb_militarization -= 0.05 if rb_militarization < 0.4;    
