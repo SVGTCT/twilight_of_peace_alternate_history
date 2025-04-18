@@ -350,6 +350,16 @@ go-to: advisor_menu
 
 Rudolf Hilferding is now an advisor.
 
+@add_crispien
+title: Arthur Crispien
+subtitle: Arthur Crispien is a co-chairman of the party and left-wing organiser. {!<br><br>!}[? if difficulty < 0 : Actions - State Chapters, Comintern Espionage, Readdressing Antisemitism, Emergency Fundraising ?]
+is-card: true
+card-image: img/portraits/CrispienArthur.jpg
+tags: center_advisor
+view-if: crispien_advisor = 0 and n_advisors < 3 and centrists_resign = 0
+on-arrival: crispien_advisor = 1; n_advisors += 1
+go-to: advisor_menu
+
 @add_wels
 title: Otto Wels
 subtitle: Otto Wels is a long-time party organizer and member of the leadership, serving under Friedrich Ebert. {!<br><br>!}[? if difficulty < 0 : Actions -  Clear the Agenda, Party Discipline, Emergency Fundraising ?]
