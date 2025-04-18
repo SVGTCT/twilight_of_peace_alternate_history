@@ -5,7 +5,7 @@ priority: 3
 view-if: hindenburg_dead = 1 and year >= 1935 and nsdap_votes >= 15
 max-visits: 1
 new-page: true
-on-arrival: nazi_alarm += 1; workers_nsdap += 4; old_middle_nsdap += 6; new_middle_nsdap += 4; rural_nsdap += 4; unemployed_nsdap += 6; catholics_nsdap += 2; dvp_relation -= 10; z_relation -= 10 if z_leader = "Kaas"; ddp_relation -= 5; nazis_resurge = 1;   
+on-arrival: nazi_urgency += 1; workers_nsdap += 4; old_middle_nsdap += 6; new_middle_nsdap += 4; rural_nsdap += 4; unemployed_nsdap += 6; catholics_nsdap += 2; dvp_relation -= 10; z_relation -= 10 if z_leader = "Kaas"; ddp_relation -= 5; nazis_resurge = 1;   
 
 = Nazis Resurge!
 
