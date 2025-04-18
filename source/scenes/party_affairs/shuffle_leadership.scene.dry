@@ -352,7 +352,7 @@ Rudolf Hilferding is now an advisor.
 
 @add_crispien
 title: Arthur Crispien
-subtitle: Arthur Crispien is a co-chairman of the party and left-wing organiser. {!<br><br>!}[? if difficulty < 0 : Actions - State Chapters, Comintern Espionage, Readdressing Antisemitism, Emergency Fundraising ?]
+subtitle: Arthur Crispien is a co-chairman of the party and left-wing organiser. {!<br><br>!}[? if difficulty < 0 : Actions - State Chapters, Comintern Espionage, Readdressing Antisemitism, Fundraising ?]
 is-card: true
 card-image: img/portraits/CrispienArthur.jpg
 tags: center_advisor
