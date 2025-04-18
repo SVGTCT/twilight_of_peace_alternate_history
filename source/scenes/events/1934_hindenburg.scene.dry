@@ -1,0 +1,16 @@
+title: A New Day in Germany
+subtitle: Has democracy finally triumphed?
+tags: event
+priority: 3
+view-if: hindenburg_dead = 1 and president != "Hitler" and president != "Göring" and president != "Seldte"
+max-visits: 1
+on-arrival: {!
+!}
+new-page: true
+on-arrival: workers_nsdap -= 4; old_middle_nsdap -= 6; new_middle_nsdap -= 4; rural_nsdap -= 4; unemployed_nsdap -= 4; catholics_nsdap -= 4; workers_dnvp -= 3; old_middle_dnvp -= 5; new_middle_dnvp -= 3; rural_dnvp -= 5; unemployed_dnvp -= 3; catholics_dnvp -= 3; old_middle_dvp -= 5; new_middle_dvp -= 3; rural_dvp -= 3; unemployed_dvp -= 1; catholics_dvp -= 3; nationalism -= 10; pro_republic += 2; 
+
+= A New Day in Germany
+
+After the death of Hindenburg, it seems as if an era of history is closing. The worst years of political and economic crisis are over, and perhaps Nazism's days are numbered. Another political epoch is set to begin. Possibly Germany will finally enter into a new era of genuine peace...
+
+@root: Continue...
