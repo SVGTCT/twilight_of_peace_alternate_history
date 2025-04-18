@@ -1,0 +1,40 @@
+title: Prussian State Elections
+subtitle: The SPD have made gains in Prussia...
+view-if: year = 1928 and month = 5 
+max-visits: 1
+priority: 3
+tags: event
+new-page: true
+face-image: img/portraits/Otto Braun wide.jpg
+
+= Prussian State Elections
+
+Elections to the Landtag of Prussia have been held on the same day as those to the Reichstag, and have unsurprisingly returned an SPD victory. We have retained a mandate to continue our current, and preferred, Weimar Coalition with the Center Party and DDP.
+
+However, with greater ambitions on his mind, the Center's Adam Stegerwald seems to have an eye out to lead this next Prussian Cabinet.
+
+Additionally, we could also bring the DVP into our government. They would shift the balance of power away from us, but this move would improve our relations with them, and perhaps the bourgeois as a whole.
+
+We are expected to retain Otto Braun as the Minister-President of Prussia, but, ultimately, the balance of power is in the SPD's hands.
+
+- @braun: Otto Braun continues as Minister-President...
+- @stegerwald: Adam Stegerwald, the trade unionist, will lead the next cabinet of Prussia.
+- @dvp: Otto Braun continues as Minister-President, in a Grand Coalition.
+
+@braun
+face-image: img/portraits/Otto_Braun_statesman.webp
+
+We renew our commitment to democracy and the Weimar Republic by continuing the Weimar Coalition in Prussia, which is our preferred way of governing. Otto Braun will continue as one of social democracy's primary leaders.
+
+@stegerwald
+face-image: StegerwaldAdam2.jpg
+on-arrival: left_dissent += 5; center_dissent += 5; reformist_dissent += 5; labor_dissent += 5; prussian_government = "Z"; z_relation += 10; ddp_relation += 6; dvp_relation += 4;
+
+For better or for worse, we are giving Adam Stegerwald control of Prussia. We are still in control of the police, and Stegerwald supports democracy. Perhaps it is worth it to ameliorate our relations with the Center Party, particularly ahead of coalition talks.
+
+@dvp
+on-arrival: left_dissent += 5; center_dissent += 5; reformist_dissent += 5; labor_dissent += 5; z_relation += 5; ddp_relation += 5; dvp_relation += 10;
+
+The DVP helps us establish a stronger majority, and bringing in another bourgeois coalition partner will greatly please the middle class, with talks of a "balancing act" and "moderation. On the other hand, it helps the SPD in no way, and the party's membership knows that.
+
+At least, Braun remains in charge of the Prussian government -- or so it seems.
