@@ -53,6 +53,7 @@ Even though Brauns is well respected, he pleases no faction fully and his organi
 
 @kaas
 on-arrival: z_party_leader = "Kaas"; z_relation -= 5
+face-image: img/portraits/KaasLudwig.jpg
 
 The party does not elect the two favourites Joseph Joos and Adam Stegerwald, rather selecting Ludwig Kaas as the chairman of the Center Party, improving its ties to the bishops. He seems to represent a rightward turn from Marx, and will preside over a Center Party less inclined to compromise with the left.
 
