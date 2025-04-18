@@ -16,9 +16,9 @@ The NSDAP, previously considered moribund after the collapse of anti-democratic 
 - @harzburg_front.strategy: We must develop a coherent strategy to combat the Right.
 - @confronting_nazis.iron_front: We must form the Iron Front!
 - @iron_front: The Iron Front will be our answer!
-- @recruit: We must recruit more centrists and liberals into the Reichsbanner.
+- @recruit_core: We must recruit more centrists and liberals into the Reichsbanner.
 
-@recruit
+@recruit_core
 view-if: left_strength < 40 and z_relation > 45 and z_leader != "Kaas"
 subtitle: The left will resist this.
 unavailable-subtitle: The left is too strong and will not accept this.
