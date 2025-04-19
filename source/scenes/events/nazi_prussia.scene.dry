@@ -1,0 +1,113 @@
+title: Nazis in Prussia?
+subtitle: The far right consolidates in Prussia...
+view-if: nazis_resurge = 1 and year = 1935 and prussian_government != "SPD"
+max-visits: 1
+priority: 3
+tags: event
+new-page: true
+on-arrival: workers_nsdap += 3; workers_spd += 3; new_middle_spd -= 3; unemployed_nsdap += 3; rural_nsdap += 3; rural_spd -= 3;
+face-image: img/goring-and-hitler.jpg
+
+= Nazis Take Prussia!
+
+The [? if prussian_government = "Z": Center Party ?] [? if prussian_government != "Z": right ?] has read the recent surge of the Nazi Party as a signal from the public that the NSDAP must be brought into government.
+
+Now, the Center Party, held hostage by its reactionary elements, has decided to take an "experiment" and form a majority coalition with the NSDAP and DNVP. The NSDAP has cunningly requested the Interior Ministry, and will probably execute a crackdown on socialists in the civil service, as they have previously done in Thuringia.
+
+We must act now.
+
+@nazi_prussia_menu
+
+- @fight: We will fight back!
+- @funding: We will freeze subsidies for Prussia.
+- @elections: We will hold a vote of no confidence, triggering new elections.
+- @iron_front: Maintain pressure on the fascists through the Iron Front!
+- @nothing: There is nothing we can do...
+
+@fight
+subtitle: Labor will call a general strike. The Reichsbanner and the loyal elements of the Prussian police will join the Reichsbanner in taking **offensive action**.
+unavailable-subtitle: We do not have the forces to resist.
+choose-if: rb_strength*rb_militancy >= 200
+
+By doing this, the SPD would not only be acting explicitly against democracy, but it could also lead to civil war. We do realise that, correct? 
+
+- @fight_2: We will fight, even if it leads to civil war.
+- @nazi_prussia_menu: What are our other options?
+
+@fight_2
+on-arrival: resist_coup = 1; defense_strength = (rb_strength*0.9)*rb_militancy*(1-dissent/2); defense_strength += prussian_police_strength*prussian_police_militancy*prussian_police_loyalty if spd_prussia; enemy_strength = sa_strength*sa_militancy + sh_strength*sh_militancy; enemy_strength += reichswehr_strength*reichswehr_militancy*(1-reichswehr_loyalty)/2; defense_strength += workers_spd_normalized*(2 - dissent)*(2 - unemployed/100);
+go-to: crackdown if defense_strength < (enemy_strength+100) and interior_minister_party != "SPD" and rb_stay = 0; win if defense_strength >= (enemy_strength+100); prussian_coup.defend_2_civil_war if defense_strength >= enemy_strength and defense_strength < (enemy_strength+100); loss
+
+@crackdown
+on-arrival: rb_strength *= 0.5; rb_militancy *= 0.5; prussian_police_loyalty -= 0.3 if prussian_police_loyalty >= 0.3; reichswehr_loyalty -= 0.2 if reichswehr_loyalty >= 0.2; z_relation -= 10; ddp_relation -= 5; dvp_relation -= 15; prussian_government = "NSDAP"; spd_prussia = 0; pro_republic -= 10;
+
+Despite our best efforts, the anti-democratic forces are able to overwhelm us, fighting on our own, and guarantee the NSDAP's appointment to the Prussian government.
+
+The right is shocked by our anti-democratic intransigence. Not only do they condemn our resistance, but they also use it as an excuse to issue an extensive crackdown on the Reichsbanner and axe our connections in the Prussian police and Reichswehr. 
+
+The police, on their part, are thoughtlessly satisfied to go after more "reds". The Nazis move to quickly fire communists and social democrats from the civil service. There is nothing we can do.
+
+@loss
+on-arrival: z_relation -= 10; ddp_relation -= 5; dvp_relation -= 15; prussian_police_loyalty -= 0.15 if prussian_police_loyalty >= 0.15; spd_prussia = 0; prussian_government = "NSDAP"; pro_republic -= 10;
+
+Despite our best efforts, the anti-democratic forces are able to overwhelm us, fighting on our own, and guarantee the NSDAP's appointment to the Prussian government.
+
+The right is shocked by our anti-democratic intransigence. They condemned it and refused to help us. Only our connections in the Interior Ministry and through the Reichsbanner save us from the worst of persecution. Still, the Nazis move to quickly fire communists and social democrats from the civil service. There is nothing we can do. 
+
+The far right and the communists now accuse us of doing what we accuse them of doing: breaking the law and getting off scot-free. They could not explain the meaning of the word nuance if they tried.
+
+@win
+on-arrival: prussian_government = "SPD"; spd_prussia = 1; z_relation -= 5; ddp_relation -= 2; dvp_relation -= 5; prussian_police_loyalty += 0.05; sa_strength *= 0.8; sh_strength *= 0.8; pro_republic += 10; workers_spd += 6; unemployed_spd += 6; workers_nsdap -= 6; unemployed_nsdap -= 6; workers_z -= 6; unemployed_z -= 6;
+
+For better --or for worse--, we have defied the rule of law to defend democracy.
+
+The Prussian Center Party is forced to abandon the plan, and new elections will be held for the Prussian Landtag, in which the public will know the Center's true colours.
+
+Though the bourgeois parties disapprove, we will be taking charge of the Prussian Government for the time being. We cannot allow something like this to be considered ever again.
+
+@funding
+choose-if: interior_minister_party == "SPD"
+unavailable-subtitle: We do not control the Interior Ministry.
+on-arrival: prussian_government = "NSDAP"; spd_prussia = 0; z_relation -= 5; ddp_relation -= 2; dvp_relation -= 5; prussian_police_loyalty -= 0.15 if prussian_police_loyalty >= 0.15; workers_spd -= 6; unemployed_spd -= 6; workers_nsdap += 6; unemployed_nsdap += 6; pro_republic -= 10;
+
+Interior Minister Severing freezes federal subsidies to Prussia.
+
+This is a response that we had considered previously regarding Thuringia. However, it affects most those dependent on subsidies, and in Germany's biggest and most influential state, this is a headache.
+
+It also does nothing, though we can say we tried. The Nazis do not care for the people, they care about consolidating power in their hands. Quickly, they move to fire communists and social democrats from the civil service. There is nothing we can do.
+
+# note: add prussian election event, president affiliation
+
+@elections
+choose-if: catholics_spd >= 15 and pro_republic > 50 and spd_votes >= 30
+unavailable-subtitle: We do not have the votes.
+on-arrival: prussian_government = "I" if (president != "Braun" or president != "Schumacher" or president != "Juchacz"); prussian_government = "SPD" if (president == "Braun" or president == "Schumacher" or president == "Juchacz"); spd_prussia = 0 if prussian_government = "I"; z_relation -= 5; ddp_relation -= 2; dvp_relation -= 5; prussian_police_loyalty -= 0.1 if prussian_police_loyalty >= 0.1; pro_republic -= 5;
+
+We move to express that the Landtag does not have confidence in the new government, succeeding and scheduling elections for three months' time.
+
+In the meantime, an [? if prussian_government = "I": independent *Reichskommissar* ?] [? if prussian_government = "SPD": SPD *Reichskommissar*, thanks to our control of the presidency, ?] has been appointed to oversee Prussia. 
+
+The bourgeois parties disapprove of this, and we still lose confidence from the Prussian Police.
+
+@iron_front
+view-if: iron_front_formed == 1
+on-arrival: prussian_police_loyalty -= 0.15 if prussian_police_loyalty >= 0.15; workers_spd -= 4; unemployed_spd -= 4; pro_republic -= 10; prussian_government = "NSDAP"; spd_prussia = 0;
+
+Unfortunately, the Nazis move to quickly fire communists and social democrats from the civil service, as they have done before in Thuringia. We cannot address that.
+
+However, the Iron Front is our antifascist coordination front, consisting of the SPD, the trade unions, and the Reichsbanner. We can use it to resist these changes.
+
+- @iron_front.defense: Rally for defense against the fascists with the Reichsbanner.
+- @iron_front.pacifism: Rally for pacifism, against nationalism and war.
+- @iron_front.republic: Rally to save the democratic republic against dictatorship.
+- @iron_front.wtb: Rally for economic change and the WTB-Plan.
+- @iron_front.antisemitism
+
+@nothing
+on-arrival: prussian_police_loyalty -= 0.15 if prussian_police_loyalty >= 0.15; workers_spd -= 4; unemployed_spd -= 4; pro_republic -= 10; prussian_government = "NSDAP"; spd_prussia = 0;
+
+The Nazis quickly move to fire communists and social democrats from the civil service, as they have done before in Thuringia. 
+
+There is nothing we can do.
+
+
