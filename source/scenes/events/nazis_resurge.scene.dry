@@ -5,11 +5,11 @@ priority: 3
 view-if: hindenburg_dead = 1 and year >= 1935 and nsdap_votes >= 15
 max-visits: 1
 new-page: true
-on-arrival: nazi_urgency += 1; workers_nsdap += 4; old_middle_nsdap += 6; new_middle_nsdap += 4; rural_nsdap += 4; unemployed_nsdap += 6; catholics_nsdap += 2; dvp_relation -= 10; z_relation -= 10 if z_leader = "Kaas"; ddp_relation -= 5; nazis_resurge = 1;   
+on-arrival: nazi_urgency += 1; workers_nsdap += 4; old_middle_nsdap += 6; new_middle_nsdap += 4; rural_nsdap += 4; unemployed_nsdap += 6; catholics_nsdap += 2; dvp_relation -= 10; z_relation -= 10 if z_leader != "Joos"; ddp_relation -= 5; nazis_resurge = 1;   
 
 = Nazis Resurge!
 
-The NSDAP, previously considered moribund after the collapse of anti-democratic parties after Hindenburg's death, has been gaining ground in local elections. [? if (z_leader = "Kaas" or z_relation <= 45): The bourgeois has interpreted this as a gesture from the public to increase cooperation with the far right, as the DVP has previously done. For us, this is an unforeseen disaster. ?][? if z_leader != "Kaas" and z_relation > 45: Thankfully, our connections to the bourgeois parties have allowed us to convince them that we must work on a joint strategy to confront this. ?]
+The NSDAP, previously considered moribund after the collapse of anti-democratic parties after Hindenburg's death, has been gaining ground in local elections. [? if (z_leader != "Joos" or z_relation <= 45): The bourgeois has interpreted this as a gesture from the public to increase cooperation with the far right, as the DVP has previously done. For us, this is an unforeseen disaster. ?][? if z_leader == "Joos" and z_relation > 45: Thankfully, our connections to the bourgeois parties have allowed us to convince them that we must work on a joint strategy to confront this. ?]
 
 [? if iron_front_formed = 1: Previously, the Iron Front had been our answer. ?] We must decide on a strategy.
 
@@ -21,7 +21,7 @@ The NSDAP, previously considered moribund after the collapse of anti-democratic 
 - @recruit_core: We must recruit more centrists and liberals into the Reichsbanner.
 
 @recruit_core
-view-if: left_strength < 40 and z_relation > 45 and z_leader != "Kaas"
+view-if: left_strength < 40 and z_relation > 45 and z_leader == "Joos"
 subtitle: The left will resist this.
 unavailable-subtitle: The left is too strong and will not accept this.
 on-arrival: left_dissent += 5
