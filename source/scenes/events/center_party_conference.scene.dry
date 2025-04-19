@@ -47,9 +47,11 @@ Joseph Joos has been elected leader of the Center Party, maintaining the SPD's f
 on-arrival: z_party_leader = "Brauns"; left_strength += 5*(1-dissent); workers_z -= 3*(1-dissent); new_middle_z -= 2*(1-dissent); old_middle_z -= 1; rural_z -= 3*(1-dissent); unemployed_z -= 3*(1-dissent); catholics_z -= 1;
 face-image: img/portraits/BraunsHeinrich.jpg
 
-Polarized beyond belief, the Joos and Stegerwald delegates refused to meet to even discuss a compromise. Eventually, the deadlock was resolved by a number of Joos supporters joining forces with the Stegerwald delegates to edge out a majority for party stalwart and former Labor Minister, theologian Heinrich Brauns.
+Polarized beyond belief, the Joos and Stegerwald delegates refused to meet to even discuss a compromise. Eventually, the deadlock was resolved by a number of desperate Joos supporters joining forces with the Stegerwald delegates to edge out a majority for party stalwart and former Labor Minister, theologian Heinrich Brauns.
 
-Even though Brauns is well respected, he pleases no faction fully and his organisation and management capabilities are questionable. As such the choice perplexes the entirety of the outside German political world. Perhaps the Center Party is in collapse?
+Even though Brauns is well respected, his ideas are unpopular and his organisation and management capabilities are questionable. As such the choice perplexes the entirety of the outside German political world. Furthermore, he is from the unpopular rightist wing of the party, which aims to sever the Center's connections to the pro-republic parties.
+
+Perhaps the Center Party is in collapse?
 
 @kaas
 on-arrival: z_party_leader = "Kaas"; z_relation -= 5
