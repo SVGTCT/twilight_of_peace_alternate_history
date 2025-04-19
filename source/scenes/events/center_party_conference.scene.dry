@@ -17,7 +17,7 @@ Wilhelm Marx, former Center Party chancellor and presidential candidate, has cho
 - @deliberation: The Center Party will deliberate...
 
 @deliberation
-go-to: joos if in_weimar_coalition and z_relation >= 70; help_joos if in_weimar_coalition and z_relation >= 62; stegerwald if (in_right_coalition or chancellor = "Brüning" and panzerkreuzer_failed = 1) and prussian_government = "Z"; deadlock if in_weimar_coalition and chancellor = "Brüning" and prussian_government = "Z" and z_relation >= 62; kaas
+go-to: joos if in_weimar_coalition and z_relation >= 70; help_joos if in_weimar_coalition and z_relation >= 62; stegerwald if (in_right_coalition or chancellor = "Brüning" and panzerkreuzer_no = 1) and prussian_government = "Z"; deadlock if in_weimar_coalition and chancellor = "Brüning" and prussian_government = "Z" and z_relation >= 62; kaas
 
 @joos
 on-arrival: z_party_leader = "Joos"; catholics_spd += 5; workers_z += 3
