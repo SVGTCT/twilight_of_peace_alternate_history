@@ -3,7 +3,7 @@ new-page: true
 subtitle: The right-wing coalition has collapsed...
 tags: event
 view-if: year = 1929 and month >= 7 and young_plan_seen = 0 and in_right_coalition
-on-arrival: young_plan_seen = 1
+on-arrival: young_plan_seen = 1; collapse_pt = 1 if (z_party_leader = "Brauns" or z_party_leader = "Stegerwald" and z_relation < 35 and free_blutmai = 1);
 max-visits: 1
 
 = The Young Plan and the fall of the coalition
