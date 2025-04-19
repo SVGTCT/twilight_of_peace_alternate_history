@@ -1,0 +1,37 @@
+title: Center Party Conference, 1929
+subtitle: The Center Party convenes after the Young Plan fiasco...
+view-if: year = 1929 and month = 7 and (collapse_pt == 1 or z_party_leader = "Brauns");
+max-visits: 1
+priority: -1
+tags: event
+new-page: true
+on-arrival:
+face-image: img/Erich_Salomon_Adam_Stegerwald_Theodor_von_Guérard.jpg
+
+= 1929 Center Party Conference
+
+Since the foundation of the Weimar Republic, the Center Party could be trusted to uphold democracy in Germany. However, at the party's leadership conference last year, they took a tack to the right, electing [+ z_party_leader +].
+
+Now, with the collapse of the right-wing coalition concerning the Young Plan, many in the Center Party have been convinced that the party should take a tack to the right even further. 
+
+They have assembled again to discuss the party's future ahead of the Reichstag elections, and it seems the party will yet again move to the right.
+
+- @deliberate: The Center Party will deliberate...
+
+@deliberate
+on-arrival: z_relation -= 15; workers_z -= 6; old_middle_z += 6; pro_republic -= (catholics/3); nationalism += (catholics/3); catholics_spd += (catholics/3); catholics -= (catholics/4); z_party_leader = "Papen"; z_dnvp = 1;
+face-image:
+
+Riding what the Center perceives as a white horse in nationalism, the nobleman *Franz von Papen* has ousted the party leadership in a *coup d'état* to install himself as the new chairman.
+
+The Center was previously thought to be more enthusiastic to attack monarchists such as Papen than the far right itself, but it seems the party is taking a definitive new tack, one against the republic and democracy.
+
+However, even with his newfound grip on the centrists, Papen is still very unpopular among its voterbase as a whole. Many political Catholics will desert the party in light of its new direction, or their faith will become irrelevant to their politics.
+
+President Hindenburg has received this news more than enthusiastically. For now, the elections will proceed in their scheduled date, but the Center should not be expected to be willing to enter a Weimar Coalition, and the DNVP will be much more willing to enter one with the Center.
+
+This is a very troubling development...
+
+- @inter_party_relationships.liberals: We must make up for this by improving our relations with the liberals.
+- @inter_party_relationships.kpd: We must make up for this by improving our relations with the KPD.
+- @root: There is nothing we can do...
