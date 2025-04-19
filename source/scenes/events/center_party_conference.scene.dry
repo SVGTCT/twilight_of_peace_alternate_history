@@ -4,7 +4,6 @@ view-if: year = 1928 and month = 12 and z_party_leader = "Marx"
 max-visits: 1
 tags: event
 new-page: true
-on-arrival: joos_pt += 1 if in_weimar_coalition; joos_pt += 1 if z_relation > 62; joos_pt += 2 if z_relation > 70; kaas_pt += 1 if in_grand_coalition; kaas_pt += 1 if z_relation <= 62; stegerwald_pt += 1 if prussian_government == "Z"; stegerwald_pt += 1 if in_right_coalition; stegerwald_pt += 1 if chancellor == "Brüning"; stegerwald_pt += 1 if panzerkreuzer_failed == 1;
 face-image: img/Erich_Salomon_Adam_Stegerwald_Theodor_von_Guérard.jpg
 
 = Center Party Conference
@@ -18,7 +17,7 @@ Wilhelm Marx, former Center Party chancellor and presidential candidate, has cho
 - @deliberation: The Center Party will deliberate...
 
 @deliberation
-go-to: joos if joos_pt == 3; help_joos if joos_pt == 2 and stegerwald_pt <= 2; stegerwald if stegerwald_pt >= 3 and joos_pt <= 2 and kaas_point <= 2; kaas if kaas_pt == 2 and (stegerwald_pt == 1 or joos_pt == 1); deadlock
+go-to: joos if in_weimar_coalition and z_relation >= 70; help_joos if in_weimar_coalition and z_relation >= 62; stegerwald if (in_right_coalition or chancellor = "Brüning" and panzerkreuzer_failed = 1) and prussian_government = "Z"; deadlock if in_weimar_coalition and chancellor = "Brüning" and prussian_government = "Z" and z_relation >= 62; kaas
 
 @joos
 on-arrival: z_party_leader = "Joos"; catholics_spd += 5; workers_z += 3
@@ -68,4 +67,4 @@ Continuing with the party's rightward shift, the Center selects Adam Stegerwald 
 Elsewhere, expect very little from the Center Party to our benefit.
 
 @deadlock
-go-to: no if joos_pt == 2; kaas
+go-to: no
