@@ -139,6 +139,11 @@ Q.spd_prussia = 1;
 // Options: spd, z, dnvp, papen, nsdap
 Q.prussian_government = "SPD";
 
+// papen values
+Q.z_dnvp = 0;
+Q.free_blutmai = 0;
+Q.panzerkreuzer_no = 0;
+
 // The array of forces - paramilitary groups
 // Number of members in 1928 (in thousands)
 // Reichsbanner, stahlhelm, SA, rotfrontkämpferbund
