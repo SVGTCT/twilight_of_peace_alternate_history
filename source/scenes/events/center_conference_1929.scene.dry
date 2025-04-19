@@ -6,7 +6,7 @@ priority: -1
 tags: event
 new-page: true
 on-arrival:
-face-image: img/Erich_Salomon_Adam_Stegerwald_Theodor_von_Guérard.jpg
+face-image: img/portraits/Brauns-Heinrich-borbeck.jpg
 
 = 1929 Center Party Conference
 
@@ -20,7 +20,7 @@ They have assembled again to discuss the party's future ahead of the Reichstag e
 
 @deliberate
 on-arrival: z_relation -= 15; workers_z -= 6; old_middle_z += 6; pro_republic -= (catholics/3); nationalism += (catholics/3); catholics_spd += (catholics/3); catholics -= (catholics/4); z_party_leader = "Papen"; z_dnvp = 1;
-face-image:
+face-image: img/portraits/FranzVonPapenEn1933.jpg
 
 Riding what the Center perceives as a white horse in nationalism, the nobleman *Franz von Papen* has ousted the party leadership in a *coup d'état* to install himself as the new chairman.
 
@@ -34,4 +34,5 @@ This is a very troubling development...
 
 - @inter_party_relationships.liberals: We must make up for this by improving our relations with the liberals.
 - @inter_party_relationships.kpd: We must make up for this by improving our relations with the KPD.
+- @enemies.bourgeois: We must make up for this by defining the Center as our primary enemy in our electoral propaganda.
 - @root: There is nothing we can do...
