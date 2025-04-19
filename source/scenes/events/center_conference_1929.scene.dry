@@ -1,6 +1,6 @@
 title: Center Party Conference, 1929
 subtitle: The Center Party convenes after the Young Plan fiasco...
-view-if: year = 1929 and month = 7 and (collapse_pt = 1 or z_party_leader = "Brauns")
+view-if: year = 1929 and month = 7 and collapse_pt = 1
 max-visits: 1
 priority: -1
 tags: event
