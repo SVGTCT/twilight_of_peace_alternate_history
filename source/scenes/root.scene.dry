@@ -126,7 +126,7 @@ Q.kpd_leader = "Thälmann";
 // alternative is the Conciliators as party leader
 Q.kpd_party_leader = "Thälmann";
 Q.z_leader = "Brüning";
-// party leader - can be Ludwig Kaas, Joseph Joos, or Adam Stegerwald after the 1928 December conference. Joos will be most friendly to the SPD.
+// party leader - can be Ludwig Kaas, Joseph Joos, Adam Stegerwald, or Heinrich Brauns after the 1928 December conference. (later Franz von Papen) Joos will be most friendly to the SPD.
 Q.z_party_leader = "Marx";
 Q.nsdap_leader = "Hitler";
 
@@ -139,6 +139,8 @@ Q.spd_prussia = 1;
 // Options: spd, z, dnvp, papen, nsdap
 Q.prussian_government = "SPD";
 Q.prussian_minister_president = "Braun";
+Q.prussian_coalition = "Weimar";
+Q.prussian_bureaucracy = 0.6;
 
 // papen values
 Q.z_dnvp = 0;
