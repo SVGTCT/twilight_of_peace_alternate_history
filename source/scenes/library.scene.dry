@@ -103,7 +103,9 @@ Current cabinet:
 
 Labor: [+ labor_minister_party +]
 
-Interior: [+ interior_minister_party +][? if education_ministry = 1: {!<br><br>!}Education: [+ education_minister_party +] ?]
+Interior: [+ interior_minister_party +]
+
+[? if education_ministry = 1: Education: [+ education_minister_party +] ?]
 
 Finance: [+ finance_minister_party +]
 
