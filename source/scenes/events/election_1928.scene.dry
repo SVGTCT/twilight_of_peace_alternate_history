@@ -597,7 +597,7 @@ Since the Center Party was taken over by Franz von Papen, it has largely abandon
 title: As the Center will not work with us, there is no clear governing majority.
 view-if: z_dnvp = 1 and right_coalition < 50
 on-arrival: 
-go-to: @radical_z_spd if president != "Hindenburg" and z_relation > 35; radical_z_nsdap if right_coalition + nsdap_r >= 50 and president = "Hindenburg"; radical_z_schleicher if chancellor != "Schleicher" and chancellor != "Hitler" and president = "Hindenburg" and right_coalition + nsdap_r < 50; radical_z_hitler
+go-to: @radical_z_spd if president != "Hindenburg" and z_relation > 35; radical_z_nsdap if right_coalition + nsdap_r >= 50 and president = "Hindenburg"; radical_z_schleicher if chancellor != "Schleicher" and chancellor != "Hitler" and president = "Hindenburg" and right_coalition + nsdap_r < 50; radical_z_hitler if chancellor = "Schleicher";
 
 @radical_z_spd
 on-arrival:
