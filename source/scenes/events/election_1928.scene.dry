@@ -799,7 +799,7 @@ Who should be chancellor?
 
 @braun_chancellor_new
 subtitle: This will reduce our leverage in the ministries.
-view-if: (not historical_mode or not spd_prussia) and prussian_minister_president == "Braun"
+view-if: ((not historical_mode or not spd_prussia) and prussian_minister_president = "Braun")
 on-arrival: leverage -= 10; chancellor = "Braun"; chancellor_party = "SPD"
 go-to: ministries
 
@@ -807,7 +807,7 @@ We have assembled a new coalition under Otto Braun.
 
 @braun_chancellor_new_2
 subtitle: Braun was the Minister-President of Prussia, and is one of our most popular and experienced leaders.
-view-if: (not historical_mode or not spd_prussia) and prussian_minister_president != "Braun"
+view-if: ((not historical_mode or not spd_prussia) and prussian_minister_president != "Braun")
 on-arrival: chancellor = "Braun"; chancellor_party = "SPD"
 go-to: ministries
 
