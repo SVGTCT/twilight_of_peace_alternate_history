@@ -697,7 +697,7 @@ The NSDAP is not yet in total control of Germany, but they are readying their ir
 Not everyone supports this. Many leave the Center Party in protest. We are the resistance now. We must resist.
 
 @rz_wait
-choose-if: z_relation >= 55 and and ((right_coalition + nsdap_r) >= 50)
+choose-if: z_relation >= 55 and and right_coalition + nsdap_r >= 50
 subtitle: We can stop the Center from going ahead with this.
 on-arrival: z_relation -= 5; old_middle_spd -= 6; catholics_spd += 3;
 unavailable-subtitle: [? if z_relation < 55: There is nothing we can do. ?] [? if ((right_coalition + nsdap_r) < 50): The authoritarian right does not hold a majority. ?]
