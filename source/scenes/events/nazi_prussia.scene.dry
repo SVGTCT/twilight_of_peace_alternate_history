@@ -1,6 +1,6 @@
 title: Nazis in Prussia?
 subtitle: The far right consolidates in Prussia...
-view-if: nazis_resurge = 1 and year = 1935 and prussian_government != "SPD"
+view-if: nazis_resurge = 1 and nazi_prussia_timer <= 0 and prussian_government != "SPD"
 max-visits: 1
 priority: 3
 tags: event
@@ -39,7 +39,7 @@ on-arrival: resist_coup = 1; defense_strength = (rb_strength*0.9)*rb_militancy*(
 go-to: crackdown if defense_strength < (enemy_strength+100) and interior_minister_party != "SPD" and rb_stay = 0; win if defense_strength >= (enemy_strength+100); prussian_coup.defend_2_civil_war if defense_strength >= enemy_strength and defense_strength < (enemy_strength+100); loss
 
 @crackdown
-on-arrival: rb_strength *= 0.5; rb_militancy *= 0.5; prussian_police_loyalty -= 0.3 if prussian_police_loyalty >= 0.3; reichswehr_loyalty -= 0.2 if reichswehr_loyalty >= 0.2; z_relation -= 10; ddp_relation -= 5; dvp_relation -= 15; prussian_government = "NSDAP"; spd_prussia = 0; pro_republic -= 10;
+on-arrival: prussian_bureaucracy -= 0.15 if prussian_bureaucracy >= 0.15; rb_strength *= 0.5; rb_militancy *= 0.5; prussian_police_loyalty -= 0.3 if prussian_police_loyalty >= 0.3; reichswehr_loyalty -= 0.2 if reichswehr_loyalty >= 0.2; z_relation -= 10; ddp_relation -= 5; dvp_relation -= 15; prussian_government = "NSDAP"; prussian_minister_president = "Göring"; spd_prussia = 0; pro_republic -= 10;
 
 Despite our best efforts, the anti-democratic forces are able to overwhelm us, fighting on our own, and guarantee the NSDAP's appointment to the Prussian government.
 
@@ -48,7 +48,7 @@ The right is shocked by our anti-democratic intransigence. Not only do they cond
 The police, on their part, are thoughtlessly satisfied to go after more "reds". The Nazis move to quickly fire communists and social democrats from the civil service. There is nothing we can do.
 
 @loss
-on-arrival: z_relation -= 10; ddp_relation -= 5; dvp_relation -= 15; prussian_police_loyalty -= 0.15 if prussian_police_loyalty >= 0.15; spd_prussia = 0; prussian_government = "NSDAP"; pro_republic -= 10;
+on-arrival: z_relation -= 10; ddp_relation -= 5; dvp_relation -= 15; prussian_bureaucracy -= 0.15 if prussian_bureaucracy >= 0.15; prussian_police_loyalty -= 0.15 if prussian_police_loyalty >= 0.15; spd_prussia = 0; prussian_government = "NSDAP"; prussian_minister_president = "Göring"; pro_republic -= 10;
 
 Despite our best efforts, the anti-democratic forces are able to overwhelm us, fighting on our own, and guarantee the NSDAP's appointment to the Prussian government.
 
@@ -57,7 +57,7 @@ The right is shocked by our anti-democratic intransigence. They condemned it and
 The far right and the communists now accuse us of doing what we accuse them of doing: breaking the law and getting off scot-free. They could not explain the meaning of the word nuance if they tried.
 
 @win
-on-arrival: prussian_government = "SPD"; spd_prussia = 1; z_relation -= 5; ddp_relation -= 2; dvp_relation -= 5; prussian_police_loyalty += 0.05; sa_strength *= 0.8; sh_strength *= 0.8; pro_republic += 10; workers_spd += 6; unemployed_spd += 6; workers_nsdap -= 6; unemployed_nsdap -= 6; workers_z -= 6; unemployed_z -= 6;
+on-arrival: prussian_government = "SPD"; spd_prussia = 1; z_relation -= 5; ddp_relation -= 2; dvp_relation -= 5; prussian_bureaucracy += 0.05; prussian_police_loyalty += 0.05; sa_strength *= 0.8; sh_strength *= 0.8; pro_republic += 10; workers_spd += 6; unemployed_spd += 6; workers_nsdap -= 6; unemployed_nsdap -= 6; workers_z -= 6; unemployed_z -= 6;
 
 For better --or for worse--, we have defied the rule of law to defend democracy.
 
@@ -68,7 +68,7 @@ Though the bourgeois parties disapprove, we will be taking charge of the Prussia
 @funding
 choose-if: interior_minister_party == "SPD"
 unavailable-subtitle: We do not control the Interior Ministry.
-on-arrival: prussian_government = "NSDAP"; spd_prussia = 0; z_relation -= 5; ddp_relation -= 2; dvp_relation -= 5; prussian_police_loyalty -= 0.15 if prussian_police_loyalty >= 0.15; workers_spd -= 6; unemployed_spd -= 6; workers_nsdap += 6; unemployed_nsdap += 6; pro_republic -= 10;
+on-arrival: prussian_government = "NSDAP"; prussian_minister_president = "Göring"; spd_prussia = 0; z_relation -= 5; ddp_relation -= 2; dvp_relation -= 5; prussian_bureaucracy -= 0.15 if prussian_bureaucracy >= 0.15; prussian_police_loyalty -= 0.15 if prussian_police_loyalty >= 0.15; workers_spd -= 6; unemployed_spd -= 6; workers_nsdap += 6; unemployed_nsdap += 6; pro_republic -= 10;
 
 Interior Minister Severing freezes federal subsidies to Prussia.
 
@@ -81,7 +81,7 @@ It also does nothing, though we can say we tried. The Nazis do not care for the 
 @elections
 choose-if: catholics_spd >= 15 and pro_republic > 50 and spd_votes >= 30
 unavailable-subtitle: We do not have the votes.
-on-arrival: prussian_government = "I" if (president != "Braun" or president != "Schumacher" or president != "Juchacz"); prussian_government = "SPD" if (president == "Braun" or president == "Schumacher" or president == "Juchacz"); spd_prussia = 0 if prussian_government = "I"; z_relation -= 5; ddp_relation -= 2; dvp_relation -= 5; prussian_police_loyalty -= 0.1 if prussian_police_loyalty >= 0.1; pro_republic -= 5;
+on-arrival: prussian_government = "I" if (president != "Braun" or president != "Schumacher" or president != "Juchacz"); prussian_bureaucracy -= 0.1 if prussian_bureaucracy >= 0.1; prussian_government = "SPD" if (president == "Braun" or president == "Schumacher" or president == "Juchacz"); spd_prussia = 0 if prussian_government = "I"; z_relation -= 5; ddp_relation -= 2; dvp_relation -= 5; prussian_police_loyalty -= 0.1 if prussian_police_loyalty >= 0.1; pro_republic -= 5;
 
 We move to express that the Landtag does not have confidence in the new government, succeeding and scheduling elections for three months' time.
 
@@ -91,7 +91,7 @@ The bourgeois parties disapprove of this, and we still lose confidence from the 
 
 @iron_front
 view-if: iron_front_formed == 1
-on-arrival: prussian_police_loyalty -= 0.15 if prussian_police_loyalty >= 0.15; workers_spd -= 4; unemployed_spd -= 4; pro_republic -= 10; prussian_government = "NSDAP"; spd_prussia = 0;
+on-arrival: prussian_police_loyalty -= 0.15 if prussian_police_loyalty >= 0.15; prussian_bureaucracy -= 0.15 if prussian_bureaucracy >= 0.15; workers_spd -= 4; unemployed_spd -= 4; pro_republic -= 10; prussian_government = "NSDAP"; prussian_minister_president = "Göring"; spd_prussia = 0;
 
 Unfortunately, the Nazis move to quickly fire communists and social democrats from the civil service, as they have done before in Thuringia. We cannot address that.
 
@@ -104,7 +104,7 @@ However, the Iron Front is our antifascist coordination front, consisting of the
 - @iron_front.antisemitism
 
 @nothing
-on-arrival: prussian_police_loyalty -= 0.15 if prussian_police_loyalty >= 0.15; workers_spd -= 4; unemployed_spd -= 4; pro_republic -= 10; prussian_government = "NSDAP"; spd_prussia = 0;
+on-arrival: prussian_police_loyalty -= 0.15 if prussian_police_loyalty >= 0.15; prussian_bureaucracy -= 0.15 if prussian_bureaucracy >= 0.15; workers_spd -= 4; unemployed_spd -= 4; pro_republic -= 10; prussian_government = "NSDAP"; prussian_minister_president = "Göring"; spd_prussia = 0;
 
 The Nazis quickly move to fire communists and social democrats from the civil service, as they have done before in Thuringia. 
 
