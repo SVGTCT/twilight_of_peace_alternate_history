@@ -35,8 +35,6 @@ President: [+ president +]
 
 Chancellor: [+ chancellor +] ([+ chancellor_party +])
 
-Prussian Government: [+ prussian_minister_president +] ([+ prussian_government +])
-
 Reichstag composition:
 
 # 1928: 30, 1930: 25, 1932: 22
@@ -60,6 +58,14 @@ Others: [+ other_r +]%
 [? if spd_in_government = 1 : Budget: [+ budget +] ?]
 
 Next election: [+ next_election_month : month +] [+ next_election_year +]
+
+= Prussia
+
+Prussian Government: [+ prussian_minister_president +] ([+ prussian_government +])
+
+Governing Coalition: [+ prussian_coalition +]
+
+Prussian Civil Service: [+ prussian_bureaucracy : bureaucracy +]
 
 = Economics
 
