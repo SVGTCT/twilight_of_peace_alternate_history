@@ -590,9 +590,134 @@ on-arrival: spd_in_government = 0; spd_toleration = 0; chancellor = "Papen"; cha
 
 Since the Center Party was taken over by Franz von Papen, it has largely abandoned its democratic values. It would much sooner engage in a coalition with the DNVP instead of the SPD. With their majority, and the DNVP much happier to enter a coalition with Papen than let the "socialists" into government, there is nothing we can do.
 
+# use of "left" presidency -- note
+
+@radical_zentrum
+title: As the Center will not work with us, there is no clear governing majority.
+view-if: z_dnvp = 1 and right_coalition < 50
+on-arrival: 
+go-to: @radical_z_spd if president != "Hindenburg" and z_relation > 35; radical_z_nsdap if right_coalition + nsdap_r >= 50 and president = "Hindenburg"; radical_z_schleicher if chancellor != "Schleicher" and chancellor != "Hitler" and president = "Hindenburg" and right_coalition + nsdap_r < 50; radical_z_hitler
+
+@radical_z_spd
+on-arrival:
+
+Owing to our existing connections in the Center Party, and the lack of a right-wing majority, we can convince Papen to enter a Grand Coalition for stability's sake, even if the party leadership is hostile to the idea. Cynically, Papen may even see this as accelerating our demise. We would have to concede the Chancellery in any case.
+
+- @radical_grand: We can try to form a Grand Coalition.
+- @radical_const: We can try to form a "New Grand Coalition" of all the constitutional parties.
+- @new_elections: We will have new elections instead.
+- @no_maj: There is no majority in any case.
+
+@radical_grand
+view-if: grand_coalition >= 50 and grand_coalition_failed == 0
+subtitle: SPD + Z + BVP + [+ ddp_name +] + DVP ([+ grand_coalition +]%)
+on-arrival: in_grand_coalition = 1; in_popular_front = 0; in_left_front = 0
+
+There are enough votes to form a majority coalition consisting of the SPD, Center (Z), Bavarian People's (BVP), Democratic ([+ ddp_name +]), and People's (DVP) parties. Given [? if (spd_r < 30 or largest_party != "SPD"): our rather weak electoral performance, and ?] [? if spd_no_confidence = 1 : our previous vote of no confidence against the government, ?][? if no_confidence_against_spd = 1 : the vote of no confidence against us, ?] President Hindenburg has asked the Center Party to take the lead role in forming a government.
+
+The Chancellor would likely be Theodor von Guérard, of the Center Party. Alongside the party leadership, he is hesitant about forming a broad coalition, but is not opposed to it. Alternatively, we could simply express our confidence in the government, and enter a "toleration" agreement.
+
+- @join_guerard: Join the Guérard coalition.
+- @guerard_oppo: Join the opposition.
+- @toleration_guerard: We will "tolerate" a minority Guérard government.
+- @radical_const
+
+@join_guerard
+view-if: grand_coalition >= 50 or neo_weimar_coalition >= 50
+on-arrival: spd_in_government = 1; spd_toleration = 0; in_grand_coalition = 1; chancellor = "Guérard"; chancellor_party = "Z"; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = "Z"; labor_minister_party = "DVP"; reichswehr_minister_party = "I"; economic_minister_party = "DVP"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; leverage = 20 if leverage >= 20;
+go-to: ministries
+
+Theodor von Guérard welcomes us into his new cabinet. Now, we have our pick of ministries.
+
+@guerard_oppo
+on-arrival: spd_in_government = 0; spd_toleration = 0; chancellor = "Guérard"; chancellor_party = "Z"; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = "Z"; labor_minister_party = "DVP"; reichswehr_minister_party = "I"; economic_minister_party = "DVP"; finance_minister_party = "Z"; agriculture_minister_party = "Z"; grand_coalition_failed = 1
+
+By refusing to join the grand coalition or tolerating it, we essentially throw the balance of government to the right wing. 
+
+If we do not at least "tolerate" the government, there will be new elections in a few months. In the meantime, the President and Chancellor may use the emergency powers granted by Article 48 of the constitution to essentially govern by decree. And it is not at all clear that we will do any better in the next election.
+
+- @join_guerard: Join the Guérard coalition.
+- @toleration_guerard: We will tolerate Guérard after all.
+- @brauns_dilemma
+- @new_elections: New elections, it is!
+
+@toleration_guerard
+choose-if: neo_weimar_coalition >= 50
+unavailable-subtitle: The parties supporting Guérard do not have a majority.
+on-arrival: spd_in_government = 0; spd_toleration = 1; minority_government = 1; chancellor = "Guérard"; chancellor_party = "Z"; foreign_minister_party = "Z"; interior_minister_party = "DVP"; justice_minister_party = "I"; labor_minister_party = "DVP"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; finance_minister_party = "Z,"; agriculture_minister_party = "Z"; pro_republic -= 4; new_middle_dvp -= 5; new_middle_ddp -= 5; old_middle_dvp -= 5; old_middle_ddp -= 5; old_middle_nsdap += 5; new_middle_nsdap += 5; rural_dnvp -= 5;
+
+We have decided to tolerate Guérard's government. This means that we will vote against no-confidence votes to make sure they fail, but also that we will not be directly participating as ministers in the government. Thus, we can prevent a new election and stop the far right from entering government.
+
+@radical_const
+subtitle: SPD + Z + BVP + [+ ddp_name +] + DVP + Others ([+ neo_weimar_coalition +]%)
+view-if: neo_weimar_coalition >= 50 and grand_coalition < 50 and 
+unavailable-subtitle: SPD + Z + BVP + [+ ddp_name +] + DVP + Others ([+ neo_weimar_coalition +]%) - [? if z_relation < 50 : We do not have adequate relations with the Center Party. ?][? if dvp_relation < 30 : We do not have adequate relations with the DVP. ?]
+
+- @rz_use_resources
+- @toleration_guerard: No. We will tolerate a minority government.
+- @new_elections: No. We will have new elections.
+
+@rz_use_resources
+title: Use our resources to smooth over the creation of a coalition.
+subtitle: -2 resources
+unavailable-subtitle: Not enough resources (need 2).
+choose-if: resources >= 2
+on-arrival: resources -= 2; spd_in_government = 1; in_grand_coalition = 1; left_dissent += 4; chancellor = "Guérard"; chancellor_party = "Z"; foreign_minister_party = "Z"; interior_minister_party = "Z"; justice_minister_party = "I"; labor_minister_party = "DVP"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; finance_minister_party = "DVP"; agriculture_minister_party = "Z"; leverage = 20 if leverage >= 20;
+achievement: constitutional_coalition
+go-to: ministries
+
+We transfer some of our campaign funds to our putative coalition partners. Some would call this corruption, but perhaps it is necessary to save our democracy.
+
+Now, we have a new grand coalition, a "Constitutional Coalition" of all the non-fascist and non-communist parties. Leftists in our party are somewhat sceptical of this arrangement. 
+
+The Chancellor will be Theodor von Guérard, of the Center Party. Now, we have our pick of ministries.
+
+@radical_z_nsdap
+on-arrival: pro_republic -= 4; nationalism += 4;
+
+Unfortunately, the right wing parties have discovered that the Nazi (NSDAP) party could give them a majority. President Hindenburg seems to approve of the idea, and it is unlikely we will be able to pressure the Center away from their rightward turn.
+
+- @rz_nothing: There is nothing we can do.
+- @rz_wait: Wait! Can we dissuade the Center from going ahead with this?
+
+@rz_nothing
+on-arrival: spd_in_government = 0; spd_toleration = 0; chancellor = "Papen"; chancellor_party = "Z"; foreign_minister_party = "Z"; interior_minister_party = "NSDAP"; justice_minister_party = "DNVP"; labor_minister_party = "DVP"; reichswehr_minister_party = "I"; economic_minister_party = "DVP"; finance_minister_party = "Z"; agriculture_minister_party = "DNVP"; education_ministry = 1; education_minister_party = "NSDAP"; in_right_coalition = 1; nsdap_confidence = 1; workers_nsdap += 6; unemployed_nsdap += 6; old_middle_nsdap += 6; workers_spd -= 6; unemployed_spd -= 6; catholics_spd += 6;
+subtitle: The Nazis will use the government against us.
+choose-if: z_relation < 55
+unavailable-subtitle: We cannot let this happen.
+
+The NSDAP is not yet in total control of Germany, but they are readying their iron grip. They take the Interior Ministry and the newly-created Education Ministry as their price for government, and are sure to use it for propaganda and persecuting socialists.
+
+Not everyone supports this. Many leave the Center Party in protest. We are the resistance now. We must resist.
+
+@rz_wait
+choose-if: z_relation >= 55
+subtitle: We can stop the Center from going ahead with this.
+on-arrival: z_relation -= 5; old_middle_spd -= 6; catholics_spd += 3;
+unavailable-subtitle: There is nothing we can do.
+go-to: radical_z_schleicher
+
+Thanks to our connections with the remaining moderates in the Center Party, we are able to stop them from going ahead, much to the chagrin of President Hindenburg and Papen.
+
+@radical_z_schleicher
+on-arrival: chancellor = "Schleicher"; pro_republic -= 10; next_election_time = time+5; next_election_month = month + 5; next_election_year = year; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; workers_nsdap += 5; unemployed_nsdap += 10; old_middle_nsdap += 5; new_middle_nsdap += 5; rural_nsdap += 10; workers_spd -= 8 if pro_republic < 45; workers_spd *= 0.85 if pro_republic < 40; workers_nsdap += 5 if pro_republic < 40; finance_minister_party = "I"; interior_minister_party = "I"; economic_minister_party = "I"; labor_minister_party = "I"; foreign_minister_party = "I"; agriculture_minister_party = "I"; reichswehr_minister = "I";
+
+There is no path to a majority government. Hindenburg is deeply displeased with Papen, whom he had expected to have a breakthrough from. Now, former army general Kurt von Schleicher has been appointed chancellor, again as part of a presidential government.
+
+Schleicher's government is deeply unpopular among all parties of the Reichstag. Despite his support for a right wing coalition with Nazi support, the Nazis want power all to themselves, without Schleicher, and the right-wing parties do not trust him.
+
+New elections have been set for [+ next_election_month : month +] [+ next_election_year +].
+
+@radical_z_hitler
+on-arrival: chancellor = "Hitler"; chancellor_party = "NSDAP"
+
+There is no path to a majority government for now. The scheming around President Hindenburg is leading to only one path - that of Chancellor Adolf Hitler. [? if largest_party == "NSDAP" : Since they are the largest party, it is not exactly contrary to parliamentary procedure, so it is difficult to raise objections solely on procedural grounds. ?] [? if hitler_deported: Despite his earlier deportation, the Nazi leaders and their reactionary allies have connived for the president to give him German citizenship after all. ?]
+
+- @hitler_takes_power: What now?
+
 @no_majority
 title: There is no clear governing majority.
-view-if: weimar_coalition < 50 and (grand_coalition < 50 or grand_coalition_failed == 1) and president = "Hindenburg" and far_right_coalition < 50
+view-if: ((weimar_coalition < 50 and (grand_coalition < 50 or grand_coalition_failed == 1) and president = "Hindenburg" and far_right_coalition < 50)
 on-arrival: no_majority_elections += 1
 go-to: no_majority_bruning if chancellor = "Brüning" or chancellor = "Wirth"; no_majority_papen if chancellor = "Papen" and no_majority_papen_elections == 0; no_majority_papen_2 if chancellor == "Papen" and no_majority_papen_elections > 0; no_majority_schleicher if chancellor = "Schleicher"; no_majority_spd if chancellor_party = "SPD" or chancellor == "Marx"
 
