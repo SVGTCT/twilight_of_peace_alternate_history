@@ -1,7 +1,7 @@
 title: The Nazis are purging the civil service and Reichsbanner!
 subtitle: The NSDAP is using the Interior Ministry against us...
 view-if: ((interior_minister_party = "NSDAP" and chancellor != "Hitler") or nazi_state = 1) and nazi_purge_timer <= 0
-max-visits:
+#max-visits:
 priority: 3
 tags: event
 new-page: true
