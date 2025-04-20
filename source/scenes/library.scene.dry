@@ -61,7 +61,6 @@ go-to: menu
 **1926**: A referendum on the expropriation of the princes, supported by the SPD and KPD, fails.
 
 @curr_gov
-go-to: cabinet if spd_in_government; menu if not spd_in_government
 
 = Current Government
 
