@@ -689,7 +689,7 @@ Unfortunately, the right wing parties have discovered that the Nazi (NSDAP) part
 @rz_nothing
 on-arrival: spd_in_government = 0; spd_toleration = 0; chancellor = "Papen"; chancellor_party = "Z"; foreign_minister_party = "Z"; interior_minister_party = "NSDAP"; justice_minister_party = "DNVP"; labor_minister_party = "DVP"; reichswehr_minister_party = "I"; economic_minister_party = "DVP"; finance_minister_party = "Z"; agriculture_minister_party = "DNVP"; education_ministry = 1; education_minister_party = "NSDAP"; in_right_coalition = 1; nsdap_confidence = 1; workers_nsdap += 6; unemployed_nsdap += 6; old_middle_nsdap += 6; workers_spd -= 6; unemployed_spd -= 6; catholics_spd += 6;
 subtitle: The Nazis will use the government against us.
-choose-if: z_relation < 55 and ((right_coalition + nsdap_r) >= 50)
+choose-if: z_relation < 55 and right_coalition + nsdap_r >= 50
 unavailable-subtitle: We cannot let this happen.
 
 The NSDAP is not yet in total control of Germany, but they are readying their iron grip. They take the Interior Ministry and the newly-created Education Ministry as their price for government, and are sure to use it for propaganda and persecuting socialists.
@@ -697,16 +697,16 @@ The NSDAP is not yet in total control of Germany, but they are readying their ir
 Not everyone supports this. Many leave the Center Party in protest. We are the resistance now. We must resist.
 
 @rz_wait
-choose-if: z_relation >= 55 and and right_coalition + nsdap_r >= 50
+choose-if: z_relation >= 55 and right_coalition + nsdap_r >= 50
 subtitle: We can stop the Center from going ahead with this.
 on-arrival: z_relation -= 5; old_middle_spd -= 6; catholics_spd += 3;
-unavailable-subtitle: [? if z_relation < 55: There is nothing we can do. ?] [? if ((right_coalition + nsdap_r) < 50): The authoritarian right does not hold a majority. ?]
+unavailable-subtitle: [? if z_relation < 55: There is nothing we can do. ?] [? if right_coalition + nsdap_r < 50: The authoritarian right does not hold a majority. ?]
 go-to: radical_z_schleicher
 
 Thanks to our connections with the remaining moderates in the Center Party, we are able to stop them from going ahead, much to the chagrin of President Hindenburg and Papen.
 
 @rz_no_maj
-view-if: ((right_coalition + nsdap_r) < 50)
+view-if: right_coalition + nsdap_r < 50
 go-to: radical_z_schleicher
 
 Thankfully, the authoritarian right does not hold a majority.
