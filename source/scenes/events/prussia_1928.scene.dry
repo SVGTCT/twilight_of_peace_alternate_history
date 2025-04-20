@@ -30,12 +30,12 @@ We renew our commitment to democracy and to the Republic by continuing the Weima
 
 @stegerwald
 face-image: img/portraits/StegerwaldAdam2.jpg
-on-arrival: left_dissent += 5; center_dissent += 5; reformist_dissent += 5; labor_dissent += 5; prussian_government = "Z"; z_relation += 10; ddp_relation += 6; dvp_relation += 4;
+on-arrival: left_dissent += 5; center_dissent += 5; reformist_dissent += 5; labor_dissent += 5; prussian_government = "Z"; prussian_bureaucracy -= 0.02; prussian_minister_president = "Stegerwald"; z_relation += 10; ddp_relation += 6; dvp_relation += 4;
 
 For better or for worse, we are giving Adam Stegerwald control of Prussia. We are still in control of the police, and Stegerwald supports democracy. Perhaps it is worth it to ameliorate our relations with the Center Party, particularly ahead of coalition talks.
 
 @dvp
-on-arrival: left_dissent += 5; center_dissent += 5; reformist_dissent += 5; labor_dissent += 5; z_relation += 5; ddp_relation += 5; dvp_relation += 10;
+on-arrival: left_dissent += 5; center_dissent += 5; reformist_dissent += 5; labor_dissent += 5; z_relation += 5; ddp_relation += 5; dvp_relation += 10; prussian_bureaucracy -= 0.05; prussian_coalition = "Grand";
 
 The DVP helps us establish a stronger majority, and bringing in another bourgeois coalition partner will greatly please the middle class, with talks of a "balancing act" and "moderation. On the other hand, it helps the SPD in no way, and the party's membership knows that.
 
