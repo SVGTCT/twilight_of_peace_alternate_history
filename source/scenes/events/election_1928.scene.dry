@@ -620,7 +620,7 @@ The Chancellor would likely be Theodor von Guérard, of the Center Party. Alongs
 - @join_guerard: Join the Guérard coalition.
 - @guerard_oppo: Join the opposition.
 - @toleration_guerard: We will "tolerate" a minority Guérard government.
-- @radical_const
+- @radical_const: We can try to form a "New Grand Coalition" of all the constitutional parties instead.
 
 @join_guerard
 view-if: grand_coalition >= 50 or neo_weimar_coalition >= 50
