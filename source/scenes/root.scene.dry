@@ -140,7 +140,7 @@ Q.spd_prussia = 1;
 Q.prussian_government = "SPD";
 Q.prussian_minister_president = "Braun";
 Q.prussian_coalition = "Weimar";
-Q.prussian_bureaucracy = 0.6;
+Q.prussian_bureaucracy = 0.58;
 
 // papen values
 Q.z_dnvp = 0;
