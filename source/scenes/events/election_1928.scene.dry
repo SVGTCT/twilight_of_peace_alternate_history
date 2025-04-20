@@ -1335,7 +1335,7 @@ We have assembled a new coalition under Otto Braun.
 
 @braun
 title: Otto Braun for Chancellor
-view-if: not historical_mode or not spd_prussia
+view-if: (not historical_mode or not spd_prussia) and prussian_minister_president == "Braun"
 subtitle: Braun is currently the Minister-President of Prussia, and is one of our most popular leaders. However, other parties may have qualms about concentrating too much power in one man.
 
 The Center party has significant qualms about appointing Braun as chancellor, given that he is already Minister-President of Prussia. They ask for either more cabinet positions, or for Braun to resign his state government role. The latter is completely unacceptable.
