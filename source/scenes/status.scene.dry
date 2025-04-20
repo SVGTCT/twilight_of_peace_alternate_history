@@ -65,7 +65,7 @@ Prussian Government: [+ prussian_minister_president +] ([+ prussian_government +
 
 Governing Coalition: [+ prussian_coalition +]
 
-Prussian Civil Service: [+ prussian_bureaucracy : bureaucracy +]
+{!<span class="tooltip-text" title="The Prussian bureaucracy is an established pillar of the state, but recently it has come under attack from political factions.">Prussian Civil Service</span>!}: [+ prussian_bureaucracy : bureaucracy +]
 
 = Economics
 
