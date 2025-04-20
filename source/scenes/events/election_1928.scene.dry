@@ -806,7 +806,7 @@ achievement: constitutional_coalition
 
 We transfer some of our campaign funds to our putative coalition partners. Some would call this corruption, but perhaps it is necessary to save our democracy.
 
-Now, we have a new grand coalition, a "Constitutional Coalition" of all the non-fascist and non-communist parties. Leftists in our party are somewhat skeptical of this arrangement. 
+Now, we have a new grand coalition, a "Constitutional Coalition" of all the non-fascist and non-communist parties. Leftists in our party are somewhat sceptical of this arrangement. 
 
 
 Who should be chancellor?
@@ -825,7 +825,7 @@ We have assembled a new coalition under Otto Braun.
 
 @braun_chancellor_new_2
 subtitle: Braun was the Minister-President of Prussia, and is one of our most popular and experienced leaders.
-view-if: ((not historical_mode or not spd_prussia) and prussian_minister_president != "Braun")
+view-if: prussian_minister_president != "Braun"
 on-arrival: chancellor = "Braun"; chancellor_party = "SPD"
 go-to: ministries
 
@@ -1106,6 +1106,7 @@ Who should be the chancellor?
 
 - @muller
 - @braun
+- @braun_left
 - @breitscheid_coalition_chancellor
 - @wels
 - @z_chancellor
