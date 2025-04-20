@@ -1326,7 +1326,7 @@ Otto Wels's appointment as chancellor is approved by our potential allies.
 
 @braun_left
 title: Otto Braun for Chancellor
-view-if: (not historical_mode or not spd_prussia) and prussian_minister_president != "Braun"
+view-if: prussian_minister_president != "Braun"
 subtitle: Braun was the Minister-President of Prussia, and is one of our most popular and experienced leaders.
 on-arrival: spd_in_government = 1; chancellor = "Braun"; chancellor_party = "SPD"; in_grand_coalition = 1 if in_weimar_coalition == 0
 go-to: ministries
