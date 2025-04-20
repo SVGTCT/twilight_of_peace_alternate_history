@@ -416,6 +416,8 @@ Q.finance_minister = 'Köhler';
 Q.finance_minister_party = 'Z';
 Q.agriculture_minister = 'Schiele';
 Q.agriculture_minister_party = 'DNVP';
+Q.education_ministry = 0;
+Q.nsdap_confidence = 0;
 
 // Events: what has occurred?
 Q.panzerkreuzer_seen = 0;
