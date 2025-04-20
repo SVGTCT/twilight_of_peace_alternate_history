@@ -606,7 +606,7 @@ Owing to our existing connections in the Center Party, and the lack of a right-w
 - @radical_grand: We can try to form a Grand Coalition.
 - @radical_const: We can try to form a "New Grand Coalition" of all the constitutional parties.
 - @new_elections: We will have new elections instead.
-- @no_maj: There is no majority in any case.
+- @no_majority: There is no majority in any case.
 
 @radical_grand
 view-if: grand_coalition >= 50 and grand_coalition_failed == 0
