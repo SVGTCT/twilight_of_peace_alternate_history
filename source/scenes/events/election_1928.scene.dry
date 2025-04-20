@@ -650,7 +650,7 @@ We have decided to tolerate Guérard's government. This means that we will vote 
 
 @radical_const
 subtitle: SPD + Z + BVP + [+ ddp_name +] + DVP + Others ([+ neo_weimar_coalition +]%)
-view-if: neo_weimar_coalition >= 50 and grand_coalition < 50 and 
+view-if: neo_weimar_coalition >= 50 and grand_coalition < 50 
 unavailable-subtitle: SPD + Z + BVP + [+ ddp_name +] + DVP + Others ([+ neo_weimar_coalition +]%) - [? if z_relation < 50 : We do not have adequate relations with the Center Party. ?][? if dvp_relation < 30 : We do not have adequate relations with the DVP. ?]
 
 - @rz_use_resources
