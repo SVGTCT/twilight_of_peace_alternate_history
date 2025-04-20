@@ -12,6 +12,7 @@ Herein contains relevant information about the government and politics of the Ge
 - @government: Germany's system of government
 - @weimar_timeline: Timeline of the Weimar Republic before 1928
 - @curr_gov: Current government details
+- @cabinet: Current state of ministries.
 - @demographics: Demographics
 - @parties: Parties
 - @public_opinion: Public opinion (and projected election results)
