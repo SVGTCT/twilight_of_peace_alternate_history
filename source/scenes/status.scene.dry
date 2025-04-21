@@ -67,7 +67,7 @@ Governing Coalition: [+ prussian_coalition +]
 
 {!<span class="tooltip-text" title="The Prussian bureaucracy is an established pillar of the state, but recently it has come under attack from political factions.">Prussian Civil Service</span>!}: [+ prussian_bureaucracy : bureaucracy +]
 
-[? if spd_prussia = 1 and time >= 4: {!<span class="tooltip-text" title="Our available budget in Prussia, a combination of federal subsidies and state taxes, such as in real estate.">Prussian Budget</span>!}: [+ prussian_budget  +] ?]
+[? if spd_prussia = 1 and time >= 5: {!<span class="tooltip-text" title="Our available budget in Prussia, a combination of federal subsidies and state taxes, such as in real estate.">Prussian Budget</span>!}: [+ prussian_budget  +] ?]
 
 = Economics
 
