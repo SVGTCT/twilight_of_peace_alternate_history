@@ -28,8 +28,8 @@ on-arrival: rb_strength *= 0.85; rb_militancy *= 0.8; prussian_bureaucracy *= 0.
 
 Fearing for their lives and their families' safety, many of its members begin to leave the Reichsbanner. Many SPD-connected civil servants resign, so as not to be done the dishonour of being fired.
 
-[? if rb_militancy < 0.2 and not spd_in_government and not spd_prussia and resources == 0: There is nothing we can do. ?]
-[? if rb_militancy >= 0.2 or spd_in_government or spd_prussia or resources > 0: As Germany burns, we play Nero's fiddle. History will do right to remember us as cowards. ?]
+[? if rb_militancy < 0.2 and spd_in_government = 0 and spd_prussia = 0 and resources == 0: There is nothing we can do. ?]
+[? if rb_militancy >= 0.2 or spd_in_government = 1 or spd_prussia = 1 or resources > 0: As Germany burns, we play Nero's fiddle. History will do right to remember us as cowards. ?]
 
 @underground
 view-if: rb_militancy >= 0.2 
@@ -57,8 +57,8 @@ on-arrival: budget -= 1; rb_militancy += 0.05; interior_police_loyalty += 0.05;
 We have used the Interior Ministry to arm the Reichsbanner. Very well.
 
 @ug_prussia
-choose-if: spd_prussia and budget > 0
-unavailable-subtitle: [? if not spd_prussia: We do not control Prussia. ?][? if prussian_budget <= 0: Not enough budget. ?]
+choose-if: spd_prussia = 1 and budget > 0
+unavailable-subtitle: [? if spd_prussia = 0: We do not control Prussia. ?][? if prussian_budget <= 0: Not enough budget. ?]
 subtitle: -1 budget in Prussia. 
 on-arrival: prussian_budget -= 1; rb_militancy += 0.05; prussian_police_loyalty += 0.05;
 
@@ -100,7 +100,7 @@ on-arrival: rb_strength *= 0.85; rb_militancy *= 0.85; workers_nsdap += 3; unemp
 Using our existing connections, we are able to remove the most hostile elements of the Reichswehr, shaping its leadership to be more friendly to us, especially in unconventional situations.
 
 @consolidate_no_gov
-view-if: not spd_in_government
+view-if: spd_in_government = 0
 choose-if: resources > 0
 subtitle: -1 resource.
 unavailable-subtitle: Not enough resources (need 1).
