@@ -1453,6 +1453,18 @@ go-to: ministries
 
 Carl Severing of the SPD has been appointed Interior Minister.
 
+@education
+title: Education Ministry
+subtitle: The Education Ministry is a new ministry, designed to give the government excessive influence in education and science.
+unavailable-subtitle: We do not have enough leverage.
+tags: mins_1928
+choose-if: leverage >= 5
+view-if: education_minister_party != "SPD" and education_ministry = 1
+on-arrival: leverage -= 5; education_minister_party = "SPD"; education_minister = "Siemsen"
+go-to: ministries
+
+Anna Siemsen of the SPD has been appointed Education Minister.
+
 @finance
 title: Finance Ministry
 subtitle: The Finance Ministry controls the government budget and taxes.
