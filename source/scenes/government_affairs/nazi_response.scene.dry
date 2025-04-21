@@ -24,7 +24,7 @@ We must develop a strategy to resist the Nazi purges directly.
 - @consolidate_no_gov: We will try to infiltrate the security services and forge relations with the Interior Police and Reichswehr.
 
 @nothing
-on-arrival: rb_strength *= 0.85; rb_militancy *= 0.8; prussian_bureaucracy *= 0.8; workers_nsdap += 3; unemployed_nsdap += 3; workers_spd -= 3;
+on-arrival: rb_strength *= 0.95; rb_militancy *= 0.95; prussian_bureaucracy *= 0.95; workers_nsdap += 3; unemployed_nsdap += 3; workers_spd -= 3;
 
 Fearing for their lives and their families' safety, many of its members begin to leave the Reichsbanner. Many SPD-connected civil servants resign, so as not to be done the dishonour of being fired.
 
@@ -36,7 +36,7 @@ view-if: rb_militancy >= 0.2
 choose-if: resources >= rb_militarization_cost
 subtitle: -[+ rb_militarization_cost +] resources.
 unavailable-subtitle: Not enough resources (need [+ rb_militarization_cost +]).
-on-arrival: rb_strength *= 0.9; rb_strength += 30; rb_militancy += 0.1; left_strength += 2; left_dissent -= 2; reformist_dissent += 5; prussian_bureaucracy *= 0.8; workers_nsdap += 3; unemployed_nsdap += 3;
+on-arrival: rb_strength *= 0.98; rb_strength += 30; rb_militancy += 0.1; left_strength += 2; left_dissent -= 2; reformist_dissent += 5; prussian_bureaucracy *= 0.95; workers_nsdap += 3; unemployed_nsdap += 3;
 
 Fearing for their lives and their families' safety, its established members largely leave the Reichsbanner. Many SPD-connected civil servants resign, so as not to be done the dishonour of being fired.
 
@@ -77,7 +77,7 @@ view-if: spd_prussia = 1
 choose-if: prussian_police_loyalty >= 0.7
 subtitle: Infiltrate the police and civil service.
 unavailable-subtitle: We do not have adequate relations with the Prussian Police.
-on-arrival: rb_strength *= 0.85; rb_militancy *= 0.85; workers_nsdap += 3; unemployed_nsdap += 3; prussian_bureaucracy += 0.05; prussian_bureaucracy += 0.05 if prussian_bureaucracy >= 0.59; prussian_police_loyalty += 0.1;
+on-arrival: rb_strength *= 0.98; rb_militancy *= 0.98; workers_nsdap += 3; unemployed_nsdap += 3; prussian_bureaucracy += 0.05; prussian_bureaucracy += 0.05 if prussian_bureaucracy >= 0.59; prussian_police_loyalty += 0.1;
  
 Using our existing connections, we purge the Prussian Police and Civil Service, removing elements unfriendly or neutral to us and reforming their leadership to ensure they will support us.
 
@@ -86,7 +86,7 @@ view-if: interior_minister_party = "SPD"
 choose-if: interior_police_loyalty >= 0.7
 subtitle: Infiltrate the Interior Police.
 unavailable-subtitle: We do not have adequate relations with the Interior Police.
-on-arrival: rb_strength *= 0.85; rb_militancy *= 0.85; workers_nsdap += 3; unemployed_nsdap += 3; prussian_bureaucracy -= 0.04; interior_police_loyalty += 0.1;
+on-arrival: rb_strength *= 0.98; rb_militancy *= 0.98; workers_nsdap += 3; unemployed_nsdap += 3; prussian_bureaucracy *= 0.98; interior_police_loyalty += 0.1;
 
 Using our existing connections, we purge the Interior Police and, to a lesser extent, the federal civil service, removing elements unfriendly or neutral to us and reforming their leadership to ensure they will support us.
 
@@ -95,7 +95,7 @@ view-if: reichswehr_minister_party = "SPD"
 choose-if: reichswehr_loyalty >= 0.6
 subtitle: Infiltrate the Armed Forces.
 unavailable-subtitle: We do not have adequate relations with the Reichswehr.
-on-arrival: rb_strength *= 0.85; rb_militancy *= 0.85; workers_nsdap += 3; unemployed_nsdap += 3; prussian_bureaucracy -= 0.05; reichswehr_loyalty += 0.05;
+on-arrival: rb_strength *= 0.98; rb_militancy *= 0.98; workers_nsdap += 3; unemployed_nsdap += 3; prussian_bureaucracy *= 0.95; reichswehr_loyalty += 0.05;
 
 Using our existing connections, we are able to remove the most hostile elements of the Reichswehr, shaping its leadership to be more friendly to us, especially in unconventional situations.
 
@@ -104,7 +104,7 @@ view-if: spd_in_government = 0
 choose-if: resources > 0
 subtitle: -1 resource.
 unavailable-subtitle: Not enough resources (need 1).
-on-arrival: rb_strength *= 0.85; rb_militancy *= 0.85; workers_nsdap += 3; unemployed_nsdap += 3; prussian_bureaucracy -= 0.04; reichswehr_loyalty += 0.05; interior_police_loyalty += 0.05;
+on-arrival: rb_strength *= 0.98; rb_militancy *= 0.98; workers_nsdap += 3; unemployed_nsdap += 3; prussian_bureaucracy *= 0.98; reichswehr_loyalty += 0.05; interior_police_loyalty += 0.05;
 
 Even though we are out of government, we use our resources to guarantee the support of the less ideological parts of the Reichswehr and Interior Police.
  
