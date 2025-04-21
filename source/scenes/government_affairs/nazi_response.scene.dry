@@ -73,7 +73,7 @@ on-arrival: resources -= 1; rb_militancy += 0.05;
 We have used our party's resources to arm the Reichsbanner. Very well.  
 
 @prussia
-view-if: spd_prussia
+view-if: spd_prussia = 1
 choose-if: prussian_police_loyalty >= 0.7
 subtitle: Infiltrate the police and civil service.
 unavailable-subtitle: We do not have adequate relations with the Prussian Police.
