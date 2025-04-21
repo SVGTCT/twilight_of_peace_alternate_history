@@ -20,6 +20,7 @@ Herein contains relevant information about the government and politics of the Ge
 - @factions: Internal factions
 - @figures: Figures and charts
 - @backSpecialScene: Exit library.
+- @devtool: Tool for game development.
 
 @government
 go-to: menu
@@ -496,3 +497,9 @@ if (d3 && window) {
 
 {!<svg id="economic_history" style="width: 500px; height: 300px;"> </svg>!}
 # TODO: maybe add textual histories too? some accessibility stuff as well...
+
+#REMOVE
+
+@devtool
+on-arrival: z_relation = 55;
+go-to: menu
