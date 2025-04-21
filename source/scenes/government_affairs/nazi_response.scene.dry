@@ -57,7 +57,7 @@ on-arrival: budget -= 1; rb_militancy += 0.05; interior_police_loyalty += 0.05;
 We have used the Interior Ministry to arm the Reichsbanner. Very well.
 
 @ug_prussia
-choose-if: spd_prussia = 1 and budget > 0
+choose-if: spd_prussia = 1 and prussian_budget > 0
 unavailable-subtitle: [? if spd_prussia = 0: We do not control Prussia. ?][? if prussian_budget <= 0: Not enough budget. ?]
 subtitle: -1 budget in Prussia. 
 on-arrival: prussian_budget -= 1; rb_militancy += 0.05; prussian_police_loyalty += 0.05;
