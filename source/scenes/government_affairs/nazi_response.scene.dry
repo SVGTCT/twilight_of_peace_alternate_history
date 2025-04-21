@@ -1,0 +1,114 @@
+title: Responding to Purges
+new-page: true
+is-card: true
+view-if: (nazi_state = 1 or interior_minister_party = "NSDAP") and nazi_response_timer <= 6
+on-arrival: nazi_response_timer += 6; month_actions += 1
+tags: govt_affairs
+card-image: img/das-dritte-reich-nein.png
+#subtitle: The Nazis are weaponising their ministries against us...
+
+[? if interior_minister_party = "NSDAP" and nazi_state = 0: The Nazis are now in government at the federal level. ?]
+[? if interior_minister_party = "NSDAP" and nazi_state = 1: The Nazis are now in government at the federal and state level. ?]
+[? if nazi_state = 1 and interior_minister_party != "NSDAP": The Nazis are now in government at the state level. ?]
+
+Not only is this a concerning development against democracy, but the Nazis have also been quick to use their participation to persecute their political enemies. We are being attacked, with prominent Reichsbanner leaders arrested and our weapons confiscated. Socialist civil servants are losing their jobs every day. It is clear this cannot continue.
+
+We must develop a strategy to resist the Nazi purges directly.
+
+- @nothing: We will defeat the Nazis at the ballot box and in the Reichstag.
+- @underground: We will support the Reichsbanner in more militant, underground organising.
+- @prussia: We will fight back by consolidating our power in Prussia.
+- @domestic_enemies.persecute_sa: We will use the Interior Ministry to persecute the Nazi SA.
+- @interior: We will consolidate our power in the Interior Ministry.   
+- @army: We will consolidate our power in the Reichswehr.     
+- @consolidate_no_gov: We will try to infiltrate the security services and forge relations with the Interior Police and Reichswehr.
+
+@nothing
+on-arrival: rb_strength *= 0.85; rb_militancy *= 0.8; prussian_bureaucracy *= 0.8; workers_nsdap += 3; unemployed_nsdap += 3; workers_spd -= 3;
+
+Fearing for their lives and their families' safety, many of its members begin to leave the Reichsbanner. Many SPD-connected civil servants resign, so as not to be done the dishonour of being fired.
+
+[? if rb_militancy < 0.2 and not spd_in_government and not spd_prussia and resources == 0: There is nothing we can do. ?]
+[? if rb_militancy >= 0.2 or spd_in_government or spd_prussia or resources > 0: As Germany burns, we play Nero's fiddle. History will do right to remember us as cowards. ?]
+
+@underground
+view-if: rb_militancy >= 0.2 
+choose-if: resources >= rb_militarization_cost
+subtitle: -[+ rb_militarization_cost +] resources.
+unavailable-subtitle: Not enough resources (need [+ rb_militarization_cost +]).
+on-arrival: rb_strength *= 0.9; rb_strength += 30; rb_militancy += 0.1; left_strength += 2; left_dissent -= 2; reformist_dissent += 5; prussian_bureaucracy *= 0.8; workers_nsdap += 3; unemployed_nsdap += 3;
+
+Fearing for their lives and their families' safety, its established members largely leave the Reichsbanner. Many SPD-connected civil servants resign, so as not to be done the dishonour of being fired.
+
+However, using our existing support for the Reichsbanner, we recruit younger, more enthusiastic members to organise behind the scenes. It is clear they see the organisation as more of an SPD paramilitary than a united front for the republic's defence, and are happy to bend the rules.
+
+We can support them even more by providing *better* equipment for the Reichsbanner.
+
+- @ug_interior: Use the Interior Ministry.
+- @ug_prussia: Use the Prussian Police.
+- @ug_resources: Use our resources.
+
+@ug_interior
+choose-if: interior_minister_party = "SPD" and budget > 0
+unavailable-subtitle: [? if interior_minister_party != "SPD": We do not control the Interior Ministry. ?][? if budget <= 0: Not enough budget. ?]
+subtitle: -1 budget. 
+on-arrival: budget -= 1; rb_militancy += 0.05; interior_police_loyalty += 0.05;
+
+We have used the Interior Ministry to arm the Reichsbanner. Very well.
+
+@ug_prussia
+choose-if: spd_prussia and budget > 0
+unavailable-subtitle: [? if not spd_prussia: We do not control Prussia. ?][? if prussian_budget <= 0: Not enough budget. ?]
+subtitle: -1 budget in Prussia. 
+on-arrival: prussian_budget -= 1; rb_militancy += 0.05; prussian_police_loyalty += 0.05;
+
+We have used the Prussian Police to arm the Reichsbanner. Very well. 
+
+@ug_resources
+choose-if: resources > 0
+unavailable-subtitle: Not enough resources (need 1).
+subtitle: -1 resources. 
+on-arrival: resources -= 1; rb_militancy += 0.05;
+
+We have used our party's resources to arm the Reichsbanner. Very well.  
+
+@prussia
+view-if: spd_prussia
+choose-if: prussian_police_loyalty >= 0.7
+subtitle: Infiltrate the police and civil service.
+unavailable-subtitle: We do not have adequate relations with the Prussian Police.
+on-arrival: rb_strength *= 0.85; rb_militancy *= 0.85; workers_nsdap += 3; unemployed_nsdap += 3; prussian_bureaucracy += 0.05; prussian_bureaucracy += 0.05 if prussian_bureaucracy >= 0.59; prussian_police_loyalty += 0.1;
+ 
+Using our existing connections, we purge the Prussian Police and Civil Service, removing elements unfriendly or neutral to us and reforming their leadership to ensure they will support us.
+
+@interior
+view-if: interior_minister_party = "SPD"
+choose-if: interior_police_loyalty >= 0.7
+subtitle: Infiltrate the Interior Police.
+unavailable-subtitle: We do not have adequate relations with the Interior Police.
+on-arrival: rb_strength *= 0.85; rb_militancy *= 0.85; workers_nsdap += 3; unemployed_nsdap += 3; prussian_bureaucracy -= 0.04; interior_police_loyalty += 0.1;
+
+Using our existing connections, we purge the Interior Police and, to a lesser extent, the federal civil service, removing elements unfriendly or neutral to us and reforming their leadership to ensure they will support us.
+
+@army
+view-if: reichswehr_minister_party = "SPD"
+choose-if: reichswehr_loyalty >= 0.6
+subtitle: Infiltrate the Armed Forces.
+unavailable-subtitle: We do not have adequate relations with the Reichswehr.
+on-arrival: rb_strength *= 0.85; rb_militancy *= 0.85; workers_nsdap += 3; unemployed_nsdap += 3; prussian_bureaucracy -= 0.05; reichswehr_loyalty += 0.05;
+
+Using our existing connections, we are able to remove the most hostile elements of the Reichswehr, shaping its leadership to be more friendly to us, especially in unconventional situations.
+
+@consolidate_no_gov
+view-if: not spd_in_government
+choose-if: resources > 0
+subtitle: -1 resource.
+unavailable-subtitle: Not enough resources (need 1).
+on-arrival: rb_strength *= 0.85; rb_militancy *= 0.85; workers_nsdap += 3; unemployed_nsdap += 3; prussian_bureaucracy -= 0.04; reichswehr_loyalty += 0.05; interior_police_loyalty += 0.05;
+
+Even though we are out of government, we use our resources to guarantee the support of the less ideological parts of the Reichswehr and Interior Police.
+ 
+Some may call it corruption, but if it became necessary to save the republic, the full force of the security services could not be against the SPD.
+
+#note: corruption charges 
+ 
