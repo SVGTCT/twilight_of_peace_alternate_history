@@ -14,7 +14,7 @@ header, #content, footer {
 }
 #content {
   position: relative;
-  background-color: #f3f3f3;
+  background-color: #;
   font-size: 1.1em;
   padding: 1em 1.5em 1.5em 1.5em;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
@@ -37,7 +37,7 @@ header {
   margin-bottom: 0.5em;
   padding-left: 1em;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
-  background-color: #e3e7f3;
+  background-color: #edf6ff;
 }
 #header-links a {
   padding-right: 1em;
@@ -174,7 +174,7 @@ blockquote + blockquote.attribution {
   padding: 0.6em;
   width: 14rem;
   color: #431;
-  background-color: #f3f3f3;
+  background-color: #e3e7f3;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
 }
 .tools.left {
@@ -222,7 +222,7 @@ blockquote + blockquote.attribution {
     padding: 10px;
 }
 .tab_button.active {
-    background-color: #f3f3f3;
+    background-color: #e3e7f3;
 }
 .tab_button:hover {
     background-color: #ececec;
