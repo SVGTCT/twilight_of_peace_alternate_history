@@ -284,8 +284,8 @@ Q.economic_records = [];
 Q.head_of_state = "George V";
 Q.hos_prefix = "Sovereign";
 // can be "sovereign" for king or "President"
-Q.prime_minister = "MacDonald";
-Q.chancellor_party = 'Nat. Lab.';
+Q.prime_minister = 'MacDonald';
+Q.pm_party = 'Nat. Lab.';
 Q.lab_in_government = 0;
 Q.con_in_government = 1;
 Q.lib_in_government = 1;
