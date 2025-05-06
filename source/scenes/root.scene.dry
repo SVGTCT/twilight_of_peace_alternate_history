@@ -252,12 +252,12 @@ Q.con_c = 76;
 Q.lab_c = 8;
 Q.nat_lib_c = 6;
 Q.lib_c = 5;
-Q.nat_lab = 2;
-Q.other = 2;
-Q.ind_lab = 0;
-Q.nationalist = 0;
-Q.communist = 0;
-Q.buf = 0;
+Q.nat_lab_c = 2;
+Q.other_c = 2;
+Q.ind_lab_c = 0;
+Q.nationalist_c = 0;
+Q.communist_c = 0;
+Q.buf_c = 0;
 
 // diff from prev
 Q.old_con_c = 76;
