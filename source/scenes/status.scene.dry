@@ -29,6 +29,8 @@ SPD position: [? if lab_toleration : toleration ?][? if lab_in_government : in g
 
 Internal dissent: [+ dissent_percent : dissent +]
 
+Party leader: [+ labour_leader +]
+
 = Government
 
 Head of State: [+ hos_prefix +] [+ head_of_state +]
@@ -41,7 +43,7 @@ House of Commons composition:
 {!<span class="tooltip-text" title="Labour Party">Lab</span>!}: [+ lab_c +]%
 {!<span class="tooltip-text" title="National Liberal Party">Nat Lib</span>!}: [+ nat_lib_c +]%
 {!<span class="tooltip-text" title="Liberal Party">Lib</span>!}: [+ lib_c +]%
-{!<span class="tooltip-text" title="National Labour Organisation">Nat Lab</span>!}: [+ nat_lab_c +]%
+[? if year < 1936: {!<span class="tooltip-text" title="National Labour Organisation">Nat Lab</span>!}: [+ nat_lab_c +]% ?]
 [? if ind_lab_c > 0: {!<span class="tooltip-text" title="Independent Labour (includes Independent Labour Party)">Ind Lab</span>!}: [+ ind_lab_c +] ?]
 [? if nationalist_c > 0: {!<span class="tooltip-text" title="Scottish regionalists and Irish republicans">Nationalists</span>!}: [+ nationalist_c +] ?]
 [? if communist_c > 0: {!<span class="tooltip-text" title="Communist Party of Great Britain">CPGB</span>!}: [+ communist_c +] ?]
@@ -68,11 +70,19 @@ Economic growth: [+ economic_growth_2 +]%
 
 {!<span class="tooltip-text" title="Conservative Party">Con</span>!}: [+ con_relation : relationships +]
 
+*The <span style="color:#0087DC">**Conservatives**</span> are led by [? if conservative_leader == "Baldwin": Stanely Baldwin. ?][? if conservative_leader == "Chamberlain": Neville Chamberlain. ?]*
+
 {!<span class="tooltip-text" title="National Liberal Party">Nat Lib</span>!}: [+ nat_lib_relation : relationships +]
+
+*The <span style="color:#AFEEEE">**National Liberals**</span> are led by [? if nat_liberal_leader == "Simon": John Simon. ?][? if nat_liberal_leader == "Brown": Ernest Brown. ?]*
 
 {!<span class="tooltip-text" title="Liberal Party">Lib</span>!}: [+ lib_relation : relationships +]
 
-{!<span class="tooltip-text" title="National Labour Organisation">Nat Lab</span>!}: [+ nat_lab_relation : relationships +]
+*The <span style="color:#FFD700">**Liberals**</span> are led by [? if liberal_leader == "Samuel": Sir Herbert Samuel. ?][? if liberal_leader == "Sinclair": Sir Archibald Sinclair. ?]*
+
+[? if year < 1936: {!<span class="tooltip-text" title="National Labour Organisation">Nat Lab</span>!}: [+ nat_lab_relation : relationships +] ?]
+
+[? if year < 1936: *The <span style="color:#008000">**NLO**</span> are led by Ramsay MacDonald* ?]
 
 {!<span class="tooltip-text" title="Independent Labour (includes Independent Labour Party)">Ind Lab</span>!}: [+ ind_lab_relation : relationships +]
 
@@ -132,7 +142,7 @@ FDF Militarisation: [+ fdf_militancy : militancy +]
 
 IRA Militarisation: [+ ira_militancy : militancy +]
 
-= Official military/paramilitaries
+= Official security services
 
 Armed Forces: [+ mil_strength +] thousand troops.
 
@@ -165,7 +175,7 @@ Nat Lib: [+ nat_lib_votes +]%
 
 Lib: [+ lib_votes +]%
 
-Nat Lab: [+ nat_lab_votes +]%
+[? if year < 1936: Nat Lab: [+ nat_lab_votes +]% ?]
 
 Ind Lab: [+ ind_lab_votes +]%
 
@@ -179,14 +189,14 @@ Others: [+ other_votes +]%
 
 **Detailed results for each demographic**
 
-Working class: Lab: [+ working_lab_display +]%, [? if coop_exit: Coop: [+ working_coop_display +]%, ?] Con: [+ working_con_display +]%, Nat Lib: [+ working_nat_lib_display +]%, Lib: [+ working_lib_display +]%, Nat Lab: [+ working_nat_lab_display +]%, Ind Lab: [+ working_ind_lab_display +]%, CPGB: [+ working_communist_display +]%, Nationalist: [+ working_nationalist_display +]%, BUF: [+ working_buf_display +]%, Others: [+ working_other_display +]%
+Working class: Lab: [+ working_lab_display +]%, [? if coop_exit: Coop: [+ working_coop_display +]%, ?] Con: [+ working_con_display +]%, Nat Lib: [+ working_nat_lib_display +]%, Lib: [+ working_lib_display +]%, [? if year < 1936: Nat Lab: [+ working_nat_lab_display +]%, ?] Ind Lab: [+ working_ind_lab_display +]%, CPGB: [+ working_communist_display +]%, Nationalist: [+ working_nationalist_display +]%, BUF: [+ working_buf_display +]%, Others: [+ working_other_display +]%
 
-Middle classes: Lab: [+ middle_lab_display +]%, [? if coop_exit: Coop: [+ middle_coop_display +]%, ?] Con: [+ middle_con_display +]%, Nat Lib: [+ middle_nat_lib_display +]%, Lib: [+ middle_lib_display +]%, Nat Lab: [+ middle_nat_lab_display +]%, Ind Lab: [+ middle_ind_lab_display +]%, CPGB: [+ middle_communist_display +]%, Nationalist: [+ middle_nationalist_display +]%, BUF: [+ middle_buf_display +]%, Others: [+ middle_other_display +]%
+Middle classes: Lab: [+ middle_lab_display +]%, [? if coop_exit: Coop: [+ middle_coop_display +]%, ?] Con: [+ middle_con_display +]%, Nat Lib: [+ middle_nat_lib_display +]%, Lib: [+ middle_lib_display +]%, [? if year < 1936: Nat Lab: [+ middle_nat_lab_display +]%, ?] Ind Lab: [+ middle_ind_lab_display +]%, CPGB: [+ middle_communist_display +]%, Nationalist: [+ middle_nationalist_display +]%, BUF: [+ middle_buf_display +]%, Others: [+ middle_other_display +]%
 
-Upper class: Lab: [+ upper_lab_display +]%, [? if coop_exit: Coop: [+ upper_coop_display +]%, ?] Con: [+ upper_con_display +]%, Nat Lib: [+ upper_nat_lib_display +]%, Lib: [+ upper_lib_display +]%, Nat Lab: [+ upper_nat_lab_display +]%, Ind Lab: [+ upper_ind_lab_display +]%, CPGB: [+ upper_communist_display +]%, Nationalist: [+ upper_nationalist_display +]%, BUF: [+ upper_buf_display +]%, Others: [+ upper_other_display +]%
+Upper class: Lab: [+ upper_lab_display +]%, [? if coop_exit: Coop: [+ upper_coop_display +]%, ?] Con: [+ upper_con_display +]%, Nat Lib: [+ upper_nat_lib_display +]%, Lib: [+ upper_lib_display +]%, [? if year < 1936: Nat Lab: [+ upper_nat_lab_display +]%, ?] Ind Lab: [+ upper_ind_lab_display +]%, CPGB: [+ upper_communist_display +]%, Nationalist: [+ upper_nationalist_display +]%, BUF: [+ upper_buf_display +]%, Others: [+ upper_other_display +]%
 
-Farmers: Lab: [+ farmers_lab_display +]%, [? if coop_exit: Coop: [+ farmers_coop_display +]%, ?] Con: [+ farmers_con_display +]%, Nat Lib: [+ farmers_nat_lib_display +]%, Lib: [+ farmers_lib_display +]%, Nat Lab: [+ farmers_nat_lab_display +]%, Ind Lab: [+ farmers_ind_lab_display +]%, CPGB: [+ farmers_communist_display +]%, Nationalist: [+ farmers_nationalist_display +]%, BUF: [+ farmers_buf_display +]%, Others: [+ farmers_other_display +]%
+Farmers: Lab: [+ farmers_lab_display +]%, [? if coop_exit: Coop: [+ farmers_coop_display +]%, ?] Con: [+ farmers_con_display +]%, Nat Lib: [+ farmers_nat_lib_display +]%, Lib: [+ farmers_lib_display +]%, [? if year < 1936: Nat Lab: [+ farmers_nat_lab_display +]%, ?] Ind Lab: [+ farmers_ind_lab_display +]%, CPGB: [+ farmers_communist_display +]%, Nationalist: [+ farmers_nationalist_display +]%, BUF: [+ farmers_buf_display +]%, Others: [+ farmers_other_display +]%
 
-Unemployed: Lab: [+ unemployed_lab_display +]%, [? if coop_exit: Coop: [+ unemployed_coop_display +]%, ?] Con: [+ unemployed_con_display +]%, Nat Lib: [+ unemployed_nat_lib_display +]%, Lib: [+ unemployed_lib_display +]%, Nat Lab: [+ unemployed_nat_lab_display +]%, Ind Lab: [+ unemployed_ind_lab_display +]%, CPGB: [+ unemployed_communist_display +]%, Nationalist: [+ unemployed_nationalist_display +]%, BUF: [+ unemployed_buf_display +]%, Others: [+ unemployed_other_display +]%
+Unemployed: Lab: [+ unemployed_lab_display +]%, [? if coop_exit: Coop: [+ unemployed_coop_display +]%, ?] Con: [+ unemployed_con_display +]%, Nat Lib: [+ unemployed_nat_lib_display +]%, Lib: [+ unemployed_lib_display +]%, [? if year < 1936: Nat Lab: [+ unemployed_nat_lab_display +]%, ?] Ind Lab: [+ unemployed_ind_lab_display +]%, CPGB: [+ unemployed_communist_display +]%, Nationalist: [+ unemployed_nationalist_display +]%, BUF: [+ unemployed_buf_display +]%, Others: [+ unemployed_other_display +]%
 
 Support for the Monarchy: [+ pro_monarchy_disp +]%
