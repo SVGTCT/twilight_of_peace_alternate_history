@@ -503,16 +503,19 @@ Q.stampfer_advisor = 0; // Friedrich Stampfer
 set-bg: img/map_2.jpg
 new-page: true
 
-> *"Appeasement was popular for several reasons. Chamberlain - and the British people - were desperate to avoid the slaughter of another world war. Britain was overstretched policing its empire and could not afford major rearmament. Its main ally, France, was seriously weakened and, unlike in the First World War, Commonwealth support was not a certainty. Many Britons also sympathised with Germany, which they felt had been treated unfairly following its defeat in 1918.{br}{br}"But, despite his promise of ‘no more territorial demands in Europe’, Hitler was undeterred by appeasement. In March 1939, he violated the Munich Agreement by occupying the rest of Czechoslovakia. Six months later, in September 1939, Germany invaded Poland and Britain was at war."*
+> *"Appeasement was popular for several reasons. Chamberlain - and the British people - were desperate to avoid the slaughter of another world war. **<span style="color:#012169">Britain</span>** was overstretched policing its empire and could not afford major rearmament. Its main ally, **<span style="color:#0055A">France</span>**, was seriously weakened and, unlike in the First World War, Commonwealth support was not a certainty. Many Britons also sympathised with Germany, which they felt had been treated unfairly following its defeat in 1918.{!<br><br>!}"But, despite his promise of ‘no more territorial demands in Europe’, Hitler was undeterred by appeasement. In March 1939, he violated the Munich Agreement by occupying the rest of **<span style="color:#D7141A">Czechoslovakia</span>**. Six months later, in September 1939, **<span style="color:#000">Germany</span>** invaded **<span style="color:#DC143C">Poland</span>** and **<span style="color:#012169">Britain</span>** was at war."*
 
  - Imperial War Museums: *How Britain Hoped To Avoid War With Germany In The 1930s*
 
-
 This is a game of alternate history. While historical accuracy is a major concern, keep in mind that this is a *game*, and that any divergence from actual events will necessarily have to involve some element of make-believe. Nevertheless, please let the author know if there are any glaring mistakes.
 
-This game is a modded version of *Social Democracy: An Alternate History*, by Autumn Chen, which can be found here. Instead of preventing the Nazis' rise to power as in the base game, the player is tasked with preventing the outbreak of the Second World War before 1939, with the power of hindsight to guide them.
+This game is a modded version of ***<span style="color: #FF0000;">Social Democracy: An Alternate History</span>***, by Autumn Chen, which can be found <a href="https://red-autumn.itch.io/social-democracy"><span style="color:#900">here</a></span>. I would highly recommend you play it first to familiarise yourself with the game mechanics. 
 
-For more information on the politics and government of the United Kingdom and her empire in 1935, see the "Library" page on the top left. If this is your first time playing the game, I would strongly recommend that you read at least some of this information.
+Instead of preventing the Nazis' rise to power as in the base game, the player is tasked with preventing the outbreak of the Second World War before 1939, with the power of hindsight to guide them.
+
+For more information on the politics and government of the **<span style="color:#012169">United Kingdom</span>** and her empire in 1935, see the "Library" page on the top left. If this is your first time playing the game, I would strongly recommend that you read at least some of this information.
+
+Enjoy the game!
 
 - @1935_base: Begin (base difficulty)
 - @1935_easy: Begin (easy difficulty)
