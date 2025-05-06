@@ -1,7 +1,7 @@
 body {
   font-family: "Minion Pro", Georgia, serif;
   /*font-size: 1.125em;*/
-  background-color: #edf6ff;
+  background-color: #fffcfc;
   padding: 0;
   line-height: 155%;
   overflow-y: scroll;
@@ -14,7 +14,7 @@ header, #content, footer {
 }
 #content {
   position: relative;
-  background-color: #edf6ff;
+  background-color: #fffcfc;
   font-size: 1.1em;
   padding: 1em 1.5em 1.5em 1.5em;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
@@ -37,7 +37,7 @@ header {
   margin-bottom: 0.5em;
   padding-left: 1em;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
-  background-color: #edf6ff;
+  background-color: #fffcfc;
 }
 #header-links a {
   padding-right: 1em;
@@ -174,7 +174,7 @@ blockquote + blockquote.attribution {
   padding: 0.6em;
   width: 14rem;
   color: #431;
-  background-color: #edf6ff;
+  background-color: #fffcfc;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
 }
 .tools.left {
