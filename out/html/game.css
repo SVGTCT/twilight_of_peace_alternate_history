@@ -1,7 +1,7 @@
 body {
   font-family: "Minion Pro", Georgia, serif;
   /*font-size: 1.125em;*/
-  background-color: #f3f3e3;
+  background-color: #e3e7f3;
   padding: 0;
   line-height: 155%;
   overflow-y: scroll;
@@ -37,7 +37,7 @@ header {
   margin-bottom: 0.5em;
   padding-left: 1em;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
-  background-color: #f3f3e3;
+  background-color: #e3e7f3;
 }
 #header-links a {
   padding-right: 1em;
