@@ -31,7 +31,7 @@ Internal dissent: [+ dissent_percent : dissent +]
 
 = Government
 
-Head of State: [+ hos_prefix +][+ head_of_state +]
+Head of State: [+ hos_prefix +] [+ head_of_state +]
 
 Prime Minister: [+ prime_minister +] ([+ pm_party +])
 
@@ -92,11 +92,11 @@ Economic growth: [+ economic_growth_2 +]%
 
 [? if unions_independent == 0: {!<span class="tooltip-text" title="The trade unions aim to represent the working class, the largest section of British society.">Labour</span>!} strength: [+ labour_strength : strength +], dissent: [+ labour_dissent : dissent +] ?]
 
-{!<span class="tooltip-text" title="The reformist Fabian Society engages in discourse promoting a just society for the British workers with the beginning of a welfare state, cheap council housing, free medicine and generous benefits.">Fabian Society</span>!} strength: [+ reformist_strength : strength +], dissent: [+ reformist_dissent : dissent +]
+{!<span class="tooltip-text" title="The reformist Fabian Society promotes a gradual reform to a generous welfare state.">Fabian Society</span>!} strength: [+ reformist_strength : strength +], dissent: [+ reformist_dissent : dissent +]
 
 [? if reconciliation == 1: {!<span class="tooltip-text" title="Returning to Labour from the ILP, centre Marxists advocate for revolutionary socialism and pacifism.">Revolutionary Socialists</span>!} strength: [+ marxist_strength : strength +], dissent: [+ marxist_dissent : dissent +] ?]
 
-[? if coop_exit == 0: {!<span class="tooltip-text" title="The Co-operative Party has ran an electoral pact with Labour since 1927. It supports co-operatives and a "social economy".>Co-operative Party</span>!} strength: [+ cooperative_strength : strength +], dissent: [+ cooperative_dissent : dissent +] ?]
+[? if coop_exit == 0: {!<span class="tooltip-text" title="Running an electoral pact with Labour since 1927, co-operatives supports co-operatives and a "social economy".>Co-operative Party</span>!} strength: [+ cooperative_strength : strength +], dissent: [+ cooperative_dissent : dissent +] ?]
 
 @paramilitaries
 on-arrival: {!
@@ -128,7 +128,7 @@ Blackshirts Militarisation: [+ blackshirts_militancy : militancy +]
 
 FDF Militarisation: [+ fdf_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The Irish Republican Army has been stirring up trouble in Northern Ireland in an attempt to unite the Island.">IRA</span>!} Strength: [+ ira_strength_2 +] thousand
+{!<span class="tooltip-text" title="The Irish Republican Army has been stirring up trouble in Northern Ireland in an attempt to unite the island.">IRA</span>!} Strength: [+ ira_strength_2 +] thousand
 
 IRA Militarisation: [+ ira_militancy : militancy +]
 
@@ -163,7 +163,7 @@ Con: [+ con_votes +]%
 
 Nat Lib: [+ nat_lib_votes +]%
 
-Lib: [+ lib_votes +]&
+Lib: [+ lib_votes +]%
 
 Nat Lab: [+ nat_lab_votes +]%
 
