@@ -70,7 +70,7 @@ Economic growth: [+ economic_growth_2 +]%
 
 {!<span class="tooltip-text" title="Conservative Party">Con</span>!}: [+ con_relation : relationships +]
 
-*The <span style="color:#0087DC">**Conservatives**</span> are led by [? if conservative_leader == "Baldwin": Stanely Baldwin. ?][? if conservative_leader == "Chamberlain": Neville Chamberlain. ?]*
+*The <span style="color:#0087DC">**Conservatives**</span> are led by [? if conservative_leader == "Baldwin": Stanley Baldwin. ?][? if conservative_leader == "Chamberlain": Neville Chamberlain. ?]*
 
 {!<span class="tooltip-text" title="National Liberal Party">Nat Lib</span>!}: [+ nat_lib_relation : relationships +]
 
@@ -82,7 +82,7 @@ Economic growth: [+ economic_growth_2 +]%
 
 [? if year < 1936: {!<span class="tooltip-text" title="National Labour Organisation">Nat Lab</span>!}: [+ nat_lab_relation : relationships +] ?]
 
-[? if year < 1936: *The <span style="color:#008000">**NLO**</span> are led by Ramsay MacDonald* ?]
+[? if year < 1936: *The <span style="color:#008000">**NLO**</span> are led by Ramsay MacDonald.* ?]
 
 {!<span class="tooltip-text" title="Independent Labour (includes Independent Labour Party)">Ind Lab</span>!}: [+ ind_lab_relation : relationships +]
 
