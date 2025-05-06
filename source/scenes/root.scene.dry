@@ -6,7 +6,7 @@ go-to: post_event if started = 1; start_menu if started = 0
 new-page: true
 go-to: start_menu_2
 
-= Social Democracy: An Alternate History
+= The Twilight of Peace: An Alternate History
 
 @start_menu_2
 
@@ -21,7 +21,7 @@ on-arrival: {!
 Q.started = 1;
 // time elapsed (in months)
 Q.time = 1;
-Q.year = 1928;
+Q.year = 1935;
 Q.month = 1;
 // how many actions have been taken this month?
 Q.month_actions = 0;
@@ -36,7 +36,7 @@ Q.old_demographics = 0;
 Q.use_decimals = 0;
 
 // party resources
-Q.resources = 2;
+Q.resources = 1;
 // party dues
 Q.dues = 2;
 
@@ -46,306 +46,232 @@ Q.dissent = 0.05;
 Q.dissent_percent = 5;
 
 // factions
-Q.factions = ['left', 'center', 'labor', 'reformist', 'neorevisionist'];
-// should this be normalized to 100%?
-Q.left_strength = 15;
-Q.left_dissent = 20;
-Q.center_strength = 30;
-Q.center_dissent = 0;
-Q.labor_strength = 25;
-Q.labor_dissent = 5;
-Q.reformist_strength = 25;
-Q.reformist_dissent = 5;
-Q.neorevisionist_strength = 5;
-Q.neorevisionist_dissent = 10;
-
-// campaigning stats
-Q.improved_campaigning = 0;
-Q.zeppelin = 0;
-Q.zeppelin_years = 0;
-Q.zeppelin_weariness = 0;
-Q.aeroplane = 0;
-Q.radio = 0;
+Q.factions = ['left', 'labour', 'reformist', 'pragmatist', 'marxist', 'cooperative'];
+Q.left_strength = 25;
+Q.left_dissent = 10;
+Q.labour_strength = 30;
+Q.labour_dissent = 5;
+Q.reformist_strength = 20;
+Q.reformist_dissent = 10;
+Q.pragmatist_strength = 5;
+Q.pragmatist_dissent = 0;
+Q.marxist_strength = 5;
+Q.marxist_dissent = 30;
+Q.cooperative_strength = 5;
+Q.cooperative_dissent = 5;
 
 // secret events...
 Q.unions_independent = 0;
-Q.centrists_resign = 0;
+Q.coop_exit = 0;
+Q.pragmatists_resign = 0;
 Q.left_split = 0;
 Q.reformists_resigned = 0;
 
-// have we discovered neorevisionism?
-Q.neorevisionism = 0;
+// ILP reconciliation
+Q.reconciliation = 0;
 
-// crisis_urgency indicates how seriously the SPD is taking the economic crisis - scale from 0 to 10.
-Q.crisis_urgency = 0;
-// nazi_urgency indicates how seriously the SPD takes the nazis - scale from 0 to 10.
-Q.nazi_urgency = 0;
-// radicalization indicates how radical the SPD's rhetoric is - scale from 0 to 10.
-Q.radicalization = 0;
-// Support for the WTB plan and proto-Keynesian works creation plans in general
-Q.wtb_support = 0;
-// Support for Pacifism within the SPD relative to 1928
+// crisis_urgency indicates how seriously the population takes Labour's economic policies: can be achieved through support of public works to counter MacDonald's "doctor's mandate"
+Q.economic_viability = 0;
+// nazi_urgency indicates how seriously the SPD takes the BUF - scale from 0 to 10.
+Q.buf_urgency = 0;
+// radicalisation indicates how radical Labour's rhetoric is - scale from 0 to 10.
+Q.radicalisation = 0;
+// Support for public works programmes
+Q.works_support = 0;
+// Support for Pacifism within the Labour Party
 Q.pacifism = 0;
-// Support for democratic reform within the SPD relative to 1928
-Q.democratization = 0;
-// Support for a communist coalition relative to 1928
+// Support for rearmament within the Labour Party
+Q.rearmament = 0;
+// Support for democratic reform within the Labour Party
+Q.democratisation = 0;
+// Support for a communist coalition
 Q.communist_coalition = 0;
-// economic_plan: have we adopted *any* economic plan?
-// 1 - WTB plan, 2 - AfA-bund plan, 3 - radical plan (mass nationalization of industries)
+// economic_plan: have we adopted any economic plan?
+// TODO: research different economic plans and revamp section in general
 Q.economic_plan = 0;
-// have we officially adopted the WTB plan?
-Q.wtb_adopted = 0;
-// have we formed the iron front?
-Q.iron_front_formed = 0;
-// people's party support
-Q.peoples_party_support = 0;
-// support for nationalizations
-Q.nationalization_support = 0;
-Q.nationalization_adopted = 0;
-// moderate economic plan
-Q.moderate_plan_support = 0;
-Q.moderate_plan_adopted = 0;
+// support for nationalisations
+Q.nationalisation_support = 0;
+Q.nationalisation_adopted = 0;
+// support for republicanism
+Q.republicanism = 0;
+Q.monarchy_abolished = 0;
 
 // organizations
 
+// note: nat labour dies out in 1935 elections
 // inter-party relations
-Q.z_relation = 50;
-Q.kpd_relation = 25;
-Q.ddp_relation = 60;
-Q.dvp_relation = 35;
-// DNVP and NSDAP are invariably hostile
-Q.DNVP_relation = 10;
-Q.NSDAP_relation = 0;
+Q.lib_relation = 55;
+Q.nat_lib_relation = 45;
+Q.con_relation = 35;
+Q.nat_lab_relation = 40;
+Q.ind_lab_relation = 25;
+Q.nationalist_relation = 15;
+Q.communist_relation = 25;
+Q.buf_relation = 0;
 
-// who will be elected Centre leader?
-Q.joos_pt = 0;
-Q.kaas_pt = 0;
-Q.stegerwald_pt = 0;
+// party leaders
+Q.labour_leader = "Lansbury";
+Q.conservative_leader = "Baldwin";
+Q.liberal_leader = "Samuel";
+Q.nat_liberal_leader = "Simon";
 
-Q.kpd_leader = "Thälmann";
-// alternative is the Conciliators as party leader
-Q.kpd_party_leader = "Thälmann";
-Q.z_leader = "Brüning";
-// party leader - can be Ludwig Kaas, Joseph Joos, Adam Stegerwald, or Heinrich Brauns after the 1928 December conference. (later Franz von Papen) Joos will be most friendly to the SPD.
-Q.z_party_leader = "Marx";
-Q.nsdap_leader = "Hitler";
-
-// hmm... maybe we can play nice with Hindenburg???
-Q.hindenburg_relation = 25;
-
-
-// Does the SPD lead in Prussia?
-Q.spd_prussia = 1;
-// Options: spd, z, dnvp, papen, nsdap
-Q.prussian_government = "SPD";
-Q.prussian_minister_president = "Braun";
-Q.prussian_coalition = "Weimar";
-Q.prussian_bureaucracy = 0.58;
-
-// papen values
-Q.z_dnvp = 0;
-Q.free_blutmai = 0;
-Q.panzerkreuzer_no = 0;
+// starts of with George V
+Q.royal_relation = 55;
 
 // The array of forces - paramilitary groups
-// Number of members in 1928 (in thousands)
-// Reichsbanner, stahlhelm, SA, rotfrontkämpferbund
-Q.rb_strength = 2000;
-Q.rb_militancy = 0.01;
-Q.women_in_rb = 0;
-Q.rb_banned = 0;
-Q.sh_strength = 500;
-Q.sh_militancy = 0.5;
-Q.sh_banned = 0;
-Q.sh_banned_prussia = 0;
-Q.sa_strength = 80;
-Q.sa_militancy = 0.5;
-Q.sa_banned = 0;
-Q.sa_banned_prussia = 0;
-Q.rfb_strength = 130;
-Q.rfb_militancy = 0.5;
-Q.rfb_banned = 0;
-Q.rfb_banned_prussia = 0;
+// Number of members in 1935 (estimate) (in thousands)
+// Unions (can mobilise in national crisis), Nationalist Paramilitaries (Sinn Fein's IRA), BUF Blackshirts & FDF, Gentlemen's Clubs (can mobilise in national crisis)
+Q.union_strength = 4800;
+Q.union_militancy = 0.00;
+Q.ira_strength = 2;
+Q.ira_militancy = 0.2;
+Q.blackshirts_strength = 40;
+Q.blackshirts_militancy = 0.2;
+Q.fdf_strength = 0.3;
+Q.fdf_militancy = 0.2;
+Q.clubs_strength = 50;
+Q.clubs_militancy = 0.00;
 
-// reichsbanner values
-Q.rb_stay = 0;
-Q.rb_exit = 0;
-Q.rb_bourgeois = 0;
-
-Q.interior_police_strength = 50;
+Q.interior_police_strength = "negligible";
 Q.interior_police_militancy = 1;
-Q.interior_police_loyalty = 0.45;
+Q.interior_police_loyalty = 0.35;
 
-Q.prussian_police_strength = 90;
-Q.prussian_police_militancy = 1;
-Q.prussian_police_loyalty = 0.5;
+Q.local_police_strength = 72;
+Q.local_police_militancy = 0.5;
+Q.local_police_loyalty = 0.4;
 
-// strength includes actual military and de facto reserves?
-Q.reichswehr_strength = 100;
-Q.reichswehr_militancy = 5;
-Q.reichswehr_loyalty = 0.2;
+Q.mil_strength = 321.8;
+Q.mil_militancy = 5;
+Q.mil_loyalty = 0.3;
 
 // The state of the country
 
 // popular opinion
 // national ideology - on a binary scale
 // nationalism vs internationalism or pacifism or non-nationalism
-Q.nationalism = 60;
+Q.nationalism = 50;
 // socialism vs capitalism
-Q.socialism = 40;
-// pro-republic vs anti-republic
-Q.pro_republic = 59;
+Q.socialism = 34;
+// pro-monarchy vs pro-republic/authoritarianism
+Q.pro_monarchy = 93;
 
 Q.emergency_rule = 0;
 
-// minimum percentage of votes to be represented in the Reichstag
-Q.electoral_threshold = 0;
-// constitutional reform level
-Q.constitutional_reform = 0;
-// constructive vote of no confidence
-Q.constructive_vonc = 0;
-// reduction in presidential powers
-Q.presidential_powers = 0;
-// allows banning of non-constitutional parties
-Q.constitutional_protection = 0;
-Q.kpd_banned = 0;
-Q.nsdap_banned = 0;
+// TODO: electoral variables (bans)
 
-// coups and capital strikes happen when you upset the right or the capitalists too much with your policies. they're an additional check on your policies, when purely electoral checks don't suffice.
-// when coup_progress reaches 10 or capital_strike_progress reaches 10, there's a special event that launches the coup.
-Q.coup_progress = 0;
-Q.capital_strike_progress = 0;
+// TODO: capital strike
 
-Q.budget = 4;
-Q.prussian_budget = 1;
+Q.budget = 2;
 
 // Proportion of different social groups
-// source: https://surface.syr.edu/cgi/viewcontent.cgi?filename=3&article=1016&context=books&type=additional page 45, table 3.4 - using 1925 figures
-Q.workers = 48; // industry and trade
-Q.old_middle = 13; // "old mittelstand"
-// 16.4 trade & commerce, 6.6 public and private services, 4.4 domestic help
-Q.new_middle = 14; // "new mittelstand"
-Q.rural = 25; // agriculture and forestry employment... but many of those are proletarians so...
-// source: https://surface.syr.edu/cgi/viewcontent.cgi?filename=3&article=1016&context=books&type=additional page 43, table 3.3
-Q.unemployed = 8.6;
-Q.catholics = 30;
+Q.working = 55;
+Q.middle = 25;
+Q.upper = 5; 
+Q.farmers = 7;
+Q.unemployed = 8;
+// |v| source: Denman and MacDonald, Unemployment Statistics from 1881 to the Present Day (link: https://escoe-website.s3.amazonaws.com/wp-content/uploads/2018/10/17145130/Denman-and-Macdonald-LMT-1996-Unemployment-Statistics-from-1881-to-the-present-day.pdf)
+// statistic for jan 1935
+Q.workforce_unemployment = 17.6;
+// 1935: feb 17.5 mar 16.4 apr 15.6 may 15.5 jun 15.4 jul 15.2 aug 14.9 sep 14.9 oct 14.5 nov 14.5 dec 14.1 avg 15.5 1936: feb mar apr may jun jul aug sep oct nov dec avg 1937: jan 16.2 feb 15.3 mar 14.3 apr 13.6 may 12.8 jun 12.8 jul 12.4 aug 12.0 sep 12.1 oct 12.0 nov 12.0 dec 12.0 avg 13.1 1937: jan 12.4 feb 12.0 mar 11.6 apr 10.5 may 10.7 jun 10.0 jul 10.1 aug 9.9 sep 9.7 oct 10.1 nov 10.9 dec 12.8 avg 10.8 1938: jan 13.2 feb 13.1 mar 12.7 apr 12.7 may 12.8 jun 13.2 jul 12.9 aug 12.6 sep 12.8 oct 12.7 nov 13.0 dec 12.9 avg 12.9 1939: jan 12.8 feb 11.9 mar 10.9 apr 10.2 may 9.3 jun 8.4 jul 7.9 aug 7.6 sep 7.9
 
-// unemployment: 1929 - 13.3, 1930 - 22.7, 1931 - 34.3, 1932 - 43.8 (same source as above)
+// in 1935 there were 2,153,923 unemployed British persons out of a population of ~40,645,000. This represents 5.2% of the population -- but a much higher % of the voting age population, and an even greater (over 20%) proportion of the workforce.
 
-// income for industrial workers in reichsmarks/year - 1928 = 1600 Reichsmarks/year; 1931 = 1440 Reichsmarks/year; 1933 = 1138 Reichsmarks/year - source: https://babel.hathitrust.org/cgi/pt?id=uiug.30112104147985&seq=50
-Q.income = 1600;
-// what about incomes for different classes? rural workers? middle-class workers?
+// TODO: income + QoL: is there a use for it?
 
-// inflation (in %; 1928: 2.9; 1929: 0; 1930: -5%; 1931: -10%; 1932: -10%) - source: https://en.wikipedia.org/wiki/File:BSPDRWeltkriseEngl.PNG, derived from https://www.destatis.de/DE/Methoden/WISTA-Wirtschaft-und-Statistik/2009/03/rezession-betrachtung-032009.pdf?__blob=publicationFile
-Q.inflation = 2.9;
+Q.inflation = 0.63;
 
-// economic growth - same source as above, Table 2 (preisbereinigt) - this is also the source for the yearly changes in the great depression.
-Q.economic_growth = 4.4;
+//https://www.niesr.ac.uk/wp-content/uploads/2021/10/dp348_0.pdf
+Q.economic_growth = -0.1;
 
 // economic expansion timer
 Q.economic_expansion = 0;
 
-// quality of life (as % of 1928 - currently unused - should be welfare-adjusted.)
-Q.workers_qol = 100;
-Q.rural_qol = 100;
-Q.unemployed_qol = 100;
-Q.old_middle_qol = 100;
-Q.new_middle_qol = 100;
+Q.classes = ['working', 'middle', 'upper', 'farmers', 'unemployed'];
+Q.parties = ['lab', 'nat_lab', 'ind_lab', 'lib', 'nat_lib', 'con', 'nationalist', 'communist', 'buf', 'other'];
 
-Q.classes = ['workers', 'old_middle', 'new_middle', 'rural', 'unemployed', 'catholics'];
-Q.parties = ['spd', 'kpd', 'z', 'ddp', 'dvp', 'dnvp', 'nsdap', 'other'];
-
-// TODO: add 'sapd' later on
-Q.sapd_formed = 0;
+// TODO: cooperative party? remove parties
 
 // Support for party by social group
-// they don't have to sum to 100 since the electoral calculations will be normalized.
-Q.workers_spd = 60;
-Q.workers_kpd = 20;
-Q.workers_z = 5;
-Q.workers_ddp = 0;
-Q.workers_dvp = 0;
-Q.workers_dnvp = 5;
-Q.workers_nsdap = 0;
-Q.workers_other = 10;
+Q.working_lab = 60;
+Q.working_nat_lab = 1.5;
+Q.working_ind_lab = 1;
+Q.working_lib = 2;
+Q.working_nat_lib = 0.5;
+Q.working_con = 30;
+Q.working_nationalist = 1;
+Q.working_communist = 0.5;
+Q.working_buf = 0;
+Q.working_other = 3.5;
 
-Q.old_middle_spd = 5;
-Q.old_middle_kpd = 0;
-Q.old_middle_z = 5;
-Q.old_middle_ddp= 10;
-Q.old_middle_dvp = 25;
-Q.old_middle_dnvp = 25;
-Q.old_middle_nsdap = 10;
-Q.old_middle_other = 10;
+Q.middle_lab = 5;
+Q.middle_nat_lab = 2;
+Q.middle_ind_lab = 0;
+Q.middle_lib = 18;
+Q.middle_nat_lib = 10.5;
+Q.middle_con = 72.5;
+Q.middle_nationalist = 0;
+Q.middle_communist = 0;
+Q.middle_buf = 0;
+Q.middle_other = 2;
 
-Q.new_middle_spd = 5;
-Q.new_middle_kpd = 1;
-Q.new_middle_z = 10;
-Q.new_middle_ddp= 25;
-Q.new_middle_dvp = 25;
-Q.new_middle_dnvp = 10;
-Q.new_middle_nsdap = 5;
-Q.new_middle_other = 15;
+Q.upper_lab = 0;
+Q.upper_nat_lab = 0;
+Q.upper_ind_lab = 0;
+Q.upper_lib = 10;
+Q.upper_nat_lib = 9.5;
+Q.upper_con = 80.5;
+Q.upper_nationalist = 0;
+Q.upper_communist = 0;
+Q.upper_buf = 0;
+Q.upper_other = 0;
 
-Q.rural_spd = 10;
-Q.rural_kpd = 0;
-Q.rural_z = 5;
-Q.rural_ddp= 5;
-Q.rural_dvp = 15;
-Q.rural_dnvp = 45;
-Q.rural_nsdap = 5;
-Q.rural_other = 10;
+Q.farmers_lab = 22;
+Q.farmers_nat_lab = 1;
+Q.farmers_ind_lab = 0;
+Q.farmers_lib = 5;
+Q.farmers_nat_lib = 5;
+Q.farmers_con = 62;
+Q.farmers_nationalist = 0;
+Q.farmers_communist = 0;
+Q.farmers_buf = 0;
+Q.farmers_other = 5;
 
-Q.unemployed_spd = 25;
-Q.unemployed_kpd = 55;
-Q.unemployed_z = 1;
-Q.unemployed_ddp = 0;
-Q.unemployed_dvp = 0;
-Q.unemployed_dnvp = 5;
-Q.unemployed_nsdap = 15;
-Q.unemployed_other = 9;
+Q.unemployed_lab = 28;
+Q.unemployed_nat_lab = 1;
+Q.unemployed_ind_lab = 0.5;
+Q.unemployed_lib = 3;
+Q.unemployed_nat_lib = 2;
+Q.unemployed_con = 60.5;
+Q.unemployed_nationalist = 0;
+Q.unemployed_communist = 0.5;
+Q.unemployed_buf = 0.5;
+Q.unemployed_other = 5;
 
-Q.catholics_spd = 15;
-Q.catholics_kpd = 2;
-Q.catholics_z = 50;
-Q.catholics_ddp = 0;
-Q.catholics_dvp = 5;
-Q.catholics_dnvp = 5;
-Q.catholics_nsdap = 0;
-Q.catholics_other = 12;
-
-
-// Current Reichstag composition
-// % of Reichstag in Jan 1928
-// source: wikipedia
-// note: the Z figures also include the BVP (Bavarian people's party)
-// since they were ideologically similar, but they were separate parties.
-// They did not have a CDU/CSU-style relationship.
-Q.spd_r = 26;
-Q.kpd_r = 9;
-Q.z_r = 17;
-Q.ddp_r = 6;
-Q.dvp_r = 10;
-Q.dnvp_r = 20;
-Q.nsdap_r = 3;
-Q.other_r = 9;
+// Current House of Commons composition
+Q.con_c = 76;
+Q.lab_c = 8;
+Q.nat_lib_c = 6;
+Q.lib_c = 5;
+Q.nat_lab = 2;
+Q.other = 2;
+Q.ind_lab = 0;
+Q.nationalist = 0;
+Q.communist = 0;
+Q.buf = 0;
 
 // diff from prev
-Q.old_spd_r = 26;
-Q.old_kpd_r = 9;
-Q.old_z_r = 17;
-Q.old_ddp_r = 6;
-Q.old_dvp_r = 10;
-Q.old_dnvp_r = 20;
-Q.old_nsdap_r = 3;
-Q.old_other_r = 9;
+Q.old_con_c = 76;
+Q.old_lab_c = 8;
+Q.old_nat_lib_c = 6;
+Q.old_lib_c = 5;
+Q.old_nat_lab = 2;
+Q.old_other = 2;
+Q.old_ind_lab = 0;
+Q.old_nationalist = 0;
+Q.old_communist = 0;
+Q.old_buf = 0;
 
-// sapd isn't formed yet, but it may be formed
-Q.sapd_r = 0;
-Q.old_sapd_r = 0;
-
-// for changing the DDP's name to the DStP
-Q.ddp_name = "DDP";
+// TODO: coops?
 
 // array of objects of the form {date: Date(), spd: 10, kpd: 12, ...} for each election
 Q.election_records = [];
@@ -354,144 +280,106 @@ Q.party_support_records = [];
 // inflation and unemployment records
 Q.economic_records = [];
 
-
 // State of the government
-Q.president = "Hindenburg";
-Q.russian_leader = "Stalin";
-// starting chancellor: Wilhelm Marx
-Q.chancellor = "Marx";
-Q.chancellor_party = 'Z';
-Q.spd_in_government = 0;
-Q.z_in_government = 1;
-Q.ddp_in_government = 0;
-Q.dvp_in_government = 1;
-Q.dnvp_in_government = 1;
-Q.kpd_in_government = 0;
-Q.nsdap_in_government = 0;
+Q.head_of_state = "George V";
+Q.hos_prefix = "Sovereign";
+// can be "sovereign" for king or "President"
+Q.prime_minister = "MacDonald";
+Q.chancellor_party = 'Nat. Lab.';
+Q.lab_in_government = 0;
+Q.con_in_government = 1;
+Q.lib_in_government = 1;
+Q.nat_lib_in_government = 1;
+Q.nat_lab_in_government = 1;
+Q.buf_in_government = 1;
+Q.communist_in_government = 0;
+Q.nationalist_in_government = 0;
+Q.ind_lab_in_government = 0;
 
-Q.in_right_coalition = 0;
-// Weimar coalition = SPD + Z + DDP
-Q.in_weimar_coalition = 0;
-// Grand coalition = SPD + Z + BVP + DDP + DVP
-// also includes the "new grand coalition" of SPD + Z + BVP + DDP + DVP + Others
-Q.in_grand_coalition = 0;
-// Popular front = SPD + KPD + Z + DDP
-Q.in_popular_front = 0;
-// left coalition = SPD + KPD + left-splinters
-Q.in_left_front = 0;
-// emergency government containing the SPD: only president Braun can do this.
-Q.in_emergency_government = 0;
-Q.in_spd_majority = 0;
-Q.grand_coalition_failed = 0;
-// if the SPD is ruling as part of a minority government
-Q.in_minority_government = 0;
-// national unity governmet
+// National Government: Con + Nat. Lib +/ Lib. + Nat. Lab + Others
+Q.in_national_government = 1;
+Q.in_lab_majority = 0;
+Q.in_con_majority = 0;
+Q.in_lab_minority = 0;
+Q.in_con_minority = 0;
+// Left-Wing Government: Lab + Ind. Lab
+Q.in_lw_government = 0;
+// Lab-Lib Government: Lab + Nat. Lib +/ Lib.
+Q.in_lab_lib_government = 0;
+// Labour + CPGB (impossible)
+Q.in_socialist_government = 0;
 
-// if you're in a coalition, this is an incremental counter for how many times dissent has happened from the right.
-Q.coalition_dissent = 0;
-// dissent from the KPD, in a popular front or left front government
-Q.kpd_coalition_dissent = 0;
+Q.right_coalition_dissent = 0;
+Q.left_coalition_dissent = 0;
 
-// does the SPD tolerate the government even if it is not a participant?
-Q.spd_toleration = 0;
+Q.lab_toleration = 0;
 
-// is the current government a presidential minority government?
 Q.minority_government = 0;
 
-// ministries - which parties control the ministries?
-// starting with the 4th Marx cabinet https://en.wikipedia.org/wiki/Fourth_Marx_cabinet
-// is the agricultural ministry useful at all?
-Q.foreign_minister = 'Streseman';
-Q.foreign_minister_party = 'DVP';
-Q.interior_minister = 'von Keudell';
-Q.interior_minister_party = 'DNVP';
-Q.justice_minister = 'Hergt';
-Q.justice_minister_party = 'DNVP';
-Q.labor_minister = 'Brauns';
-Q.labor_minister_party = 'Z';
-Q.reichswehr_minister = 'Groener';
-Q.reichswehr_minister_party = 'I';
-Q.economic_minister = 'Curtius';
-Q.economic_minister_party = 'DVP';
-Q.finance_minister = 'Köhler';
-Q.finance_minister_party = 'Z';
-Q.agriculture_minister = 'Schiele';
-Q.agriculture_minister_party = 'DNVP';
-Q.education_ministry = 0;
-Q.nsdap_confidence = 0;
+Q.lord_chancellor = 'Sankey';
+Q.lord_chancellor_party = 'Nat. Lab.';
+Q.chancellor = 'Chamberlain';
+Q.chancellor_party = 'Con.';
+Q.home_secretary = 'Samuel';
+Q.home_secretary_party = 'Lib.';
+Q.foreign_secretary = 'Simon';
+Q.foreign_secretary_party = ' Nat. Lib.';
+Q.colonial_secretary = 'Cunliffe-Lister';
+Q.colonial_secretary_party = 'Con.';
+Q.dominions_secretary = 'Thomas';
+Q.dominions_secretary_party = 'Nat. Lab.';
+Q.war_secretary = 'Hogg';
+Q.war_secretary_party = 'Con.';
+Q.india_secretary = 'Hoare';
+Q.india_secretary_party = 'Con.';
+Q.scottish_secretary = 'Sinclair';
+Q.scottish_secretary_party = 'Lib.';
+Q.agriculture_minister = 'Gilmour';
+Q.agriculture_minister_party = 'Con.';
+Q.labour_minister = 'Betterton';
+Q.labour_minister_party = 'Con.';
+Q.health_minister = 'Young';
+Q.health_minister_party = 'Con.';
 
-// Events: what has occurred?
-Q.panzerkreuzer_seen = 0;
-Q.panzerkreuzer_funded = 0;
-Q.panzerkreuzer_failed = 0;
-Q.unemployment_insurance_seen = 0;
-// unemployment insurance event is seen if the unemployment level is at least 4 more than the threshold...
-Q.unemployment_insurance_threshold = 10;
-Q.blutmai = 0;
+Q.cablestreet = 0;
 
-// have we reformed these institutions to be more democratic?
 Q.judicial_reform = 0;
 Q.bureaucratic_reform = 0;
 Q.military_reform = 0;
 Q.womens_rights = 0;
-// level of welfare relative to 1928 (can go negative)
 Q.welfare = 0;
-// level of support for farmers
 Q.agricultural_policy = 0;
 Q.land_reform = 0;
-// works-creation programs (i.e. WTB-plan) - how much have they implemented?
-Q.works_program = 0;
-Q.wtb_implemented = 0;
-// Relations with the Western countries (France, UK).
-Q.west_relation = 0;
-// Relations with the Eastern countries (Poland, Czechoslovakia)
-Q.east_relation = 0;
-// Relations with the Soviet Union
+Q.works_programme = 0;
+Q.works_implemented = 0;
+Q.french_relation = 0;
+Q.german_relation = -2;
 Q.soviet_relation = 0;
-// How much have we exposed the secret rearmament programs?
-Q.rearmament_exposed = 0;
-// reparations vs baseline: young plan is -1.
-Q.reparations = 0;
-Q.reparations_negotiation = 0;
-// nationalization_progress is part of the left economic plan.
-Q.nationalization_progress = 0;
-// socializations is part of the economic democracy card.
-Q.socializations = 0;
-Q.nationalize_budget = 4;
-// have there been any factory takeovers?
+Q.american_relation = 0;
+Q.colonial_reform = 0;
+Q.nationaliwation_progress = 0;
+Q.socialisations = 0;
+Q.nationalise_budget = 4;
 Q.factory_takeovers = 0;
-// progress on the moderate economic plan
-Q.moderate_plan_progress = 0;
-// European Union negotiation process
 Q.eu = 0;
 Q.eu_progress = 0;
-// science/education
 Q.science = 0;
 Q.education_science = 0;
+Q.free_trade = 0;
 
-// soviet plot 8)
-Q.soviet_plot = 0;
-Q.comintern_done = 0;
-Q.aid_done = 0;
-Q.funding_done = 0;
-
-// Tax rates relative to 1928 baseline
 Q.lower_tax_rates = 0;
 Q.upper_tax_rates = 0;
 Q.tariffs = 0;
 
 Q.electoral_threshold = 0;
 
-// our conduct in the government, and the conduct of our coalition opponents.
-// did the SPD vote against the previous government in a vote of no confidence?
-Q.spd_no_confidence = 0;
-// was the last SPD government taken down in a vote of no confidence by right-wing coalition partners?
-Q.no_confidence_against_spd = 0;
+Q.lab_oust = 0;
+Q.lab_ousted = 0;
 
+// TODO: Advisors and Cards Change!
 // Advisors/Leaders
 Q.n_advisors = 3;
 // timer - this decrements by 1 every turn, and is set to 5 whenever an advisor action is used, so that you can only use one advisor action every 5 months.
-// let's just put all of the timers here...
 // most party affairs and government affairs cards are on a timer.
 Q.timers = ['advisor_action', 'campaigning', 'confronting_nazis', 'crisis_program',
             'fundraising', 'ideology',
@@ -571,10 +459,8 @@ Q.kpd_ultimatum_timer = 0;
 Q.march_on_berlin_timer = 0;
 Q.nazi_purge_timer = 0;
 
-Q.nazi_state = 0;
-Q.confronting_antisemitism = 0;
-
-// all the initial advisors are centrists.
+// Initial Advisors: Lansbury, who else?
+// Leader will always be an advisor.
 Q.wels_advisor = 1; // Otto Wels
 Q.muller_advisor = 1; // Hermann Müller
 Q.muller_dead = 0;
@@ -606,7 +492,6 @@ Q.wissell_advisor = 0; // Rudolf Wissell
 
 // Revisionist advisors
 Q.mierendorff_advisor = 0; // Carlo Mierendorf (post-1930)
-
 Q.leber_advisor = 0; // Julius Leber (post-1930)
 Q.schumacher_advisor = 0; // Kurt Schumacher (post-1930)
 
@@ -618,13 +503,16 @@ Q.stampfer_advisor = 0; // Friedrich Stampfer
 set-bg: img/map_2.jpg
 new-page: true
 
-> *"Such a general development cannot be attributed to the false tactics of any single party or to the mistakes of individual leaders. On the contrary, the conduct of individual leaders is determined largely by the sentiments of the people as a whole. It would be erroneous, however, to regard the sentiments of the moment as reflecting the natural make-up and character of the people. They are merely the consequence of the special circumstances which have brought about this profound degradation of the entire nation."*
+> *"Appeasement was popular for several reasons. Chamberlain - and the British people - were desperate to avoid the slaughter of another world war. Britain was overstretched policing its empire and could not afford major rearmament. Its main ally, France, was seriously weakened and, unlike in the First World War, Commonwealth support was not a certainty. Many Britons also sympathised with Germany, which they felt had been treated unfairly following its defeat in 1918.{br}{br}"But, despite his promise of ‘no more territorial demands in Europe’, Hitler was undeterred by appeasement. In March 1939, he violated the Munich Agreement by occupying the rest of Czechoslovakia. Six months later, in September 1939, Germany invaded Poland and Britain was at war."*
 
- - Karl Kautsky, *Hitlerism and Social Democracy*, 1934
+ - Imperial War Museums: *How Britain Hoped To Avoid War With Germany In The 1930s*
+
 
 This is a game of alternate history. While historical accuracy is a major concern, keep in mind that this is a *game*, and that any divergence from actual events will necessarily have to involve some element of make-believe. Nevertheless, please let the author know if there are any glaring mistakes.
 
-For more information on the politics and government of the German Republic, see the "Library" page on the top left. If this is your first time playing the game, it is strongly recommended that you read at least some of this information.
+This game is a modded version of *Social Democracy: An Alternate History*, by Autumn Chen, which can be found here. Instead of preventing the Nazis' rise to power as in the base game, the player is tasked with preventing the outbreak of the Second World War before 1939, with the power of hindsight to guide them.
+
+For more information on the politics and government of the United Kingdom and her empire in 1935, see the "Library" page on the top left. If this is your first time playing the game, I would strongly recommend that you read at least some of this information.
 
 - @1928_easy: Begin (easy difficulty)
 - @1928_main: Begin (normal difficulty)
@@ -632,7 +520,7 @@ For more information on the politics and government of the German Republic, see 
 - @1928_historical: Begin (historical mode)
 
 @1928_easy
-on-arrival: difficulty = -1; resources = 4; dues = 3; rb_strength = 2500; kpd_relation = 29; z_relation = 54; dvp_relation = 49; budget = 5;
+on-arrival: difficulty = -1; resources = 4; dues = 3; communist_relation = 30; lib_relation = 60; nat_lib_relation = 50; con_relation = 40; nat_lab_relation = 45; ind_lab_relation = 40; budget = 5;
 go-to: 1928_main
 
 @1928_hard
