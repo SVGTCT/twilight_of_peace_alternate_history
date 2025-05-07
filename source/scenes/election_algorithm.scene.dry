@@ -53,6 +53,6 @@ for (var party of Q.parties) {
     // display
 }
 !}
-go-to: post_election_1935 if election_ip; jumpScene
+go-to: election_1935.post_election_1935 if election_ip; jumpScene
 
 # note: this is a helpful utility to deal with elections and so on.
