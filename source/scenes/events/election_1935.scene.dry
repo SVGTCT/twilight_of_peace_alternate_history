@@ -206,8 +206,11 @@ go-to: coalition_menu
 = Election results
 
 {!<svg id="reichstag" class="reichstag-svg"></svg>!}
+
 {!<table>!} 
+
 {!<tr><td>Party</td><td>Vote share</td><td>Seats</td><td>Percentage</td><td>% Change</td></tr>!}
+
 {!<tr><td><div class="box" style='background-color:#F00; outline: 2px; outline-style: solid;'> </div> !} **Communists:** {!</td><td>!} **[+ communist_votes +]%** {!</td><td>!} [+ communist_seats +] {!</td><td>!} [+ communist_c +] {!</td><td>!} **[+ str_change_communist +]** {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#FFBBBB; outline: 2px; outline-style: solid;'> </div> !} **Independent Labour:** {!</td><td>!} **[+ ind_lab_votes +]%** {!</td><td>!} [+ ind_lab_seats +] {!</td><td>!} [+ ind_lab_c +] {!</td><td>!} **[+ str_change_ind_lab +]** {!</td></tr>!}
@@ -227,6 +230,7 @@ go-to: coalition_menu
 {!<tr><td><div class="box" style='background-color:#a0a0a0; outline: 2px; outline-style: solid;'> </div> !} **Others:** {!</td><td>!} **[+ other_votes +]%** {!</td><td>!} [+ other_seats +] {!</td><td>!} [+ other_c +] {!</td><td>!} **[+ str_change_other +]** {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#000; outline: 2px; outline-style: solid;'> </div> !} **BUF:** {!</td><td>!} **[+ buf_votes +]%** {!</td><td>!} [+ buf_seats +] {!</td><td>!} [+ buf_c +] {!</td><td>!} **[+ str_change_buf +]** {!</td></tr>!}
+
 {!</table>!}
 
 **Potential coalitions:**
