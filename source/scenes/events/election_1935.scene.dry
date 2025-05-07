@@ -119,7 +119,7 @@ for (var party of Q.parties) {
     election_result[party] = Q[party + '_c'];
 }
 Q.election_records.push(election_result);
-!}
+}
 on-display: {!
 data = data.concat([
     {
