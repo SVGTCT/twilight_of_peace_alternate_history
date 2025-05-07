@@ -186,6 +186,18 @@ Q.economic_growth = -0.1;
 // economic expansion timer
 Q.economic_expansion = 0;
 
+// ratio of votes to seats
+Q.lab_modifier = 0.65789473684;
+Q.nat_lab_modifier = 0.86666666666;
+Q.ind_lab_modifier = 1;
+Q.lib_modifier = 0.50746268656;
+Q.nat_lib_modifier = 1.45945945946;
+Q.con_modifier = 1.31762981575;
+Q.nationalist_modifier = 1.5;
+Q.communist_modifier = 2;
+Q.buf_modifier = 1.34;
+Q.other_modifier = 0.867208672;
+
 Q.classes = ['working', 'middle', 'upper', 'farmers', 'unemployed'];
 Q.parties = ['lab', 'nat_lab', 'ind_lab', 'lib', 'nat_lib', 'con', 'nationalist', 'communist', 'buf', 'other'];
 
