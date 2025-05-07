@@ -349,56 +349,56 @@ The Liberals have indicated a series of demands.
 @no_nationalise
 on-arrival: no_assurances += 1; leverage += 5; no_nationalise = 1; working_lab -= 5/12
 view-if: no_nationalise = 0
-go-to: lib_menu
+go_to: election_1935.lib_menu
 
 We have promised not to carry out nationalisations.
 
 @yes_nationalise
 on-arrival: no_assurances -= 1; leverage -= 5; no_nationalise = 0; working_lab += 5/12
 view-if: no_nationalise = 1
-go-to: lib_menu
+go_to: election_1935.lib_menu
 
 We have dropped our promise not to carry out nationalisations.
 
 @no_works
 on-arrival: no_assurances += 1; leverage += 5; no_works = 1; working_lab -= 5/12
 view-if: no_works = 0
-go-to: lib_menu
+go_to: election_1935.lib_menu
 
 We have promised not to go into deficit spending on public works.
 
 @yes_works
 on-arrival: no_assurances -= 1; leverage -= 5; no_works = 0; working_lab += 5/12
 view-if: no_works = 1
-go-to: lib_menu
+go_to: election_1935.lib_menu
 
 We have dropped our promise not to go into deficit spending on public works.
 
 @free_trade
 on-arrival: no_assurances += 1; leverage += 5; free_trade = 1; working_lab -= 3/12
 view-if: free_trade = 0
-go-to: lib_menu
+go_to: election_1935.lib_menu
 
 We have promised to uphold free trade. The Liberals would have expected no less.
 
 @no_free_trade
 on-arrival: no_assurances -= 1; leverage -= 10; free_trade = 0; working_lab += 3/12
 view-if: free_trade = 1
-go-to: lib_menu
+go_to: election_1935.lib_menu
 
 We have dropped our promise to uphold free trade. The Liberals are appalled!
 
 @no_taxes
 on-arrival: no_assurances += 1; leverage += 5; no_taxes = 1; working_lab -= 5/12
 view-if: no_taxes = 0
-go-to: lib_menu
+go_to: election_1935.lib_menu
 
 We have promised not to raise taxes on the highest earners.
 
 @yes_taxes
 on-arrival: no_assurances -= 1; leverage -= 5; no_taxes = 0; working_lab += 5/12
 view-if: no_taxes = 1
-go-to: lib_menu
+go_to: election_1935.lib_menu
 
 We have dropped our promise not to raise taxes on the highest earners.
 
