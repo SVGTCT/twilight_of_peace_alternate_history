@@ -72,7 +72,6 @@ Q.free_trade = 0;
 Q.no_works = 0;
 Q.no_assurances = 0;
 Q.socialist_failed = 0;
-// Reset government and ministers... Based on Brüning's 1930 govt
 Q.right_coalition_dissent = 0;
 Q.left_coalition_dissent = 0;
 Q.lab_in_government = 0;
@@ -120,7 +119,7 @@ for (var party of Q.parties) {
     election_result[party] = Q[party + '_c'];
 }
 Q.election_records.push(election_result);
-}
+!}
 on-display: {!
 data = data.concat([
     {
