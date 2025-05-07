@@ -74,7 +74,7 @@ Q.right_coalition_dissent = 0;
 Q.left_coalition_dissent = 0;
 Q.lab_in_government = 0;
 Q.in_national_government = 0;
-Q.in_lab_majority = 0;
+Q., = 0;
 Q.in_con_majority = 0;
 Q.in_lab_minority = 0;
 Q.in_con_minority = 0;
@@ -267,7 +267,7 @@ There are some potential coalition arrangements.
 title: Labour Majority
 subtitle: [+ lab_c +]%, [+ lab_seats +]/615 seats
 view-if: lab_c >= 50
-on-arrival: in_lab_majority = 1; prime_minister = labour_leader; pm_party = "Lab."; lab_maj_done = 1; mil_loyalty -= 0.05; pro_monarchy += 0.05 if not monarchy_abolished, pro_monarchy -= 0.05 if monarchy_abolished; middle_lab += 3/12; working_lab += 3/12; farmers_lab += 2/12; lord_chancellor = "Ponsonby"; lord_chancellor_party = "Lab."; chancellor = "Dalton"; chancellor_party = "Lab."; home_secretary = "Attlee" if prime_minister != "Attlee"; home_secretary = "Morrison" if prime_minister == "Attlee"; home_secretary_party = "Lab."; foreign_secretary = "Bevin" if prime_minister != "Bevin"; foreign_secretary = "Shaw" if prime_minister == "Bevin"; foreign_secretary_party = "Lab."; colonial_secretary = "Snell"; colonial_secretary_party = "Lab."; dominions_secretary = "Alexander"; dominions_secretary_party = "Lab."; war_secretary = "Elibank"; war_secretary_party = "*none*"; india_secretary = "Cripps"; india_secretary_party = "Lab."; scottish_secretary = "Johnston"; scottish_secretary_party = "Lab."; agriculture_minister = "Williams"; agriculture_minister_party = "Lab."; labour_minister = "Bevan"; labour_minister_party = "Lab."; health_minister = "Greenwood"; health_minister_party = "Lab.";
+on-arrival: in_lab_majority = 1; prime_minister = labour_leader; pm_party = "Lab."; lab_maj_done = 1; mil_loyalty -= 0.05; pro_monarchy += 0.05 if not monarchy_abolished; pro_monarchy -= 0.05 if monarchy_abolished; middle_lab += 3/12; working_lab += 3/12; farmers_lab += 2/12; lord_chancellor = "Ponsonby"; lord_chancellor_party = "Lab."; chancellor = "Dalton"; chancellor_party = "Lab."; home_secretary = "Attlee" if prime_minister != "Attlee"; home_secretary = "Morrison" if prime_minister == "Attlee"; home_secretary_party = "Lab."; foreign_secretary = "Bevin" if prime_minister != "Bevin"; foreign_secretary = "Shaw" if prime_minister == "Bevin"; foreign_secretary_party = "Lab."; colonial_secretary = "Snell"; colonial_secretary_party = "Lab."; dominions_secretary = "Alexander"; dominions_secretary_party = "Lab."; war_secretary = "Elibank"; war_secretary_party = "*none*"; india_secretary = "Cripps"; india_secretary_party = "Lab."; scottish_secretary = "Johnston"; scottish_secretary_party = "Lab."; agriculture_minister = "Williams"; agriculture_minister_party = "Lab."; labour_minister = "Bevan"; labour_minister_party = "Lab."; health_minister = "Greenwood"; health_minister_party = "Lab.";
 
 Thanks to our hard work, we have pulled in the votes to elect an outright Labour Party majority in Parliament [? if not lab_maj_done: for the first time in history! ?][? if lab_maj_done: yet again! ?] [+ labour_leader +] will be asked by the [+ hos_prefix +] to form a government, in which Labour will be free to deliver its promises.
 
