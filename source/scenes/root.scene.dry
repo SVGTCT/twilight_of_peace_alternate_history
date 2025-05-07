@@ -230,22 +230,22 @@ Q.farmers_nat_lab = 1;
 Q.farmers_ind_lab = 0;
 Q.farmers_lib = 5;
 Q.farmers_nat_lib = 5;
-Q.farmers_con = 65;
+Q.farmers_con = 66;
 Q.farmers_nationalist = 0;
 Q.farmers_communist = 0;
 Q.farmers_buf = 0;
-Q.farmers_other = 2;
+Q.farmers_other = 1;
 
 Q.unemployed_lab = 28;
 Q.unemployed_nat_lab = 1;
 Q.unemployed_ind_lab = 0.5;
 Q.unemployed_lib = 3;
 Q.unemployed_nat_lib = 2;
-Q.unemployed_con = 62.5;
+Q.unemployed_con = 65.5;
 Q.unemployed_nationalist = 0;
 Q.unemployed_communist = 0.5;
 Q.unemployed_buf = 0.5;
-Q.unemployed_other = 3;
+Q.unemployed_other = 1;
 
 // Current House of Commons composition
 Q.con_c = 76;
