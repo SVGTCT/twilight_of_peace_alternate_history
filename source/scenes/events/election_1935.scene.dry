@@ -127,9 +127,7 @@ data = [
         "name": "Communists",
         "seats": communist_seats,
     }
-];
-data = data.concat([
-    {{
+    {
         "id": "ind_lab",
         "legend": "Ind. Lab.",
         "name": "Ind. Lab.",
@@ -183,7 +181,7 @@ data = data.concat([
         "name": "BUF",
         "seats": buf_seats,
     },
-]);
+];
 
 if (window && d3) {
     var width = 500; 
