@@ -1,0 +1,680 @@
+title: House of Commons Elections
+new-page: true
+tags: event
+priority: -1
+view-if: (year = next_election_year and month >= next_election_month) or (year > next_election_year)
+on-departure: month_actions += 1; in_election = 0; next_election_year = next_election_year + 4; n_elections += 1; next_election_time = time + 48; papen_chancellor_timer = 4;
+set-jump: post_election_1935
+face-image: img/Rothe_Wahlen_1903.jpg
+
+# TODO: should there be an image?
+
+# the low priority means that this event is only seen after all other events are resolved for the month.
+
+= Elections, [+ month : month +] [+ year +]
+
+The Reichstag elections are to be held now.
+
+- @election_algorithm: May we do our best...
+
+@post_election_1935
+on-arrival: {!
+var new_party_sum = 0;
+for (var party of Q.parties) {
+    Q['old_' + party + '_c'] = Q[party + '_c'];
+    Q[party + '_c'] = Math.round(Q[party + '_votes'] * Q[party + '_modifier']);
+    if (year > 1935) {
+        Q.nat_lab_c = 0;
+        Q.nat_lab_seats = 0;
+    }
+    Q.total_c = Q.lab_c + Q.communist_c + Q.ind_lab_c + Q.nat_lab_c + Q.lib_c + Q.nat_lib_c + Q.con_c + Q.other_c + Q.nationalist_c + Q.buf_c;
+    if (Q.total_c != 100) {
+        if (Q.total_c < 100) {
+            Q.lab_c = Q.lab_c + (100-Q.total_c)}
+        else {
+        Q.lab_c = Q.lab_c - (Q.total_c-100)}
+    }
+    Q[party + '_seats'] = Math.round(Q([party + '_c']*6.5))
+    new_party_sum += Q[party + '_c'];
+    Q['change_' + party + '_c'] = Q[party + '_c'] - Q['old_' + party + '_c'];
+    if (Q['change_' + party + '_c'] > 0) {
+        Q.sign = "+";}
+    else {
+        Q.sign = "-";}
+    Q['str_change_' + party] = sign + Q['change_' + party + '_c'];//.toFixed(1);
+}
+
+// The largest party can only be Labour or the Tories
+Q.largest_party = 'Conservative';
+if (Q.lab_c > Q.con_c) {
+    Q.largest_party = 'Labour';
+}
+
+// coalitions
+Q.national_government = Q.con_c + Q.nat_lib_c + Q.nat_lab_c + Math.round((Q.other_c/2));
+Q.national_government_seats = Q.con_seats + Q.nat_lib_seats + Q.nat_lab_seats + Math.round((Q.other_seats/2));
+Q.lw_government = Q.lab_c + Q.ind_lab_c;
+Q.lw_government_seats = Q.lab_seats + Q.ind_lab_seats;
+Q.lab_lib_government = Q.lab_c + Q.lib_c;
+Q.lab_lib_government_seats = Q.lab_seats + Q.lib_seats + Q.nat_lib_seats;
+Q.socialist_government = Q.lab_c + Q.communist_c;
+Q.socialist_government_seats = Q.lab_seats + Q.communist_seats;
+
+Q.leverage = Q.lab_c;
+
+Q.lib_failed = 0;
+// liberal demands
+Q.no_taxes = 0;
+Q.no_nationalise = 0;
+Q.free_trade = 0;
+Q.no_works = 0;
+Q.no_assurances = 0;
+Q.socialist_failed = 0;
+Q.right_coalition_dissent = 0;
+Q.left_coalition_dissent = 0;
+Q.lab_in_government = 0;
+Q.in_national_government = 0;
+Q.in_lab_majority = 0;
+Q.in_con_majority = 0;
+Q.in_lab_minority = 0;
+Q.in_con_minority = 0;
+Q.in_lw_government = 0;
+Q.in_lab_lib_government = 0;
+Q.in_socialist_government = 0;
+Q.minority_government = 0;
+Q.lab_toleration = 0;
+Q.lord_chancellor = 'Hogg';
+Q.lord_chancellor_party = 'Con.';
+Q.chancellor = 'Chamberlain';
+Q.chancellor_party = 'Con.';
+Q.home_secretary = 'Simon';
+Q.home_secretary_party = 'Nat. Lib.';
+Q.foreign_secretary = 'Hoare';
+Q.foreign_secretary_party = ' Con.';
+Q.colonial_secretary = 'M. MacDonald';
+Q.colonial_secretary_party = 'Nat. Lab.';
+Q.dominions_secretary = 'Thomas';
+Q.dominions_secretary_party = 'Nat. Lab.';
+Q.war_secretary = 'Halifax';
+Q.war_secretary_party = 'Con.';
+Q.india_secretary = 'Dundas';
+Q.india_secretary_party = 'Con.';
+Q.scottish_secretary = 'Collins';
+Q.scottish_secretary_party = 'Nat. Lib.';
+Q.agriculture_minister = 'Elliot';
+Q.agriculture_minister_party = 'Un. (Con.)';
+Q.labour_minister = 'Brown';
+Q.labour_minister_party = 'Nat. Lib.';
+Q.health_minister = 'Wood';
+Q.health_minister_party = 'Con.';
+
+// TODO: add CPGB goals
+
+// TODO: anti-CPGB/BUF timer
+
+var election_result = {'date': new Date(Q.year, Q.month - 1)};
+for (var party of Q.parties) {
+    election_result[party] = Q[party + '_r'];
+}
+Q.election_records.push(election_result);
+!}
+on-departure: nazi_urgency = 1 if (nazi_urgency == 0 and nsdap_r >= 15)
+on-display: {!
+data = [
+    {
+        "id": "kpd",
+        "legend": "KPD",
+        "name": "KPD",
+        "seats": Math.round(Q.kpd_r*5),
+    }
+];
+if (Q.sapd_formed && Q.sapd_r) {
+    data.push({
+            "id": "sapd",
+            "legend": "SAPD",
+            "name": "SAPD",
+            "seats": Math.round(Q.sapd_r*5),
+            });
+}
+data = data.concat([
+    {
+        "id": "spd",
+        "legend": "SPD",
+        "name": "SPD",
+        "seats": Math.round(Q.spd_r*5),
+    },
+    {
+        "id": "ddp",
+        "legend": Q.ddp_name,
+        "name": Q.ddp_name,
+        "seats": Math.round(Q.ddp_r*5),
+    },
+    {
+        "id": "z",
+        "legend": "Center",
+        "name": "Center",
+        "seats": Math.round((Q.z_r - 3)*5),
+    },
+    {
+        "id": "bvp",
+        "legend": "BVP",
+        "name": "BVP",
+        "seats": Math.round(3*5),
+    },
+    {
+        "id": "dvp",
+        "legend": "DVP",
+        "name": "DVP",
+        "seats": Math.round(Q.dvp_r*5),
+    },
+    {
+        "id": "other",
+        "legend": "Other",
+        "name": "Other",
+        "seats": Math.round(Q.other_r*5),
+    },
+    {
+        "id": "dnvp",
+        "legend": "DNVP",
+        "name": "DNVP",
+        "seats": Math.round(Q.dnvp_r*5),
+    },
+    {
+        "id": "nsdap",
+        "legend": "NSDAP",
+        "name": "NSDAP",
+        "seats": Math.round(Q.nsdap_r*5),
+    },
+]);
+
+if (window && d3) {
+    var width = 500; 
+    var height = 500;
+    var screenWidth = document.getElementById('content').offsetWidth;
+    if (screenWidth < width - 50) {
+        width = screenWidth - 50; 
+        height = width;
+        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
+    } 
+
+    var parliament = d3.parliament();
+    parliament.width(width).height(height).innerRadiusCoef(0.4);
+    parliament.enter.fromCenter(true).smallToBig(true);
+    parliament.exit.toCenter(false).bigToSmall(true);
+    d3.select("#reichstag").datum(data).call(parliament);
+}
+!}
+go-to: coalition_menu
+
+= Election results
+
+{!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
+
+{!<table>!} 
+{!<tr><td>Party</td><td>Vote share</td><td>% Change</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **SPD:** {!</td><td>!} **[+ spd_r +]%** {!</td><td>!} **[+ str_change_spd +]** {!</td></tr>!}
+
+[? if sapd_formed : {!<tr><td><div class="box" style='background-color:#C40000'> </div> !}SAPD: {!</td><td>!} [+ sapd_r +]% {!</td><td>!} [+ str_change_sapd +] {!</td></tr>!} ?]
+
+{!<tr><td><div class="box" style='background-color:#8B0000'> </div> !}KPD: {!</td><td>!} [+ kpd_r +]% {!</td><td>!} [+ str_change_kpd +] {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#DCCA4A'> </div> !} [+ ddp_name +]: {!</td><td>!} [+ ddp_r +]% {!</td><td>!} [+ str_change_ddp +] {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#000'> </div> !} Z: {!</td><td>!} [+ z_minus_bvp_r +]% {!</td><td>!} [+ str_change_z +] {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#69A2BE'> </div> !} BVP: {!</td><td>!} 3% {!</td><td>!} 0 {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#D5AC27'> </div> !} DVP: {!</td><td>!} [+ dvp_r +]% {!</td><td>!} [+ str_change_dvp +] {!</td></tr>!}
+ 
+{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_r +] % {!</td><td>!} [+ str_change_other +] {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#3f7bc1'> </div> !} DNVP: {!</td><td>!} [+ dnvp_r +]% {!</td><td>!} [+ str_change_dnvp +] {!</td></tr>!}
+
+{!<tr><td><div class="box" style='background-color:#954B00'> </div> !} NSDAP: {!</td><td>!} [+ nsdap_r +]% {!</td><td>!} [+ str_change_nsdap +] {!</td></tr>!}
+{!</table>!}
+
+**Potential coalitions:**
+
+National Government (Con. + Nat. Lib. + Nat. Lab.): [+ national_government +]%
+
+Lab-Lib Government (Labour + Liberals): [+ lab_lib_government +]%
+
+Left-Wing Coalition (Lab. + Ind. Lab.): [+ lw_government +]%
+
+[? if largest_party == "Conservative" and con_seats >= 308: Conservative majority: [+ con_c +]% ?]
+
+[? if largest_party == "Conservative" and con_seats < 308: Conservative minority: [+ con_c +]% ?]
+
+[? if largest_party == "Labour" and lab_seats >= 308: Labour minority: [+ lab_c +]% ?]
+
+[? if largest_party == "Conservative" and lab_seats < 308: Labour minority: [+ lab_c +]% ?]
+
+There are some potential coalition arrangements.
+
+// TODO: BUF/CPGB rise and Labour/Liberal Toleration of the National Government
+
+@coalition_menu
+
+- @lab_majority
+- @lab_minority
+- @con_majority
+- @con_minority
+- @national_gov
+- @lab_lib_gov
+- @lw_gov
+
+@lab_majority
+title: Labour Majority
+subtitle: [+ lab_c +]%, [+ lab_seats +]/615 seats
+view-if: lab_c >= 50
+on-arrival: in lab_majority = 1; prime_minister = labour_leader; pm_party = "Lab."; lab_maj_done = 1; mil_loyalty -= 0.05; pro_monarchy += 0.05 if not monarchy_abolished, pro_monarchy -= 0.05 if monarchy_abolished; middle_lab += 3/12; working_lab += 3/12; farmers_lab += 2/12; lord_chancellor = "Ponsonby"; lord_chancellor_party = "Lab."; chancellor = "Dalton"; chancellor_party = "Lab."; home_secretary = "Attlee" if prime_minister != "Attlee"; home_secretary = "Morrison" if prime_minister == "Attlee"; home_secretary_party = "Lab."; foreign_secretary = "Bevin" if prime_minister != "Bevin"; foreign_secretary = "Shaw" if prime_minister == "Bevin"; foreign_secretary_party = "Lab."; colonial_secretary = "Snell"; colonial_secretary_party = "Lab."; dominions_secretary = "Alexander"; dominions_secretary_party = "Lab."; war_secretary = "Elibank"; war_secretary_party = "*none*"; india_secretary = "Cripps"; india_secretary_party = "Lab."; scottish_secretary = "Johnston"; scottish_secretary_party = "Lab."; agriculture_minister = "Williams"; agriculture_minister_party = "Lab."; labour_minister = "Bevan"; labour_minister_party = "Lab."; health_minister = "Greenwood"; health_minister_party = "Lab.";
+
+Thanks to our hard work, we have pulled in the votes to elect an outright Labour Party majority in Parliament [? if not lab_maj_done: for the first time in history! ?][? if lab_maj_done: yet again! ?] [+ labour_leader +] will be asked by the [+ hos_prefix +] to form a government, in which Labour will be free to deliver its promises.
+
+@lab_minority
+title: Labour Minority
+subtitle: [+ lab_c +]%, [+ lab_seats +]/615 seats -- we will be dependent on the Liberals
+view-if: lab_c < 50 and largest_party = "Labour" and (lab_c + lib_c) >= 50
+choose-if: dissent_percent < 50 and lib_relation >= 50
+unavailable-subtitle: Our [? if dissent_percent >= 50 and lib_relation >= 50: high internal dissent ?][? if lib_relation < 50 and dissent_percent < 50: poor relations with the Liberals ?][? if lib_relation < 50 and dissent_percent >= 50: high internal dissent and poor relations with the Liberals ?] mean we would not be able to form the government.
+on-arrival: in lab_minority = 1; prime_minister = labour_leader; pm_party = "Lab."; mil_loyalty -= 0.05; middle_lab += 1/12; working_lab += 2/12; lord_chancellor = "Ponsonby"; lord_chancellor_party = "Lab."; chancellor = "Dalton"; chancellor_party = "Lab."; home_secretary = "Attlee" if prime_minister != "Attlee"; home_secretary = "Morrison" if prime_minister == "Attlee"; home_secretary_party = "Lab."; foreign_secretary = "Bevin" if prime_minister != "Bevin"; foreign_secretary = "Shaw" if prime_minister == "Bevin"; foreign_secretary_party = "Lab."; colonial_secretary = "Snell"; colonial_secretary_party = "Lab."; dominions_secretary = "Alexander"; dominions_secretary_party = "Lab."; war_secretary = "Hall"; war_secretary_party = "Lab."; india_secretary = "Cripps"; india_secretary_party = "Lab."; scottish_secretary = "Johnston"; scottish_secretary_party = "Lab."; agriculture_minister = "Williams"; agriculture_minister_party = "Lab."; labour_minister = "Bevan"; labour_minister_party = "Lab."; health_minister = "Greenwood"; health_minister_party = "Lab.";
+
+Thanks to our hard work, we have yet again become the largest party, with enough votes to elect a minority government, albeit with the Liberals' backing. However, this arrangement will give us more room to enact our policies than in a coalition. 
+
+[+ labour_leader +] will be asked by the [+ hos_prefix +] to form a government, in which we will control almost all ministries, since the Liberals have asked for a neutral figure in the War Department.
+
+@con_majority
+title: Conservative Majority
+subtitle: [+ con_c +]%, [+ con_seats +]/615 seats
+view-if: con_c >= 50 and nat_lib_ c == 0
+on-arrival: in_con_majority = 1; prime_minister = conservative_leader; pm_party = "Con."; mil_loyalty -= 0.05; middle_con += 3/12; upper_con += 3/12; working_con += 2/12; farmers_con += 2/12; lord_chancellor = "Maugham"; lord_chancellor_party = "Con."; chancellor = "Chamberlain" if prime_minister != Chamberlain; chancellor = "Halifax" if prime_minister == "Chamberlain"; chancellor_party = "Con."; home_secretary = "Hoare"; home_secretary_party = "Con."; foreign_secretary = "Eden"; foreign_secretary_party = "Con."; colonial_secretary = "Ormsby-Gore"; colonial_secretary_party = "Con."; dominions_secretary = "Stanley"; dominions_secretary_party = "Con."; war_secretary = "Strathcona"; war_secretary_party = "Con."; india_secretary = "Dundas"; india_secretary_party = "Con."; scottish_secretary = "Elliot"; scottish_secretary_party = "Un. Con."; agriculture_minister = "Morrison"; agriculture_minister_party = "Con."; labour_minister = "Butler"; labour_minister_party = "Con."; health_minister = "Wood"; health_minister_party = "Con.";
+
+Following the electoral wipeout of the Liberal Nationals, the Conservatives have decided against continuing the National Government. Since they have an outright majority in the House of Commons, they will form a government under [+ conservative_leader +].
+
+@con_minority
+title: Conservative Minority
+subtitle: [+ con_c +]%, [+ con_seats +]/615 seats
+view-if: con_c < 50 and (national_government < 50 or nat_lib_c == 0) and largest_party = "Conservative" and (socialist_failed or socialist_government < 50) and (lib_failed or lab_lib_government < 50) and lw_government < 50
+on-arrival: in_con_minority = 1; prime_minister = conservative_leader; pm_party = "Con."; mil_loyalty -= 0.02; middle_con += 1/12; upper_con += 1/12; working_lab -= 1/12; farmers_lab -= 1/12; lord_chancellor = "Maugham"; lord_chancellor_party = "Con."; chancellor = "Chamberlain" if prime_minister != Chamberlain; chancellor = "Halifax" if prime_minister == "Chamberlain"; chancellor_party = "Con."; home_secretary = "Hoare"; home_secretary_party = "Con."; foreign_secretary = "Eden"; foreign_secretary_party = "Con."; colonial_secretary = "Ormsby-Gore"; colonial_secretary_party = "Con."; dominions_secretary = "Stanley"; dominions_secretary_party = "Con."; war_secretary = "Strathcona"; war_secretary_party = "Con."; india_secretary = "Dundas"; india_secretary_party = "Con."; scottish_secretary = "Elliot"; scottish_secretary_party = "Un. Con."; agriculture_minister = "Morrison"; agriculture_minister_party = "Con."; labour_minister = "Butler"; labour_minister_party = "Con."; health_minister = "Wood"; health_minister_party = "Con.";
+
+Faced with no other choices, the first-place finishing Conservative Party has decided to enter a minority government dependent on Liberal and National support. They will form a government under [+ conservative_leader +].
+
+@national_gov
+title: National Government
+subtitle: [+ national_government +]%, [+ national_government_seats +]/615 seats
+view-if: national_government >= 50 or (national_government >= 45 and nat_lib_c > 0)
+on-arrival: in_national_government = 1; prime_minister = [+ conservative_leader +]; pm_party = "Con.";
+
+The National Government has secured another mandate from the British electorate, and yet again, the Labour Party will remain outside of government. [? if national_government < 50: This is despite it not having a majority. ?] We must work to be an effective opposition.
+
+@lab_lib_gov
+title: Lab-Lib Government
+subtitle: [+ lab_lib_government +]%, [+ lab_lib_government_seats +]/615 seats
+view-if: lab_lib_government >= 50 and not lib_failed
+choose-if: lib_relation >= 35
+unavailable-subtitle: We do not have sufficient relations with the Liberals.
+
+We can enter negotiations to form a government under a coalition with the Liberal Party. Alternatively, we could take more ministries by arranging a confidence and supply agreement with the Liberal Party to form a minority government.
+
+- @lib_form: We will form a coalition government.
+- @lab_minority: We will form a minority government.
+
+@lib_form
+on-arrival: lib_relation += 5; middle_lab += 3/12;
+go-to: lib_form_poor if lib_relation < 45 and >= 35; lib_form_ok if lib_relation >= 45 and < 55; lib_form_good if lib_relation >= 55;
+
+Very well. We will try to form a Labour-Liberal coalition under [+ labour_leader +].
+
+@lib_form_poor
+on-arrival: leverage -= 20
+go-to: lib-menu
+
+Unfortunately, due to our relatively poor relations with the Liberal Party, the Liberals are demanding that we guarantee them a number of compromises, seeking to rein in our socialist policies. We will need to accept at least some of them.
+
+@lib_menu
+
+The Liberals have indicated a series of demands.
+
+- @no_nationalise: We will refrain from undertaking a policy of nationalisations.
+- @yes_nationalise: Drop our promise against nationalisations.
+- @no_works: We will guarantee to only carry out minor public works programmes to avoid deficit spending.
+- @yes_works: Drop our promise against going into deficit spending on public works.
+- @free_trade: We will commit to a policy of free trade.
+- @no_free_trade: Drop our promise to uphold free trade.
+- @no_taxes: We will promise not to raise taxes on the highest earners.
+- @yes_taxes: Drop our promise not to raise taxes on the highest earners.
+- @enough: That should be enough, let's negotiate the ministries.
+- @lib_no_gov: The government cannot be formed.
+
+@no_nationalise
+on-arrival: no_assurances += 1; leverage += 5; no_nationalise = 1; working_lab -= 5/12
+view-if: no_nationalise = 0;
+go-to: lib_menu
+
+We have promised not to carry out nationalisations.
+
+@yes_nationalise
+on-arrival: no_assurances -= 1; leverage -= 5; no_nationalise = 0; working_lab += 5/12
+view-if: no_nationalise = 1;
+go-to: lib_menu
+
+We have dropped our promise not to carry out nationalisations.
+
+@no_works
+on-arrival: no_assurances += 1; leverage += 5; no_works = 1; working_lab -= 5/12
+view-if: no_works = 0;
+go-to: lib_menu
+
+We have promised not to go into deficit spending on public works.
+
+@yes_works
+on-arrival: no_assurances -= 1; leverage -= 5; no_works = 0; working_lab += 5/12
+view-if: no_works = 1;
+go-to: lib_menu
+
+We have dropped our promise not to go into deficit spending on public works.
+
+@free_trade
+on-arrival: no_assurances += 1; leverage += 5; free_trade = 1; working_lab -= 3/12
+view-if: free_trade = 0;
+go-to: lib_menu
+
+We have promised to uphold free trade. The Liberals would have expected no less.
+
+@no_free_trade
+on-arrival: no_assurances -= 1; leverage -= 10; free_trade = 0; working_lab += 3/12
+view-if: free_trade = 1;
+go-to: lib_menu
+
+We have dropped our promise to uphold free trade. The Liberals are appalled!
+
+@no_taxes
+on-arrival: no_assurances += 1; leverage += 5; no_taxes = 1; working_lab -= 5/12
+view-if: no_taxes = 0;
+go-to: lib_menu
+
+We have promised not to raise taxes on the highest earners.
+
+@yes_taxes
+on-arrival: no_assurances -= 1; leverage -= 5; no_taxes = 0; working_lab += 5/12
+view-if: no_taxes = 1;
+go-to: lib_menu
+
+We have dropped our promise not to raise taxes on the highest earners.
+
+@enough
+view-if: in_lab_lib_government = 1; no_assurances > 1; prime_minister = labour_leader; pm_party = "Lab."; lord_chancellor = "Ponsonby"; lord_chancellor_party = "Lab."; chancellor = "Samuel"; chancellor_party = "Lib."; home_secretary = "Sinclair"; home_secretary_party = "Lib."; foreign_secretary = "Kerr"; foreign_secretary_party = "Lib."; colonial_secretary = "Hamilton"; colonial_secretary_party = "Lib."; dominions_secretary = "Acland"; dominions_secretary_party = "Lib."; war_secretary = "Beaumont"; war_secretary_party = "Lib."; india_secretary = "I. Foot"; india_secretary_party = "Lib."; scottish_secretary = "D. Foot"; scottish_secretary_party = "Lib."; agriculture_minister = "Roberts"; agriculture_minister_party = "Lib."; labour_minister = "Harris"; labour_minister_party = "Lib."; health_minister = "White"; health_minister_party = "Lib.";
+go-to: ministries
+
+That will be enough. Now we will negotiate for ministries.
+
+@lib_no_gov
+on-arrival: middle_lab -= 3/12; working_lab -= 2/12; working_con += 2/12; middle_con += 3/12; lib_failed = 1; no_assurances = 0; lib_relation -= 5;
+go-to: coalition_menu
+
+@lib_form_ok
+on-arrival: leverage -= 15
+
+Unfortunately, due to our relatively poor relations with the Liberal Party, the Liberals are demanding that we guarantee them a number of compromises, seeking to rein in our socialist policies. We will need to accept at least some of them or accept many fewer ministries.
+
+- @give_lib_ministries: We are happy to give up more ministries if it means we will be less restricted.
+- @lib_menu: We will negotiate and hear the Liberals' demands.
+
+@give_lib_ministries
+on-arrival: in_lab_lib_government = 1; leverage -= 5; prime_minister = labour_leader; pm_party = "Lab."; lord_chancellor = "Ponsonby"; lord_chancellor_party = "Lab."; chancellor = "Samuel"; chancellor_party = "Lib."; home_secretary = "Sinclair"; home_secretary_party = "Lib."; foreign_secretary = "Kerr"; foreign_secretary_party = "Lib."; colonial_secretary = "Hamilton"; colonial_secretary_party = "Lib."; dominions_secretary = "Acland"; dominions_secretary_party = "Lib."; war_secretary = "Beaumont"; war_secretary_party = "Lib."; india_secretary = "I. Foot"; india_secretary_party = "Lib."; scottish_secretary = "D. Foot"; scottish_secretary_party = "Lib."; agriculture_minister = "Roberts"; agriculture_minister_party = "Lib."; labour_minister = "Harris"; labour_minister_party = "Lib."; health_minister = "White"; health_minister_party = "Lib.";
+go-to: ministries
+
+Very well. We will accept fewer ministries to abide by our principles.
+
+@lib_form_good
+
+Owing to our amiable relations with the Liberal Party, they are more than happy to enter into government with us. We could also take some time to negotiate with the Liberals, which would give us more leverage in selecting our ministries, but would undermine our working class base.
+
+- @lib_negotiate_good: We will negotiate for more ministries.
+- @lib_no_need: There is no need. We will negotiate for ministries now.
+
+@lib_negotiate_good
+go-to: lib-menu
+on-arrival: working_lab -= 3/12
+
+@lib_no_need
+on-arrival: in_lab_lib_government = 1; prime_minister = labour_leader; pm_party = "Lab."; lord_chancellor = "Ponsonby"; lord_chancellor_party = "Lab."; chancellor = "Samuel"; chancellor_party = "Lib."; home_secretary = "Sinclair"; home_secretary_party = "Lib."; foreign_secretary = "Kerr"; foreign_secretary_party = "Lib."; colonial_secretary = "Hamilton"; colonial_secretary_party = "Lib."; dominions_secretary = "Acland"; dominions_secretary_party = "Lib."; war_secretary = "Beaumont"; war_secretary_party = "Lib."; india_secretary = "I. Foot"; india_secretary_party = "Lib."; scottish_secretary = "D. Foot"; scottish_secretary_party = "Lib."; agriculture_minister = "Roberts"; agriculture_minister_party = "Lib."; labour_minister = "Harris"; labour_minister_party = "Lib."; health_minister = "White"; health_minister_party = "Lib.";
+go-to: ministries
+
+@lw_gov
+title: Left-Wing Government
+subtitle: [+ lw_government +]%, [+ lw_government_seats +]/615 seats
+view-if: lw_government >= 50
+choose-if: ind_lab_relation >= 35
+unavailable-subtitle: We do not have sufficient relations with the Left.
+on-arrival: in_lw_government = 1; ilp_in_government += 1; working_lab += 3/12; working_ind_lab += 2/12; lord_chancellor = "Ponsonby"; lord_chancellor_party = "Lab."; chancellor = "Dalton"; chancellor_party = "Lab."; home_secretary = "Attlee" if prime_minister != "Attlee"; home_secretary = "Morrison" if prime_minister == "Attlee"; home_secretary_party = "Lab."; foreign_secretary = "Bevin" if prime_minister != "Bevin"; foreign_secretary = "Shaw" if prime_minister == "Bevin"; foreign_secretary_party = "Lab."; colonial_secretary = "Snell"; colonial_secretary_party = "Lab."; dominions_secretary = "Alexander"; dominions_secretary_party = "Lab."; war_secretary = "Hall"; war_secretary_party = "Lab."; india_secretary = "Cripps"; india_secretary_party = "Lab."; scottish_secretary = "Johnston"; scottish_secretary_party = "Lab."; agriculture_minister = "Williams"; agriculture_minister_party = "Lab."; labour_minister = "Bevan" if ilp_in_government <= 1; labour_minister = "Buchanan" if ilp_in_government > 1; labour_minister_party = "Ind. Lab." if ilp_in_government > 1; labour_minister_party = "Lab." if ilp_in_government <= 1; health_minister = "Greenwood"; health_minister_party = "Lab.";
+
+We can form a left-wing government with a majority in the House of Commons, under [+ labour_leader +]. Aside from an outright majority, this is the best governing arrangement for us. 
+
+[? if ilp_in_government > 1: The Independent Labour Party, having been convinced of the coalition's efficacy upon its renewal, has requested to appoint George Buchanan as Minister of Labour. All other portfolios will go to the Labour Party. ?][? if ilp_in_government =< 1: Upon entering government for the first time, the Labour Independents have taken an abstentionist approach. Labour will appoint every minister. ?]
+
+// TODO: Add Socialist (Labour-Communist) Coalition with Communist Demands (@com_menu)
+// TODO: Remember: Add Six Month Checks for Coalition Demands + conditional, timed Liberal Demands (e.g. if you raise taxes but cut them too in a six month period, this does not fail no_taxes but any tariff does fail free_trade)
+
+@ministries
+
+We can pick from any number of ministries. Controlling a ministry allows us to directly affect policy in that area.
+
+- #mins_1935
+- #drop_mins_1935
+
+@chancellor
+title: Chancellor of the Exchequer
+subtitle: In charge of economic policy.
+unavailable-subtitle: We do not have enough leverage
+tags: mins_1935
+choose-if: leverage >= 10
+view-if: chancellor_party != "Lab."
+on-arrival: leverage -= 10; chancellor_party = "Lab."; chancellor = "Dalton"
+go-to: ministries
+
+Hugh Dalton of the Labour Party has been appointed Chancellor.
+
+@home_secretary
+title: Home Secretary
+subtitle: In charge of interior policy.
+unavailable-subtitle: We do not have enough leverage
+tags: mins_1935
+choose-if: leverage >= 8
+view-if: home_secretary_party != "Lab."
+on-arrival: leverage -= 8; home_secretary_party = "Lab."; home_secretary = "Morrison" if prime_minister == "Attlee"; home_secretary = "Attlee" if prime_minister != "Attlee";
+go-to: ministries
+
+[? if home_secretary = "Attlee": Clement Attlee ?][? if home_secretary = "Morrison": Herbert Morrison ?] of the Labour Party has been appointed Home Secretary.
+
+@foreign_secretary
+title: Foreign Secretary
+subtitle: In charge of foreign policy.
+unavailable-subtitle: We do not have enough leverage
+tags: mins_1935
+choose-if: leverage >= 8
+view-if: foreign_secretary_party != "Lab."
+on-arrival: leverage -= 8; foreign_secretary_party = "Lab."; foreign_secretary = "Bevin";
+go-to: ministries
+
+Ernest Bevin of the Labour Party has been appointed Foreign Secretary.
+
+@colonial_secretary
+title: Colonial Secretary
+subtitle: In charge of colonial policy.
+unavailable-subtitle: We do not have enough leverage
+tags: mins_1935
+choose-if: leverage >= 5
+view-if: colonial_secretary_party != "Lab."
+on-arrival: leverage -= 5; colonial_secretary_party = "Lab."; foreign_secretary = "Snell";
+go-to: ministries
+
+Lord Snell of the Labour Party has been appointed Colonial Secretary.
+
+@dominions_secretary
+title: Dominions Secretary
+subtitle: In charge of dominion policy.
+unavailable-subtitle: We do not have enough leverage
+tags: mins_1935
+choose-if: leverage >= 5
+view-if: dominions_secretary_party != "Lab."
+on-arrival: leverage -= 5; dominions_secretary_party = "Lab."; foreign_secretary = "Alexander";
+go-to: ministries
+
+A. V. Alexander of the Labour Party has been appointed Dominions Secretary.
+
+@war_secretary
+title: War Secretary
+subtitle: In charge of defence policy.
+unavailable-subtitle: We do not have enough leverage
+tags: mins_1935
+choose-if: leverage >= 8
+view-if: war_secretary_party != "Lab."
+on-arrival: leverage -= 8; war_secretary_party = "Lab."; war_secretary = "Hall";
+go-to: ministries
+
+George Hall of the Labour Party has been appointed War Secretary.
+
+@india_secretary
+title: India Secretary
+subtitle: In charge of Indian policy.
+unavailable-subtitle: We do not have enough leverage
+tags: mins_1935
+choose-if: leverage >= 5
+view-if: india_secretary_party != "Lab."
+on-arrival: leverage -= 5; india_secretary_party = "Lab."; india_secretary = "Cripps";
+go-to: ministries
+
+Stafford Cripps of the Labour Party has been appointed War Secretary.
+
+@scottish_secretary
+title: Scottish Secretary
+subtitle: In charge of Scottish policy.
+unavailable-subtitle: We do not have enough leverage
+tags: mins_1935
+choose-if: leverage >= 5
+view-if: scottish_secretary_party != "Lab."
+on-arrival: leverage -= 5; scottish_secretary_party = "Lab."; scottish_secretary = "Johnston";
+go-to: ministries
+
+Tom Johnston of the Labour Party has been appointed Scottish Secretary.
+
+@agriculure_minister
+title: Agriculture Minister
+subtitle: Minister in charge of agriculture policy.
+unavailable-subtitle: We do not have enough leverage
+tags: mins_1935
+choose-if: leverage >= 3
+view-if: agriculture_minister_party != "Lab."
+on-arrival: leverage -= 3; agriculture_minister_party = "Lab."; agriculture_minister = "Johnston";
+go-to: ministries
+
+Tom Williams of the Labour Party has been appointed Agriculture Minister.
+
+@labour_minister
+title: Labour Minister
+subtitle: Minister in charge of labour policy.
+unavailable-subtitle: We do not have enough leverage
+tags: mins_1935
+choose-if: leverage >= 3
+view-if: labour_minister_party != "Lab."
+on-arrival: leverage -= 3; labour_minister_party = "Lab."; labour_minister = "Bevan";
+go-to: ministries
+
+Aneurin Bevan of the Labour Party has been appointed Agriculture Minister.
+
+@health_minister
+title: Health Minister
+subtitle: Minister in charge of health care policy.
+unavailable-subtitle: We do not have enough leverage
+tags: mins_1935
+choose-if: leverage >= 3
+view-if: health_minister_party != "Lab."
+on-arrival: leverage -= 3; health_minister_party = "Lab."; health_minister = "Greenwood";
+go-to: ministries
+
+Arthur Greenwood of the Labour Party has been appointed Agriculture Minister.
+
+@no_more
+title: No more ministries.
+subtitle: [? if leverage >= 10 : We still have some more leverage to gain ministries. ?][? if leverage < 10 : We do not have much leverage left. ?]
+tags: mins_1935
+
+This coalition arrangement is tolerable to all.
+
+@drop_chancellor
+title: Drop the Chancellor.
+view-if: chancellor_party = "Lab."
+on-arrival: chancellor = "Samuel"; chancellor_party = "Lib."; leverage += 10;
+tags: drop_mins_1935
+go-to: ministries
+
+@drop_home
+title: Drop the Home Secretary.
+view-if: home_secretary_party = "Lab."
+on-arrival: home_secretary = "Sinclair"; home_secretary_party = "Lib."; leverage += 8;
+tags: drop_mins_1935
+go-to: ministries
+
+@drop_foreign
+title: Drop the Foreign Secretary.
+view-if: foreign_secretary_party = "Lab."
+on-arrival: foreign_secretary = "Kerr"; foreign_secretary_party = "Lib."; leverage += 8;
+tags: drop_mins_1935
+go-to: ministries
+
+@drop_colonial
+title: Drop the Colonial Secretary.
+view-if: colonial_secretary_party = "Lab."
+on-arrival: colonial_secretary = "Hamilton"; colonial_secretary_party = "Lib."; leverage += 5;
+tags: drop_mins_1935
+go-to: ministries
+
+@drop_dominions
+title: Drop the Dominions Secretary.
+view-if: dominions_secretary_party = "Lab."
+on-arrival: dominions_secretary = "Acland"; dominions_secretary_party = "Lib."; leverage += 5;
+tags: drop_mins_1935
+go-to: ministries
+
+@drop_war
+title: Drop the War Secretary.
+view-if: war_secretary_party = "Lab."
+on-arrival: war_secretary = "Beaumont"; war_secretary_party = "Lib."; leverage += 8;
+tags: drop_mins_1935
+go-to: ministries
+
+@drop_india
+title: Drop the India Secretary.
+view-if: india_secretary_party = "Lab."
+on-arrival: india_secretary = "I. Foot"; india_secretary_party = "Lib."; leverage += 5;
+tags: drop_mins_1935
+go-to: ministries
+
+@drop_scottish
+title: Drop the Scottish Secretary.
+view-if: scottish_secretary_party = "Lab."
+on-arrival: scottish_secretary = "D. Foot"; scottish_secretary_party = "Lib."; leverage += 5;
+tags: drop_mins_1935
+go-to: ministries
+
+@drop_agriculture
+title: Drop the Agriculture Minister.
+view-if: agriculture_minister_party = "Lab."
+on-arrival: agriculture_minister = "Roberts"; agriculture_minister_party = "Lib."; leverage += 3;
+tags: drop_mins_1935
+go-to: ministries
+
+@drop_labour
+title: Drop the Labour Minister.
+view-if: labour_minister_party = "Lab."
+on-arrival: labour_minister = "Harris"; labour_minister_party = "Lib."; leverage += 3;
+tags: drop_mins_1935
+go-to: ministries
+
+@drop_health
+title: Drop the Health Minister.
+view-if: health_minister_party = "Lab."
+on-arrival: health_minister = "White"; health_minister_party = "Lib."; leverage += 3;
+tags: drop_mins_1935
+go-to: ministries
