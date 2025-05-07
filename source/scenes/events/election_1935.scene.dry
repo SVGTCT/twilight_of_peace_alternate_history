@@ -207,31 +207,31 @@ go-to: coalition_menu
 
 <svg id="reichstag" style="width: 500px; height: 250px;"> </svg>
 
-{!<table>!} 
+<table> 
 
-{!<tr><td>Party</td><td>Vote share</td><td>Seats</td><td>Percentage</td><td>% Change</td></tr>!}
+<tr><td>Party</td><td>Vote share</td><td>Seats</td><td>Percentage</td><td>% Change</td></tr>
 
-{!<tr><td><div class="box" style='background-color:#F00; outline: 2px; outline-style: solid;'> </div> !} **Communists:** {!</td><td>!} **[+ communist_votes +]%** {!</td><td>!} [+ communist_seats +] {!</td><td>!} [+ communist_c +] {!</td><td>!} **[+ str_change_communist +]** {!</td></tr>!}
+<tr><td><div class="box" style='background-color:#F00; outline: 2px; outline-style: solid;'> </div>  **Communists:** </td><td> **[+ communist_votes +]%** </td><td> [+ communist_seats +] </td><td> [+ communist_c +] </td><td> **[+ str_change_communist +]** </td></tr>
 
-{!<tr><td><div class="box" style='background-color:#FFBBBB; outline: 2px; outline-style: solid;'> </div> !} **Independent Labour:** {!</td><td>!} **[+ ind_lab_votes +]%** {!</td><td>!} [+ ind_lab_seats +] {!</td><td>!} [+ ind_lab_c +] {!</td><td>!} **[+ str_change_ind_lab +]** {!</td></tr>!}
+<tr><td><div class="box" style='background-color:#FFBBBB; outline: 2px; outline-style: solid;'> </div>  **Independent Labour:** </td><td> **[+ ind_lab_votes +]%** </td><td> [+ ind_lab_seats +] </td><td> [+ ind_lab_c +] </td><td> **[+ str_change_ind_lab +]** </td></tr>
 
-{!<tr><td><div class="box" style='background-color:#32cd32; outline: 2px; outline-style: solid;'> </div> !} **Nationalists:** {!</td><td>!} **[+ nationalist_votes +]%** {!</td><td>!} [+ nationalist_seats +] {!</td><td>!} [+ nationalist_c +] {!</td><td>!} **[+ str_change_nationalist +]** {!</td></tr>!}
+<tr><td><div class="box" style='background-color:#32cd32; outline: 2px; outline-style: solid;'> </div>  **Nationalists:** </td><td> **[+ nationalist_votes +]%** </td><td> [+ nationalist_seats +] </td><td> [+ nationalist_c +] </td><td> **[+ str_change_nationalist +]** </td></tr>
 
-{!<tr><td><div class="box" style='background-color:#E4003B; outline: 2px; outline-style: solid;'> </div> !} **Labour:** {!</td><td>!} **[+ lab_votes +]%** {!</td><td>!} [+ lab_seats +] {!</td><td>!} [+ lab_c +] {!</td><td>!} **[+ str_change_lab +]** {!</td></tr>!}
+<tr><td><div class="box" style='background-color:#E4003B; outline: 2px; outline-style: solid;'> </div>  **Labour:** </td><td> **[+ lab_votes +]%** </td><td> [+ lab_seats +] </td><td> [+ lab_c +] </td><td> **[+ str_change_lab +]** </td></tr>
 
-{!<tr><td><div class="box" style='background-color:#008000; outline: 2px; outline-style: solid;'> </div> !} **National Labour:** {!</td><td>!} **[+ nat_lab_votes +]%** {!</td><td>!} [+ nat_lab_seats +] {!</td><td>!} [+ nat_lab_c +] {!</td><td>!} **[+ str_change_nat_lab +]** {!</td></tr>!}
+<tr><td><div class="box" style='background-color:#008000; outline: 2px; outline-style: solid;'> </div>  **National Labour:** </td><td> **[+ nat_lab_votes +]%** </td><td> [+ nat_lab_seats +] </td><td> [+ nat_lab_c +] </td><td> **[+ str_change_nat_lab +]** </td></tr>
 
-{!<tr><td><div class="box" style='background-color:#FFD700; outline: 2px; outline-style: solid;'> </div> !} **Liberals:** {!</td><td>!} **[+ lib_votes +]%** {!</td><td>!} [+ lib_seats +] {!</td><td>!} [+ lib_c +] {!</td><td>!} **[+ str_change_lib +]** {!</td></tr>!}
+<tr><td><div class="box" style='background-color:#FFD700; outline: 2px; outline-style: solid;'> </div>  **Liberals:** </td><td> **[+ lib_votes +]%** </td><td> [+ lib_seats +] </td><td> [+ lib_c +] </td><td> **[+ str_change_lib +]** </td></tr>
 
-{!<tr><td><div class="box" style='background-color:#AFEEEE; outline: 2px; outline-style: solid;'> </div> !} **Liberal National:** {!</td><td>!} **[+ nat_lib_votes +]%** {!</td><td>!} [+ nat_lib_seats +] {!</td><td>!} [+ nat_lib_c +] {!</td><td>!} **[+ str_change_nat_lib +]** {!</td></tr>!}
+<tr><td><div class="box" style='background-color:#AFEEEE; outline: 2px; outline-style: solid;'> </div>  **Liberal National:** </td><td> **[+ nat_lib_votes +]%** </td><td> [+ nat_lib_seats +] </td><td> [+ nat_lib_c +] </td><td> **[+ str_change_nat_lib +]** </td></tr>
 
-{!<tr><td><div class="box" style='background-color:#0087DC; outline: 2px; outline-style: solid;'> </div> !} **Conservatives:** {!</td><td>!} **[+ con_votes +]%** {!</td><td>!} [+ con_seats +] {!</td><td>!} [+ con_c +] {!</td><td>!} **[+ str_change_con +]** {!</td></tr>!}
+<tr><td><div class="box" style='background-color:#0087DC; outline: 2px; outline-style: solid;'> </div>  **Conservatives:** </td><td> **[+ con_votes +]%** </td><td> [+ con_seats +] </td><td> [+ con_c +] </td><td> **[+ str_change_con +]** </td></tr>
 
-{!<tr><td><div class="box" style='background-color:#a0a0a0; outline: 2px; outline-style: solid;'> </div> !} **Others:** {!</td><td>!} **[+ other_votes +]%** {!</td><td>!} [+ other_seats +] {!</td><td>!} [+ other_c +] {!</td><td>!} **[+ str_change_other +]** {!</td></tr>!}
+<tr><td><div class="box" style='background-color:#a0a0a0; outline: 2px; outline-style: solid;'> </div>  **Others:** </td><td> **[+ other_votes +]%** </td><td> [+ other_seats +] </td><td> [+ other_c +] </td><td> **[+ str_change_other +]** </td></tr>
 
-{!<tr><td><div class="box" style='background-color:#000; outline: 2px; outline-style: solid;'> </div> !} **BUF:** {!</td><td>!} **[+ buf_votes +]%** {!</td><td>!} [+ buf_seats +] {!</td><td>!} [+ buf_c +] {!</td><td>!} **[+ str_change_buf +]** {!</td></tr>!}
+<tr><td><div class="box" style='background-color:#000; outline: 2px; outline-style: solid;'> </div>  **BUF:** </td><td> **[+ buf_votes +]%** </td><td> [+ buf_seats +] </td><td> [+ buf_c +] </td><td> **[+ str_change_buf +]** </td></tr>
 
-{!</table>!}
+</table>
 
 **Potential coalitions:**
 
