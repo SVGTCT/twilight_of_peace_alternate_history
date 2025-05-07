@@ -112,7 +112,7 @@ Q.health_minister_party = 'Con.';
 
 var election_result = {'date': new Date(Q.year, Q.month - 1)};
 for (var party of Q.parties) {
-    election_result[party] = Q[party + '_r'];
+    election_result[party] = Q[party + '_c'];
 }
 Q.election_records.push(election_result);
 !}
@@ -124,7 +124,7 @@ data = [
         "legend": "Communists",
         "name": "Communists",
         "seats": communist_seats,
-    }
+    },
     {
         "id": "ind_lab",
         "legend": "Ind Lab",
