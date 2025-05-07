@@ -50,92 +50,67 @@ if (Q.lab_c > Q.con_c) {
     Q.largest_party = 'Labour';
 }
 
-// The largest party can only be the NSDAP or the SPD.
-Q.largest_party = 'SPD';
-if (Q.nsdap_r >= Q.spd_r && Q.nsdap_r >= Q.kpd_r) {
-    Q.largest_party = 'NSDAP';
-}
-
-if (Q.kpd_r >= Q.spd_r && Q.kpd_r >= Q.nsdap_r) {
-    Q.largest_party = 'KPD';
-}
-
 // coalitions
-Q.weimar_coalition = Q.spd_r + Q.ddp_r + Q.z_r - 3;
-Q.grand_coalition = Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r;
-Q.bourgeois_coalition = Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r;
-Q.center_right_coalition = Q.z_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.dnvp_r;
-Q.right_coalition = Q.z_r + Q.dvp_r + Q.other_r + Q.dnvp_r;
-Q.far_right_coalition = Q.dnvp_r + Q.nsdap_r;
-Q.left_coalition = Q.spd_r + Q.kpd_r + Q.sapd_r;
-// this is an absurd concept lol
-Q.popular_front_coalition = Q.spd_r + Q.kpd_r + Q.z_r + Q.ddp_r - 3 + Q.sapd_r;
-Q.anti_democratic_coalition = Q.kpd_r + Q.nsdap_r + Q.dnvp_r;
-// aka everyone except nazi, kpd, dnvp
-Q.neo_weimar_coalition = Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r;
-// Hitler + Right-wing parties (only comes into effect if you've alienated Z too badly)
-Q.hitler_right_coalition = Q.z_r + Q.dnvp_r + Q.nsdap_r;
-// Progressive coalition isn't going to be implemented as a distinct coalition but it's the coalition that lets you pass improved women's rights/gay rights
-Q.progressive_coalition = Q.spd_r + Q.kpd_r + Q.ddp_r + Q.sapd_r;
+Q.national_government = Q.con_c + Q.nat_lib_c + Q.nat_lab_c + Math.round((Q.other_c/2));
+Q.national_government_seats = Q.con_seats + Q.nat_lib_seats + Q.nat_lab_seats + Math.round((Q.other_seats/2));
+Q.lw_government = Q.lab_c + Q.ind_lab_c;
+Q.lw_government_seats = Q.lab_seats + Q.ind_lab_seats;
+Q.lab_lib_government = Q.lab_c + Q.lib_c;
+Q.lab_lib_government_seats = Q.lab_seats + Q.lib_seats + Q.nat_lib_seats;
+Q.socialist_government = Q.lab_c + Q.communist_c;
+Q.socialist_government_seats = Q.lab_seats + Q.communist_seats;
 
-if (Q.kpd_relation >= 30) {
-    Q.weimar_coalition += Q.sapd_r;
-}
+Q.leverage = Q.lab_c;
 
-Q.leverage = Q.spd_r;
+Q.lib_failed = 0;
+// liberal demands
+Q.no_taxes = 0;
+Q.no_nationalise = 0;
+Q.free_trade = 0;
+Q.no_works = 0;
+Q.no_assurances = 0;
+Q.socialist_failed = 0;
+Q.right_coalition_dissent = 0;
+Q.left_coalition_dissent = 0;
+Q.lab_in_government = 0;
+Q.in_national_government = 0;
+Q.in_lab_majority = 0;
+Q.in_con_majority = 0;
+Q.in_lab_minority = 0;
+Q.in_con_minority = 0;
+Q.in_lw_government = 0;
+Q.in_lab_lib_government = 0;
+Q.in_socialist_government = 0;
+Q.minority_government = 0;
+Q.lab_toleration = 0;
+Q.lord_chancellor = 'Hogg';
+Q.lord_chancellor_party = 'Con.';
+Q.chancellor = 'Chamberlain';
+Q.chancellor_party = 'Con.';
+Q.home_secretary = 'Simon';
+Q.home_secretary_party = 'Nat. Lib.';
+Q.foreign_secretary = 'Hoare';
+Q.foreign_secretary_party = ' Con.';
+Q.colonial_secretary = 'M. MacDonald';
+Q.colonial_secretary_party = 'Nat. Lab.';
+Q.dominions_secretary = 'Thomas';
+Q.dominions_secretary_party = 'Nat. Lab.';
+Q.war_secretary = 'Halifax';
+Q.war_secretary_party = 'Con.';
+Q.india_secretary = 'Dundas';
+Q.india_secretary_party = 'Con.';
+Q.scottish_secretary = 'Collins';
+Q.scottish_secretary_party = 'Nat. Lib.';
+Q.agriculture_minister = 'Elliot';
+Q.agriculture_minister_party = 'Un. (Con.)';
+Q.labour_minister = 'Brown';
+Q.labour_minister_party = 'Nat. Lib.';
+Q.health_minister = 'Wood';
+Q.health_minister_party = 'Con.';
 
-Q.grand_coalition_failed = 0;
-// Reset government and ministers... Based on Brüning's 1930 govt
-Q.coalition_dissent = 0;
-Q.kpd_coalition_dissent = 0;
-Q.spd_in_government = 0;
-Q.in_weimar_coalition = 0;
-Q.in_grand_coalition = 0;
-Q.in_left_front = 0;
-Q.in_popular_front = 0;
-Q.in_emergency_government = 0;
-Q.in_minority_government = 0;
-Q.in_unity_government = 0;
-Q.spd_toleration = 0;
-Q.spd_caretaker = 0;
-Q.foreign_minister_party = 'DVP';
-Q.interior_minister_party = 'Z';
-Q.justice_minister_party = 'I';
-Q.labor_minister_party = 'Z';
-Q.reichswehr_minister_party = 'I';
-Q.economic_minister_party = Q.ddp_name;
-Q.finance_minister_party = 'DVP';
-Q.agriculture_minister_party = 'Z';
+// TODO: add CPGB goals
 
-// reset KPD goals
-Q.kpd_goals_seen = 0;
-Q.kpd_ultimatum_seen = 0;
-Q.welfare_goal = 0;
-Q.agriculture_goal = 0;
-Q.economy_goal = 0;
-Q.finance_goal = 0;
-Q.labor_goal = 0;
-Q.foreign_goal = 0;
-Q.interior_goal = 0;
-Q.reichswehr_goal = 0;
-
-Q.welfare_goal_completed = 0;
-Q.agriculture_goal_completed = 0;
-Q.economy_goal_completed = 0;
-Q.finance_goal_completed = 0;
-Q.labor_goal_completed = 0;
-Q.foreign_goal_completed = 0;
-Q.interior_goal_completed = 0;
-Q.reichswehr_goal_completed = 0;
-
-Q.strike_term_seen = 0;
-
-Q.z_minus_bvp_r = Q.z_r - 3;
-
-// understanding the enemy
-if (Q.nsdap_r >= 15) {
-    Q.understanding_enemy_timer = 2;
-}
+// TODO: anti-CPGB/BUF timer
 
 var election_result = {'date': new Date(Q.year, Q.month - 1)};
 for (var party of Q.parties) {
