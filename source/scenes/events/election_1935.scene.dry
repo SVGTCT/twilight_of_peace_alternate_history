@@ -215,7 +215,7 @@ go-to: coalition_menu
 
 {!<tr><td><div class="box" style='background-color:#FF0000'> </div> !}Communist: {!</td><td>!} [+ communist_c +]%  {!</td><td>!} [+ communist_seats +]% {!</td><td>!} [+ str_change_communist +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#FFBBBB'> </div> !}Ind Lab: {!</td><td>!} [+ ind_lab_c +]%  {!</td><td>!} [+ find)lab_seats +]% {!</td><td>!} [+ str_change_ind)lab +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#FFBBBB'> </div> !}Ind Lab: {!</td><td>!} [+ ind_lab_c +]%  {!</td><td>!} [+ ind_lab_seats +]% {!</td><td>!} [+ str_change_ind_lab +] {!</td></tr>!}
 
 {!<tr><td><div class="box" style='background-color:#32cd32'> </div> !}Nationalist: {!</td><td>!} [+ nationalist_c +]%  {!</td><td>!} [+ nationalist_seats +]% {!</td><td>!} [+ str_change_nationalist +] {!</td></tr>!}
 
