@@ -1,10 +1,10 @@
-title: Reichstag Elections
+title: House of Commons Elections
 new-page: true
 tags: event
 priority: -1
-view-if: ilp_in_government == 100
+view-if: (year = next_election_year and month >= next_election_month) or (year > next_election_year)
 on-departure: month_actions += 1; in_election = 0; next_election_year = next_election_year + 4; n_elections += 1; next_election_time = time + 48; papen_chancellor_timer = 4;
-set-jump: post_election_1928
+set-jump: post_election_1935
 face-image: img/Rothe_Wahlen_1903.jpg
 
 # TODO: should there be an image?
@@ -16,77 +16,39 @@ face-image: img/Rothe_Wahlen_1903.jpg
 The Reichstag elections are to be held now.
 
 - @election_algorithm: May we do our best...
-- @cancel_elections
 
-@cancel_elections
-title: We cannot hold the elections now. Cancel the elections.
-subtitle: This is an anti-democratic move that may backfire.
-view-if: in_emergency_government == 1 and president == "Braun" and not presidential_powers
-
-Since we are currently ruling as part of an emergency government, we may use quasi-constitutional trickery to significantly delay these elections, and continue governing via Article 48. This is likely to be extremely unpopular both with our base and with the other parties. However, this may be necessary to prevent the extremists from gaining power.
-
-- @cancel_elections_2: Yes, do it.
-- @election_algorithm: No, let's hold the elections.
-
-@cancel_elections_2
-on-departure: next_election_year = next_election_year + 1; next_election_time = time + 12; pro_republic -= 10; dvp_relation -= 8; z_relation -= 8; ddp_relation -= 10; kpd_relation -= 8; coup_progress += 2; workers_spd -= 4; new_middle_spd -= 5; old_middle_spd -= 5; rural_spd -= 5; catholics_spd -= 5; unemployed_spd -= 5; coup_progress += 2 if nsdap_normalized >= 0.3; coup_progress += 2 if nsdap_normalized + dnvp_normalized >= 0.5; sa_strength += 100 if coup_progress >= 7; sh_strength += 100 if coup_progress >= 7
-achievement: ausnahmezustand
-
-Fine. President [+ president +] has taken the unprecedented step of canceling these elections. New elections are scheduled for [+ next_election_month : month +] [+ next_election_year +].
-
-Let us hope this does not backfire.
-
-@post_election_1928
+@post_election_1935
 on-arrival: {!
-// set old results
-// election threshold constitutional reform
-// banning parties
 var new_party_sum = 0;
 for (var party of Q.parties) {
-    Q['old_' + party + '_r'] = Q[party + '_r'];
-    if (Q.constitutional_reform > 0) {
-        if (Q[party + '_votes'] < Q.electoral_threshold || (Q.electoral_threshold > 1 && party == 'other') || Q[party + '_banned']) {
-            Q[party + '_r'] = 0;
-        } else {
-            Q[party + '_r'] = Q[party + '_votes'];
-        }
-        new_party_sum += Q[party + '_r'];
-    } else {
-        Q[party + '_r'] = Q[party + '_votes'];
+    Q['old_' + party + '_c'] = Q[party + '_c'];
+    Q[party + '_c'] = Math.round(Q[party + '_votes'] * Q[party + '_modifier']);
+    if (year > 1935) {
+        Q.nat_lab_c = 0;
+        Q.nat_lab_seats = 0;
     }
-    // if we use decimals, then we might want to truncate the numbers
-    if (Q.use_decimals) {
-        Q[party + '_r_disp'] = Q[party+'_r'].toFixed(1);
-    }  else {
-            Q[party + '_r_disp'] = Q[party+'_r'];
+    Q.total_c = Q.lab_c + Q.communist_c + Q.ind_lab_c + Q.nat_lab_c + Q.lib_c + Q.nat_lib_c + Q.con_c + Q.other_c + Q.nationalist_c + Q.buf_c;
+    if (Q.total_c != 100) {
+        if (Q.total_c < 100) {
+            Q.lab_c = Q.lab_c + (100-Q.total_c)}
+        else {
+        Q.lab_c = Q.lab_c - (Q.total_c-100)}
     }
-    Q['change_' + party + '_r'] = Q[party + '_r'] - Q['old_' + party + '_r'];
-    var sign = Q['change_' + party + '_r'] > 0 ? '+'  : '';
-    Q['str_change_' + party] = sign + Q['change_' + party + '_r'];//.toFixed(1);
-}
-// calculate new party sum if electoral reform
-if (Q.electoral_threshold && Q.electoral_threshold > 0) {
-    for (var party of Q.parties) {
-        if (Q[party + '_r'] > 0) {
-            if (Q.use_decimals) {
-                Q[party + '_r'] = Math.round(Q[party + '_r']*1000/new_party_sum)/10;
-            } else {
-                Q[party + '_r'] = Math.round(Q[party + '_r']*100/new_party_sum);
-            }
-        }
-        if (Q.use_decimals) {
-            Q[party + '_r_disp'] = Q[party+'_r'].toFixed(1);
-        } else {
-            Q[party + '_r_disp'] = Q[party+'_r'];
-        }
-        Q['change_' + party + '_r'] = Q[party + '_r'] - Q['old_' + party + '_r'];
-        var sign = Q['change_' + party + '_r'] > 0 ? '+'  : '';
-        Q['str_change_' + party] = sign + Q['change_' + party + '_r'];//.toFixed(1);
-    }
+    Q[party + '_seats'] = Math.round(Q([party + '_c']*6.5))
+    new_party_sum += Q[party + '_c'];
+    Q['change_' + party + '_c'] = Q[party + '_c'] - Q['old_' + party + '_c'];
+    if (Q['change_' + party + '_c'] > 0) {
+        Q.sign = "+";}
+    else {
+        Q.sign = "-";}
+    Q['str_change_' + party] = sign + Q['change_' + party + '_c'];//.toFixed(1);
 }
 
-// get change arrows and signs
-
+// The largest party can only be Labour or the Tories
+Q.largest_party = 'Conservative';
+if (Q.lab_c > Q.con_c) {
+    Q.largest_party = 'Labour';
+}
 
 // The largest party can only be the NSDAP or the SPD.
 Q.largest_party = 'SPD';
