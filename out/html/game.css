@@ -523,40 +523,46 @@ table {
 }
 
 /* Styles for parties */
-.seat.kpd {
-    fill: #8B0000;
+.seat.communist {
+    fill: #F00;
 }
-.seat.spd {
-    fill: #E3000F;
+
+.seat.ind_lab {
+    fill: #FFBBBB;
     stroke: #000;
     stroke-width: 1.5px;
 }
-.seat.ddp {
-    fill: #DCCA4A;
+.seat.nationalist {
+    fill: #32cd32;
 }
-.seat.z {
-    fill: #000;
+.seat.lab {
+    fill: #E4003B;
 }
-.seat.bvp {
-    fill: #69A2BE;
+.seat.nat_lab {
+    fill: #008000;
 }
-.seat.dvp {
-    fill: #D5AC27;
+.seat.lib {
+    fill: #FFD700;
+}
+.seat.nat_lib {
+    fill: #AFEEEE;
+}
+.seat.con {
+    fill: #0087DC;
 }
 .seat.other {
-    fill: #909090;
+    fill: #a0a0a0;
 }
-.seat.dnvp {
-    fill: #3F7BC1;
-}
-.seat.nsdap {
-    fill: #954B00;
-}
-.seat.sapd {
-    fill: #C40000;
+.seat.buf {
+    fill: #000;
 }
 
 .tooltip-text {
     text-decoration: underline;
     text-decoration-style: dotted;
+}
+
+.reichstag-svg {
+    width: 500px;
+    height: 250px;
 }
