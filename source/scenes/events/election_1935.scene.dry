@@ -286,7 +286,7 @@ Thanks to our hard work, we have yet again become the largest party, with enough
 @con_majority
 title: Conservative Majority
 subtitle: [+ con_c +]%, [+ con_seats +]/615 seats
-view-if: con_c >= 50 and nat_lib_ c == 0
+view-if: con_c >= 50 and nat_lib_c == 0
 on-arrival: in_con_majority = 1; prime_minister = conservative_leader; pm_party = "Con."; mil_loyalty -= 0.05; middle_con += 3/12; upper_con += 3/12; working_con += 2/12; farmers_con += 2/12; lord_chancellor = "Maugham"; lord_chancellor_party = "Con."; chancellor = "Chamberlain" if prime_minister != Chamberlain; chancellor = "Halifax" if prime_minister == "Chamberlain"; chancellor_party = "Con."; home_secretary = "Hoare"; home_secretary_party = "Con."; foreign_secretary = "Eden"; foreign_secretary_party = "Con."; colonial_secretary = "Ormsby-Gore"; colonial_secretary_party = "Con."; dominions_secretary = "Stanley"; dominions_secretary_party = "Con."; war_secretary = "Strathcona"; war_secretary_party = "Con."; india_secretary = "Dundas"; india_secretary_party = "Con."; scottish_secretary = "Elliot"; scottish_secretary_party = "Un. Con."; agriculture_minister = "Morrison"; agriculture_minister_party = "Con."; labour_minister = "Butler"; labour_minister_party = "Con."; health_minister = "Wood"; health_minister_party = "Con.";
 
 Following the electoral wipeout of the Liberal Nationals, the Conservatives have decided against continuing the National Government. Since they have an outright majority in the House of Commons, they will form a government under [+ conservative_leader +].
