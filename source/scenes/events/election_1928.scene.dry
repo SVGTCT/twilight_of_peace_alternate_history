@@ -175,7 +175,7 @@ data = data.concat([
         "id": "other",
         "legend": "Others",
         "name": "Others",
-        "seats": other_seats),
+        "seats": other_seats,
     },
     {
         "id": "buf",
