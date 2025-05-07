@@ -1,4 +1,4 @@
-title: Reichstag Elections
+title: House of Commons Elections
 new-page: true
 tags: event
 priority: -1
@@ -261,7 +261,6 @@ There are some potential coalition arrangements.
 - @national_gov
 - @lab_lib_gov
 - @lw_gov
-//- @socialist_gov
 
 @lab_majority
 title: Labour Majority
