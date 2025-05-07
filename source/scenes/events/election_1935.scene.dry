@@ -435,7 +435,7 @@ Owing to our amiable relations with the Liberal Party, they are more than happy 
 - @lib_no_need: There is no need. We will negotiate for ministries now.
 
 @lib_negotiate_good
-go-to: lib-menu
+go-to: lib_menu
 on-arrival: working_lab -= 3/12
 
 @lib_no_need
