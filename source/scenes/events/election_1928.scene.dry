@@ -25,8 +25,8 @@ on-arrival: {!
 var new_party_sum = 0;
 for (var party of Q.parties) {
     Q['old_' + party + '_c'] = Q[party + '_c'];
-    Q[party + '_c'] = Math.round(Q([party + '_votes']*[party + '_modifier']))
-    Q.total_c = Q.lab_c + Q.communist_c + Q.ind_lab_c + Q.nat_lab_c + Q.lib_c + Q.nat_lib_c + Q.con_c + Q.other_c + Q.nationalist_c + Q.buf_c
+    Q[party + '_c'] = Math.round(Q[party + '_votes'] * Q[party + '_modifier']);
+    Q.total_c = Q.lab_c + Q.communist_c + Q.ind_lab_c + Q.nat_lab_c + Q.lib_c + Q.nat_lib_c + Q.con_c + Q.other_c + Q.nationalist_c + Q.buf_c;
     if (Q.total_c != 100) {
         if (Q.total_c < 100) {
             Q.lab_c = Q.lab_c + (100-Q.total_c)
