@@ -140,7 +140,7 @@ Q.local_police_strength = 72;
 Q.local_police_militancy = 0.5;
 Q.local_police_loyalty = 0.4;
 
-Q.mil_strength = 321.8;
+Q.mil_strength = 320.8;
 Q.mil_militancy = 5;
 Q.mil_loyalty = 0.3;
 
