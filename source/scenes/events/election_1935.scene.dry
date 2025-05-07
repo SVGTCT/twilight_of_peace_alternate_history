@@ -110,106 +110,10 @@ Q.health_minister_party = 'Con.';
 
 // TODO: anti-CPGB/BUF timer
 
+// TODO: Re-add Parliament
+
 // election is no longer in progress
 Q.election_ip = 0;
-
-var election_result = {'date': new Date(Q.year, Q.month - 1)};
-for (var party of Q.parties) {
-    election_result[party] = Q[party + '_c'];
-}
-Q.election_records.push(election_result);
-!}
-on-departure: nazi_urgency = 1 if (nazi_urgency == 0 and nsdap_r >= 15)
-on-display: {!
-data = [
-    {
-        "id": "communist",
-        "legend": "communist",
-        "name": "communist",
-        "seats": communist_seats,
-    }
-];
-if (Q.coop_exit && Q.coop_c) {
-    data.push({
-            "id": "coop",
-            "legend": "coop",
-            "name": "coop",
-            "seats": coop_seats,
-            });
-}
-data = data.concat([
-    {
-        "id": "indlab",
-        "legend": "indlab",
-        "name": "indlab",
-        "seats": ind_lab_seats,
-    },
-    {
-        "id": "nationalist",
-        "legend": "nationalist",
-        "name": "nationalist",
-        "seats": nationalist_seats,
-    },
-    {
-        "id": "lab",
-        "legend": "lab",
-        "name": "lab",
-        "seats": lab_seats,
-    },
-    {
-        "id": "natlab",
-        "legend": "natlab",
-        "name": "natlab",/
-        "seats": nat_lab_seats,
-    },
-    {
-        "id": "lib",
-        "legend": "lib",
-        "name": "lib",
-        "seats": lib_seats,
-    },
-    {
-        "id": "natlib",
-        "legend": "natlib",
-        "name": "natlib",
-        "seats": nat_lib_seats,
-    },
-    {
-        "id": "con",
-        "legend": "con",
-        "name": "con",
-        "seats": con_seats,
-    },
-    {
-        "id": "other",
-        "legend": "other",
-        "name": "other",
-        "seats": other_seats,
-    },
-    {
-        "id": "buf",
-        "legend": "buf",
-        "name": "buf",
-        "seats": buf_seats,
-    },
-]);
-
-if (window && d3) {
-    var width = 500; 
-    var height = 500;
-    var screenWidth = document.getElementById('content').offsetWidth;
-    if (screenWidth < width - 50) {
-        width = screenWidth - 50; 
-        height = width;
-        document.getElementById("reichstag").style.height = screenWidth/2 + "px";
-    } 
-
-    var parliament = d3.parliament();
-    parliament.width(width).height(height).innerRadiusCoef(0.4);
-    parliament.enter.fromCenter(true).smallToBig(true);
-    parliament.exit.toCenter(false).bigToSmall(true);
-    d3.select("#reichstag").datum(data).call(parliament);
-}
 !}
 go-to: coalition_menu
 
