@@ -118,74 +118,70 @@ for (var party of Q.parties) {
 }
 Q.election_records.push(election_result);
 !}
-on-departure: nazi_urgency = 1 if (nazi_urgency == 0 and nsdap_r >= 15)
+#on-departure: 
 on-display: {!
 data = [
     {
-        "id": "kpd",
-        "legend": "KPD",
-        "name": "KPD",
-        "seats": Math.round(Q.kpd_r*5),
+        "id": "communist",
+        "legend": "Communists",
+        "name": "Communists",
+        "seats": communist_seats,
     }
-];
-if (Q.sapd_formed && Q.sapd_r) {
-    data.push({
-            "id": "sapd",
-            "legend": "SAPD",
-            "name": "SAPD",
-            "seats": Math.round(Q.sapd_r*5),
-            });
-}
-data = data.concat([
     {
-        "id": "spd",
-        "legend": "SPD",
-        "name": "SPD",
-        "seats": Math.round(Q.spd_r*5),
+        "id": "ind_lab",
+        "legend": "Ind. Lab.",
+        "name": "Ind. Lab.",
+        "seats": ind_lab_seats,
     },
     {
-        "id": "ddp",
-        "legend": Q.ddp_name,
-        "name": Q.ddp_name,
-        "seats": Math.round(Q.ddp_r*5),
+        "id": "nationalist",
+        "legend": "Nationalists",
+        "name": "Nationalists",
+        "seats": nationalist_seats,
     },
     {
-        "id": "z",
-        "legend": "Center",
-        "name": "Center",
-        "seats": Math.round((Q.z_r - 3)*5),
+        "id": "lab",
+        "legend": "Labour",
+        "name": "Labour",
+        "seats": lab_seats,
     },
     {
-        "id": "bvp",
-        "legend": "BVP",
-        "name": "BVP",
-        "seats": Math.round(3*5),
+        "id": "nat_lab",
+        "legend": "Nat. Lab.",
+        "name": "Nat. Lab.",
+        "seats": nat_lab_seats,
     },
     {
-        "id": "dvp",
-        "legend": "DVP",
-        "name": "DVP",
-        "seats": Math.round(Q.dvp_r*5),
+        "id": "lib",
+        "legend": "Liberal",
+        "name": "Liberal",
+        "seats": lib_seats,
+    },
+    {
+        "id": "nat_lib",
+        "legend": "Nat. Lib.",
+        "name": "Nat. Lib.",
+        "seats": nat_lib_seats,
+    },
+    {
+        "id": "con",
+        "legend": "Conservative",
+        "name": "Conservative",
+        "seats": con_seats,
     },
     {
         "id": "other",
-        "legend": "Other",
-        "name": "Other",
-        "seats": Math.round(Q.other_r*5),
+        "legend": "Others",
+        "name": "Others",
+        "seats": other_seats,
     },
     {
-        "id": "dnvp",
-        "legend": "DNVP",
-        "name": "DNVP",
-        "seats": Math.round(Q.dnvp_r*5),
+        "id": "buf",
+        "legend": "BUF",
+        "name": "BUF",
+        "seats": buf_seats,
     },
-    {
-        "id": "nsdap",
-        "legend": "NSDAP",
-        "name": "NSDAP",
-        "seats": Math.round(Q.nsdap_r*5),
-    },
-]);
+];
 
 if (window && d3) {
     var width = 500; 
@@ -203,7 +199,6 @@ if (window && d3) {
     parliament.exit.toCenter(false).bigToSmall(true);
     d3.select("#reichstag").datum(data).call(parliament);
 }
-!}
 go-to: coalition_menu
 
 = Election results
