@@ -32,7 +32,7 @@ for (var party of Q.parties) {
         else {
         Q.lab_c = Q.lab_c - (Q.total_c-100)}
     }
-    Q[party + '_seats'] = Math.round(Q([party + '_c']*6.5))
+    Q[party + '_seats'] = Math.round(Q[party + '_c'] * 6.5);
     new_party_sum += Q[party + '_c'];
     Q['change_' + party + '_c'] = Q[party + '_c'] - Q['old_' + party + '_c'];
     if (Q['change_' + party + '_c'] > 0) {
