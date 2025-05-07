@@ -327,7 +327,7 @@ Very well. We will try to form a Labour-Liberal coalition under [+ labour_leader
 
 @lib_form_poor
 on-arrival: leverage -= 20
-go-to: lib-menu
+go-to: lib_menu
 
 Unfortunately, due to our relatively poor relations with the Liberal Party, the Liberals are demanding that we guarantee them a number of compromises, seeking to rein in our socialist policies. We will need to accept at least some of them.
 
