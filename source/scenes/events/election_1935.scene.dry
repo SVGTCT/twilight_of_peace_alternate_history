@@ -403,7 +403,8 @@ go-to: lib_menu
 We have dropped our promise not to raise taxes on the highest earners.
 
 @enough
-view-if: in_lab_lib_government = 1; no_assurances > 1; prime_minister = labour_leader; pm_party = "Lab."; lord_chancellor = "Ponsonby"; lord_chancellor_party = "Lab."; chancellor = "Samuel"; chancellor_party = "Lib."; home_secretary = "Sinclair"; home_secretary_party = "Lib."; foreign_secretary = "Kerr"; foreign_secretary_party = "Lib."; colonial_secretary = "Hamilton"; colonial_secretary_party = "Lib."; dominions_secretary = "Acland"; dominions_secretary_party = "Lib."; war_secretary = "Beaumont"; war_secretary_party = "Lib."; india_secretary = "I. Foot"; india_secretary_party = "Lib."; scottish_secretary = "D. Foot"; scottish_secretary_party = "Lib."; agriculture_minister = "Roberts"; agriculture_minister_party = "Lib."; labour_minister = "Harris"; labour_minister_party = "Lib."; health_minister = "White"; health_minister_party = "Lib.";
+view-if: no_assurances > 1
+on-arrival: in_lab_lib_government = 1; prime_minister = labour_leader; pm_party = "Lab."; lord_chancellor = "Ponsonby"; lord_chancellor_party = "Lab."; chancellor = "Samuel"; chancellor_party = "Lib."; home_secretary = "Sinclair"; home_secretary_party = "Lib."; foreign_secretary = "Kerr"; foreign_secretary_party = "Lib."; colonial_secretary = "Hamilton"; colonial_secretary_party = "Lib."; dominions_secretary = "Acland"; dominions_secretary_party = "Lib."; war_secretary = "Beaumont"; war_secretary_party = "Lib."; india_secretary = "I. Foot"; india_secretary_party = "Lib."; scottish_secretary = "D. Foot"; scottish_secretary_party = "Lib."; agriculture_minister = "Roberts"; agriculture_minister_party = "Lib."; labour_minister = "Harris"; labour_minister_party = "Lib."; health_minister = "White"; health_minister_party = "Lib.";
 go-to: ministries
 
 That will be enough. Now we will negotiate for ministries.
