@@ -124,7 +124,16 @@ data = [
         "legend": "Communists",
         "name": "Communists",
         "seats": communist_seats,
-    },
+    }
+if (Q.coop_exit && Q.coop_c) {
+    data.push({
+            "id": "coop",
+            "legend": "Cooperative",
+            "name": "Cooperative",
+            "seats": coop_seats,
+            });
+}
+data = data.concat([
     {
         "id": "ind_lab",
         "legend": "Ind Lab",
