@@ -205,8 +205,7 @@ go-to: coalition_menu
 
 = Election results
 
-{!<svg id="reichstag" style="width: 500px; height: 250px;"></svg>!}
-
+{!<svg id="reichstag" class="reichstag-svg"></svg>!}
 {!<table>!} 
 {!<tr><td>Party</td><td>Vote share</td><td>Seats</td><td>Percentage</td><td>% Change</td></tr>!}
 {!<tr><td><div class="box" style='background-color:#F00; outline: 2px; outline-style: solid;'> </div> !} **Communists:** {!</td><td>!} **[+ communist_votes +]%** {!</td><td>!} [+ communist_seats +] {!</td><td>!} [+ communist_c +] {!</td><td>!} **[+ str_change_communist +]** {!</td></tr>!}
