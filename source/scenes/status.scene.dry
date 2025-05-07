@@ -82,7 +82,7 @@ Economic growth: [+ economic_growth_2 +]%
 
 [? if year < 1936: {!<span class="tooltip-text" title="National Labour Organisation">Nat Lab</span>!}: [+ nat_lab_relation : relationships +] ?]
 
-[? if year < 1936: *The <span style="color:#008000">**NLO**</span> are led by Ramsay MacDonald.* ?]
+*[? if year < 1936: The <span style="color:#008000">**NLO**</span> are led by Ramsay MacDonald. ?]*
 
 {!<span class="tooltip-text" title="Independent Labour (includes Independent Labour Party)">Ind Lab</span>!}: [+ ind_lab_relation : relationships +]
 
@@ -126,7 +126,7 @@ if (Q.fdf_strength) {
 
 = Paramilitaries
 
-Trade Unions Strength: [+ union_strength_2 +] thousand
+{!<span class="tooltip-text" title="The trade unions are not militarised and are affiliated with the Labour Party.">Trade Unions</span>!} Strength: [+ union_strength_2 +] thousand
 
 Trade Unions Militarisation: [+ union_militancy : militancy +]
 
