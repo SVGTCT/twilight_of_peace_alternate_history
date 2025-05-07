@@ -309,6 +309,8 @@ Q.in_lab_lib_government = 0;
 // Labour + CPGB (impossible)
 Q.in_socialist_government = 0;
 
+Q.ilp_in_government = 0;
+
 Q.right_coalition_dissent = 0;
 Q.left_coalition_dissent = 0;
 
