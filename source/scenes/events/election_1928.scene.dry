@@ -315,8 +315,8 @@ unavailable-subtitle: We do not have sufficient relations with the Liberals.
 
 We can enter negotiations to form a government under a coalition with the Liberal Party. Alternatively, we could take more ministries by arranging a confidence and supply agreement with the Liberal Party to form a minority government.
 
-@form: We will form a coalition government.
-@lab_minority: We will form a minority government.
+- @lib_form: We will form a coalition government.
+- @lab_minority: We will form a minority government.
 
 @lib_form
 on-arrival: lib_relation += 5; middle_lab += 3/12;
