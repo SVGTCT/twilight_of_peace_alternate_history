@@ -453,6 +453,9 @@ We can form a left-wing government with a majority in the House of Commons, unde
 // TODO: Add Socialist (Labour-Communist) Coalition with Communist Demands (@com_menu)
 // TODO: Remember: Add Six Month Checks for Coalition Demands + conditional, timed Liberal Demands (e.g. if you raise taxes but cut them too in a six month period, this does not fail no_taxes but any tariff does fail free_trade)
 
+@left_coalition
+go-to: root
+
 @ministries
 
 We can pick from any number of ministries. Controlling a ministry allows us to directly affect policy in that area.
