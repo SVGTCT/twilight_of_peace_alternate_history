@@ -452,7 +452,7 @@ on-arrival: in_lw_government = 1; ilp_in_government += 1; working_lab += 3/12; w
 
 We can form a left-wing government with a majority in the House of Commons, under [+ labour_leader +]. Aside from an outright majority, this is the best governing arrangement for us. 
 
-[? if ilp_in_government > 1: The Independent Labour Party, having been convinced of the coalition's efficacy upon its renewal, has requested to appoint George Buchanan as Minister of Labour. All other portfolios will go to the Labour Party. ?][? if ilp_in_government =< 1: Upon entering government for the first time, the Labour Independents have taken an abstentionist approach. Labour will appoint every minister. ?]
+[? if ilp_in_government > 1: The Independent Labour Party, having been convinced of the coalition's efficacy upon its renewal, has requested to appoint George Buchanan as Minister of Labour. All other portfolios will go to the Labour Party. ?][? if ilp_in_government <= 1: Upon entering government for the first time, the Labour Independents have taken an abstentionist approach. Labour will appoint every minister. ?]
 
 // TODO: Add Socialist (Labour-Communist) Coalition with Communist Demands (@com_menu)
 // TODO: Remember: Add Six Month Checks for Coalition Demands + conditional, timed Liberal Demands (e.g. if you raise taxes but cut them too in a six month period, this does not fail no_taxes but any tariff does fail free_trade)
