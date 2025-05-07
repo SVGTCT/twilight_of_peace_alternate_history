@@ -205,7 +205,7 @@ go-to: coalition_menu
 
 = Election results
 
-{!<svg id="reichstag" class="reichstag-svg"></svg>!}
+{! '<svg id="reichstag" class="reichstag-svg"></svg>' !}
 
 {!<table>!} 
 
