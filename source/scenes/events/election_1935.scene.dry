@@ -321,7 +321,7 @@ We can enter negotiations to form a government under a coalition with the Libera
 
 @lib_form
 on-arrival: lib_relation += 5; middle_lab += 3/12;
-go-to: lib_form_poor if lib_relation >= 35 and lib_relation < 45; lib_form_ok if lib_relation >= 45 and lib_relation < 55; lib_form_good if lib_relation >= 55;
+go-to: lib_form_poor if lib_relation >= 35 and lib_relation < 45; lib_form_ok if lib_relation >= 45 and lib_relation < 55; lib_form_good
 
 Very well. We will try to form a Labour-Liberal coalition under [+ labour_leader +].
 
