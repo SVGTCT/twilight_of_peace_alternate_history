@@ -116,19 +116,22 @@ Q.health_minister_party = 'Con.';
 
 var election_result = {'date': new Date(Q.year, Q.month - 1)};
 for (var party of Q.parties) {
-    election_result[party] = Q[party + '_c'];
+    election_result[party] = Q[party + '_r'];
 }
 Q.election_records.push(election_result);
-}
+!}
+#on-departure: 
 on-display: {!
-data = data.concat([
+data = [
     {
         "id": "communist",
         "legend": "Communists",
         "name": "Communists",
         "seats": communist_seats,
-    },
-    {
+    }
+];
+data = data.concat([
+    {{
         "id": "ind_lab",
         "legend": "Ind. Lab.",
         "name": "Ind. Lab.",
@@ -158,7 +161,7 @@ data = data.concat([
         "name": "Liberal",
         "seats": lib_seats,
     },
-     {
+    {
         "id": "nat_lib",
         "legend": "Nat. Lib.",
         "name": "Nat. Lib.",
@@ -200,7 +203,7 @@ if (window && d3) {
     parliament.exit.toCenter(false).bigToSmall(true);
     d3.select("#reichstag").datum(data).call(parliament);
 }
-}
+!}
 go-to: coalition_menu
 
 = Election results
