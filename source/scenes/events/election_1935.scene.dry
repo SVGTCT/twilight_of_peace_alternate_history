@@ -303,7 +303,7 @@ Faced with no other choices, the first-place finishing Conservative Party has de
 title: National Government
 subtitle: [+ national_government +]%, [+ national_government_seats +]/615 seats
 view-if: national_government >= 50 or (national_government >= 45 and nat_lib_c > 0)
-on-arrival: in_national_government = 1; prime_minister = [+ conservative_leader +]; pm_party = "Con.";
+on-arrival: in_national_government = 1; prime_minister = conservative_leader; pm_party = "Con.";
 
 The National Government has secured another mandate from the British electorate, and yet again, the Labour Party will remain outside of government. [? if national_government < 50: This is despite it not having a majority. ?] We must work to be an effective opposition.
 
