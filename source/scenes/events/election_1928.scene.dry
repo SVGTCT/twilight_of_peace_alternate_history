@@ -18,7 +18,7 @@ The Reichstag elections are to be held now.
 - @election_algorithm: May we do our best...
 
 @post_election_1928
-on-arrival: {
+on-arrival: {!
 // set old results
 // election threshold constitutional reform
 // banning parties
