@@ -537,5 +537,5 @@ on-arrival: communist_coalition = 3
 go-to: menu
 
 @lab_support_dev
-on-arrival: working = 99; working_lab = 90;
+on-arrival: working_lab = 90; middle_lab = 90; upper_lab = 90; farmers_lab = 90; unemployed = 99; unemployed = 90;
 go-to: menu
