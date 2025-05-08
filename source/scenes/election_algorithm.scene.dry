@@ -105,10 +105,12 @@ Q.total_seats = Q.communist_seats + Q.ind_lab_seats + Q.nationalist_seats + Q.la
 
 if (Q.total_seats > 615) {
     Q.lab_seats = Q.lab_seats - (Q.total_seats - 615)
+    Q.lab_c = Math.round(Q.lab_seats / 6.15) // recalculate labour seat %
 }
 
 if (Q.total_seats < 615) {
     Q.lab_seats = Q.lab_seats + (615 - Q.total_seats)
+    Q.lab_c = Math.round(Q.lab_seats / 6.15) // recalculate labour seat %
 }
 
 // calculate changes
