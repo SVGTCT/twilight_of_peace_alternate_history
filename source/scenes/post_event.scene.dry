@@ -481,6 +481,25 @@ if (this.ui && this.ui.show_portraits) {
     }
 }
 
+if (Q.month == 6) {
+    Q.relg_diff = (1 - protestants_lab)/100000;
+
+    if (Q.protestants_lab < 50) {
+        Q.working_lab = Q.working_lab * (1 - Q.relg_diff);
+        Q.middle_lab = Q.middle_lab * (1 - Q.relg_diff);
+        Q.upper_lab = Q.upper_lab * (1 - Q.relg_diff);
+        Q.farmers_lab = Q.farmers_lab * (1 - Q.relg_diff);
+        Q.unemployed_lab = Q.unemployed_lab * (1 - Q.relg_diff);
+    }
+    else {
+        Q.working_lab = Q.working_lab * (1 + Q.relg_diff);
+        Q.middle_lab = Q.middle_lab * (1 + Q.relg_diff);
+        Q.upper_lab = Q.upper_lab* (1 + Q.relg_diff);
+        Q.farmers_lab = Q.farmers_lab * (1 + Q.relg_diff);
+        Q.unemployed_lab = Q.unemployed_lab * (1 + Q.relg_diff);
+    }
+}
+
 if (typeof window !== "undefined" && window.generateBar) {
 }
 !}
