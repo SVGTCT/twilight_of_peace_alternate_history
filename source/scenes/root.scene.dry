@@ -192,17 +192,14 @@ Q.no_taxes = 0;
 Q.budget = 2;
 
 // Proportion of different social groups
-Q.working = 55;
-Q.middle = 25;
+Q.working = 55.4;
+Q.middle = 15;
 Q.upper = 5; 
 Q.farmers = 7;
-Q.unemployed = 8;
-// |v| source: Denman and MacDonald, Unemployment Statistics from 1881 to the Present Day (link: https://escoe-website.s3.amazonaws.com/wp-content/uploads/2018/10/17145130/Denman-and-Macdonald-LMT-1996-Unemployment-Statistics-from-1881-to-the-present-day.pdf)
+Q.unemployed = 17.6;
+// source: Denman and MacDonald, Unemployment Statistics from 1881 to the Present Day (link: https://escoe-website.s3.amazonaws.com/wp-content/uploads/2018/10/17145130/Denman-and-Macdonald-LMT-1996-Unemployment-Statistics-from-1881-to-the-present-day.pdf)
 // statistic for jan 1935
-Q.workforce_unemployment = 17.6;
 // 1935: feb 17.5 mar 16.4 apr 15.6 may 15.5 jun 15.4 jul 15.2 aug 14.9 sep 14.9 oct 14.5 nov 14.5 dec 14.1 avg 15.5 1936: feb mar apr may jun jul aug sep oct nov dec avg 1937: jan 16.2 feb 15.3 mar 14.3 apr 13.6 may 12.8 jun 12.8 jul 12.4 aug 12.0 sep 12.1 oct 12.0 nov 12.0 dec 12.0 avg 13.1 1937: jan 12.4 feb 12.0 mar 11.6 apr 10.5 may 10.7 jun 10.0 jul 10.1 aug 9.9 sep 9.7 oct 10.1 nov 10.9 dec 12.8 avg 10.8 1938: jan 13.2 feb 13.1 mar 12.7 apr 12.7 may 12.8 jun 13.2 jul 12.9 aug 12.6 sep 12.8 oct 12.7 nov 13.0 dec 12.9 avg 12.9 1939: jan 12.8 feb 11.9 mar 10.9 apr 10.2 may 9.3 jun 8.4 jul 7.9 aug 7.6 sep 7.9
-
-// in 1935 there were 2,153,923 unemployed British persons out of a population of ~40,645,000. This represents 5.2% of the population -- but a much higher % of the voting age population, and an even greater (over 20%) proportion of the workforce.
 
 // TODO: income + QoL: is there a use for it?
 
@@ -229,63 +226,66 @@ Q.other_modifier = 0.867208672;
 Q.classes = ['working', 'middle', 'upper', 'farmers', 'unemployed'];
 Q.parties = ['lab', 'nat_lab', 'ind_lab', 'lib', 'nat_lib', 'con', 'nationalist', 'communist', 'buf', 'other'];
 
-// TODO: cooperative party? remove parties
+// TODO: cooperative party
 
-// Support for party by social group
-Q.working_lab = 60;
+// Support for each party by social group
+Q.working_lab = 44.22;
 Q.working_nat_lab = 1.5;
-Q.working_ind_lab = 1;
+Q.working_ind_lab = 1.2;
 Q.working_lib = 2;
 Q.working_nat_lib = 0.5;
-Q.working_con = 30;
-Q.working_nationalist = 1;
-Q.working_communist = 0.5;
+Q.working_con = 43.78;
+Q.working_nationalist = 0.5;
+Q.working_communist = 0.3;
 Q.working_buf = 0;
 Q.working_other = 3.5;
 
-Q.middle_lab = 5;
+Q.middle_lab = 33.33;
 Q.middle_nat_lab = 2;
-Q.middle_ind_lab = 0;
+Q.middle_ind_lab = 0.1;
 Q.middle_lib = 18;
 Q.middle_nat_lib = 10.5;
-Q.middle_con = 72.5;
+Q.middle_con = 34.07;
 Q.middle_nationalist = 0;
 Q.middle_communist = 0;
 Q.middle_buf = 0;
 Q.middle_other = 2;
 
-Q.upper_lab = 0;
+Q.upper_lab = 12;
 Q.upper_nat_lab = 0;
 Q.upper_ind_lab = 0;
 Q.upper_lib = 10;
 Q.upper_nat_lib = 9.5;
-Q.upper_con = 80.5;
+Q.upper_con = 68.4;
 Q.upper_nationalist = 0;
 Q.upper_communist = 0;
-Q.upper_buf = 0;
+Q.upper_buf = 0.1;
 Q.upper_other = 0;
 
-Q.farmers_lab = 22;
+Q.farmers_lab = 28.57;
 Q.farmers_nat_lab = 1;
 Q.farmers_ind_lab = 0;
 Q.farmers_lib = 5;
 Q.farmers_nat_lib = 5;
-Q.farmers_con = 66;
-Q.farmers_nationalist = 0;
+Q.farmers_con = 59.33;
+Q.farmers_nationalist = 0.1;
 Q.farmers_communist = 0;
 Q.farmers_buf = 0;
 Q.farmers_other = 1;
 
-Q.unemployed_lab = 28;
+Q.unemployed_lab = 45.46;
 Q.unemployed_nat_lab = 1;
 Q.unemployed_ind_lab = 0.5;
 Q.unemployed_lib = 3;
-Q.unemployed_nat_lib = 2;
-Q.unemployed_con = 65.5;
-Q.unemployed_nationalist = 0;
-Q.unemployed_communist = 0.5;
+Q.unemployed_nat_lib = 1;
+Q.unemployed_con = 46.94;
+Q.unemployed_nationalist = 0.3;
+Q.unemployed_communist = 0.3;
 Q.unemployed_buf = 0.5;
 Q.unemployed_other = 1;
+
+// devout anglicans are not a social class but rather a modifier that makes parties seem less "scary"
+Q.protestants_lab = 15;
 
 // Current House of Commons composition
 Q.con_c = 76;
