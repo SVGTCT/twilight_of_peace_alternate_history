@@ -259,7 +259,7 @@ if (Q.communist_relation < 45) {
     Q.socialist_cant_form = 1;
 }
 
-if (Q.reconciliation == 0 and Q.communist_relation < 55) {
+if (Q.reconciliation == 0 && Q.communist_relation < 55) {
     Q.socialist_cant_form = 1;
 }
 
