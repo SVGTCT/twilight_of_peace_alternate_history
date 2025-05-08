@@ -20,7 +20,7 @@ if (Q.economic_growth) {
 
 Resources available: [+ resources +]
 
-SPD position: [? if lab_toleration : toleration ?][? if lab_in_government : in government - ?][? if lab_toleration == 0 and lab_in_government == 0 and lab_caretaker == 0 : opposition ?][? if lab_caretaker : caretaker government ?]
+Labour position: [? if lab_toleration : toleration ?][? if lab_in_government : in government - ?][? if lab_toleration == 0 and lab_in_government == 0 and lab_caretaker == 0 : opposition ?][? if lab_caretaker : caretaker government ?]
 [? if in_lab_lib_government and lab_in_government: Lab-Lib Coalition ?][? if in_lw_government and lab_in_government: Left-Wing Coalition ?][? if in_socialist_government and lab_in_government: Socialist Coalition ?][? if in_lab_majority and lab_in_government: Labour majority ?][? if in_lab_minority and lab_in_government: Labour minority ?][? if not in_lab_minority and lab_in_government and minority_government: (minority government) ?][? if in_emergency_government and lab_in_government: emergency government ?]
 
 [? if lab_in_government and in_lab_lib_government: Right-wing coalition dissent: [+ right_coalition_dissent : coalition_dissent +] ?]
@@ -200,3 +200,5 @@ Farmers: Lab: [+ farmers_lab_display +]%, [? if coop_exit: Coop: [+ farmers_coop
 Unemployed: Lab: [+ unemployed_lab_display +]%, [? if coop_exit: Coop: [+ unemployed_coop_display +]%, ?] Con: [+ unemployed_con_display +]%, Nat Lib: [+ unemployed_nat_lib_display +]%, Lib: [+ unemployed_lib_display +]%, [? if year < 1936: Nat Lab: [+ unemployed_nat_lab_display +]%, ?] Ind Lab: [+ unemployed_ind_lab_display +]%, CPGB: [+ unemployed_communist_display +]%, Nationalist: [+ unemployed_nationalist_display +]%, BUF: [+ unemployed_buf_display +]%, Others: [+ unemployed_other_display +]%
 
 Support for the Monarchy: [+ pro_monarchy_disp +]%
+
+After asking those who considered themselves devout Christians [? if protestants_lab < 50: **only [+ protestants_lab +]%** ?][? if protestants_lab >= 50: **an incredible [+ protestants_lab +]%** ?] were friendly towards the Labour Party.
