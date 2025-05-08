@@ -431,7 +431,7 @@ No government can be formed. Are there any other options?
 
 @no_maj
 title: No government can be formed.
-view-if: largest_party != "Conservative" and national_government < 50 and labour_c < 50 and (lw_government < 50 or ind_lab_relation < 35) and (lib_failed or lib_cant_form or lab_lab_government < 50) and (socialist_failed or socialist_cant_form or socialist_government < 50) and minority_cant_form
+view-if: largest_party != "Conservative" and national_government < 50 and labour_c < 50 and (lw_government < 50 or ind_lab_relation < 35) and (lib_failed or lib_cant_form or lab_lib_government < 50) and (socialist_failed or socialist_cant_form or socialist_government < 50) and minority_cant_form
 on-arrival: prime_minister = conservative_leader; pm_party = "Con.";
 go-to: normal_no_maj if buf_c < 10 and communist_c < 10; radical_no_maj
 
