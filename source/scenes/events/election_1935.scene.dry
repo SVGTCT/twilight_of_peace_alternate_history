@@ -3,50 +3,7 @@ new-page: true
 tags: event
 priority: -1
 view-if: (year = next_election_year and month >= next_election_month) or (year > next_election_year)
-on-departure: {!
-
-Q.month_actions = month_actions + 1;
-Q.in_election = 0; 
-Q.next_election_year = next_election_year + 4; 
-Q.n_elections = n_elections + 1;
-Q. next_election_time = time + 48;
-
-if (in_socialist_government) {
-    if (chancellor_party != "Lab.") {
-        Q.chancellor = 'Pollitt';
-        Q.chancellor_party = 'CPGB';}
-    else if (home_secretary_party != "Lab." {
-        Q.home_secretary = 'Giles';
-        Q.home_secretary_party = 'CPGB';}
-    else if (foreign_secretary_party != "Lab." {
-        Q.foreign_secretary = 'Palme Dutt';
-        Q.foreign_secretary_party = 'CPGB';}
-    else if (colonial_secretary_party != "Lab." {
-        Q.colonial_secretary = 'Inkpin';
-        Q.colonial_secretary_party = 'CPGB';}
-    else if (dominions_secretary_party != "Lab." {
-        Q.dominions_secretary = 'Newbold';
-        Q.dominions_secretary_party = 'CPGB';}
-    else if (war_secretary_party != "Lab." {
-        Q.war_secretary = 'Campbell';
-        Q.war_secretary_party = 'CPGB';}
-    else if (india_secretary_party != "Lab." {
-        Q.india_secretary = 'Palme Dutt';
-        Q.india_secretary_party = 'CPGB';}
-    else if (scottish_secretary_party != "Lab." {
-        Q.scottish_secretary = 'Gallacher';
-        Q.scottish_secretary_party = 'CPGB';}
-    else if (agriculture_minister_party != "Lab." {
-        Q.agriculture_minister = 'Mellor';
-        Q.agriculture_minister_party = 'CPGB';}
-    else if (labour_minister_party != "Lab." {
-        Q.labour_minister = 'J. Eden';
-        Q.labour_minister_party = 'CPGB';}
-    else if (health_minister_party != "Lab." {
-        Q.health_minister = 'Silverthorne';
-        Q.health_minister_party = 'CPGB';}
-}
-!}
+on-departure: month_actions += 1; in_election = 0; next_election_year = next_election_year + 4; n_elections += 1; next_election_time = time + 48;
 #set-jump: post_election_1935
 on-arrival: {!
 // calculate normalized class voting amounts (0 to 100)
