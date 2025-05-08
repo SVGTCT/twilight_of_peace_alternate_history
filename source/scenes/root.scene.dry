@@ -159,7 +159,35 @@ Q.emergency_rule = 0;
 
 // TODO: electoral variables (bans)
 
-// TODO: capital strike
+Q.capital_strike_progress = 0;
+Q.work_councils_start = 0;
+Q.work_councils_done = 0;
+Q.work_councils = 0;
+Q.yes_nationalise_start = 0;
+Q.yes_nationalise_done = 0;
+Q.yes_nationalise = 0;
+Q.decolonisation_start = 0;
+Q.decolonisation_done = 0;
+Q.decolonisation = 0;
+Q.health_service_start = 0;
+Q.health_service_done = 0;
+Q.health_service = 0;
+Q.labour_code_start = 0;
+Q.labour_code_done = 0;
+Q.labour_code = 0;
+Q.no_religious_schools_start = 0;
+Q.no_religious_schools_done = 0;
+Q.no_religious_schools = 0;
+Q.yes_pr_start = 0;
+Q.yes_pr_done = 0;
+Q.yes_pr = 0;
+Q.lib_test_start = 0;
+Q.lib_test_done = 0;
+Q.lib_test = 0;
+Q.no_ottawa_start = 0;
+Q.no_ottawa_done = 0;
+Q.no_ottawa = 0;
+Q.no_taxes = 0;
 
 Q.budget = 2;
 
@@ -334,8 +362,8 @@ Q.lord_chancellor = 'Sankey';
 Q.lord_chancellor_party = 'Nat. Lab.';
 Q.chancellor = 'Chamberlain';
 Q.chancellor_party = 'Con.';
-Q.home_secretary = 'Samuel';
-Q.home_secretary_party = 'Lib.';
+Q.home_secretary = 'Gilmour';
+Q.home_secretary_party = 'Con.';
 Q.foreign_secretary = 'Simon';
 Q.foreign_secretary_party = ' Nat. Lib.';
 Q.colonial_secretary = 'Cunliffe-Lister';
@@ -346,11 +374,11 @@ Q.war_secretary = 'Hogg';
 Q.war_secretary_party = 'Con.';
 Q.india_secretary = 'Hoare';
 Q.india_secretary_party = 'Con.';
-Q.scottish_secretary = 'Sinclair';
-Q.scottish_secretary_party = 'Lib.';
-Q.agriculture_minister = 'Gilmour';
+Q.scottish_secretary = 'Collins';
+Q.scottish_secretary_party = 'Nat. Lib.';
+Q.agriculture_minister = 'Elliot';
 Q.agriculture_minister_party = 'Con.';
-Q.labour_minister = 'Betterton';
+Q.labour_minister = 'Stanley';
 Q.labour_minister_party = 'Con.';
 Q.health_minister = 'Young';
 Q.health_minister_party = 'Con.';
