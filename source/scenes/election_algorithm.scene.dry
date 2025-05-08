@@ -77,15 +77,9 @@ Q.lab_c_raw = Q.lab_votes_dec * Q.lab_modifier;
 Q.lab_c = Math.round(Q.lab_votes_dec * Q.lab_modifier);
 Q.lab_seats = Math.round(Q.lab_c_raw * 6.15);
 
-if (Q.year < 1936) {
-    Q.nat_lab_c = 0
-    Q.nat_lab_seats = 0
-}
-else {
-    Q.nat_lab_c_raw = Q.nat_lab_votes_dec * Q.nat_lab_modifier;
-    Q.nat_lab_c = Math.round(Q.nat_lab_votes_dec * Q.nat_lab_modifier);
-    Q.nat_lab_seats = Math.round(Q.nat_lab_c_raw * 6.15);
-}
+Q.nat_lab_c_raw = Q.nat_lab_votes_dec * Q.nat_lab_modifier;
+Q.nat_lab_c = Math.round(Q.nat_lab_votes_dec * Q.nat_lab_modifier);
+Q.nat_lab_seats = Math.round(Q.nat_lab_c_raw * 6.15);
 
 Q.lib_c_raw = Q.lib_votes_dec * Q.lib_modifier;
 Q.lib_c = Math.round(Q.lib_votes_dec * Q.lib_modifier);
