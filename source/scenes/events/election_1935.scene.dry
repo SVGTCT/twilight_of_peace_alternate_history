@@ -76,6 +76,7 @@ There are some potential coalition arrangements.
 - @lab_lib_gov
 - @lw_gov
 - @socialist_gov
+- @no_maj
 
 @lab_majority
 title: Labour Majority
@@ -115,7 +116,7 @@ Faced with no other choices, the first-place finishing Conservative Party has de
 
 @national_gov
 title: National Government
-subtitle: Con. + Nat. Lib. + Nat. Lab. + Others ([+ national_government +]%)
+subtitle: Con. + Nat. Lib. + Nat. Lab. + Nat. ([+ national_government +]%)
 view-if: national_government >= 50 or (national_government >= 45 and nat_lib_c > 0)
 on-arrival: in_national_government = 1; prime_minister = conservative_leader; pm_party = "Con.";
 
@@ -427,6 +428,67 @@ on-arrival: working_lab -= 3/12; working_communist += 1/12; working_con += 2/12;
 go-to: coalition_menu
 
 No government can be formed. Are there any other options?
+
+@no_maj
+title: No government can be formed.
+view-if: largest_party != "Conservative" and national_government < 50 and labour_c < 50
+choose-if: ((lib_failed or lib_relation < 35) or lab_lib_government < 50) and (lib_relation < 50 or dissent_percent >= 50) and ((communist_relation < 55 or not reconciliation)) and communist_coalition < 3) or socialist_government < 50) and (lw_government < 50 or ind_lab_relation < 35)
+on-arrival: prime_minister = conservative_leader; pm_party = "Con.";
+go-to: normal_no_maj if buf_c < 10 and communist_c < 10; radical_no_maj
+
+@normal_no_maj
+on-arrival: working_lab -= 2; working_con += 2; working_buf += 2 if buf_c > 5; middle_lab -= 2; working_lib -= 2; middle_con += 2; middle_lib -= 2; middle_nat_lib += 2 if nat_lib_c > 5; next_election_time = time+5; next_election_month = month + 2; next_election_year = year; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12;
+
+Despite the elections delivering a plurality for the Labour Party, we have not been able to use it to form a government backed by a majority of the House of Commons. At our expense, new elections will be held. For now, the [+ hos_prefix +] has appointed [+ conservative_leader +] as Prime Minister. There is an unfounded hope in the executive that he will find a majority where we have not.
+
+The voters will return to the ballot box in 2 months.
+
+@radical_no_maj
+on-arrival: grand_national_government = national_government + lib_c
+
+Unfortunately, due to the electoral success of the radical parties in the election, such as Mosley's Union of Fascists and the Communist Party, the establishment is petrified, lest Britain follow the fall of mainland Europe.
+
+The Liberal Party, which previously had been quick to denounce the National Government as failing to represent the people, has come running back to form another National Government, this time with their participation.
+
+- @grand_national_gov
+- @lab_national_gov
+
+@grand_national_gov
+title: Another National Government Can Form
+subtitle: Con. + Nat. Lib. + Lib. + Nat. Lab. + Nat. (**[+ grand_national_government +]%**)
+choose-if: grand_national_government >= 50
+on-arrival: working_buf += 3; working_lab -= 3; working_con -= 3; working_communist += 3; middle_lib -= 3; prime_minister = conservative_leader; pm_party = "Con."; home_secretary = "Harris"; home_secretary_party = "Lib."; scottish_secretary = "Sinclair"; scottish_secretary_party = "Lib.";
+
+Following the alarming rise of the radical parties, the political establishment has banded together to form another National Government with the same composition as the first two, which the Liberals left over the administration's protectionism.
+
+Now this keeps the country from going to the polls again, but is ample recruiting material for the extremists.
+
+@lab_national_gov
+title: They do not have a majority!
+view-if: grand_national_government < 50
+on-arrival: working_con -= 3; working_buf += 3; middle_lib -= 3; working_communist += 3;
+
+Unfortunately, not even this arrangement can form a majority in Parliament. Desperate not to let the situation in Britain flare up as it has elsewhere, the establishment parties have now approached *us*.
+
+Of course, the Conservatives would never let us into government outside of a major war, nor would we want to go into a "grand coalition", which would be a great sign of weakness. But we can lend our votes to allow the National Government's election, in favour of some compromises. The decision is up to us.
+
+- @go_ahead: We must work against the extremists.
+- @no_dice: New elections it is, then!
+
+@go_ahead
+view-if: pragmatist_strength > 35
+choose-if: (left_strength + marxist_strength) < pragmatist_strength
+on-arrival: lab_toleration = 1; working_buf += 3; working_lab -= 3+(3*(1-pragmatist_strength); working_con -= 3; working_communist += 3; middle_lib -= 3; prime_minister = conservative_leader; pm_party = "Con."; home_secretary = "Harris"; home_secretary_party = "Lib."; scottish_secretary = "Sinclair"; scottish_secretary_party = "Lib.";
+
+Many in our electoral base regard this as a betrayal, but our pragmatist contingent sways the party into accepting this decision. Perhaps we will be able to dictate at least some pro-worker policy from outside of government?
+
+@no_dice
+choose-if: (left_strength + marxist_strength) >= pragmatist_strength
+on-arrival: working_buf += 3; working_con -= 6; working_lab -= 3; middle_lib -= 3; middle_nat_lib -= 3; working_nat_lib *= 0.5; prime_minister = conservative_leader; pm_party = "Con."; home_secretary = "Harris"; home_secretary_party = "Lib."; scottish_secretary = "Sinclair"; scottish_secretary_party = "Lib."; working_lab -= 2; working_con += 2; working_buf += 2 if buf_c > 5; middle_lab -= 2; working_lib -= 2; middle_con += 2; middle_lib -= 2; middle_nat_lib += 2 if nat_lib_c > 5; in_grand_national_government = 1;
+
+Though the pragmatists in our party would have wanted otherwise, we will not lend the political establishment our votes for their vanity project. The Liberals enter [+ conservative_leader +]'s government anyway, but is destined to fall, despite the executive's unfounded hope he will find a parliamentary majority.
+
+We don't know how long it will take for the government to fall as their dodgy deals will keep them in power for the near future, but it will surely be in the next six months.
 
 @ministries
 
