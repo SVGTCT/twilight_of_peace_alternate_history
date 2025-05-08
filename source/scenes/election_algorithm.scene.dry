@@ -1,6 +1,5 @@
 title: Election
 on-arrival: {!
-// calculate normalized class voting amounts (0 to 100)
 for (var c of Q.classes) {
     var class_votes = 0;
     for (var party of Q.parties) {
@@ -35,10 +34,7 @@ for (var party of Q.parties) {
     Q[party + '_support'] = party_support;
     total_support += party_support;
 }
-// 2. normalize support (fraction)
-// 3. Round to integers
-// TODO: round to 1 decimal instead of rounding to integers
-// to do that, we multiply party_normalized*1000 and divide the rounded number by 10.
+
 for (var party of Q.parties) {
     Q[party+'_normalized'] = Q[party + '_support']/total_support;
     Q[party+'_votes_dec'] = Math.round(Q[party+'_normalized']*1000)/10;
@@ -53,31 +49,46 @@ for (var party of Q.parties) {
     // display
 }
 
-// calculate Commons seats
-var new_party_sum = 0;
-for (var party of Q.parties) {
-    Q['old_' + party + '_c'] = Q[party + '_c'];
-    Q[party + '_c'] = Math.round(Q[party + '_votes'] * Q[party + '_modifier']);
-    if (year > 1935) {
-        Q.nat_lab_c = 0;
-        Q.nat_lab_seats = 0;
-    }
-    Q.total_c = Q.lab_c + Q.communist_c + Q.ind_lab_c + Q.nat_lab_c + Q.lib_c + Q.nat_lib_c + Q.con_c + Q.other_c + Q.nationalist_c + Q.buf_c;
-    if (Q.total_c != 100) {
-        if (Q.total_c < 100) {
-            Q.lab_c = Q.lab_c + (100-Q.total_c)}
-        else {
-        Q.lab_c = Q.lab_c - (Q.total_c-100)}
-    }
-    Q[party + '_seats'] = Math.round(Q[party + '_c'] * 6.5);
-    new_party_sum += Q[party + '_c'];
-    Q['change_' + party + '_c'] = Q[party + '_c'] - Q['old_' + party + '_c'];
-    if (Q['change_' + party + '_c'] > 0) {
-        Q.sign = "+";}
-    else {
-        Q.sign = "-";}
-    Q['str_change_' + party] = sign + Q['change_' + party + '_c'];//.toFixed(1);
-}
+// calculate Commons representation
+Q.communist_c_raw = Q.communist_votes_dec * Q.communist_modifier
+Q.communist_c = Math.round(Q.communist_votes_dec * Q.communist_modifier)
+Q.communist_seats = Math.round(Q.communist_c_raw * 6.5)
+
+Q.ind_lab_c_raw = Q.ind_lab_votes_dec * Q.ind_lab_modifier
+Q.ind_lab_c = Math.round(Q.ind_lab_votes_dec * Q.ind_lab_modifier)
+Q.ind_lab_seats = Math.round(Q.ind_lab_c_raw * 6.5)
+
+Q.nationalist_c_raw = Q.nationalist_votes_dec * Q.nationalist_modifier
+Q.nationalist_c = Math.round(Q.nationalist_votes_dec * Q.nationalist_modifier)
+Q.nationalist_seats = Math.round(Q.nationalist_c_raw * 6.5)
+
+Q.lab_c_raw = Q.lab_votes_dec * Q.lab_modifier
+Q.lab_c = Math.round(Q.lab_votes_dec * Q.lab_modifier)
+Q.lab_seats = Math.round(Q.lab_c_raw * 6.5)
+
+Q.nat_lab_c_raw = Q.nat_lab_votes_dec * Q.nat_lab_modifier
+Q.nat_lab_c = Math.round(Q.nat_lab_votes_dec * Q.nat_lab_modifier)
+Q.nat_lab_seats = Math.round(Q.nat_lab_c_raw * 6.5)
+
+Q.lib_c_raw = Q.lib_votes_dec * Q.lib_modifier
+Q.lib_c = Math.round(Q.lib_votes_dec * Q.lib_modifier)
+Q.lib_seats = Math.round(Q.lib_c_raw * 6.5)
+
+Q.nat_lib_c_raw = Q.nat_lib_votes_dec * Q.nat_lib_modifier
+Q.nat_lib_c = Math.round(Q.nat_lib_votes_dec * Q.nat_lib_modifier)
+Q.nat_lib_seats = Math.round(Q.nat_lib_c_raw * 6.5)
+
+Q.con_c_raw = Q.con_votes_dec * Q.con_modifier
+Q.con_c = Math.round(Q.con_votes_dec * Q.con_modifier)
+Q.con_seats = Math.round(Q.con_c_raw * 6.5)
+
+Q.other_c_raw = Q.other_votes_dec * Q.other_modifier
+Q.other_c = Math.round(Q.other_votes_dec * Q.other_modifier)
+Q.other_seats = Math.round(Q.other_c_raw * 6.5)
+
+Q.buf_c_raw = Q.buf_votes_dec * Q.buf_modifier
+Q.buf_c = Math.round(Q.buf_votes_dec * Q.buf_modifier)
+Q.buf_seats = Math.round(Q.buf_c_raw * 6.5)
 
 // The largest party can only be Labour or the Tories
 Q.largest_party = 'Conservative';
