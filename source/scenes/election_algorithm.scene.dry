@@ -155,4 +155,4 @@ Q.health_minister_party = 'Con.';
 // election is no longer in progress
 Q.election_ip = 0;
 !}
-go-to: election_1935.coalition_menu
+go-to: election_1935.main_content
