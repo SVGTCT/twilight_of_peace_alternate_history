@@ -431,8 +431,7 @@ No government can be formed. Are there any other options?
 
 @no_maj
 title: No government can be formed.
-view-if: largest_party != "Conservative" and national_government < 50 and labour_c < 50
-choose-if: ((lib_failed or lib_relation < 35) or lab_lib_government < 50) and (lib_relation < 50 or dissent_percent >= 50) and ((communist_relation < 55 or not reconciliation)) and communist_coalition < 3) or socialist_government < 50) and (lw_government < 50 or ind_lab_relation < 35)
+view-if: largest_party != "Conservative" and national_government < 50 and labour_c < 50 and (lw_government < 50 or ind_lab_relation < 35) and (lib_failed or lib_cant_form or lab_lab_government < 50) and (socialist_failed or socialist_cant_form or socialist_government < 50) and minority_cant_form
 on-arrival: prime_minister = conservative_leader; pm_party = "Con.";
 go-to: normal_no_maj if buf_c < 10 and communist_c < 10; radical_no_maj
 
@@ -457,7 +456,7 @@ The Liberal Party, which previously had been quick to denounce the National Gove
 title: Another National Government Can Form
 subtitle: Con. + Nat. Lib. + Lib. + Nat. Lab. + Nat. (**[+ grand_national_government +]%**)
 choose-if: grand_national_government >= 50
-on-arrival: working_buf += 3; working_lab -= 3; working_con -= 3; working_communist += 3; middle_lib -= 3; prime_minister = conservative_leader; pm_party = "Con."; home_secretary = "Harris"; home_secretary_party = "Lib."; scottish_secretary = "Sinclair"; scottish_secretary_party = "Lib.";
+on-arrival: working_buf += 3; working_lab -= 3; working_con -= 3; working_communist += 3; middle_lib -= 3; home_secretary = "Harris"; home_secretary_party = "Lib."; scottish_secretary = "Sinclair"; scottish_secretary_party = "Lib.";
 
 Following the alarming rise of the radical parties, the political establishment has banded together to form another National Government with the same composition as the first two, which the Liberals left over the administration's protectionism.
 
@@ -478,13 +477,13 @@ Of course, the Conservatives would never let us into government outside of a maj
 @go_ahead
 view-if: pragmatist_strength > 35
 choose-if: (left_strength + marxist_strength) < pragmatist_strength
-on-arrival: lab_toleration = 1; working_buf += 3; working_lab -= 3+(3*(1-pragmatist_strength); working_con -= 3; working_communist += 3; middle_lib -= 3; prime_minister = conservative_leader; pm_party = "Con."; home_secretary = "Harris"; home_secretary_party = "Lib."; scottish_secretary = "Sinclair"; scottish_secretary_party = "Lib.";
+on-arrival: lab_toleration = 1; working_buf += 3; working_lab -= 3+(3*(1-pragmatist_strength); working_con -= 3; working_communist += 3; middle_lib -= 3; home_secretary = "Harris"; home_secretary_party = "Lib."; scottish_secretary = "Sinclair"; scottish_secretary_party = "Lib.";
 
 Many in our electoral base regard this as a betrayal, but our pragmatist contingent sways the party into accepting this decision. Perhaps we will be able to dictate at least some pro-worker policy from outside of government?
 
 @no_dice
 choose-if: (left_strength + marxist_strength) >= pragmatist_strength
-on-arrival: working_buf += 3; working_con -= 6; working_lab -= 3; middle_lib -= 3; middle_nat_lib -= 3; working_nat_lib *= 0.5; prime_minister = conservative_leader; pm_party = "Con."; home_secretary = "Harris"; home_secretary_party = "Lib."; scottish_secretary = "Sinclair"; scottish_secretary_party = "Lib."; working_lab -= 2; working_con += 2; working_buf += 2 if buf_c > 5; middle_lab -= 2; working_lib -= 2; middle_con += 2; middle_lib -= 2; middle_nat_lib += 2 if nat_lib_c > 5; in_grand_national_government = 1;
+on-arrival: working_buf += 3; working_con -= 6; working_lab -= 3; middle_lib -= 3; middle_nat_lib -= 3; working_nat_lib *= 0.5; home_secretary = "Harris"; home_secretary_party = "Lib."; scottish_secretary = "Sinclair"; scottish_secretary_party = "Lib."; working_lab -= 2; working_con += 2; working_buf += 2 if buf_c > 5; middle_lab -= 2; working_lib -= 2; middle_con += 2; middle_lib -= 2; middle_nat_lib += 2 if nat_lib_c > 5; in_grand_national_government = 1;
 
 Though the pragmatists in our party would have wanted otherwise, we will not lend the political establishment our votes for their vanity project. The Liberals enter [+ conservative_leader +]'s government anyway, but is destined to fall, despite the executive's unfounded hope he will find a parliamentary majority.
 
