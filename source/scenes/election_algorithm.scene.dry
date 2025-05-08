@@ -1,5 +1,23 @@
 title: Election
 on-arrival: {!
+
+Q.relg_diff = (1 - protestants_lab)/10000;
+
+if (Q.protestants_lab < 50) {
+    working_lab *= (1 - relg_diff);
+    middle_lab *= (1 - relg_diff);
+    upper_lab *= (1 - relg_diff);
+    farmers_lab *= (1 - relg_diff);
+    unemployed_lab *= (1 - relg_diff);
+}
+else {
+    working_lab *= (1 + relg_diff);
+    middle_lab *= (1 + relg_diff);
+    upper_lab *= (1 + relg_diff);
+    farmers_lab *= (1 + relg_diff);
+    unemployed_lab *= (1 + relg_diff);
+}
+
 Q.con_seats_old = Q.con_seats;
 Q.lab_seats_old = Q.lab_seats;
 Q.nat_lib_seats_old = Q.nat_lib_seats;
