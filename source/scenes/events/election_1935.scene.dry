@@ -3,7 +3,50 @@ new-page: true
 tags: event
 priority: -1
 view-if: (year = next_election_year and month >= next_election_month) or (year > next_election_year)
-on-departure: month_actions += 1; in_election = 0; next_election_year = next_election_year + 4; n_elections += 1; next_election_time = time + 48;
+on-departure: {!
+
+Q.month_actions = month_actions + 1;
+Q.in_election = 0; 
+Q.next_election_year = next_election_year + 4; 
+Q.n_elections = n_elections + 1;
+Q. next_election_time = time + 48;
+
+if (in_socialist_government) {
+    if (chancellor_party != "Lab.") {
+        Q.chancellor = 'Pollitt';
+        Q.chancellor_party = 'CPGB';}
+    else if (home_secretary_party != "Lab." {
+        Q.home_secretary = 'Giles';
+        Q.home_secretary_party = 'CPGB';}
+    else if (foreign_secretary_party != "Lab." {
+        Q.foreign_secretary = 'Palme Dutt';
+        Q.foreign_secretary_party = 'CPGB';}
+    else if (colonial_secretary_party != "Lab." {
+        Q.colonial_secretary = 'Inkpin';
+        Q.colonial_secretary_party = 'CPGB';}
+    else if (dominions_secretary_party != "Lab." {
+        Q.dominions_secretary = 'Newbold';
+        Q.dominions_secretary_party = 'CPGB';}
+    else if (war_secretary_party != "Lab." {
+        Q.war_secretary = 'Campbell';
+        Q.war_secretary_party = 'CPGB';}
+    else if (india_secretary_party != "Lab." {
+        Q.india_secretary = 'Palme Dutt';
+        Q.india_secretary_party = 'CPGB';}
+    else if (scottish_secretary_party != "Lab." {
+        Q.scottish_secretary = 'Gallacher';
+        Q.scottish_secretary_party = 'CPGB';}
+    else if (agriculture_minister_party != "Lab." {
+        Q.agriculture_minister = 'Mellor';
+        Q.agriculture_minister_party = 'CPGB';}
+    else if (labour_minister_party != "Lab." {
+        Q.labour_minister = 'J. Eden';
+        Q.labour_minister_party = 'CPGB';}
+    else if (health_minister_party != "Lab." {
+        Q.health_minister = 'Silverthorne';
+        Q.health_minister_party = 'CPGB';}
+}
+!}
 #set-jump: post_election_1935
 on-arrival: {!
 // calculate normalized class voting amounts (0 to 100)
@@ -117,11 +160,18 @@ Q.leverage = Q.lab_c;
 Q.lib_failed = 0;
 // liberal demands
 Q.no_taxes = 0;
-Q.no_nationalise = 0;
-Q.free_trade = 0;
-Q.no_works = 0;
+Q.yes_pr = 0;
+Q.no_ottawa = 0;
+Q.lib_test = 0;
 Q.no_assurances = 0;
 Q.socialist_failed = 0;
+// communist demands
+Q.work_councils = 0;
+Q.health_service = 0;
+Q.decolonisation = 0;
+Q.yes_nationalise = 0;
+Q.labour_code = 0;
+Q.no_religious_schools = 0;
 Q.right_coalition_dissent = 0;
 Q.left_coalition_dissent = 0;
 Q.lab_in_government = 0;
@@ -159,8 +209,6 @@ Q.labour_minister = 'Brown';
 Q.labour_minister_party = 'Nat. Lib.';
 Q.health_minister = 'Wood';
 Q.health_minister_party = 'Con.';
-
-// TODO: add CPGB goals
 
 // TODO: anti-CPGB/BUF timer
 
@@ -226,6 +274,7 @@ There are some potential coalition arrangements.
 - @national_gov
 - @lab_lib_gov
 - @lw_gov
+- @socialist_gov
 
 @lab_majority
 title: Labour Majority
@@ -287,7 +336,7 @@ We can enter negotiations to form a government under a coalition with the Libera
 on-arrival: lib_relation += 5; middle_lab += 3/12;
 go-to: lib_form_poor if lib_relation >= 35 and lib_relation < 45; lib_form_ok if lib_relation >= 45 and lib_relation < 55; lib_form_good
 
-Very well. We will try to form a Labour-Liberal coalition under [+ labour_leader +].
+Very well. We will try to form a Labour-Liberal coalition under [+ labour_leader +]. Our policies are not too dissimilar and oftentimes the Liberals are more radical than we are due to our attempts to distance the party from our European socialist counterparts.
 
 @lib_form_poor
 on-arrival: leverage -= 20
@@ -299,83 +348,94 @@ Unfortunately, due to our relatively poor relations with the Liberal Party, the 
 
 The Liberals have indicated a series of demands.
 
-- @no_nationalise: We will refrain from undertaking a policy of nationalisations.
-- @yes_nationalise: Drop our promise against nationalisations.
-- @no_works: We will guarantee to only carry out minor public works programmes to avoid deficit spending.
-- @yes_works: Drop our promise against going into deficit spending on public works.
-- @free_trade: We will commit to a policy of free trade.
-- @no_free_trade: Drop our promise to uphold free trade.
-- @no_taxes: We will promise not to raise taxes on the highest earners.
-- @yes_taxes: Drop our promise not to raise taxes on the highest earners.
-- @enough: That should be enough, let's negotiate the ministries.
+- @no_ottawa: Commit to withdrawing from the Ottawa Accords and lowering tariffs and quotas.
+- @yes_ottawa: Drop our promise to withdraw from the Ottawa Accords.
+- @no_taxes: Commit to not raising taxes.
+- @yes_taxes: Drop our promise against raising taxes.
+- @lib_test: Commit to the proposed Liberal revision of the Means Test.
+- @lab_test: Drop our promise to revise the Means Test in favour of its abolition.
+- @yes_pr: Commit to reforming the electoral system into proportional representation.
+- @no_pr: Drop our promise for electoral reform.
+- @lib_enough: That should be enough, let's negotiate the ministries.
 - @lib_no_gov: The government cannot be formed.
 
-@no_nationalise
-on-arrival: no_assurances += 1; leverage += 5; no_nationalise = 1; working_lab -= 5/12
-view-if: no_nationalise = 0
-go_to: election_1935.lib_menu
+@yes_pr
+on-arrival: no_assurances += 1; leverage += 5; yes_pr = 1;
+view-if: yes_pr = 0
+go-to: election_1935.lib_menu
+choose-if: not yes_pr_done
+subtitle: [? if yes_pr_start = 1: We can continue working on this. ?]
+unavailable-subtitle: We have already enacted this policy! 
 
-We have promised not to carry out nationalisations.
+We have promised to reform the electoral system into proportional representation. The Liberals, who are usually underrepresented in Parliament, appreciate this. [? if yes_pr_start = 1: We can continue working on this. ?]
 
-@yes_nationalise
-on-arrival: no_assurances -= 1; leverage -= 5; no_nationalise = 0; working_lab += 5/12
-view-if: no_nationalise = 1
-go_to: election_1935.lib_menu
+@no_pr
+on-arrival: no_assurances -= 1; leverage -= 5; yes_pr = 0;
+view-if: yes_pr = 1
+go-to: election_1935.lib_menu
 
-We have dropped our promise not to carry out nationalisations.
+We have dropped our promise for electoral reform.
 
-@no_works
-on-arrival: no_assurances += 1; leverage += 5; no_works = 1; working_lab -= 5/12
-view-if: no_works = 0
-go_to: election_1935.lib_menu
+@lib_test
+on-arrival: no_assurances += 1; leverage += 5; lib_test = 1; working_lab -= 1/12
+view-if: lib_test = 0
+go-to: election_1935.lib_menu
+choose-if: not lib_test_done
+subtitle: [? if lib_test_start = 1: We can continue working on this. ?]
+unavailable-subtitle: We have already enacted this policy! 
 
-We have promised not to go into deficit spending on public works.
+We have promised to carry out the Liberal revisions to the Means Test. [? if lib_test_start = 1: We can continue working on this. ?]
 
-@yes_works
-on-arrival: no_assurances -= 1; leverage -= 5; no_works = 0; working_lab += 5/12
-view-if: no_works = 1
-go_to: election_1935.lib_menu
+@lab_test
+on-arrival: no_assurances -= 1; leverage -= 5; lib_test = 0; working_lab += 1/12
+view-if: lib_test = 1
+go-to: election_1935.lib_menu
 
-We have dropped our promise not to go into deficit spending on public works.
+We have dropped our promise to carry out the Liberal revisions to the Means Test. We will abolish it as we campaigned!
 
-@free_trade
-on-arrival: no_assurances += 1; leverage += 5; free_trade = 1; working_lab -= 3/12
-view-if: free_trade = 0
-go_to: election_1935.lib_menu
+@no_ottawa
+on-arrival: no_assurances += 1; leverage += 5; no_ottawa = 1; working_lab += 1/12
+view-if: no_ottawa = 0
+go-to: election_1935.lib_menu
+choose-if: not no_ottawa_done
+subtitle: [? if no_ottawa_start = 1: We can continue working on this. ?]
+unavailable-subtitle: We have already enacted this policy! 
 
-We have promised to uphold free trade. The Liberals would have expected no less.
+We have promised to withdraw from the Ottawa Accords and pursue a policy of free trade. The Liberals would have expected no less. [? if no_ottawa_start = 1: We can continue working on this. ?]
 
-@no_free_trade
-on-arrival: no_assurances -= 1; leverage -= 10; free_trade = 0; working_lab += 3/12
-view-if: free_trade = 1
-go_to: election_1935.lib_menu
+@yes_ottawa
+on-arrival: no_assurances -= 1; leverage -= 10; no_ottawa = 0; working_lab -= 1/12
+view-if: no_ottawa = 1
+go-to: election_1935.lib_menu
 
-We have dropped our promise to uphold free trade. The Liberals are appalled!
+We have dropped our promise to withdraw from the Ottawa Accords. The Liberals are appalled!
 
 @no_taxes
-on-arrival: no_assurances += 1; leverage += 5; no_taxes = 1; working_lab -= 5/12
+on-arrival: no_assurances += 1; leverage += 5; no_taxes = 1; working_lab += 1/12
 view-if: no_taxes = 0
-go_to: election_1935.lib_menu
+go-to: election_1935.lib_menu
 
-We have promised not to raise taxes on the highest earners.
+We have promised not to raise taxes. This may restrict us in government.
 
 @yes_taxes
-on-arrival: no_assurances -= 1; leverage -= 5; no_taxes = 0; working_lab += 5/12
+on-arrival: no_assurances -= 1; leverage -= 5; no_taxes = 0; working_lab -= 1/12
 view-if: no_taxes = 1
-go_to: election_1935.lib_menu
+go-to: election_1935.lib_menu
 
-We have dropped our promise not to raise taxes on the highest earners.
+We have dropped our promise not to raise taxes.
 
-@enough
+@lib_enough
 view-if: no_assurances > 1
 on-arrival: in_lab_lib_government = 1; prime_minister = labour_leader; pm_party = "Lab."; lord_chancellor = "Ponsonby"; lord_chancellor_party = "Lab."; chancellor = "Samuel"; chancellor_party = "Lib."; home_secretary = "Sinclair"; home_secretary_party = "Lib."; foreign_secretary = "Kerr"; foreign_secretary_party = "Lib."; colonial_secretary = "Hamilton"; colonial_secretary_party = "Lib."; dominions_secretary = "Acland"; dominions_secretary_party = "Lib."; war_secretary = "Beaumont"; war_secretary_party = "Lib."; india_secretary = "I. Foot"; india_secretary_party = "Lib."; scottish_secretary = "D. Foot"; scottish_secretary_party = "Lib."; agriculture_minister = "Roberts"; agriculture_minister_party = "Lib."; labour_minister = "Harris"; labour_minister_party = "Lib."; health_minister = "White"; health_minister_party = "Lib.";
 go-to: ministries
 
-That will be enough. Now we will negotiate for ministries.
+That will be enough. Now we will negotiate for ministries. We would do well to select the ministries for which we have made policy commitments.
 
 @lib_no_gov
 on-arrival: middle_lab -= 3/12; working_lab -= 2/12; working_con += 2/12; middle_con += 3/12; lib_failed = 1; no_assurances = 0; lib_relation -= 5;
 go-to: coalition_menu
+
+No government can be formed. Are there any other options?
 
 @lib_form_ok
 on-arrival: leverage -= 15
@@ -418,8 +478,154 @@ We can form a left-wing government with a majority in the House of Commons, unde
 
 [? if ilp_in_government > 1: The Independent Labour Party, having been convinced of the coalition's efficacy upon its renewal, has requested to appoint George Buchanan as Minister of Labour. All other portfolios will go to the Labour Party. ?][? if ilp_in_government <= 1: Upon entering government for the first time, the Labour Independents have taken an abstentionist approach. Labour will appoint every minister. ?]
 
-# TODO: Add Socialist (Labour-Communist) Coalition with Communist Demands (@com_menu)
 # TODO: Remember: Add Six Month Checks for Coalition Demands + conditional, timed Liberal Demands (e.g. if you raise taxes but cut them too in a six month period, this does not fail no_taxes but any tariff does fail free_trade)
+
+@socialist_gov
+title: Socialist Government
+subtitle: [+ socialist_government +]%, [+ socialist_government_seats +]/615 seats
+view-if: socialist_government >= 50
+choose-if: (communist_relation >= 55 or (communist_relation >= 45 and reconciliation == 1)) and communist_coalition > 2
+unavailable-subtitle: We do not have sufficient relations with the Communists.
+on-arrival: leverage -= 20; lib_relation -= 5; nat_lib_relation -= 5; con_relation -= 5;
+go-to: com_menu
+
+A government between Labour and the Communists, previously seen as seditionists, was thought to be impossible. The last time Labour had endorsed Communist parliamentary candidates was at the beginning of the last decade.
+
+But perhaps the times are changing?
+
+In any case, the Communists are not just "happy" to enter government: they are making a series of demands, and we will need to accept at least some of them for this government to form.
+
+@com_menu
+
+- @work_councils: Commit to establishing workers' councils.
+- @no_councils: Drop our promise to establish workers' councils.
+- @yes_nationalise: Commit to a programme of mass nationalisations.
+- @no_nationalise: Drop our promise of mass nationalisations.
+- @decolonisation: Commit to beginning the process of decolonisation.
+- @no_decolonisation: Drop our promise of beginning decolonisation.
+- @health_service: Commit to establishing a state health service.
+- @no_health_service: Drop our promise for a state health service.
+- @labour_code: Commit to writing a labour code for worker protections.
+- @no_labour_code: Drop our promise for a streamlined labour code.
+- @no_religious_schools: Commit to withdrawing funding from Church schools.
+- @religious_schools: Drop our promise to withdraw Church school funding.
+- @com_enough: That should be enough, let's negotiate the ministries.
+- @com_no_gov: The government cannot be formed.
+
+@work_councils
+on-arrival: no_assurances += 1; leverage += 5; work_councils = 1; working_lab += 1/12; con_relation -= 5; nat_lib_relation -= 5;
+view-if: work_councils = 0
+go-to: com_menu
+choose-if: not work_councils_done
+subtitle: [? if work_councils_start = 1: We can continue working on this. ?]
+unavailable-subtitle: We have already enacted this policy!
+
+We have promised to establish workers' councils to have a degree of power over their own places of work. [? if work_councils_start = 1: We can continue working on this. ?]
+
+@no_councils
+on-arrival: no_assurances -= 1; leverage -= 5; work_councils = 0; working_lab -= 1/12; 
+view-if: work_councils = 1
+go-to: com_menu
+
+We have dropped our promise to establish workers' councils.
+
+@yes_nationalise
+on-arrival: no_assurances += 1; leverage += 5; yes_nationalise = 1; working_lab += 1/12; con_relation -= 5; nat_lib_relation -= 5;
+view-if: yes_nationalise = 0
+go-to: com_menu
+choose-if: not yes_nationalise_done
+subtitle: [? if yes_nationalise_start = 1: We can continue working on this. ?]
+unavailable-subtitle: We have already enacted this policy!
+
+We have promised to undertake a programme of mass nationalisations. [? if yes_nationalise_start = 1: We can continue working on this. ?]
+
+@no_nationalise
+on-arrival: no_assurances -= 1; leverage -= 5; yes_nationalise = 0; working_lab -= 1/12; 
+view-if: yes_nationalise = 1
+go-to: com_menu
+
+We have dropped our promise of mass nationalisations.
+
+@decolonisation
+on-arrival: no_assurances += 1; leverage += 5; decolonisation = 1; working_lab -= 2/12; con_relation -= 10; nat_lib_relation -= 5; lib_relation -= 5;
+view-if: decolonisation = 0
+go-to: com_menu
+choose-if: not decolonisation_done
+subtitle: [? if decolonisation_start = 1: We can continue working on this. ?]
+unavailable-subtitle: We have already enacted this policy!
+
+We have promised to begin the process of giving our colonies self-determination. [? if decolonisation_start = 1: We can continue working on this. ?]
+
+@no_decolonisation
+on-arrival: no_assurances -= 1; leverage -= 5; decolonisation = 0; lib_relation += 5;
+view-if: decolonisation = 1
+go-to: com_menu
+
+We have dropped our promise to begin the process of giving our colonies self-determination.
+
+@health_service
+on-arrival: no_assurances += 1; leverage += 5; health_service = 1; working_lab += 2/12;
+view-if: health_service = 0
+go-to: com_menu
+choose-if: not health_service_done
+subtitle: [? if health_service_start = 1: We can continue working on this. ?]
+unavailable-subtitle: We have already enacted this policy!
+
+We have promised to establish a state health service. [? if health_service_start = 1: We can continue working on this. ?]
+
+@no_health_service
+on-arrival: no_assurances -= 1; leverage -= 5; health_service = 0; working_lab -= 2/12;
+view-if: health_service = 1
+go-to: com_menu
+
+We have dropped our promise to establish a state health service.
+
+@labour_code
+on-arrival: no_assurances += 1; leverage += 5; labour_code = 1; working_lab += 2/12;
+view-if: labour_code = 0
+go-to: com_menu
+choose-if: not labour_code_done
+subtitle: [? if labour_code_start = 1: We can continue working on this. ?]
+unavailable-subtitle: We have already enacted this policy! 
+
+We have promised to write a standardised labour code. [? if labour_code_start = 1: We can continue working on this. ?]
+
+@no_labour_code
+on-arrival: no_assurances -= 1; leverage -= 5; labour_code = 0; working_lab -= 2/12;
+view-if: labour_code = 1
+go-to: com_menu
+
+We have dropped our promise to write a standardised labour code.
+
+@no_religious_schools
+on-arrival: no_assurances += 1; leverage += 5; no_religious_schools = 1; working_lab -= 2/12; con_relation -= 10; nat_lib_relation -= 5; lib_relation -= 5; middle_lab -= 2/12;
+view-if: no_religious_schools = 0
+go-to: com_menu
+choose-if: not no_religious_schools_done
+subtitle: [? if no_religious_schools_start = 1: We can continue working on this. ?]
+unavailable-subtitle: We have already enacted this policy! 
+
+We have promised to withdraw funding from Church schools. [? if no_religious_schools_start = 1: We can continue working on this. ?]
+
+@religious_schools
+on-arrival: no_assurances -= 1; leverage -= 5; no_religious_schools = 0; working_lab += 2/12; middle_lab += 1/12
+view-if: no_religious_schools = 1
+go-to: com_menu
+
+We have dropped our promise to withdraw funding from Church schools.
+
+@com_enough
+view-if: no_assurances > 2
+on-arrival: in_socialist_government = 1; prime_minister = labour_leader; pm_party = "Lab."; lord_chancellor = "Ponsonby"; lord_chancellor_party = "Lab.";
+go-to: ministries
+
+That will be enough. Now we will negotiate for ministries. We would do well to select the ministries for which we have made policy commitments, and also the Colonial and Dominions secretaries -- for the Empire's sake.
+
+@com_no_gov
+on-arrival: working_lab -= 3/12; working_communist += 1/12; working_con += 2/12; socialist_failed = 1; no_assurances = 0; communist_relation -= 5;
+go-to: coalition_menu
+
+No government can be formed. Are there any other options?
 
 @ministries
 
