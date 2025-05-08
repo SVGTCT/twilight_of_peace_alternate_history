@@ -299,6 +299,18 @@ Q.nationalist_c = 0;
 Q.communist_c = 0;
 Q.buf_c = 0;
 
+// Current House of Commons seats (will be used for Nov 1935 election) -- may not be 100% accurate because I could not find a list that accounted for by-elections in the 1931-1935 Parliament
+Q.con_seats = 470;
+Q.lab_c = 46;
+Q.nat_lib_c = 35;
+Q.lib_c = 33;
+Q.nat_lab_c = 13;
+Q.other_c = 10; // national + independent + ind liberal
+Q.ind_lab_c = 6; //including "unendorsed" labour
+Q.nationalist_c = 2;
+Q.communist_c = 0;
+Q.buf_c = 0;
+
 // diff from prev
 Q.old_con_c = 76;
 Q.old_lab_c = 8;
