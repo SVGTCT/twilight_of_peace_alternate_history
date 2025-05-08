@@ -232,13 +232,13 @@ Q.parties = ['lab', 'nat_lab', 'ind_lab', 'lib', 'nat_lib', 'con', 'nationalist'
 
 // Support for each party by social group
 Q.working_lab = 44.22;
-Q.working_nat_lab = 1.5;
-Q.working_ind_lab = 1.2;
+Q.working_nat_lab = 1.65;
+Q.working_ind_lab = 1.1;
 Q.working_lib = 2;
 Q.working_nat_lib = 0.5;
 Q.working_con = 43.78;
-Q.working_nationalist = 0.5;
-Q.working_communist = 0.3;
+Q.working_nationalist = 0.35;
+Q.working_communist = 0.4;
 Q.working_buf = 0;
 Q.working_other = 3.5;
 
@@ -258,10 +258,10 @@ Q.upper_nat_lab = 0;
 Q.upper_ind_lab = 0;
 Q.upper_lib = 10;
 Q.upper_nat_lib = 9.5;
-Q.upper_con = 68.4;
+Q.upper_con = 68.45;
 Q.upper_nationalist = 0;
 Q.upper_communist = 0;
-Q.upper_buf = 0.1;
+Q.upper_buf = 0.05;
 Q.upper_other = 0;
 
 Q.farmers_lab = 28.57;
@@ -280,10 +280,10 @@ Q.unemployed_nat_lab = 1;
 Q.unemployed_ind_lab = 0.5;
 Q.unemployed_lib = 3;
 Q.unemployed_nat_lib = 1;
-Q.unemployed_con = 46.94;
+Q.unemployed_con = 47.34;
 Q.unemployed_nationalist = 0.3;
 Q.unemployed_communist = 0.3;
-Q.unemployed_buf = 0.5;
+Q.unemployed_buf = 0.1;
 Q.unemployed_other = 1;
 
 // devout anglicans are not a social class but rather a modifier that makes parties seem less "scary"
