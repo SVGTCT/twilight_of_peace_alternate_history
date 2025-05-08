@@ -477,7 +477,7 @@ Of course, the Conservatives would never let us into government outside of a maj
 @go_ahead
 view-if: pragmatist_strength > 35
 choose-if: (left_strength + marxist_strength) < pragmatist_strength
-on-arrival: lab_toleration = 1; working_buf += 3; working_lab -= 3+(3*(1-pragmatist_strength); working_con -= 3; working_communist += 3; middle_lib -= 3; home_secretary = "Harris"; home_secretary_party = "Lib."; scottish_secretary = "Sinclair"; scottish_secretary_party = "Lib.";
+on-arrival: lab_toleration = 1; working_buf += 3; working_lab -= 3+(3*(1-pragmatist_strength)); working_con -= 3; working_communist += 3; middle_lib -= 3; home_secretary = "Harris"; home_secretary_party = "Lib."; scottish_secretary = "Sinclair"; scottish_secretary_party = "Lib.";
 
 Many in our electoral base regard this as a betrayal, but our pragmatist contingent sways the party into accepting this decision. Perhaps we will be able to dictate at least some pro-worker policy from outside of government?
 
