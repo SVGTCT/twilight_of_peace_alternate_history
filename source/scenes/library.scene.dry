@@ -537,5 +537,5 @@ on-arrival: communist_coalition = 3
 go-to: menu
 
 @lab_support_dev
-on-arrival: working_lab += 100; working_con -= 100;
+on-arrival: working_lab += 100; working_con -= 100; farmers_lab += 100; farmers_con -= 100; unemployed_lab += 100; unemployed_con -= 100; middle_lab += 100; middle_con -= 100;
 go-to: menu
