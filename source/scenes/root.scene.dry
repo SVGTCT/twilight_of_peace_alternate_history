@@ -211,6 +211,8 @@ Q.economic_growth = -0.1;
 // economic expansion timer
 Q.economic_expansion = 0;
 
+// TODO: Remember to add 1936 event scene that sets Nat Lab modifier close to 0
+
 // ratio of votes to seats
 Q.lab_modifier = 0.65789473684;
 Q.nat_lab_modifier = 0.86666666666;
