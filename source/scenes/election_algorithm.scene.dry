@@ -245,14 +245,14 @@ Q.decolonisation = 0;
 Q.yes_nationalise = 0;
 Q.labour_code = 0;
 Q.no_religious_schools = 0;
+Q.lib_cant_form = 0;
+Q.socialist_cant_form = 0;
+Q.minority_cant_form = 0;
 
 // lets the game know what coalitions can form (this lets you get away with not forming a government if there's no other choice
 
 if (Q.lib_relation < 35) {
     Q.lib_cant_form = 1;
-}
-else {
-    Q.lib_cant_form = 0;
 }
 
 if (Q.communist_relation < 45) {
@@ -263,24 +263,12 @@ if (Q.reconciliation == 0 and Q.communist_relation < 55) {
     Q.socialist_cant_form = 1;
 }
 
-if (Q.reconciliation == 1 and Q.communist_relation >= 45) {
-    Q.socialist_cant_form = 0;
-}
-
-if (Q.reconciliation == 0 and Q.communist_relation >= 55) {
-    Q.socialist_cant_form = 0;
-}
-
 if (Q.dissent_percent >= 50) {
     Q.minority_cant_form = 1;
 }
 
 if (Q.lib_relation < 50) {
     Q.minority_cant_form = 1;
-}
-
-if (Q.dissent_percent < 50 and Q.lib_relation >= 50) {
-    Q.minority_cant_form = 0;
 }
 
 // reset electoral variables
