@@ -93,9 +93,12 @@ Q.buf_seats = Math.round(Q.buf_c_raw * 6.15);
 Q.total_seats = Q.communist_seats + Q.ind_lab_seats + Q.nationalist_seats + Q.lab_seats + Q.nat_lab_seats + Q.lib_seats + Q.nat_lib_seats + Q.con_seats + Q.other_seats + Q.buf_seats;
 
 if (Q.total_seats > 615) {
-    Q.lab_seats = Q.lab_seats - (Q.total_seats - 615);}
-else if (Q.total_seats < 615 {
-    Q.lab_seats = Q.lab_seats + (615 - Q.total_seats);}
+    Q.lab_seats = Q.lab_seats - (Q.total_seats - 615)
+}
+
+if (Q.total_seats < 615) {
+    Q.lab_seats = Q.lab_seats + (615 - Q.total_seats)
+}
 
 // The largest party can only be Labour or the Tories
 Q.largest_party = 'Conservative';
