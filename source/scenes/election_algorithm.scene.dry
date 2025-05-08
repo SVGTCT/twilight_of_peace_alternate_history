@@ -1,5 +1,7 @@
 title: Election
 on-arrival: {!
+Q[party + '_seats_old'] = Q[party + '_seats']
+
 for (var c of Q.classes) {
     var class_votes = 0;
     for (var party of Q.parties) {
@@ -98,6 +100,18 @@ if (Q.total_seats > 615) {
 
 if (Q.total_seats < 615) {
     Q.lab_seats = Q.lab_seats + (615 - Q.total_seats)
+}
+
+// calculate changes
+
+Q[party + '_change'] = Q[party + '_seats']- Q[party + '_seats_old']
+
+if (Q[party + '_change'] > 0) {
+    Q[party + '_symbol'] = '<img src="img/arrowup.png">' 
+}
+else {
+    Q[party + '_symbol'] = '<img src="img/arrowdown.png">' 
+    Q[party + '_change'] = Q[party + '_seats_old'] - Q[party + '_seats']
 }
 
 // The largest party can only be Labour or the Tories
