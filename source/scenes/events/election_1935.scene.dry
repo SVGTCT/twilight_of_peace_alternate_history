@@ -15,6 +15,9 @@ The House of Commons elections are to be held now.
 
 - @election_algorithm: May we do our best...
 
+@main_content
+go-to: coalition_menu
+
 = Election results
 
 # TODO: Re-add Parliament diagram
