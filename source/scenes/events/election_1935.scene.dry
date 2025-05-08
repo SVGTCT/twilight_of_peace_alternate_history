@@ -23,27 +23,27 @@ go-to: coalition_menu
 # TODO: Re-add Parliament diagram
 
 {!<table>!} 
-{!<tr><td>Party</td><td>Vote share</td><td>Seats</td><td>% Change</td></tr>!}
+{!<tr><td>Party</td><td>Vote share</td><td>Seats</td><td>%Seats</td><td>Change</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#FF0000'> </div> !} Communist: {!</td><td>!} [+ communist_votes_dec +]%  {!</td><td>!} [+ communist_seats +] MPs {!</td><td>!} [+ str_change_communist +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#FF0000'> </div> !} Communist: {!</td><td>!} [+ communist_votes_dec +]%  {!</td><td>!} [+ communist_seats +] MPs {!</td><td>!} [+ communist_c +] {!</td><td>!} [+ str_change_communist +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#FFBBBB'> </div> !} Ind Lab: {!</td><td>!} [+ ind_lab_votes_dec +]%  {!</td><td>!} [+ ind_lab_seats +] MPs {!</td><td>!} [+ str_change_ind_lab +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#FFBBBB'> </div> !} Ind Lab: {!</td><td>!} [+ ind_lab_votes_dec +]%  {!</td><td>!} [+ ind_lab_seats +] MPs {!</td><td>!} [+ ind_lab_c +] {!</td><td>!} [+ str_change_ind_lab +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#32cd32'> </div> !} Nationalist: {!</td><td>!} [+ nationalist_votes_dec +]%  {!</td><td>!} [+ nationalist_seats +] MPs {!</td><td>!} [+ str_change_nationalist +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#32cd32'> </div> !} Nationalist: {!</td><td>!} [+ nationalist_votes_dec +]%  {!</td><td>!} [+ nationalist_seats +] MPs {!</td><td>!} [+ nationalist_c +] {!</td><td>!} [+ str_change_nationalist +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#E4003B; outline: 2px; outline-style: solid;'> </div> !} **Labour:** {!</td><td>!} **[+ lab_votes_dec +]%**  {!</td><td>!} **[+ lab_seats +] MPs** {!</td><td>!} **[+ str_change_lab +]** {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#E4003B; outline: 2px; outline-style: solid;'> </div> !} **Labour:** {!</td><td>!} **[+ lab_votes_dec +]%**  {!</td><td>!} **[+ lab_seats +] MPs** {!</td><td>!} [+ lab_c +] {!</td><td>!} **[+ str_change_lab +]** {!</td></tr>!}
 
- {!<tr><td><div class="box" style='background-color:#008000'> </div> !} Nat Lab: {!</td><td>!} [+ nat_lab_votes_dec +]%  {!</td><td>!} [+ nat_lab_seats +] MPs {!</td><td>!} [+ str_change_nat_lab +] {!</td></tr>!}
+ {!<tr><td><div class="box" style='background-color:#008000'> </div> !} Nat Lab: {!</td><td>!} [+ nat_lab_votes_dec +]%  {!</td><td>!} [+ nat_lab_seats +] MPs {!</td><td>!} [+ nat_lab_c +] {!</td><td>!} [+ str_change_nat_lab +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#FFD700'> </div> !} Liberal: {!</td><td>!} [+ lib_votes_dec +]% {!</td><td>!} [+ lib_seats +] MPs {!</td><td>!} [+ str_change_lib +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#FFD700'> </div> !} Liberal: {!</td><td>!} [+ lib_votes_dec +]% {!</td><td>!} [+ lib_seats +] MPs {!</td><td>!} [+ lib_c +] {!</td><td>!} [+ str_change_lib +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#AFEEEE'> </div> !} Nat Lib: {!</td><td>!} [+ nat_lib_votes_dec +]% {!</td><td>!} [+ nat_lib_seats +] MPs {!</td><td>!} [+ str_change_nat_lib +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#AFEEEE'> </div> !} Nat Lib: {!</td><td>!} [+ nat_lib_votes_dec +]% {!</td><td>!} [+ nat_lib_seats +] MPs {!</td><td>!} [+ nat_lib_c +] {!</td><td>!}  [+ str_change_nat_lib +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#0087DC'> </div> !} Conservative: {!</td><td>!} [+ con_votes_dec +]% {!</td><td>!} [+ con_seats +] MPs {!</td><td>!} [+ str_change_con +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#0087DC'> </div> !} Conservative: {!</td><td>!} [+ con_votes_dec +]% {!</td><td>!} [+ con_seats +] MPs {!</td><td>!} [+ con_c +] {!</td><td>!} [+ str_change_con +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes_dec +]% {!</td><td>!} [+ other_seats +] MPs {!</td><td>!} [+ str_change_other +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes_dec +]% {!</td><td>!} [+ other_seats +] MPs {!</td><td>!} [+ other_c +] {!</td><td>!} [+ str_change_other +] {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#000000'> </div> !} BUF: {!</td><td>!} [+ buf_votes_dec +]% {!</td><td>!} [+ buf_seats +] MPs {!</td><td>!} [+ str_change_buf +] {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#000000'> </div> !} BUF: {!</td><td>!} [+ buf_votes_dec +]% {!</td><td>!} [+ buf_seats +] MPs {!</td><td>!} [+ buf_c +] {!</td><td>!} [+ str_change_buf +] {!</td></tr>!}
 {!</table>!}
 
 **Potential coalitions:**
