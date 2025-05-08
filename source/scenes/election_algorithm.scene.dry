@@ -1,6 +1,15 @@
 title: Election
 on-arrival: {!
-Q[party + '_seats_old'] = Q[party + '_seats']
+Q.con_seats_old = Q.con_seats;
+Q.lab_seats_old = Q.lab_seats;
+Q.nat_lib_seats_old = Q.nat_lib_seats;
+Q.lib_seats_old = Q.lib_seats;
+Q.nat_lab_seats_old = Q.nat_lab_seats;
+Q.other_seats_old = Q.other_seats;
+Q.ind_lab_seats_old = Q.ind_lab_seats;
+Q.nationalist_seats_old = Q.nationalist_seats;
+Q.communist_seats_old = Q.communist_seats;
+Q.buf_seats_old = Q.buf_seats;
 
 for (var c of Q.classes) {
     var class_votes = 0;
