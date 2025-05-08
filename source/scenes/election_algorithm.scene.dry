@@ -1,21 +1,20 @@
 title: Election
 on-arrival: {!
-
 Q.relg_diff = (1 - protestants_lab)/10000;
 
 if (Q.protestants_lab < 50) {
-    working_lab *= (1 - relg_diff);
-    middle_lab *= (1 - relg_diff);
-    upper_lab *= (1 - relg_diff);
-    farmers_lab *= (1 - relg_diff);
-    unemployed_lab *= (1 - relg_diff);
+    Q.working_lab = Q.working_lab * (1 - Q.relg_diff);
+    Q.middle_lab = Q.middle_lab * (1 - Q.relg_diff);
+    Q.upper_lab = Q.upper_lab * (1 - Q.relg_diff);
+    Q.farmers_lab = Q.farmers_lab * (1 - Q.relg_diff);
+    Q.unemployed_lab = Q.unemployed_lab * (1 - Q.relg_diff);
 }
 else {
-    working_lab *= (1 + relg_diff);
-    middle_lab *= (1 + relg_diff);
-    upper_lab *= (1 + relg_diff);
-    farmers_lab *= (1 + relg_diff);
-    unemployed_lab *= (1 + relg_diff);
+    Q.working_lab = Q.working_lab * (1 + Q.relg_diff);
+    Q.middle_lab = Q.middle_lab * (1 + Q.relg_diff);
+    Q.upper_lab = Q.upper_lab* (1 + Q.relg_diff);
+    Q.farmers_lab = Q.farmers_lab * (1 + Q.relg_diff);
+    Q.unemployed_lab = Q.unemployed_lab * (1 + Q.relg_diff);
 }
 
 Q.con_seats_old = Q.con_seats;
