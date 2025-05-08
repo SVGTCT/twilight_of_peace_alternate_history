@@ -20,7 +20,6 @@ Herein contains relevant information about the government and politics of the Ge
 - @factions: Internal factions
 - @figures: Figures and charts
 - @backSpecialScene: Exit library.
-- @devtool: Tool for game development.
 
 @government
 go-to: menu
@@ -497,45 +496,3 @@ if (d3 && window) {
 
 {!<svg id="economic_history" style="width: 500px; height: 300px;"> </svg>!}
 # TODO: maybe add textual histories too? some accessibility stuff as well...
-
-#REMOVE
-
-@devtool
-
-Remember to remove!!!
-
-- @lib_35_dev: Set Liberal Relation 35
-- @lib_45_dev: Set Liberal Relation 45
-- @lib_55_dev: Set Liberal Relation 55
-- @ind_35_dev: Set Ind Lab Relation 35
-- @com_55_dev: Set Communist Relation 55
-- @com_dev: Set Communist Coalition 3
-- @lab_support_dev: Set 90 working class support (guarantee majority)
-
-@lib_35_dev
-on-arrival: lib_relation = 35
-go-to: menu
-
-@lib_45_dev
-on-arrival: lib_relation = 45
-go-to: menu
-
-@lib_55_dev
-on-arrival: lib_relation = 55
-go-to: menu
-
-@ind_35_dev
-on-arrival: ind_lab_relation = 35
-go-to: menu
-
-@com_55_dev
-on-arrival: communist_relation = 55
-go-to: menu
-
-@com_dev
-on-arrival: communist_coalition = 3
-go-to: menu
-
-@lab_support_dev
-on-arrival: working_lab = 90; middle_lab = 90; upper_lab = 90; farmers_lab = 90; unemployed = 99; unemployed = 90;
-go-to: menu
