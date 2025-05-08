@@ -23,27 +23,27 @@ go-to: coalition_menu
 # TODO: Re-add Parliament diagram
 
 {!<table>!} 
-{!<tr><td>Party</td><td>Vote share</td><td>Seats</td><td>%Seats</td><td>Change</td></tr>!}
+{!<tr><td>Party</td><td>Vote share</td><td>Seats</td><td>As %</td><td>Change</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#FF0000'> </div> !} Communist: {!</td><td>!} [+ communist_votes_dec +]%  {!</td><td>!} [+ communist_seats +] MPs {!</td><td>!} [+ communist_c +] {!</td><td>!} [+ communist_symbol +] [+ communist_change +] MPs {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#FF0000'> </div> !} Communist: {!</td><td>!} [+ communist_votes_dec +]%  {!</td><td>!} [+ communist_seats +] MPs {!</td><td>!} [+ communist_c +]% {!</td><td>!} [+ communist_symbol +] [+ communist_change +] MPs {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#FFBBBB'> </div> !} Ind Lab: {!</td><td>!} [+ ind_lab_votes_dec +]%  {!</td><td>!} [+ ind_lab_seats +] MPs {!</td><td>!} [+ ind_lab_c +] {!</td><td>!} [+ ind_lab_symbol +] [+ ind_lab_change +] MPs {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#FFBBBB'> </div> !} Ind Lab: {!</td><td>!} [+ ind_lab_votes_dec +]%  {!</td><td>!} [+ ind_lab_seats +] MPs {!</td><td>!} [+ ind_lab_c +]% {!</td><td>!} [+ ind_lab_symbol +] [+ ind_lab_change +] MPs {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#32cd32'> </div> !} Nationalist: {!</td><td>!} [+ nationalist_votes_dec +]%  {!</td><td>!} [+ nationalist_seats +] MPs {!</td><td>!} [+ nationalist_c +] {!</td><td>!} [+ nationalist_symbol +] [+ nationalist_change +] MPs {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#32cd32'> </div> !} Nationalist: {!</td><td>!} [+ nationalist_votes_dec +]%  {!</td><td>!} [+ nationalist_seats +] MPs {!</td><td>!} [+ nationalist_c +]% {!</td><td>!} [+ nationalist_symbol +] [+ nationalist_change +] MPs {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#E4003B; outline: 2px; outline-style: solid;'> </div> !} **Labour:** {!</td><td>!} **[+ lab_votes_dec +]%**  {!</td><td>!} **[+ lab_seats +] MPs** {!</td><td>!} [+ lab_c +] {!</td><td>!} **[+ lab_symbol +] [+ lab_change +] MPs** {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#E4003B; outline: 2px; outline-style: solid;'> </div> !} **Labour:** {!</td><td>!} **[+ lab_votes_dec +]%**  {!</td><td>!} **[+ lab_seats +] MPs** {!</td><td>!} [+ lab_c +]% {!</td><td>!} **[+ lab_symbol +] [+ lab_change +] MPs** {!</td></tr>!}
 
- {!<tr><td><div class="box" style='background-color:#008000'> </div> !} Nat Lab: {!</td><td>!} [+ nat_lab_votes_dec +]%  {!</td><td>!} [+ nat_lab_seats +] MPs {!</td><td>!} [+ nat_lab_c +] {!</td><td>!} [+ nat_lab_symbol +] [+ nat_lab_change +] MPs {!</td></tr>!}
+ {!<tr><td><div class="box" style='background-color:#008000'> </div> !} Nat Lab: {!</td><td>!} [+ nat_lab_votes_dec +]%  {!</td><td>!} [+ nat_lab_seats +] MPs {!</td><td>!} [+ nat_lab_c +]% {!</td><td>!} [+ nat_lab_symbol +] [+ nat_lab_change +] MPs {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#FFD700'> </div> !} Liberal: {!</td><td>!} [+ lib_votes_dec +]% {!</td><td>!} [+ lib_seats +] MPs {!</td><td>!} [+ lib_c +] {!</td><td>!} [+ lib_symbol +] [+ lib_change +] MPs {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#FFD700'> </div> !} Liberal: {!</td><td>!} [+ lib_votes_dec +]% {!</td><td>!} [+ lib_seats +] MPs {!</td><td>!} [+ lib_c +]% {!</td><td>!} [+ lib_symbol +] [+ lib_change +] MPs {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#AFEEEE'> </div> !} Nat Lib: {!</td><td>!} [+ nat_lib_votes_dec +]% {!</td><td>!} [+ nat_lib_seats +] MPs {!</td><td>!} [+ nat_lib_c +] {!</td><td>!} [+ nat_lib_symbol +] [+ nat_lib_change +] MPs {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#AFEEEE'> </div> !} Nat Lib: {!</td><td>!} [+ nat_lib_votes_dec +]% {!</td><td>!} [+ nat_lib_seats +] MPs {!</td><td>!} [+ nat_lib_c +]% {!</td><td>!} [+ nat_lib_symbol +] [+ nat_lib_change +] MPs {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#0087DC'> </div> !} Conservative: {!</td><td>!} [+ con_votes_dec +]% {!</td><td>!} [+ con_seats +] MPs {!</td><td>!} [+ con_c +] {!</td><td>!} [+ con_symbol +] [+ con_change +] MPs {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#0087DC'> </div> !} Conservative: {!</td><td>!} [+ con_votes_dec +]% {!</td><td>!} [+ con_seats +] MPs {!</td><td>!} [+ con_c +]% {!</td><td>!} [+ con_symbol +] [+ con_change +] MPs {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes_dec +]% {!</td><td>!} [+ other_seats +] MPs {!</td><td>!} [+ other_c +] {!</td><td>!} [+ other_symbol +] [+ other_change +] MPs {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#a0a0a0'> </div> !} Others: {!</td><td>!} [+ other_votes_dec +]% {!</td><td>!} [+ other_seats +] MPs {!</td><td>!} [+ other_c +]% {!</td><td>!} [+ other_symbol +] [+ other_change +] MPs {!</td></tr>!}
 
-{!<tr><td><div class="box" style='background-color:#000000'> </div> !} BUF: {!</td><td>!} [+ buf_votes_dec +]% {!</td><td>!} [+ buf_seats +] MPs {!</td><td>!} [+ buf_c +] {!</td><td>!} [+ buf_symbol +] [+ buf_change +] MPs {!</td></tr>!}
+{!<tr><td><div class="box" style='background-color:#000000'> </div> !} BUF: {!</td><td>!} [+ buf_votes_dec +]% {!</td><td>!} [+ buf_seats +] MPs {!</td><td>!} [+ buf_c +]% {!</td><td>!} [+ buf_symbol +] [+ buf_change +] MPs {!</td></tr>!}
 {!</table>!}
 
 **Potential coalitions:**
@@ -87,7 +87,7 @@ Thanks to our hard work, we have pulled in the votes to elect an outright Labour
 
 @lab_minority
 title: Labour Minority
-subtitle: [+ lab_c +]% -- we will be dependent on the Liberals ([+ lib_c +])
+subtitle: [+ lab_c +]% -- we will be dependent on the Liberals ([+ lib_c +]%)
 view-if: lab_c < 50 and largest_party = "Labour" and (lab_c + lib_c) >= 50
 choose-if: dissent_percent < 50 and lib_relation >= 50
 unavailable-subtitle: Our [? if dissent_percent >= 50 and lib_relation >= 50: high internal dissent ?][? if lib_relation < 50 and dissent_percent < 50: poor relations with the Liberals ?][? if lib_relation < 50 and dissent_percent >= 50: high internal dissent and poor relations with the Liberals ?] mean we would not be able to form the government.
