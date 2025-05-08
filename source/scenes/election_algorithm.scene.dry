@@ -1,25 +1,25 @@
 title: Election
 on-arrival: {!
-Q[parties + '_seats_old'] = Q[parties + '_seats']
+Q[party + '_seats_old'] = Q[party + '_seats']
 
 for (var c of Q.classes) {
     var class_votes = 0;
-    for (var parties of Q.parties) {
-        if (Q[c+'_'+parties] < 0) {
-            Q[c+'_'+parties] = 0;
+    for (var party of Q.parties) {
+        if (Q[c+'_'+party] < 0) {
+            Q[c+'_'+party] = 0;
         }
-        class_votes += Q[c+'_'+parties];
+        class_votes += Q[c+'_'+party];
     }
-    for (var parties of Q.parties) {
-        Q[c + '_' + parties + '_normalized'] = 100*Q[c+'_'+parties]/class_votes;
-        Q[c + '_' + parties + '_display'] = Math.round(100*Q[c+'_'+parties]/class_votes);
+    for (var party of Q.parties) {
+        Q[c + '_' + party + '_normalized'] = 100*Q[c+'_'+party]/class_votes;
+        Q[c + '_' + party + '_display'] = Math.round(100*Q[c+'_'+party]/class_votes);
     }
 }
 
 // 1. calculate support for each of the parties
 var total_support = 0;
-for (var parties of Q.parties) {
-    var parties_support = 0;
+for (var party of Q.parties) {
+    var party_support = 0;
     for (var c of Q.classes) {
         // but this version is somewhat more entertaining and allows for wilder swings in votes.
         // the other option basically necessitates a multi-class strategy. while the first option allows for a working-class-only strategy.
@@ -27,27 +27,27 @@ for (var parties of Q.parties) {
             // okay i'm pretty sure this is wrong, and the hard version is correct
             // basically this allows for "spillover" effects in other demographics.
             // so you can campaign among say the workers and 
-            parties_support += Q[c]*Q[c+'_'+parties];
-            // However, there should be a cap on how much parties support you can get in a certain demo.
+            party_support += Q[c]*Q[c+'_'+party];
+            // However, there should be a cap on how much party support you can get in a certain demo.
         } else  {
-            parties_support += Q[c]*Q[c+'_'+parties+'_normalized'];
+            party_support += Q[c]*Q[c+'_'+party+'_normalized'];
         }
     }
-    Q[parties + '_support'] = parties_support;
-    total_support += parties_support;
+    Q[party + '_support'] = party_support;
+    total_support += party_support;
 }
 
-for (var parties of Q.parties) {
-    Q[parties+'_normalized'] = Q[parties + '_support']/total_support;
-    Q[parties+'_votes_dec'] = Math.round(Q[parties+'_normalized']*1000)/10;
+for (var party of Q.parties) {
+    Q[party+'_normalized'] = Q[party + '_support']/total_support;
+    Q[party+'_votes_dec'] = Math.round(Q[party+'_normalized']*1000)/10;
     if (Q.use_decimals) {
-        Q[parties+'_votes'] = Q[parties+'_votes_dec'];
-        Q[parties + '_votes_disp'] = Q[parties+'_votes'];
+        Q[party+'_votes'] = Q[party+'_votes_dec'];
+        Q[party + '_votes_disp'] = Q[party+'_votes'];
     } else {
-        Q[parties+'_votes'] = Math.round(Q[parties+'_normalized']*100);
-        Q[parties + '_votes_disp'] = Q[parties+'_votes_dec'].toFixed(1);
+        Q[party+'_votes'] = Math.round(Q[party+'_normalized']*100);
+        Q[party + '_votes_disp'] = Q[party+'_votes_dec'].toFixed(1);
     }
-    //Q[parties+'_votes'] = Q[parties+'_votes_dec'];
+    //Q[party+'_votes'] = Q[party+'_votes_dec'];
     // display
 }
 
@@ -109,21 +109,110 @@ if (Q.total_seats < 615) {
 }
 
 // calculate changes
+Q.communist_change = Q.communist_seats- Q.communist_seats_old
 
-Q[parties + '_change'] = Q[parties + '_seats']- Q[parties + '_seats_old']
-
-if (Q[parties + '_change'] > 0) {
-    Q[parties + '_symbol'] = '<img src="img/arrowup.png">' 
+if (Q.communist_change > 0) {
+    Q.communist_symbol = '<img src="img/arrowup.png">' 
 }
 else {
-    Q[parties + '_symbol'] = '<img src="img/arrowdown.png">' 
-    Q[parties + '_change'] = Q[parties + '_seats_old'] - Q[parties + '_seats']
+    Q.communist_symbol = '<img src="img/arrowdown.png">' 
+    Q.communist_change = Q.communist_seats_old - Q.communist_seats
 }
 
-// The largest parties can only be Labour or the Tories
-Q.largest_parties = 'Conservative';
+Q.ind_lab_change = Q.ind_lab_seats- Q.ind_lab_seats_old
+
+if (Q.ind_lab_change > 0) {
+    Q.ind_lab_symbol = '<img src="img/arrowup.png">' 
+}
+else {
+    Q.ind_lab_symbol = '<img src="img/arrowdown.png">' 
+    Q.ind_lab_change = Q.ind_lab_seats_old - Q.ind_lab_seats
+}
+
+Q.nationalist_change = Q.nationalist_seats- Q.nationalist_seats_old
+
+if (Q.nationalist_change > 0) {
+    Q.nationalist_symbol = '<img src="img/arrowup.png">' 
+}
+else {
+    Q.nationalist_symbol = '<img src="img/arrowdown.png">' 
+    Q.nationalist_change = Q.nationalist_seats_old - Q.nationalist_seats
+}
+
+Q.lab_change = Q.lab_seats- Q.lab_seats_old
+
+if (Q.lab_change > 0) {
+    Q.lab_symbol = '<img src="img/arrowup.png">' 
+}
+else {
+    Q.lab_symbol = '<img src="img/arrowdown.png">' 
+    Q.lab_change = Q.lab_seats_old - Q.lab_seats
+}
+
+Q.nat_lab_change = Q.nat_lab_seats- Q.nat_lab_seats_old
+
+if (Q.nat_lab_change > 0) {
+    Q.nat_lab_symbol = '<img src="img/arrowup.png">' 
+}
+else {
+    Q.nat_lab_symbol = '<img src="img/arrowdown.png">' 
+    Q.nat_lab_change = Q.nat_lab_seats_old - Q.nat_lab_seats
+}
+
+Q.lib_change = Q.lib_seats- Q.lib_seats_old
+
+if (Q.lib_change > 0) {
+    Q.lib_symbol = '<img src="img/arrowup.png">' 
+}
+else {
+    Q.lib_symbol = '<img src="img/arrowdown.png">' 
+    Q.lib_change = Q.lib_seats_old - Q.lib_seats
+}
+
+Q.nat_lib_change = Q.nat_lib_seats- Q.nat_lib_seats_old
+
+if (Q.nat_lib_change > 0) {
+    Q.nat_lib_symbol = '<img src="img/arrowup.png">' 
+}
+else {
+    Q.nat_lib_symbol = '<img src="img/arrowdown.png">' 
+    Q.nat_lib_change = Q.nat_lib_seats_old - Q.nat_lib_seats
+}
+
+Q.con_change = Q.con_seats- Q.con_seats_old
+
+if (Q.con_change > 0) {
+    Q.con_symbol = '<img src="img/arrowup.png">' 
+}
+else {
+    Q.con_symbol = '<img src="img/arrowdown.png">' 
+    Q.con_change = Q.con_seats_old - Q.con_seats
+}
+
+Q.other_change = Q.other_seats- Q.other_seats_old
+
+if (Q.other_change > 0) {
+    Q.other_symbol = '<img src="img/arrowup.png">' 
+}
+else {
+    Q.other_symbol = '<img src="img/arrowdown.png">' 
+    Q.other_change = Q.other_seats_old - Q.other_seats
+}
+
+Q.buf_change = Q.buf_seats- Q.buf_seats_old
+
+if (Q.buf_change > 0) {
+    Q.buf_symbol = '<img src="img/arrowup.png">' 
+}
+else {
+    Q.buf_symbol = '<img src="img/arrowdown.png">' 
+    Q.buf_change = Q.buf_seats_old - Q.buf_seats
+}
+
+// The largest party can only be Labour or the Tories
+Q.largest_party = 'Conservative';
 if (Q.lab_c > Q.con_c) {
-    Q.largest_parties = 'Labour';
+    Q.largest_party = 'Labour';
 }
 
 // coalitions
@@ -167,29 +256,29 @@ Q.in_socialist_government = 0;
 Q.minority_government = 0;
 Q.lab_toleration = 0;
 Q.lord_chancellor = 'Hogg';
-Q.lord_chancellor_parties = 'Con.';
+Q.lord_chancellor_party = 'Con.';
 Q.chancellor = 'Chamberlain';
-Q.chancellor_parties = 'Con.';
+Q.chancellor_party = 'Con.';
 Q.home_secretary = 'Simon';
-Q.home_secretary_parties = 'Nat. Lib.';
+Q.home_secretary_party = 'Nat. Lib.';
 Q.foreign_secretary = 'Hoare';
-Q.foreign_secretary_parties = ' Con.';
+Q.foreign_secretary_party = ' Con.';
 Q.colonial_secretary = 'M. MacDonald';
-Q.colonial_secretary_parties = 'Nat. Lab.';
+Q.colonial_secretary_party = 'Nat. Lab.';
 Q.dominions_secretary = 'Thomas';
-Q.dominions_secretary_parties = 'Nat. Lab.';
+Q.dominions_secretary_party = 'Nat. Lab.';
 Q.war_secretary = 'Halifax';
-Q.war_secretary_parties = 'Con.';
+Q.war_secretary_party = 'Con.';
 Q.india_secretary = 'Dundas';
-Q.india_secretary_parties = 'Con.';
+Q.india_secretary_party = 'Con.';
 Q.scottish_secretary = 'Collins';
-Q.scottish_secretary_parties = 'Nat. Lib.';
+Q.scottish_secretary_party = 'Nat. Lib.';
 Q.agriculture_minister = 'Elliot';
-Q.agriculture_minister_parties = 'Un. (Con.)';
+Q.agriculture_minister_party = 'Un. (Con.)';
 Q.labour_minister = 'Brown';
-Q.labour_minister_parties = 'Nat. Lib.';
+Q.labour_minister_party = 'Nat. Lib.';
 Q.health_minister = 'Wood';
-Q.health_minister_parties = 'Con.';
+Q.health_minister_party = 'Con.';
 
 // TODO: anti-CPGB/BUF timer
 
