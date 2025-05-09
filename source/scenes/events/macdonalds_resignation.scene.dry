@@ -1,0 +1,56 @@
+title: MacDonald resigns!
+subtitle: The Prime Minister has resigned...
+view-if: year == 1935 and month == 6
+#on-arrival: {! 
+
+// new prime minister
+Q.prime_minister = 'Baldwin';
+Q.pm_party = 'Con.';
+
+// new cabinet
+Q.lord_chancellor = 'Hogg';
+Q.lord_chancellor_party = 'Con.';
+Q.chancellor = 'Chamberlain';
+Q.chancellor_party = 'Con.';
+Q.home_secretary = 'Simon';
+Q.home_secretary_party = 'Nat. Lib.';
+Q.foreign_secretary = 'Hoare';
+Q.foreign_secretary_party = 'Con.';
+Q.colonial_secretary = 'M. MacDonald';
+Q.colonial_secretary_party = 'Nat. Lab.';
+Q.dominions_secretary = 'Thomas';
+Q.dominions_secretary_party = 'Nat. Lab.';
+Q.war_secretary = 'Halifax';
+Q.war_secretary_party = 'Con.';
+Q.india_secretary = 'Dundas';
+Q.india_secretary_party = 'Con.';
+Q.scottish_secretary = 'Collins';
+Q.scottish_secretary_party = 'Nat. Lib.';
+Q.agriculture_minister = 'Elliot';
+Q.agriculture_minister_party = 'Con.';
+Q.labour_minister = 'Brown';
+Q.labour_minister_party = 'Nat. Lib.';
+Q.health_minister = 'Wood';
+Q.health_minister_party = 'Con.';
+
+Q.working_con += 2*(1.5 - Q.protestants_lab)
+Q.working_lab -= 3
+Q.middle_lab -= 3
+Q.middle_con += 2*(1.5 - Q.protestants_lab)
+Q.middle_nat_lib += 2*(Q.protestants_lab)
+Q.pro_monarchy = 96
+
+!}
+new-page: true
+max-visits: 1
+face-image: img/MacDonald-King-Baldwin.png
+
+The Prime Minister, Ramsay MacDonald, has been faced with an onslaught of health problems including eye trouble, insomnia, and rapidly approaching senility. In the Commons it was remarked that members had no clue what MacDonald was to speak about before he rose and after he sat down they were none the wiser.
+
+After it was clear this could not go on, and at the King's suggestion, MacDonald and Conservative Party leader Stanley Baldwin agreed that it was best if MacDonald resigned to make way for the latter. After presiding over his last cabinet, MacDonald has now offered the King his resignation.
+
+Now Baldwin will form another National Government, one in which the Conservative Party is even more explicitly in control of home affairs.
+
+Though MacDonald is a traitor to his class who cynically betrayed the Labour Party for his own political prospects, he is a distinguished thinker who delivered Labour its first electoral mandate from the public, and won it again for the National Government. He is our only Prime Minister to date.
+
+- @root: We will have to see what this entails...
