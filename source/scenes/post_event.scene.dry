@@ -500,7 +500,7 @@ if (Q.month == 6) {
     }
 }
 
-if (Q.month == 6 && year == 1935) {
+if (Q.month == 6 && Q.year == 1935) {
     Q.news = 'MacDonald has resigned as Prime Minister; Baldwin has been appointed in his place!{!<br><br>!}The driving test is now compulsory.';
 }
 
