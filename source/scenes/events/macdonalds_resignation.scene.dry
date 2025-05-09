@@ -1,7 +1,7 @@
 title: MacDonald resigns!
 subtitle: The Prime Minister has resigned...
 view-if: year == 1935 and month == 6
-#on-arrival: {! 
+on-arrival: {! 
 
 // new prime minister
 Q.prime_minister = 'Baldwin';
