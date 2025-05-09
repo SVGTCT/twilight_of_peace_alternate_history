@@ -1,6 +1,7 @@
 title: MacDonald resigns!
 subtitle: The Prime Minister has resigned...
 view-if: year == 1935 and month == 6 and not macdonald_seen
+tags: event
 on-arrival: {! 
 
 Q.macdonald_seen = 1
