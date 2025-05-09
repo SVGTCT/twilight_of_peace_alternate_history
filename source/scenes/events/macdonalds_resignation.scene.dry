@@ -36,11 +36,11 @@ Q.labour_minister_party = 'Nat. Lib.';
 Q.health_minister = 'Wood';
 Q.health_minister_party = 'Con.';
 
-Q.working_con += 1.5*(1.5 - (Q.protestants_lab/100))
-Q.working_lab -= 18/12
-Q.middle_lab -= 14.5/12
-Q.middle_con += (14.5/12)*(1.5 - (Q.protestants_lab/100))
-Q.middle_nat_lib += (14.5/12)*(Q.protestants_lab/100)
+Q.working_con += (1.5 - (Q.protestants_lab/100))
+Q.working_lab -= 1
+Q.middle_lab -= 9.5/12
+Q.middle_con += (9.5/12)*(1.5 - (Q.protestants_lab/100))
+Q.middle_nat_lib += (9.5/12)*(Q.protestants_lab/100)
 Q.pro_monarchy = 96
 
 !}
