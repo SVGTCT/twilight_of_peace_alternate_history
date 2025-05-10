@@ -73,7 +73,7 @@ Q.pacifism += 1;
 
 Q.labour_strength -= 0.05;
 
-if (marxist_strength < 5) {
+if (Q.marxist_strength < 5) {
     Q.marxist_strength += 5;
 }
 
