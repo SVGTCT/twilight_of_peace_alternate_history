@@ -61,7 +61,7 @@ go-to: candidate_menu
 
 Clement Attlee, the current leader, is running.
 
-[? if morrison_runs: Herbert Morrison is running. He has just won back his seat at the last general election ?]
+[? if morrison_runs: Herbert Morrison is running. He has just won back his seat at the last general election. ?]
 
 [? if greenwood_runs: Arthur Greenwood is running. ?]
 
@@ -70,7 +70,7 @@ Clement Attlee, the current leader, is running.
 - @attlee_wins: Clement Attlee has a majority!
 - @morrison_wins: Herbert Morrison has a majority!
 - @greenwood_wins: Arthur Greenwood has a majority!
-- @another_lab_round: There will need to be another lab_round of voting. 
+- @another_round: There will need to be another round of voting. 
 
 @attlee_wins
 choose-if: attlee_percentage > 0.5
@@ -95,7 +95,7 @@ go-to: first_round_results if lab_round = 1; second_round_results
 
 Arthur Greenwood has won the leadership election! Ideologically, Greenwood is very closely tied to the trade unions and can help unite them towards us, decreasing the pull of dissident working-class parties. This is sure to help us.
 
-@another_lab_round
+@another_round
 view-if: lab_round = 1
 choose-if: attlee_percentage < 0.5 and morrison_percentage < 0.5 and greenwood_percentage < 0.5
 on-arrival: {!
@@ -137,7 +137,7 @@ Q.greenwood_disp = (Q.greenwood_percentage * 100).toFixed(1);
 !}
 go-to: first_round_results
 
-The lowest-ranking candidate, [+ last_place +], is eliminated. Another lab_round of voting is held.
+The lowest-ranking candidate, [+ last_place +], is eliminated. Another round of voting is held.
 
 @first_round_results
 go-to: candidate_menu if lab_round == 2
