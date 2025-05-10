@@ -481,6 +481,13 @@ if (this.ui && this.ui.show_portraits) {
     }
 }
 
+// jubilee effects
+if (Q.year == 1935 and Q.month == 5) {
+    Q.middle_lib += 7.33;
+    Q.middle_nat_lib += 7.33/2;
+    Q.middle_con += 5;
+}
+
 if (typeof window !== "undefined" && window.generateBar) {
 }
 !}
