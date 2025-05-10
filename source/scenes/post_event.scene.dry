@@ -2,7 +2,7 @@ title: Post Event
 new-page: true
 on-arrival: {!
 
-if (Q.year == 1935 and Q.month == 5) {
+if (Q.year == 1935 && Q.month == 5) {
     Q.middle_lib += 7.33;
     Q.middle_nat_lib += 7.33/2;
     Q.upper_con += 5;
