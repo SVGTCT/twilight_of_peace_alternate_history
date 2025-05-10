@@ -57,29 +57,9 @@ Many who saw in Lansbury a more ethical, humane, and principled leadership are c
 subtitle: This is not our fight.
 choose-if: pacifism > 5 or marxist_strength > labour_strength 
 unavailable-subtitle: The unions would never support this.
-on-arrival: {!
+on-arrival: brighton_programme: "opposition to"; working_lab -= 0.8; working_con += 0.8; middle_lab -= 0.8; middle_con += 0.4; middle_lib += 0.4; middle_nat_lib += 0.4; pacifism += 1; labour_strength -= 5; marxist_strength += 5 if marxist_strength < 5;
 
-Q.brighton_programme: "opposition to";
-
-Q.working_lab -= 0.8;
-Q.working_con += 0.8;
-
-Q.middle_lab -= 0.8;
-Q.middle_con += 0.4;
-Q.middle_lib += 0.4;
-Q.middle_nat_lib += 0.4;
-
-Q.pacifism += 1;
-
-Q.labour_strength -= 0.05;
-
-if (Q.marxist_strength < 5) {
-    Q.marxist_strength += 5;
-}
-
-// TODO: consider - league value -1? warfare point +1?
-
-!}
+# TODO: consider - league value -1? warfare point +1?
 
 The party's pacifist position places it at odds with the government's initiative. Party leader George Lansbury gives a widely applauded speech denouncing sanctions as "economic warfare".
 
