@@ -9,7 +9,7 @@ Q.total_strength = Q.left_strength + Q.labour_strength + Q.reformist_strength + 
 
 // for attlee
 Q.attlee_runs = 1;
-Q.attlee_percentage = (Q.pragmatist_strength*1.5 + Q.reformist_strength/3 + Q.labour_strength/3 + Q.left_strength/3*2)/Q.total_strength;
+Q.attlee_percentage = ((Q.pragmatist_strength*1.5) + (Q.reformist_strength/3) + (Q.labour_strength/3) + (Q.left_strength/3*2))/Q.total_strength;
 
 // for greenwood
 if (Q.pragmatist_strength > Q.labour_strength) {
@@ -19,7 +19,6 @@ else {
     Q.greenwood_runs = 1;
     Q.greenwood_percentage = (Q.labour_strength/3*2 + Q.cooperative_strength)/Q.total_strength;
 }
-
 
 // for Morrison 
 if (Q.lab_c < Q.old_lab_c) {
