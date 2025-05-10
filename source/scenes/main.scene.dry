@@ -18,7 +18,7 @@ max-cards: 3
 
 [? if year = 1935 and month = 6: MacDonald has resigned as Prime Minister; Baldwin has been appointed in his place!{!<br><br>!}The driving test is now compulsory. ?]
 
-[? if year = 1935 and month = 10: Crisis in Abyssinia sees British and League of Nations sanctions to Italian aggression.{!<br><br>!}1935 Labour Party Conference: In Brighton, we have voted for a resolution in [+ brighton_programme +] to the government's sanctions. [? if lansbury_resign: George Lansbury has resigned as Labour Party leader. ?] ?]
+[? if year = 1935 and month = 10: Crisis in Abyssinia sees British and League of Nations sanctions to Italian aggression.{!<br><br>!}1935 Labour Party Conference: In Brighton, we have voted for a resolution in [+ brighton_programme +] the government's sanctions. [? if lansbury_resign: George Lansbury has resigned as Labour Party leader. ?] ?]
  
 - @party
 - @govt
@@ -45,7 +45,7 @@ max-cards: 4
 
 [? if year = 1935 and month = 6: MacDonald has resigned as Prime Minister; Baldwin has been appointed in his place!{!<br><br>!}The driving test is now compulsory. ?]
 
-[? if year = 1935 and month = 10: Crisis in Abyssinia sees British and League of Nations sanctions to Italian aggression.{!<br><br>!}1935 Labour Party Conference: In Brighton, we have voted for a resolution in [+ brighton_programme +] to the government's sanctions. [? if lansbury_resign: George Lansbury has resigned as Labour Party leader. ?] ?]
+[? if year = 1935 and month = 10: Crisis in Abyssinia sees British and League of Nations sanctions to Italian aggression.{!<br><br>!}1935 Labour Party Conference: In Brighton, we have voted for a resolution in [+ brighton_programme +] the government's sanctions. [? if lansbury_resign: George Lansbury has resigned as Labour Party leader. ?] ?]
 
 - @party
 - @govt
