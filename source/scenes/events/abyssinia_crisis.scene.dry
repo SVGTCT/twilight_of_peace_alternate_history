@@ -12,7 +12,8 @@ Q.middle_nat_lib += 0.4
 !}  
 face-image: img/mussolini-the-league.webp
 max-visits: 1
-priority: 3  
+priority: 3 
+new-page: true
 
 = Abyssinia Crisis
 
@@ -28,4 +29,4 @@ These sanctions are weak and limited, not including vital materials like oil. No
 
 We are in the face of an election, where the Conservatives are sure to make use of a pro-League position popular with the public. At our yearly party conference in Brighton, our priority ought to be to address the crisis in Abyssinia.
 
-- @root: Continue  
+- @root: Continue...  
