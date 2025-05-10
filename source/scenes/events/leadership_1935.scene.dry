@@ -86,7 +86,7 @@ go-to: first_round_results if round = 1; second_round_results
 Herbert Morrison has won the leadership election! Ideologically, Morrison is a reformist, though more pragmatist-aligned, and will help increase the party's electorate through his command of electioneering.
 
 @greenwood_wins
-view-if; greenwood_runs
+view-if: greenwood_runs
 choose-if: greenwood_percentage > 0.5
 on-arrival: labour_leader = "Morrison"; working_lab += 0.6; working_con -= 0.3; working_ind_lab -= 0.1; working_communist -= 0.1; working_other -= 0.1; labour_strength += 10; labour_dissent -= 10;
 go-to: first_round_results if round = 1; second_round_results
