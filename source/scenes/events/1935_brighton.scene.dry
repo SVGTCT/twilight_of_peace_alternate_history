@@ -35,13 +35,14 @@ on-arrival: {!
 Q.labour_leader = "Attlee";
 Q.lansbury_resign = 1;
 
-Q.working_lab -= 0.4;
-Q.unemployed_lab -= 0.4;
-Q.middle_lab -= 0.2;
+Q.working_lab -= 1.2;
+Q.unemployed_lab -= 1.2;
+Q.middle_lab -= 4;
 
-Q.working_con += 0.4;
-Q.unemployed_con += 0.3;
-Q.middle_con += 0.1
+Q.working_con += 1.2;
+Q.unemployed_con += 1.1;
+Q.middle_nat_lib += 1;
+Q.middle_lib += 3;
 
 !}
 
@@ -61,13 +62,13 @@ on-arrival: {!
 
 Q.brighton_programme = "opposition to";
 
-Q.working_lab -= 0.8;
-Q.working_con += 0.8;
+Q.working_lab -= 1.8;
+Q.working_con += 1.8;
 
-Q.middle_lab -= 0.8;
-Q.middle_con += 0.4;
-Q.middle_lib += 0.4;
-Q.middle_nat_lib += 0.4;
+Q.middle_lab -= 6;
+Q.middle_con += 1;
+Q.middle_lib += 3;
+Q.middle_nat_lib += 2;
 
 Q.pacifism += 1;
 
