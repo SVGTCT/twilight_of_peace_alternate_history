@@ -109,7 +109,7 @@ if (Q.attlee_percentage < Q.greenwood_percentage && Q.attlee_percentage < Q.morr
     Q.attlee_percentage = 0;
     Q.last_place = "Attlee";
 }
-else if (Q.greenwood_percentage < Q.attlee_percentage && Q.greenwood_percentage < Q.morrison_percentage {
+else if (Q.greenwood_percentage < Q.attlee_percentage && Q.greenwood_percentage < Q.morrison_percentage) {
     Q.greenwood_runs = 0;
     Q.attlee_percentage += Q.greenwood_percentage;
     Q.greenwood_percentage = 0;
@@ -130,9 +130,9 @@ if (Q.total_percentage != 1) {
     Q.greenwood_percentage = Q.greenwood_percentage/Q.total_percentage;
 }
 
-Q.attlee_disp = Q.attlee_percentage*100.toFixed(1);
-Q.morrison_disp = Q.morrison_percentage*100.toFixed(1);
-Q.greenwood_disp = Q.greenwood_percentage*100.toFixed(1);
+Q.attlee_disp = (Q.attlee_percentage * 100).toFixed(1);
+Q.morrison_disp = (Q.morrison_percentage * 100).toFixed(1);
+Q.greenwood_disp = (Q.greenwood_percentage * 100).toFixed(1);
 
 !}
 go-to: first-lab_round-results
