@@ -1,0 +1,89 @@
+title: Labour Party Conference, 1935
+subtitle: Our annual conference, in Brighton...
+view-if: year = 1935 and month = 10  
+tags: event
+on-arrival: middle_lib += 0.4 
+face-image: img/getty-1935-convention.jpg
+max-visits: 1
+priority: -1
+new-page: true
+
+= Labour Party Conference, 1935
+
+Delegates are assembled in Brighton for our annual party conference.
+
+Chief amongst the issues facing our party is the crisis in Abyssinia, which has escalated into a second Italo-Abyssinian war. With Britain and the League of Nations opting to sanction Italy's aggression, many in our party are demanding we declare our support for the sanctions.
+
+- @support_sanctions: The Labour Party will support these sanctions.
+- @anti_sanctions: The Labour Party will not support these sanctions, in the name of non-interventionist pacifism.
+
+@support_sanctions
+on-arrival: brighton_programme = "support for"
+
+The Labour Party will unite with the British political forces to condemn Italian aggression -- and this is a good decision to make. The Conservatives are certain to use a pro-League position to their electoral advantage.
+
+However, in a sea of supportive views, we find a lone opposing voice.
+
+Our party leader, George Lansbury, a staunch pacifist drawing from his Christian views, is at odds with the rest of the party. His pacifist views are opposed to the imposition of sanctions, which Lansbury views as economic warfare.
+
+- @lansbury_resign: Lansbury must resign.
+
+@lansbury_resign
+face-image: img/lansbury-skara-brae-crop.jpg
+on-arrival: {!
+
+Q.labour_leader = "Attlee";
+Q.lansbury_resign = 1;
+
+Q.working_lab -= 0.4;
+Q.unemployed_lab -= 0.4;
+Q.middle_lab -= 0.2;
+
+Q.working_con += 0.4;
+Q.unemployed_con += 0.3;
+Q.middle_con += 0.1
+
+!}
+
+# note: Lansbury resigned on 8 October 1935 IRL, shortly after 
+
+Shortly after speaking on his opposition to the sanctions, Lansbury's position was humiliated by the trade unionist and foreign policy aficionado Ernest Bevin's speech.
+
+Seeing no place for a pacifist as Labour Party leader due to the unions' opposition, Lansbury was faced by no choice but to resign. His deputy, Clement Attlee, will lead the party into the next general election, and a new leadership election will have to be held soon.
+
+Many who saw in Lansbury a more ethical, humane, and principled leadership are certain to be disappointed.
+
+@anti-sanctions
+subtitle: This is not our fight.
+choose-if: pacifism > 5 or marxist_strength > labour_strength 
+unavailable-subtitle; The unions would never support this.
+on-arrival: {!
+
+Q.brighton_programme: "opposition to";
+
+Q.working_lab -= 0.8;
+Q.working_con += 0.8;
+
+Q.middle_lab -= 0.8;
+Q.middle_con += 0.4;
+Q.middle_lib += 0.4;
+Q.middle_nat_lib += 0.4;
+
+Q.pacifism += 1;
+
+Q.labour_strength -= 0.05;
+
+if (marxist_strength < 5) {
+    Q.marxist_strength += 5;
+}
+
+// TODO: consider
+// league value -1?
+// warfare point +1?
+
+!}
+
+The party's pacifist position places it at odds with the government's initiative. Party leader George Lansbury gives a widely applauded speech denouncing sanctions as "economic warfare".
+
+However, the trade unions are disappointed and the public seems cold to the idea, preferring the Conservatives' position, which they are certain to use in the electoral campaign.
+
