@@ -104,8 +104,8 @@ Q.lab_round = 2;
 
 if (Q.attlee_percentage < Q.greenwood_percentage && Q.attlee_percentage < Q.morrison_percentage) {
     Q.attlee_runs = 0;
-    Q.greenwood_percentage += Q.labour_strength/3/total_strength;
-    Q.morrison_percentage += Q.attlee_percentage - Q.labour_strength/3/total_strength;
+    Q.greenwood_percentage += Q.labour_strength/3/Q.total_strength;
+    Q.morrison_percentage += Q.attlee_percentage - Q.labour_strength/3/Q.total_strength;
     Q.attlee_percentage = 0;
     Q.last_place = "Attlee";
 }
