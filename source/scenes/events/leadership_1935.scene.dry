@@ -75,7 +75,7 @@ Clement Attlee, the current leader, is running.
 @attlee_wins
 choose-if: attlee_percentage > 0.5
 on-arrival: pragmatist_strength += 5;
-go-to: first_lab_round_results if lab_round = 1; second_lab_round_results
+go-to: first_round_results if lab_round = 1; second_round_results
 
 Clement Attlee, the current leader, has won the leadership election! Ideologically, Attlee is pragmatic, with a past history of more radical socialism. This does not change things dramatically, though Attlee is yet to prove himself.
 
@@ -83,7 +83,7 @@ Clement Attlee, the current leader, has won the leadership election! Ideological
 view-if: morrison_runs
 choose-if: morrison_percentage > 0.5
 on-arrival: labour_leader = "Morrison"; working_lab += 1.1; working_con -= 1.1; middle_lab += 0.9; reformist_strength += 10; reformist_dissent -= 5; pragmatist_strength += 5;
-go-to: first_lab_round_results if lab_round = 1; second_lab_round_results
+go-to: first_round_results if lab_round = 1; second_round_results
 
 Herbert Morrison has won the leadership election! Ideologically, Morrison is a reformist, though more pragmatist-aligned, and will help increase the party's electorate through his command of electioneering.
 
@@ -91,7 +91,7 @@ Herbert Morrison has won the leadership election! Ideologically, Morrison is a r
 view-if: greenwood_runs
 choose-if: greenwood_percentage > 0.5
 on-arrival: labour_leader = "Morrison"; working_lab += 0.6; working_con -= 0.3; working_ind_lab -= 0.1; working_communist -= 0.1; working_other -= 0.1; labour_strength += 10; labour_dissent -= 10;
-go-to: first_lab_round_results if lab_round = 1; second_lab_round_results
+go-to: first_round_results if lab_round = 1; second_round_results
 
 Arthur Greenwood has won the leadership election! Ideologically, Greenwood is very closely tied to the trade unions and can help unite them towards us, decreasing the pull of dissident working-class parties. This is sure to help us.
 
@@ -135,22 +135,22 @@ Q.morrison_disp = (Q.morrison_percentage * 100).toFixed(1);
 Q.greenwood_disp = (Q.greenwood_percentage * 100).toFixed(1);
 
 !}
-go-to: first-lab_round-results
+go-to: first_round_results
 
 The lowest-ranking candidate, [+ last_place +], is eliminated. Another lab_round of voting is held.
 
-@first_lab_round_results
+@first_round_results
 go-to: candidate_menu if lab_round == 2
 
-First lab_round results:
+First round results:
 
 Attlee: [+ attlee_disp +]%
 Morrison: [+ morrison_disp +]%
 Greenwood: [+ greenwood_disp +]%
 
-@second_lab_round_results
+@second_round_results
 
-Second lab_round results:
+Second round results:
 
 [? if attlee_runs: Attlee: [+ attlee_disp +]% ?]
 
