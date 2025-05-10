@@ -45,7 +45,7 @@ Q.middle_con += 0.1
 
 !}
 
-# note: Lansbury resigned on 8 October 1935 IRL, shortly after 
+# note: Lansbury resigned on 8 October 1935 IRL, shortly after
 
 Shortly after speaking on his opposition to the sanctions, Lansbury's position was humiliated by the trade unionist and foreign policy aficionado Ernest Bevin's speech.
 
@@ -77,13 +77,10 @@ if (Q.marxist_strength < 5) {
     Q.marxist_strength += 5;
 }
 
-// TODO: consider
-// league value -1?
-// warfare point +1?
+// TODO: consider - league value -1? warfare point +1?
 
 !}
 
 The party's pacifist position places it at odds with the government's initiative. Party leader George Lansbury gives a widely applauded speech denouncing sanctions as "economic warfare".
 
-However, the trade unions are disappointed and the public seems cold to the idea, preferring the Conservatives' position, which they are certain to use in the electoral campaign.
-
+However, the trade unions are disappointed, and the public seems cold to the idea, preferring the Conservatives' position, which they are certain to use in the electoral campaign.
