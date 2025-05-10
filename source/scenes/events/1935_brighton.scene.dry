@@ -53,7 +53,7 @@ Seeing no place for a pacifist as Labour Party leader due to the unions' opposit
 
 Many who saw in Lansbury a more ethical, humane, and principled leadership are certain to be disappointed.
 
-@anti-sanctions
+@anti_sanctions
 subtitle: This is not our fight.
 choose-if: pacifism > 5 or marxist_strength > labour_strength 
 unavailable-subtitle: The unions would never support this.
