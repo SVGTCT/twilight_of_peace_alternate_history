@@ -14,7 +14,7 @@ max-cards: 3
 
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
 
-[? if year = 1935 and month = 5: Celebrations for the King's silver jubilee are underway! ?]
+[? if year = 1935 and month = 5: Celebrations for the King's silver jubilee are underway! This is a bright time for the country. ?]
 
 [? if year = 1935 and month = 6: MacDonald has resigned as Prime Minister; Baldwin has been appointed in his place!{!<br><br>!}The driving test is now compulsory. ?]
 
@@ -41,7 +41,7 @@ max-cards: 4
 
 #Here, the main deck will be displayed. Clicking on the deck draws a card into your hand. Clicking on a card activates that card.
 
-[? if year = 1935 and month = 5: Celebrations for the King's silver jubilee are underway! ?]
+[? if year = 1935 and month = 5: Celebrations for the King's silver jubilee are underway! This is a bright time for the country. ?]
 
 [? if year = 1935 and month = 6: MacDonald has resigned as Prime Minister; Baldwin has been appointed in his place!{!<br><br>!}The driving test is now compulsory. ?]
 
