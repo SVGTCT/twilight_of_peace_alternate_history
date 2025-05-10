@@ -4,20 +4,20 @@ view-if: year = 1935 and month = 11 and lansbury_resign = 1
 tags: event
 on-arrival: {!
 
-Q.round = 1;
+Q.lab_round = 1;
 Q.total_strength = Q.left_strength + Q.labour_strength + Q.reformist_strength + (Q.pragmatist_strength*2) + Q.cooperative_strength;
 
 // for attlee
 Q.attlee_runs = 1;
-Q.attlee_percentage = ((Q.pragmatist_strength*1.5) + (Q.reformist_strength/3) + (Q.labour_strength/3) + (Q.left_strength/3*2))/Q.total_strength;
+Q.attlee_percentage = (Q.pragmatist_strength*1.5 + Q.reformist_strength/3 + Q.labour_strength/3 + Q.left_strength/3*2)/Q.total_strength;
 
 // for greenwood
 if (Q.pragmatist_strength > Q.labour_strength) {
     Q.greenwood_runs = 0;
 }
 else {
-    Q.greenwood_runs = 1
-    Q.greenwood_percentage = ((Q.labour_strength/3*2) + Q.cooperative_strength)/Q.total_strength;
+    Q.greenwood_runs = 1;
+    Q.greenwood_percentage = (Q.labour_strength/3*2 + Q.cooperative_strength)/Q.total_strength;
 }
 
 
@@ -27,8 +27,10 @@ if (Q.lab_c < Q.old_lab_c) {
 }
 else {
     Q.morrison_runs = 1;
-    Q.morrison_percentage = (Q.total_strength - (Q.greenwood_percentage*Q.total_strength) - (Q.attlee_percentage*Q.total_strength))/Q.total_strength
+    Q.morrison_percentage = (Q.total_strength - Q.greenwood_percentage*Q.total_strength - Q.attlee_percentage*Q.total_strength)/Q.total_strength
 }
+
+Q.total_percentage = Q.attlee_percentage + Q.greenwood_percentage + Q.morrison_percentage
 
 if (Q.total_percentage != 1) {
     Q.attlee_percentage = Q.attlee_percentage/Q.total_percentage;
@@ -68,12 +70,12 @@ Clement Attlee, the current leader, is running.
 - @attlee_wins: Clement Attlee has a majority!
 - @morrison_wins: Herbert Morrison has a majority!
 - @greenwood_wins: Arthur Greenwood has a majority!
-- @another_round: There will need to be another round of voting. 
+- @another_lab_round: There will need to be another lab_round of voting. 
 
 @attlee_wins
 choose-if: attlee_percentage > 0.5
 on-arrival: pragmatist_strength += 5;
-go-to: first_round_results if round = 1; second_round_results
+go-to: first_lab_round_results if lab_round = 1; second_lab_round_results
 
 Clement Attlee, the current leader, has won the leadership election! Ideologically, Attlee is pragmatic, with a past history of more radical socialism. This does not change things dramatically, though Attlee is yet to prove himself.
 
@@ -81,7 +83,7 @@ Clement Attlee, the current leader, has won the leadership election! Ideological
 view-if: morrison_runs
 choose-if: morrison_percentage > 0.5
 on-arrival: labour_leader = "Morrison"; working_lab += 1.1; working_con -= 1.1; middle_lab += 0.9; reformist_strength += 10; reformist_dissent -= 5; pragmatist_strength += 5;
-go-to: first_round_results if round = 1; second_round_results
+go-to: first_lab_round_results if lab_round = 1; second_lab_round_results
 
 Herbert Morrison has won the leadership election! Ideologically, Morrison is a reformist, though more pragmatist-aligned, and will help increase the party's electorate through his command of electioneering.
 
@@ -89,16 +91,16 @@ Herbert Morrison has won the leadership election! Ideologically, Morrison is a r
 view-if: greenwood_runs
 choose-if: greenwood_percentage > 0.5
 on-arrival: labour_leader = "Morrison"; working_lab += 0.6; working_con -= 0.3; working_ind_lab -= 0.1; working_communist -= 0.1; working_other -= 0.1; labour_strength += 10; labour_dissent -= 10;
-go-to: first_round_results if round = 1; second_round_results
+go-to: first_lab_round_results if lab_round = 1; second_lab_round_results
 
 Arthur Greenwood has won the leadership election! Ideologically, Greenwood is very closely tied to the trade unions and can help unite them towards us, decreasing the pull of dissident working-class parties. This is sure to help us.
 
-@another_round
-view-if: round = 1
+@another_lab_round
+view-if: lab_round = 1
 choose-if: attlee_percentage < 0.5 and morrison_percentage < 0.5 and greenwood_percentage < 0.5
 on-arrival: {!
 
-Q.round = 2;
+Q.lab_round = 2;
 
 if (Q.attlee_percentage < Q.greenwood_percentage && Q.attlee_percentage < Q.morrison_percentage) {
     Q.attlee_runs = 0;
@@ -133,22 +135,22 @@ Q.morrison_disp = Q.morrison_percentage*100.toFixed(1);
 Q.greenwood_disp = Q.greenwood_percentage*100.toFixed(1);
 
 !}
-go-to: first-round-results
+go-to: first-lab_round-results
 
-The lowest-ranking candidate, [+ last_place +], is eliminated. Another round of voting is held.
+The lowest-ranking candidate, [+ last_place +], is eliminated. Another lab_round of voting is held.
 
-@first_round_results
-go-to: candidate_menu if round == 2
+@first_lab_round_results
+go-to: candidate_menu if lab_round == 2
 
-First round results:
+First lab_round results:
 
 Attlee: [+ attlee_disp +]%
 Morrison: [+ morrison_disp +]%
 Greenwood: [+ greenwood_disp +]%
 
-@second_round_results
+@second_lab_round_results
 
-Second round results:
+Second lab_round results:
 
 [? if attlee_runs: Attlee: [+ attlee_disp +]% ?]
 
