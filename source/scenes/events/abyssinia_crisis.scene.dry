@@ -1,0 +1,31 @@
+title: Abyssinia Crisis
+subtitle: The League of Nations has decided to impose sanctions on Italy...
+view-if: year = 1935 and month = 10  
+tags: event
+on-arrival: {!
+
+Q.middle_con += 0.8
+Q.middle_nat_lib += 0.4
+
+// consider: league points that increase when LoN policy succeeds  
+
+!}  
+face-image: img/mussolini-the-league.webp
+max-visits: 1
+priority: 3  
+
+= Abyssinia Crisis
+
+Tensions between Italy and Abyssinia (also known as Ethiopia) have been flaring since last year, drawing from historical differences. Italy's fascist leader, Benito Mussolini, has strongly resisted attempts by the League of Nations and Britain to mediate the hostilities.
+
+An incident at Wal Wal in December of last year led to a clash between Italian and Abyssinian troops, killing 2 of the former and 150 of the latter. In September, the League exonerated both parties of involvement. However, all this did was encourage the Italians.
+
+Shortly after, the Italians invaded Abyssinia without a declaration of war! Abyssinia promptly declared war on Italy. Note that Italy *is* a member of the League of Nations.
+
+Parliament had already authorised the imposition of sanctions on Italy if it continued its present policy towards Abyssinia. Now the League of Nations has decided to put sanctions on Italy into place, declaring her the aggressor.
+
+These sanctions are weak and limited, not including vital materials like oil. Not all of the League's members will impose them, and neither will the United States, yet they do *something* to address Italian aggression and make use of the often weak League of Nations.
+
+We are in the face of an election, where the Conservatives are sure to make use of a pro-League position popular with the public. At our yearly party conference in Brighton, our priority ought to be to address the crisis in Abyssinia.
+
+- @root: Continue  
