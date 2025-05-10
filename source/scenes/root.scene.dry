@@ -236,11 +236,11 @@ Q.working_nat_lab = 1.7;
 Q.working_ind_lab = 1.1;
 Q.working_lib = 2.65;
 Q.working_nat_lib = 1.1;
-Q.working_con = 44.73;
+Q.working_con = 44.78;
 Q.working_nationalist = 0.25;
 Q.working_communist = 0.15;
 Q.working_buf = 0;
-Q.working_other = 1.5;
+Q.working_other = 1.45;
 
 Q.middle_lab = 33.33;
 Q.middle_nat_lab = 2.1;
