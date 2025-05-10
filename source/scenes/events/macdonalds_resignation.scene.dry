@@ -38,6 +38,8 @@ Q.health_minister_party = 'Con.';
 
 Q.working_con += (1.5 - (Q.protestants_lab/100))
 Q.working_lab -= 1
+Q.middle_nat_lab -= 0.1;
+Q.middle_other += 0.1;
 Q.middle_lab -= 9.5/12
 Q.middle_con += (9.5/12)*(1.5 - (Q.protestants_lab/100))
 Q.middle_nat_lib += (9.5/12)*(Q.protestants_lab/100)
