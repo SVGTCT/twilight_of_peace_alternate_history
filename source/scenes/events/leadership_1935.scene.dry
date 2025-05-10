@@ -46,7 +46,7 @@ Q.greenwood_disp = (Q.greenwood_percentage * 100).toFixed(1);
 #face-image:
 # TODO: consider - should there be an image? which one?
 max-visits: 1
-priority: -2
+priority: -1
 # lower priority than elections !!
 new-page: true
 
