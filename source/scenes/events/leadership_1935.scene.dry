@@ -38,9 +38,9 @@ if (Q.total_percentage != 1) {
     Q.greenwood_percentage = Q.greenwood_percentage/Q.total_percentage;
 }
 
-Q.attlee_disp = Q.attlee_percentage*100.toFixed(1);
-Q.morrison_disp = Q.morrison_percentage*100.toFixed(1);
-Q.greenwood_disp = Q.greenwood_percentage*100.toFixed(1);
+Q.attlee_disp = (Q.attlee_percentage * 100).toFixed(1);
+Q.morrison_disp = (Q.morrison_percentage * 100).toFixed(1);
+Q.greenwood_disp = (Q.greenwood_percentage * 100).toFixed(1);
 
 !}
 #face-image:
