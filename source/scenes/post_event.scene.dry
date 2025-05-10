@@ -2,12 +2,6 @@ title: Post Event
 new-page: true
 on-arrival: {!
 
-if (Q.year == 1935 && Q.month == 5) {
-    Q.middle_lib += 7.33;
-    Q.middle_nat_lib += 7.33/2;
-    Q.upper_con += 5;
-}
-
 Q.last_advisor_action = 0;
 // make sure no stat is below 0.
 for (var c of Q.classes) {
@@ -486,6 +480,13 @@ if (this.ui && this.ui.show_portraits) {
             im.url = cc.faceImage;
         }
     }
+}
+
+// jubilee effects
+if (Q.year == 1935 && Q.month == 5) {
+    Q.middle_lib += 7.33;
+    Q.middle_nat_lib += 7.33/2;
+    Q.upper_con += 5;
 }
 
 if (typeof window !== "undefined" && window.generateBar) {
