@@ -77,6 +77,11 @@ if (Q.marxist_strength < 5) {
     Q.marxist_strength += 5;
 }
 
+Q.left_strength -= 5;
+Q.left_dissent += 5;
+
+Q.pragmatist_strength += 5;
+
 // TODO: consider - league value -1? warfare point +1?
 
 !}
