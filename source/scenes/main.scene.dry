@@ -24,6 +24,7 @@ max-cards: 3
  
 - @party
 - @govt
+- @election
 - #advisor
 - @shuffle_leadership_pinned
 
@@ -53,6 +54,7 @@ max-cards: 4
 
 - @party
 - @govt
+- @election
 - #advisor
 - @shuffle_leadership_pinned
 
@@ -71,3 +73,11 @@ card-image: img/reichstag_2.jpg
 is-deck: true
 
 - #govt_affairs
+
+@election
+title: Electoral Campaign
+view-if: in_election
+card-image: img/greet-the-dawn.jpg
+is-deck: true
+
+- #electoral_campaign
