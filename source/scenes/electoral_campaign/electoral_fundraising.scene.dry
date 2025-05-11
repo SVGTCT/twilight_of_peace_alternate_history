@@ -2,7 +2,7 @@ title: Electoral Fundraising
 new-page: true
 view-if: electoral_fundraising_timer <= 0 and in_election
 # TODO: add event to write manifesto  
-on-arrival: fundraising_timer = 6; month_actions += 1
+on-arrival: electoral_fundraising_timer = 6; month_actions += 1
 #frequency: 300
 is-card: true
 card-image: img/not-another-chance.webp
