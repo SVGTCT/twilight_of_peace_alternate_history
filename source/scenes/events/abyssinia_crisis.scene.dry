@@ -7,7 +7,7 @@ on-arrival: {!
 Q.middle_con += 0.8
 Q.middle_nat_lib += 0.4
 
-// consider: league points that increase when LoN policy succeeds  
+Q.league_trust += 1;
 
 !}  
 face-image: img/mussolini-the-league.webp
