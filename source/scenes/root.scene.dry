@@ -79,9 +79,13 @@ Q.radicalisation = 0;
 // Support for public works programmes
 Q.works_support = 0;
 // Support for Pacifism within the Labour Party
-Q.pacifism = 0;
+Q.pacifism = 1;
 // Support for rearmament within the Labour Party
 Q.rearmament = 0;
+// war progress
+Q.war_progress = 0;
+// public trust for the league of nations 
+Q.league_trust = 2;
 // Support for democratic reform within the Labour Party
 Q.democratisation = 0;
 // Support for a communist coalition
