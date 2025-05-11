@@ -1,0 +1,89 @@
+title: Leadership Algorithm
+on-arrival: {!
+
+console.log(Q.left_strength, Q.labour_strength, Q.reformist_strength, Q.pragmatist_strength, Q.cooperative_strength);
+
+Q.total_strength = Q.left_strength + Q.labour_strength + Q.reformist_strength + (Q.pragmatist_strength*2) + Q.cooperative_strength
+
+Q.lab_round = 1;
+
+// for attlee
+Q.attlee_runs = 1;
+Q.attlee_percentage = ((Q.pragmatist_strength*1.5) + (Q.reformist_strength/3) + (Q.labour_strength/3) + (Q.left_strength/3*2))/Q.total_strength;
+
+// for greenwood
+if (Q.pragmatist_strength > Q.labour_strength) {
+    Q.greenwood_runs = 0;
+}
+else {
+    Q.greenwood_runs = 1;
+    Q.greenwood_percentage = (Q.labour_strength/3*2 + Q.cooperative_strength)/Q.total_strength;
+}
+
+// for Morrison 
+if (Q.lab_c < Q.old_lab_c) {
+    Q.morrison_runs = 0;
+}
+else {
+    Q.morrison_runs = 1;
+    Q.morrison_percentage = (Q.total_strength - Q.greenwood_percentage*Q.total_strength - Q.attlee_percentage*Q.total_strength)/Q.total_strength
+}
+
+Q.total_percentage = Q.attlee_percentage + Q.greenwood_percentage + Q.morrison_percentage
+
+if (Q.total_percentage != 1) {
+    Q.attlee_percentage = Q.attlee_percentage/Q.total_percentage;
+    Q.morrison_percentage = Q.morrison_percentage/Q.total_percentage;
+    Q.greenwood_percentage = Q.greenwood_percentage/Q.total_percentage;
+}
+
+Q.attlee_disp = (Q.attlee_percentage * 100).toFixed(1);
+Q.morrison_disp = (Q.morrison_percentage * 100).toFixed(1);
+Q.greenwood_disp = (Q.greenwood_percentage * 100).toFixed(1);
+
+!}  
+go-to: leadership_1935.1935_candidates
+
+@second_round
+on-arrival: {!
+
+Q.attlee_first_round = Q.attlee_disp;
+Q.morrison_first_round = Q.morrison_disp;
+Q.greenwood_first_round = Q.greenwood_disp;
+
+Q.lab_round = 2;
+
+if (Q.attlee_percentage < Q.greenwood_percentage && Q.attlee_percentage < Q.morrison_percentage) {
+    Q.attlee_runs = 0;
+    Q.greenwood_percentage += Q.labour_strength/3/Q.total_strength;
+    Q.morrison_percentage += Q.attlee_percentage - Q.labour_strength/3/Q.total_strength;
+    Q.attlee_percentage = 0;
+    Q.last_place = "Attlee";
+}
+else if (Q.greenwood_percentage < Q.attlee_percentage && Q.greenwood_percentage < Q.morrison_percentage) {
+    Q.greenwood_runs = 0;
+    Q.attlee_percentage += Q.greenwood_percentage;
+    Q.greenwood_percentage = 0;
+    Q.last_place = "Greenwood";
+}
+else {
+    Q.morrison_runs = 0;
+    Q.attlee_percentage += Q.morrison_percentage/2
+    Q.morrison_percentage = 0;
+    Q.last_place = "Morrison";
+}
+
+Q.total_percentage = Q.attlee_percentage + Q.greenwood_percentage + Q.morrison_percentage
+
+if (Q.total_percentage != 1) {
+    Q.attlee_percentage = Q.attlee_percentage/Q.total_percentage;
+    Q.morrison_percentage = Q.morrison_percentage/Q.total_percentage;
+    Q.greenwood_percentage = Q.greenwood_percentage/Q.total_percentage;
+}
+
+Q.attlee_disp = (Q.attlee_percentage * 100).toFixed(1);
+Q.morrison_disp = (Q.morrison_percentage * 100).toFixed(1);
+Q.greenwood_disp = (Q.greenwood_percentage * 100).toFixed(1);
+
+!}  
+go-to: eliminations_r1
