@@ -70,7 +70,9 @@ go-to: candidate_menu if lab_round == 2
 First round results:
 
 Attlee: [+ attlee_first_round +]%
+
 Morrison: [+ morrison_first_round +]%
+
 Greenwood: [+ greenwood_first_round +]%
 
 @second_round_results
