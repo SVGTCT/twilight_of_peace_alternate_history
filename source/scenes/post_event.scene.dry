@@ -488,6 +488,23 @@ if (Q.year == 1935 && Q.month == 5) {
     Q.upper_con += 5;
 }
 
+if (Q.next_election_year == Q.year) {
+    Q.election_month_difference = Q.next_election_month - Q.month;
+}
+
+Q.yearplusone = Q.year + 1;
+
+if (Q.next_election_year == Q.yearplusone && Q.next_election_month < 4) {
+    Q.election_month_difference = Q.next_election_month + 12 - Q.month;
+}
+
+// manifesto and in_election
+if (Q.election_month_difference == 3) {
+    Q.manifesto_done = 0;
+    Q.manifesto_trigger = 1;
+    Q.in_election = 1;
+}
+
 if (typeof window !== "undefined" && window.generateBar) {
 }
 !}
