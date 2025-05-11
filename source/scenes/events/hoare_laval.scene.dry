@@ -16,7 +16,7 @@ Q.nationalism -= 4;
 Q.war_progress += 1;             
 
 !}  
-// TODO: add image?
+# TODO: add image?
 #face-image:
 max-visits: 1
 priority: 3 
