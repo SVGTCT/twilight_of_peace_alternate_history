@@ -1,0 +1,87 @@
+title: Hoare-Laval Pact
+subtitle: An international scandal...
+view-if: year = 1935 and month = 12 and not lab_in_government and in_national_government
+tags: event
+on-arrival: {!
+
+Q.middle_con -= 4
+Q.working_con -= 2
+Q.upper_con += 3;  
+Q.unemployed_con -= 2             
+Q.farmers_con -= 2;
+ 
+// league/pacifism/war progress
+Q.league_trust -= 1;
+Q.nationalism -= 4;
+Q.war_progress += 1;             
+
+!}  
+// TODO: add image?
+#face-image:
+max-visits: 1
+priority: 3 
+new-page: true
+
+= Hoare-Laval Pact
+
+The press has leaked that the British and French governments had made a deeply secret pact to undermine the League of Nations' condemnation of Italian actions in Abyssinia. 
+  
+The Foreign Secretary, Sir Samuel Hoare, had met his French counterpart and Prime Minister, Pierre Laval, and agreed to offer the Italians an appeasement in partitioning Abyssinia, and in this way to achieve some of the Duce's goals in Africa.
+
+Of course, this spineless act has been met with outrage in both France and Britain.
+
+- @hoare_outrage: This is a betrayal of the pro-League mandate the Conservatives won from the public.
+- @hoare_neutral: We will not publicly opine on this.  
+
+@hoare_outrage
+subtitle: This will be Labour's response to the sham.
+on-arrival: {!
+
+Q.foreign_secretary = "Eden"; 
+
+Q.farmers_lab += 1;
+Q.farmers_lib += 0.6; 
+Q.unemployed_lab += 1.5;
+Q.working_lab += 1.5;
+Q.middle_lib += 2.5;
+Q.middle_lab += 1.5;  
+  
+!} 
+
+The opposition parties unite to attack the government for its cowardly actions. The public cannot stand for it. Yet, the Conservatives care little about the left, given their parliamentary dominance.
+
+Thus, the most deadly attacks come from the right itself. The Conservative MPs are in a blaze. The men will not stand for it. Well-known political and religious figures condemn the move. Eventually, it becomes clear Hoare must go.
+
+Anthony Eden, also of the Conservative Party, will replace him as Foreign Secretary. In France, Laval likewise is forced to resign under internal pressure.
+
+@hoare_neutral
+view-if: lansbury_resign = 0
+on-arrival: {!
+
+Q.farmers_lab -= 1;
+Q.farmers_lib += 2.6; 
+Q.unemployed_lab -= 1;
+Q.unemployed_other += 0.4;
+Q.unemployed_ind_lab += 0.4
+Q.unemployed_lib += 0.8;  
+Q.working_lab -= 1;
+Q.working_ind_lab += 0.4
+Q.working_lib += 0.9;
+Q.working_other += 0.4             
+Q.middle_lib += 4;
+Q.middle_lab -= 1; 
+
+Q.war_progress += 1;
+Q.league_trust -= 1;
+Q.pacifism += 1;
+Q.nationalism += 6;             
+  
+!}  
+
+The public is outraged, and the Liberals make headway by loudly voicing their opposition. On the other hand, Labour's silence, which is only possible through the actions of our leader, George Lansbury, speaks volumes. 
+  
+In our party, this is considered a victory for the Labour pacifists, whose pacifism extends more to non-involvement than opposition to war.
+
+The Conservative rank-and-file itself is in open revolt, but they are whipped into order with the incredulity in that even the "reds" see nothing wrong in the pact. 
+
+Hoare lives another day, but trust in the Conservatives, international rule of law, and even the Labour Party is greatly diminished. In France, Laval is forced to resign under internal pressure, seeing a more outspoken left.
