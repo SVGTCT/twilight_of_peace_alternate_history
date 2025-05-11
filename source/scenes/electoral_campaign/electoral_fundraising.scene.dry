@@ -1,0 +1,36 @@
+title: Electoral Fundraising
+new-page: true
+view-if: electoral_fundraising_timer <= 0 and in_election
+# TODO: add event to write manifesto  
+on-arrival: fundraising_timer = 6; month_actions += 1
+#frequency: 300
+is-card: true
+card-image: img/not-another-chance.webp
+tags: electoral_campaign
+
+= Fundraising for the Election
+
+Typically, the Labour Party relies on its membership fees for its financial backing, unable to draw as large a backing from wealthy individuals as the other established political parties enjoy. However, in an electoral campaign, it is possible for us to pull in additional revenue to help with our campaign efforts.
+
+- @unions: Request additional funding from the unions.
+- @individual: Request small donations at fundraising events.
+- @none: We will rely on our membership fees.
+- @easy_discard  
+
+@unions
+subtitle: We require good enough relations. (+1 resource)
+choose-if: labour_dissent < 25 and not unions_independent
+on-arrival: resources += 1; labour_strength += 5; left_strength -= 5;
+
+Using our relations with the unions, we are able to pull in additional funding for our use in the campaign.
+
+@individual
+subtitle: We will request party members to put in additional backing. [? if unemployed >= 15: The current high levels of unemployment will make this more difficult. ?] (+1 resource)
+on-arrival: resources += 1; working_lab -= 0.4 if unemployed >= 15; working_lab += 0.4 if unemployed < 15; pragmatist_dissent += 3 if unemployed >= 15; pragmatist_dissent -= 3 if unemployment < 15; left_dissent += 3 if unemployed >= 15; left_dissent -= 3 if unemployment < 15; reformist_dissent += 3 if unemployed >= 15; reformist_dissent -= 3 if unemployment < 15; cooperative_dissent -= 3; cooperative-strength += 3;
+
+We hold Labour Party events up and down the country, helping pull in additional funding to use in the campaign. [? if unemployed >= 15: Due to high unemployment, this comes at the cost of popular antipathy. ?]
+
+@none
+on-arrival: month_actions -= 1
+
+Some question our judgment to rely on our current funds, but ultimately, none are dissatisfied to not have to pull out their wallets.
