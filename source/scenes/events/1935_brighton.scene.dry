@@ -83,7 +83,8 @@ Q.left_dissent += 5;
 
 Q.pragmatist_strength += 5;
 
-// TODO: consider - league value -1? warfare point +1?
+Q.league_trust -= 1;
+Q.war_progress += 1;
 
 !}
 
