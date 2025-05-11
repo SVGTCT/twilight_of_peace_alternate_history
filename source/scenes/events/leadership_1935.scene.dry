@@ -4,8 +4,11 @@ view-if: year = 1935 and month = 11 and lansbury_resign = 1
 tags: event
 on-arrival: {!
 
+console.log(Q.left_strength, Q.labour_strength, Q.reformist_strength, Q.pragmatist_strength, Q.cooperative_strength);
+
+Q.total_strength = Q.left_strength + Q.labour_strength + Q.reformist_strength + (Q.pragmatist_strength*2) + Q.cooperative_strength
+
 Q.lab_round = 1;
-Q.total_strength = Q.left_strength + Q.labour_strength + Q.reformist_strength + (Q.pragmatist_strength*2) + Q.cooperative_strength;
 
 // for attlee
 Q.attlee_runs = 1;
